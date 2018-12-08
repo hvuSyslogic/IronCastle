@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\imports\TestApplication.targets" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BouncyCastle.Core\BouncyCastle.Core.csproj" />
+    <ProjectReference Include="..\BouncyCastle.OpenPGP\BouncyCastle.OpenPGP.csproj" />
+  </ItemGroup>
+
+</Project>
