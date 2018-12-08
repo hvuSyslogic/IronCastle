@@ -1,0 +1,75 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\_Imports\Local.targets" Condition="Exists('..\_Imports\Local.targets')"/>
+
+  <PropertyGroup>
+    <LangVersion>7.3</LangVersion>
+
+    <!-- We don't use resx, so to speed up the build process we ask MSBuild to not look for them -->
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    <TrimUnusedDependencies>false</TrimUnusedDependencies>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <NoLogo>true</NoLogo>
+    <FileAlignment>512</FileAlignment>
+    <NoVBRuntimeReference>true</NoVBRuntimeReference>
+    <Utf8Output>true</Utf8Output>
+    <DefineTrace>false</DefineTrace>
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <WarningsAsErrors>CS0108,CS0109,CS0114,CS0162,CS0251,CS0659,CS0660,CS1717,CS1718</WarningsAsErrors>
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)\Global.ruleset</CodeAnalysisRuleSet>
+    <RepositoryType>Git</RepositoryType>
+    <Copyright>Copyright 2018, Ian Qvist. All rights reserved.</Copyright>
+    <Authors>Ian Qvist</Authors>
+    <PackageProjectUrl>https://github.com/Genbox/IronCastle</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\**\*" />
+    <PackageReference Include="GitVersionTask" Version="4.0.1-beta*" PrivateAssets="All" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DefineConstants>$(DefineConstants);JETBRAINS_ANNOTATIONS</DefineConstants>
+    <EmbedAllSources>true</EmbedAllSources>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TrimUnusedDependencies>true</TrimUnusedDependencies>
+    <RootPackageReference>false</RootPackageReference>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(Configuration)' == 'Release'">
+    <PackageReference Include="Microsoft.Packaging.Tools.Trimming" Version="1.1.0-preview1-26619-01" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(BuildingInsideVisualStudio)' == 'true'">
+    <PackageReference Include="Microsoft.CodeQuality.Analyzers" Version="2.6.2" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.NetCore.Analyzers" Version="2.6.2" PrivateAssets="all" />
+    <PackageReference Include="Text.Analyzers" Version="2.6.2" PrivateAssets="all" />
+    <PackageReference Include="SecurityCodeScan" Version="2.8.0" PrivateAssets="all" />
+    <PackageReference Include="Roslynator.Analyzers" Version="2.0.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.2.12-alpha" PrivateAssets="all" />
+    <PackageReference Include="IDisposableAnalyzers" Version="2.0.6" PrivateAssets="all" />
+    <PackageReference Include="ToStringWithoutOverrideAnalyzer" Version="0.6.0" PrivateAssets="all" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp2.0'">
+    <DefineConstants>NETCOREAPP</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp2.1'">
+    <DefineConstants>NETCOREAPP</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(BuildingInsideVisualStudio)' == 'true'">
+    <WarningLevel>3</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(BuildingInsideVisualStudio)' != 'true'">
+    <WarningLevel>0</WarningLevel>
+  </PropertyGroup>
+
+</Project>
