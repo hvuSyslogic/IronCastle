@@ -125,10 +125,10 @@ namespace org.bouncycastle.crypto.engines
 			//
 			int[] L = new int[(key.Length + (4 - 1)) / 4];
 
-			for (int i = 0; i != key.Length; i++)
+		    {for (int i = 0; i != key.Length; i++)
 			{
 				L[i / 4] += (key[i] & 0xff) << (8 * (i % 4));
-			}
+			}}
 
 			//
 			// Phase 2:
@@ -139,10 +139,10 @@ namespace org.bouncycastle.crypto.engines
 			_S = new int[2 * (_noRounds + 1)];
 
 			_S[0] = P32;
-			for (int i = 1; i < _S.Length; i++)
+		    {for (int i = 1; i < _S.Length; i++)
 			{
 				_S[i] = (_S[i - 1] + Q32);
-			}
+			}}
 
 			//
 			// Phase 3:
@@ -161,7 +161,7 @@ namespace org.bouncycastle.crypto.engines
 			}
 
 			int A = 0, B = 0;
-			int i = 0, j = 0;
+		    {int i = 0, j = 0;
 
 			for (int k = 0; k < iter; k++)
 			{
@@ -171,18 +171,19 @@ namespace org.bouncycastle.crypto.engines
 				j = (j + 1) % L.Length;
 			}
 		}
+		}
 
-		/// <summary>
-		/// Encrypt the given block starting at the given offset and place
-		/// the result in the provided buffer starting at the given offset.
-		/// <para>
-		/// </para>
-		/// </summary>
-		/// <param name="in">     in byte buffer containing data to encrypt </param>
-		/// <param name="inOff">  offset into src buffer </param>
-		/// <param name="out">     out buffer where encrypted data is written </param>
-		/// <param name="outOff">  offset into out buffer </param>
-		private int encryptBlock(byte[] @in, int inOff, byte[] @out, int outOff)
+        /// <summary>
+        /// Encrypt the given block starting at the given offset and place
+        /// the result in the provided buffer starting at the given offset.
+        /// <para>
+        /// </para>
+        /// </summary>
+        /// <param name="in">     in byte buffer containing data to encrypt </param>
+        /// <param name="inOff">  offset into src buffer </param>
+        /// <param name="out">     out buffer where encrypted data is written </param>
+        /// <param name="outOff">  offset into out buffer </param>
+        private int encryptBlock(byte[] @in, int inOff, byte[] @out, int outOff)
 		{
 			int A = bytesToWord(@in, inOff) + _S[0];
 			int B = bytesToWord(@in, inOff + 4) + _S[1];

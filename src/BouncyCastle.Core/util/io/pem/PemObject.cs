@@ -1,4 +1,7 @@
-﻿namespace org.bouncycastle.util.io.pem
+﻿using BouncyCastle.Core.Port.java.util;
+using org.bouncycastle.Port.java.util;
+
+namespace org.bouncycastle.util.io.pem
 {
 
 	/// <summary>

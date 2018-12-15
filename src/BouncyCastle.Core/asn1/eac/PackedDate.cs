@@ -1,4 +1,4 @@
-﻿using System;
+﻿using BouncyCastle.Core.Port.java.text;
 using org.bouncycastle.Port.java.text;
 
 namespace org.bouncycastle.asn1.eac

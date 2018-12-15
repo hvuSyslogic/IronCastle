@@ -4,6 +4,7 @@ using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.pqc.math.ntru.polynomial
 {

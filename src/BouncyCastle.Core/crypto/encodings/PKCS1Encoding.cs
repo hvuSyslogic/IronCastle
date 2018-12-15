@@ -104,7 +104,7 @@ namespace org.bouncycastle.crypto.encodings
 
 			public object run()
 			{
-				return System.getProperty(STRICT_LENGTH_ENABLED_PROPERTY);
+				return JavaSystem.getProperty(STRICT_LENGTH_ENABLED_PROPERTY);
 			}
 		}
 
@@ -119,7 +119,7 @@ namespace org.bouncycastle.crypto.encodings
 
 			public object run()
 			{
-				return System.getProperty(NOT_STRICT_LENGTH_ENABLED_PROPERTY);
+				return JavaSystem.getProperty(NOT_STRICT_LENGTH_ENABLED_PROPERTY);
 			}
 		}
 

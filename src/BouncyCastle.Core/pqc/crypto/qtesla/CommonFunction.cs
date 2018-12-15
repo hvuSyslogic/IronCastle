@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using BouncyCastle.Core.Port.java.lang;
 
 namespace org.bouncycastle.pqc.crypto.qtesla
 {

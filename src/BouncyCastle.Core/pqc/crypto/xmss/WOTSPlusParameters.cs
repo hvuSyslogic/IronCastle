@@ -55,8 +55,8 @@ namespace org.bouncycastle.pqc.crypto.xmss
 			this.digest = digest;
 			digestSize = XMSSUtil.getDigestSize(digest);
 			winternitzParameter = 16;
-			len1 = (int)Math.ceil((double)(8 * digestSize) / XMSSUtil.log2(winternitzParameter));
-			len2 = (int)Math.floor(XMSSUtil.log2(len1 * (winternitzParameter - 1)) / XMSSUtil.log2(winternitzParameter)) + 1;
+			len1 = (int)Math.Ceiling((double)(8 * digestSize) / XMSSUtil.log2(winternitzParameter));
+			len2 = (int)Math.Floor(XMSSUtil.log2(len1 * (winternitzParameter - 1)) / XMSSUtil.log2(winternitzParameter)) + 1;
 			len = len1 + len2;
 			oid = WOTSPlusOid.lookup(digest.getAlgorithmName(), digestSize, winternitzParameter, len);
 			if (oid == null)

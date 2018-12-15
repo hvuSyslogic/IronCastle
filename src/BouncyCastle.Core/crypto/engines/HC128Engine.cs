@@ -194,14 +194,14 @@ namespace org.bouncycastle.crypto.engines
 		{
 			if (idx == 0)
 			{
-				int step = step();
-				buf[0] = unchecked((byte)(step & 0xFF));
-				step >>= 8;
-				buf[1] = unchecked((byte)(step & 0xFF));
-				step >>= 8;
-				buf[2] = unchecked((byte)(step & 0xFF));
-				step >>= 8;
-				buf[3] = unchecked((byte)(step & 0xFF));
+				int step1 = step();
+				buf[0] = unchecked((byte)(step1 & 0xFF));
+			    step1 >>= 8;
+				buf[1] = unchecked((byte)(step1 & 0xFF));
+			    step1 >>= 8;
+				buf[2] = unchecked((byte)(step1 & 0xFF));
+			    step1 >>= 8;
+				buf[3] = unchecked((byte)(step1 & 0xFF));
 			}
 			byte ret = buf[idx];
 			idx = idx + 1 & 0x3;

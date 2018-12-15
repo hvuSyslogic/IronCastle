@@ -3,6 +3,7 @@
     public interface Set<T> : Collection<T>
     {
         bool contains(T value);
+        bool containsAll(Set<string> otherActions);
     }
 
     public interface Set: Collection

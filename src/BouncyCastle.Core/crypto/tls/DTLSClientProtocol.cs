@@ -58,12 +58,12 @@ namespace org.bouncycastle.crypto.tls
 			catch (TlsFatalAlert fatalAlert)
 			{
 				abortClientHandshake(state, recordLayer, fatalAlert.getAlertDescription());
-				throw fatalAlert;
+				throw ;
 			}
 			catch (IOException e)
 			{
 				abortClientHandshake(state, recordLayer, AlertDescription.internal_error);
-				throw e;
+				throw ;
 			}
 			catch (RuntimeException e)
 			{
@@ -145,14 +145,17 @@ namespace org.bouncycastle.crypto.tls
 				recordLayer.initPendingEpoch(state.client.getCipher());
 
 				// NOTE: Calculated exclusive of the actual Finished message from the server
-				byte[] expectedServerVerifyData = TlsUtils.calculateVerifyData(state.clientContext, ExporterLabel.server_finished, TlsProtocol.getCurrentPRFHash(state.clientContext, handshake.getHandshakeHash(), null));
+			    {byte[] expectedServerVerifyData = TlsUtils.calculateVerifyData(state.clientContext, ExporterLabel.server_finished, TlsProtocol.getCurrentPRFHash(state.clientContext, handshake.getHandshakeHash(), null));
 				processFinished(handshake.receiveMessageBody(HandshakeType.finished), expectedServerVerifyData);
+			    }
 
-				// NOTE: Calculated exclusive of the Finished message itself
-				byte[] clientVerifyData = TlsUtils.calculateVerifyData(state.clientContext, ExporterLabel.client_finished, TlsProtocol.getCurrentPRFHash(state.clientContext, handshake.getHandshakeHash(), null));
+                // NOTE: Calculated exclusive of the Finished message itself
+                {
+                    byte[] clientVerifyData = TlsUtils.calculateVerifyData(state.clientContext, ExporterLabel.client_finished, TlsProtocol.getCurrentPRFHash(state.clientContext, handshake.getHandshakeHash(), null));
 				handshake.sendMessage(HandshakeType.finished, clientVerifyData);
+			    }
 
-				handshake.finish();
+                handshake.finish();
 
 				state.clientContext.setResumableSession(state.tlsSession);
 
@@ -329,10 +332,11 @@ namespace org.bouncycastle.crypto.tls
 			}
 
 			// NOTE: Calculated exclusive of the Finished message itself
-			byte[] clientVerifyData = TlsUtils.calculateVerifyData(state.clientContext, ExporterLabel.client_finished, TlsProtocol.getCurrentPRFHash(state.clientContext, handshake.getHandshakeHash(), null));
+		    {byte[] clientVerifyData = TlsUtils.calculateVerifyData(state.clientContext, ExporterLabel.client_finished, TlsProtocol.getCurrentPRFHash(state.clientContext, handshake.getHandshakeHash(), null));
 			handshake.sendMessage(HandshakeType.finished, clientVerifyData);
+		    }
 
-			if (state.expectSessionTicket)
+            if (state.expectSessionTicket)
 			{
 				serverMessage = handshake.receiveMessage();
 				if (serverMessage.getType() == HandshakeType.session_ticket)
@@ -346,10 +350,11 @@ namespace org.bouncycastle.crypto.tls
 			}
 
 			// NOTE: Calculated exclusive of the actual Finished message from the server
-			byte[] expectedServerVerifyData = TlsUtils.calculateVerifyData(state.clientContext, ExporterLabel.server_finished, TlsProtocol.getCurrentPRFHash(state.clientContext, handshake.getHandshakeHash(), null));
+		    {byte[] expectedServerVerifyData = TlsUtils.calculateVerifyData(state.clientContext, ExporterLabel.server_finished, TlsProtocol.getCurrentPRFHash(state.clientContext, handshake.getHandshakeHash(), null));
 			processFinished(handshake.receiveMessageBody(HandshakeType.finished), expectedServerVerifyData);
+		    }
 
-			handshake.finish();
+            handshake.finish();
 
 			if (state.tlsSession != null)
 			{

@@ -1,5 +1,7 @@
 ﻿using System;
+using BouncyCastle.Core.Port.java.text;
 using org.bouncycastle.Port.java.util;
+using DateTime = BouncyCastle.Core.Port.java.text.DateTime;
 
 namespace org.bouncycastle.asn1
 {
@@ -62,7 +64,7 @@ namespace org.bouncycastle.asn1
 
 				if (adj != ZERO)
 				{
-					return new DateTime(date.Ticks - adj.Value);
+					return new DateTime(date.ticks - adj.Value);
 				}
 
 				return date;

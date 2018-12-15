@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using BouncyCastle.Core.Port.java.lang;
+using BouncyCastle.Core.Port.java.util;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.util;
 
@@ -654,13 +655,13 @@ namespace org.bouncycastle.asn1.x509
 			byte[] subnetmask2 = temp[3];
 
 			byte[][] minMax = minMaxIPs(ip1, subnetmask1, ip2, subnetmask2);
-			byte[] min;
-			byte[] max;
-			max = min(minMax[1], minMax[3]);
-			min = max(minMax[0], minMax[2]);
+			byte[] mina;
+			byte[] maxa;
+			maxa = min(minMax[1], minMax[3]);
+			mina = max(minMax[0], minMax[2]);
 
 			// minimum IP address must be bigger than max
-			if (compareTo(min, max) == 1)
+			if (compareTo(mina, maxa) == 1)
 			{
 				return Collections.EMPTY_SET;
 			}

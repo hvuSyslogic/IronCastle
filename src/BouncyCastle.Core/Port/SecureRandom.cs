@@ -1,27 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using org.bouncycastle.util.test;
+using Random = org.bouncycastle.Port.java.util.Random;
 
 namespace BouncyCastle.Core.Port
 {
-    public class SecureRandom
+    public class SecureRandom : Random
     {
+        public SecureRandom()
+        {
+            throw new NotImplementedException();
+        }
+
+        public SecureRandom(object o, FixedSecureRandom.DummyProvider dummyProvider)
+        {
+            throw new NotImplementedException();
+        }
+
         public void nextBytes(byte[] currentSeed)
         {
-            
-        }
-
-        public int nextInt()
-        {
             throw new NotImplementedException();
         }
+
 
         public void setSeed(byte[] getBytes)
-        {
-            throw new NotImplementedException();
-        }
-
-        public long nextLong()
         {
             throw new NotImplementedException();
         }
@@ -32,6 +33,11 @@ namespace BouncyCastle.Core.Port
         }
 
         internal void setSeed(long seed)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal int nextInt(int v)
         {
             throw new NotImplementedException();
         }

@@ -1,6 +1,9 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
+using BouncyCastle.Core.Port.java.lang;
+using BouncyCastle.Core.Port.java.util;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.pqc.math.ntru.polynomial
 {
@@ -15,7 +18,7 @@ namespace org.bouncycastle.pqc.math.ntru.polynomial
 	/// </summary>
 	public class BigIntPolynomial
 	{
-		private static readonly double LOG_10_2 = Math.log10(2);
+		private static readonly double LOG_10_2 = Math.Log10(2);
 
 		internal BigInteger[] coeffs;
 

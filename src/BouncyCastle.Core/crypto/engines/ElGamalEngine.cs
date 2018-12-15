@@ -34,11 +34,12 @@ namespace org.bouncycastle.crypto.engines
 		{
 			if (param is ParametersWithRandom)
 			{
-				ParametersWithRandom p = (ParametersWithRandom)param;
+			    {	ParametersWithRandom p = (ParametersWithRandom)param;
 
 				this.key = (ElGamalKeyParameters)p.getParameters();
 				this.random = p.getRandom();
-			}
+			    }
+            }
 			else
 			{
 				this.key = (ElGamalKeyParameters)param;
@@ -47,11 +48,12 @@ namespace org.bouncycastle.crypto.engines
 
 			this.forEncryption = forEncryption;
 
-			BigInteger p = key.getParameters().getP();
+		    {BigInteger p = key.getParameters().getP();
 
 			bitSize = p.bitLength();
+		    }
 
-			if (forEncryption)
+            if (forEncryption)
 			{
 				if (!(key is ElGamalPublicKeyParameters))
 				{

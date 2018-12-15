@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace org.bouncycastle.Port.java.lang
 {
@@ -12,6 +13,11 @@ namespace org.bouncycastle.Port.java.lang
         public IllegalArgumentException(string message) :base(message)
         {
             
+        }
+
+        public IllegalArgumentException(string eMessage, Exception ioException)
+        {
+            throw new NotImplementedException();
         }
     }
 }

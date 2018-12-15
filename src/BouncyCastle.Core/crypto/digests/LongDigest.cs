@@ -256,10 +256,10 @@ namespace org.bouncycastle.crypto.digests
 			//
 			// expand 16 word block into 80 word blocks.
 			//
-			for (int t = 16; t <= 79; t++)
+		    {for (int t = 16; t <= 79; t++)
 			{
 				W[t] = Sigma1(W[t - 2]) + W[t - 7] + Sigma0(W[t - 15]) + W[t - 16];
-			}
+			}}
 
 			//
 			// set up working variables.
@@ -273,7 +273,7 @@ namespace org.bouncycastle.crypto.digests
 			long g = H7;
 			long h = H8;
 
-			int t = 0;
+		    {int t = 0;
 			for (int i = 0; i < 10; i++)
 			{
 			  // t = 8 * i
@@ -325,11 +325,11 @@ namespace org.bouncycastle.crypto.digests
 			H6 += f;
 			H7 += g;
 			H8 += h;
-
-			//
-			// reset the offset and clean out the word buffer.
-			//
-			wOff = 0;
+		    }
+            //
+            // reset the offset and clean out the word buffer.
+            //
+            wOff = 0;
 			for (int i = 0; i < 16; i++)
 			{
 				W[i] = 0;

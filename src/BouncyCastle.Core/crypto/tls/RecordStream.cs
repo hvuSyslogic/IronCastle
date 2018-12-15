@@ -27,13 +27,20 @@ namespace org.bouncycastle.crypto.tls
 		private ByteArrayOutputStream buffer = new ByteArrayOutputStream();
 
 		private TlsHandshakeHash handshakeHash = null;
-		private SimpleOutputStream handshakeHashUpdater = new SimpleOutputStreamAnonymousInnerClass();
+		private SimpleOutputStream handshakeHashUpdater = new SimpleOutputStreamAnonymousInnerClass(this);
 
 		public class SimpleOutputStreamAnonymousInnerClass : SimpleOutputStream
 		{
-			public void write(byte[] buf, int off, int len)
+		    private readonly RecordStream _outerInstance;
+
+		    public SimpleOutputStreamAnonymousInnerClass(RecordStream outerInstance)
+		    {
+		        _outerInstance = outerInstance;
+		    }
+
+            public void write(byte[] buf, int off, int len)
 			{
-				outerInstance.handshakeHash.update(buf, off, len);
+			    _outerInstance.handshakeHash.update(buf, off, len);
 			}
 		}
 

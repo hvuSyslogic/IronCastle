@@ -33,12 +33,12 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		/// holds a list of GF2nFields to which elements have been converted and thus
 		/// a COB-Matrix exists
 		/// </summary>
-		protected internal Vector fields;
+		protected internal org.bouncycastle.Port.java.util.Vector fields;
 
 		/// <summary>
 		/// the COB matrices
 		/// </summary>
-		protected internal Vector matrices;
+		protected internal org.bouncycastle.Port.java.util.Vector matrices;
 
 		public GF2nField(SecureRandom random)
 		{

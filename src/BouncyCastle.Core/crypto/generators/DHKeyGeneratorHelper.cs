@@ -24,7 +24,7 @@ namespace org.bouncycastle.crypto.generators
 
 			if (limit != 0)
 			{
-				int minWeight = (int)((uint)limit >> 2);
+			    {int minWeight = (int)((uint)limit >> 2);
 				for (;;)
 				{
 					BigInteger x = BigIntegers.createRandomBigInteger(limit, random).setBit(limit - 1);
@@ -33,7 +33,8 @@ namespace org.bouncycastle.crypto.generators
 						return x;
 					}
 				}
-			}
+			    }
+            }
 
 			BigInteger min = TWO;
 			int m = dhParams.getM();
@@ -49,7 +50,7 @@ namespace org.bouncycastle.crypto.generators
 			}
 			BigInteger max = q.subtract(TWO);
 
-			int minWeight = (int)((uint)max.bitLength() >> 2);
+		    {int minWeight = (int)((uint)max.bitLength() >> 2);
 			for (;;)
 			{
 				BigInteger x = BigIntegers.createRandomInRange(min, max, random);
@@ -58,6 +59,7 @@ namespace org.bouncycastle.crypto.generators
 					return x;
 				}
 			}
+            }
 		}
 
 		public virtual BigInteger calculatePublic(DHParameters dhParams, BigInteger x)

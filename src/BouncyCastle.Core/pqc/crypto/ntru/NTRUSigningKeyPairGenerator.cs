@@ -118,14 +118,15 @@ namespace org.bouncycastle.pqc.crypto.ntru
 				int i = 0;
 				while (i < N)
 				{
-					int D1 = F.coeffs[i] * f.coeffs[i];
+				    {int D1 = F.coeffs[i] * f.coeffs[i];
 					int D2 = G.coeffs[i] * g.coeffs[i];
 					int D3 = 4 * N * (D1 + D2);
 					D += D3;
 					i++;
-				}
-				// f(1)+g(1) = 2
-				int D1 = 4 * (F.sumCoeffs() + G.sumCoeffs());
+				    }
+                }
+                // f(1)+g(1) = 2
+			    { int D1 = 4 * (F.sumCoeffs() + G.sumCoeffs());
 				D -= D1;
 
 				if (D > E)
@@ -145,7 +146,8 @@ namespace org.bouncycastle.pqc.crypto.ntru
 				j++;
 				u.rotate1();
 				v.rotate1();
-			}
+			    }
+            }
 		}
 
 		/// <summary>

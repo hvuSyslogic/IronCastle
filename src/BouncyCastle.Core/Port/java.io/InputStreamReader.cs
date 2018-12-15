@@ -5,7 +5,7 @@ using BouncyCastle.Core.Port.java.lang;
 
 namespace BouncyCastle.Core.Port.java.io
 {
-    public class InputStreamReader
+    public class InputStreamReader :Reader
     {
         public InputStreamReader(BufferedInputStream @in)
         {

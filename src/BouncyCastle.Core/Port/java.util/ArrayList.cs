@@ -2,6 +2,64 @@
 
 namespace org.bouncycastle.Port.java.util
 {
+    public class ArrayList : List
+    {
+        public Iterator iterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool add(object e)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool addAll(Collection c)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int size()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool isEmpty()
+        {
+            throw new NotImplementedException();
+        }
+
+        public object[] toArray()
+        {
+            throw new NotImplementedException();
+        }
+
+        public object get(int index)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int indexOf(object o)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int lastIndexOf(object o)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object remove(int index)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object set(int index, object element)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
     public class ArrayList<T> : List<T>
     {
         private readonly System.Collections.Generic.List<T> _innerList;

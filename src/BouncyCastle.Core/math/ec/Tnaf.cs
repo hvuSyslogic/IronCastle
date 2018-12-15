@@ -45,12 +45,12 @@ namespace org.bouncycastle.math.ec
 		/// The <code>&alpha;<sub>u</sub></code>'s for <code>a=0</code> as an array
 		/// of TNAFs.
 		/// </summary>
-		public static readonly byte[][] alpha0Tnaf = new byte[][]
+		public static readonly sbyte[][] alpha0Tnaf = new sbyte[][]
 		{
-			null, new byte[] {1},
-			null, new byte[] {-1, 0, 1},
-			null, new byte[] {1, 0, 1},
-			null, new byte[] {-1, 0, 0, 1}
+			null, new sbyte[] {1},
+			null, new sbyte[] {-1, 0, 1},
+			null, new sbyte[] {1, 0, 1},
+			null, new sbyte[] {-1, 0, 0, 1}
 		};
 
 		/// <summary>
@@ -63,12 +63,12 @@ namespace org.bouncycastle.math.ec
 		/// The <code>&alpha;<sub>u</sub></code>'s for <code>a=1</code> as an array
 		/// of TNAFs.
 		/// </summary>
-		public static readonly byte[][] alpha1Tnaf = new byte[][]
+		public static readonly sbyte[][] alpha1Tnaf = new sbyte[][]
 		{
-			null, new byte[] {1},
-			null, new byte[] {-1, 0, 1},
-			null, new byte[] {1, 0, 1},
-			null, new byte[] {-1, 0, 0, -1}
+			null, new sbyte[] {1},
+			null, new sbyte[] {-1, 0, 1},
+			null, new sbyte[] {1, 0, 1},
+			null, new sbyte[] {-1, 0, 0, -1}
 		};
 
 		/// <summary>
@@ -80,7 +80,7 @@ namespace org.bouncycastle.math.ec
 		/// <returns> The norm of <code>&lambda;</code>. </returns>
 //JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
 //ORIGINAL LINE: public static java.math.BigInteger norm(final byte mu, ZTauElement lambda)
-		public static BigInteger norm(byte mu, ZTauElement lambda)
+		public static BigInteger norm(sbyte mu, ZTauElement lambda)
 		{
 			BigInteger norm;
 
@@ -163,7 +163,7 @@ namespace org.bouncycastle.math.ec
 		/// <returns> The rounded element of <code><b>Z</b>[&tau;]</code>. </returns>
 		/// <exception cref="IllegalArgumentException"> if <code>lambda0</code> and
 		/// <code>lambda1</code> do not have same scale. </exception>
-		public static ZTauElement round(SimpleBigDecimal lambda0, SimpleBigDecimal lambda1, byte mu)
+		public static ZTauElement round(SimpleBigDecimal lambda0, SimpleBigDecimal lambda1, sbyte mu)
 		{
 			int scale = lambda0.getScale();
 			if (lambda1.getScale() != scale)
@@ -212,8 +212,8 @@ namespace org.bouncycastle.math.ec
 				check2 = eta0.subtract(fourEta1);
 			}
 
-			byte h0 = 0;
-			byte h1 = 0;
+			sbyte h0 = 0;
+			sbyte h1 = 0;
 
 			// if eta >= 1
 			if (eta.compareTo(ECConstants_Fields.ONE) >= 0)
@@ -241,7 +241,7 @@ namespace org.bouncycastle.math.ec
 			{
 				if (check1.compareTo(ECConstants_Fields.ONE) >= 0)
 				{
-					h1 = (byte)-mu;
+					h1 = (sbyte)-mu;
 				}
 				else
 				{
@@ -253,7 +253,7 @@ namespace org.bouncycastle.math.ec
 				// eta >= -1
 				if (check2.compareTo(MINUS_TWO) < 0)
 				{
-					h1 = (byte)-mu;
+					h1 = (sbyte)-mu;
 				}
 			}
 
@@ -277,7 +277,7 @@ namespace org.bouncycastle.math.ec
 		/// <code>SimpleBigDecimal</code>. </param>
 		/// <returns> The value <code>&lambda; = s k / n</code> computed to
 		/// <code>c</code> bits of accuracy. </returns>
-		public static SimpleBigDecimal approximateDivisionByN(BigInteger k, BigInteger s, BigInteger vm, byte a, int m, int c)
+		public static SimpleBigDecimal approximateDivisionByN(BigInteger k, BigInteger s, BigInteger vm, sbyte a, int m, int c)
 		{
 			int _k = (m + 5) / 2 + c;
 			BigInteger ns = k.shiftRight(m - _k - 2 + a);
@@ -306,23 +306,23 @@ namespace org.bouncycastle.math.ec
 		/// <param name="lambda"> The element <code>&lambda;</code> of
 		/// <code><b>Z</b>[&tau;]</code>. </param>
 		/// <returns> The <code>&tau;</code>-adic NAF of <code>&lambda;</code>. </returns>
-		public static byte[] tauAdicNaf(byte mu, ZTauElement lambda)
+		public static sbyte[] tauAdicNaf(sbyte mu, ZTauElement lambda)
 		{
 			if (!((mu == 1) || (mu == -1)))
 			{
 				throw new IllegalArgumentException("mu must be 1 or -1");
 			}
 
-			BigInteger norm = norm(mu, lambda);
+			BigInteger norma = norm(mu, lambda);
 
 			// Ceiling of log2 of the norm 
-			int log2Norm = norm.bitLength();
+			int log2Norm = norma.bitLength();
 
 			// If length(TNAF) > 30, then length(TNAF) < log2Norm + 3.52
 			int maxLength = log2Norm > 30 ? log2Norm + 4 : 34;
 
 			// The array holding the TNAF
-			byte[] u = new byte[maxLength];
+			sbyte[] u = new sbyte[maxLength];
 			int i = 0;
 
 			// The actual length of the TNAF
@@ -336,7 +336,7 @@ namespace org.bouncycastle.math.ec
 				// If r0 is odd
 				if (r0.testBit(0))
 				{
-					u[i] = (byte) ECConstants_Fields.TWO.subtract((r0.subtract(r1.shiftLeft(1))).mod(ECConstants_Fields.FOUR)).intValue();
+					u[i] = (sbyte) ECConstants_Fields.TWO.subtract((r0.subtract(r1.shiftLeft(1))).mod(ECConstants_Fields.FOUR)).intValue();
 
 					// r0 = r0 - u[i]
 					if (u[i] == 1)
@@ -374,7 +374,7 @@ namespace org.bouncycastle.math.ec
 			length++;
 
 			// Reduce the TNAF array to its actual length
-			byte[] tnaf = new byte[length];
+			sbyte[] tnaf = new sbyte[length];
 			JavaSystem.arraycopy(u, 0, tnaf, 0, length);
 			return tnaf;
 		}
@@ -398,7 +398,7 @@ namespace org.bouncycastle.math.ec
 		/// <returns> <code>&mu;</code> of the elliptic curve. </returns>
 		/// <exception cref="IllegalArgumentException"> if the given ECCurve is not a Koblitz
 		/// curve. </exception>
-		public static byte getMu(ECCurve.AbstractF2m curve)
+		public static sbyte getMu(ECCurve.AbstractF2m curve)
 		{
 			if (!curve.isKoblitz())
 			{
@@ -413,14 +413,14 @@ namespace org.bouncycastle.math.ec
 			return 1;
 		}
 
-		public static byte getMu(ECFieldElement curveA)
+		public static sbyte getMu(ECFieldElement curveA)
 		{
-			return (byte)(curveA.isZero() ? -1 : 1);
+			return (sbyte)(curveA.isZero() ? -1 : 1);
 		}
 
-		public static byte getMu(int curveA)
+		public static sbyte getMu(int curveA)
 		{
-			return (byte)(curveA == 0 ? -1 : 1);
+			return (sbyte)(curveA == 0 ? -1 : 1);
 		}
 
 		/// <summary>
@@ -436,7 +436,7 @@ namespace org.bouncycastle.math.ec
 		/// <returns> An array with 2 elements, containing <code>U<sub>k-1</sub></code>
 		/// and <code>U<sub>k</sub></code> or <code>V<sub>k-1</sub></code>
 		/// and <code>V<sub>k</sub></code>. </returns>
-		public static BigInteger[] getLucas(byte mu, int k, bool doV)
+		public static BigInteger[] getLucas(sbyte mu, int k, bool doV)
 		{
 			if (!((mu == 1) || (mu == -1)))
 			{
@@ -490,7 +490,7 @@ namespace org.bouncycastle.math.ec
 		/// <param name="mu"> The parameter <code>&mu;</code> of the elliptic curve. </param>
 		/// <param name="w"> The window width of the WTNAF. </param>
 		/// <returns> the auxiliary value <code>t<sub>w</sub></code> </returns>
-		public static BigInteger getTw(byte mu, int w)
+		public static BigInteger getTw(sbyte mu, int w)
 		{
 			if (w == 4)
 			{
@@ -534,7 +534,7 @@ namespace org.bouncycastle.math.ec
 
 			int m = curve.getFieldSize();
 			int a = curve.getA().toBigInteger().intValue();
-			byte mu = getMu(a);
+			sbyte mu = getMu(a);
 			int shifts = getShiftsForCofactor(curve.getCofactor());
 			int index = m + 3 - a;
 			BigInteger[] ui = getLucas(mu, index, false);
@@ -552,7 +552,7 @@ namespace org.bouncycastle.math.ec
 
 		public static BigInteger[] getSi(int fieldSize, int curveA, BigInteger cofactor)
 		{
-			byte mu = getMu(curveA);
+			sbyte mu = getMu(curveA);
 			int shifts = getShiftsForCofactor(cofactor);
 			int index = fieldSize + 3 - curveA;
 			BigInteger[] ui = getLucas(mu, index, false);
@@ -597,7 +597,7 @@ namespace org.bouncycastle.math.ec
 		/// <param name="c"> The precision (number of bits of accuracy) of the partial
 		/// modular reduction. </param>
 		/// <returns> <code>&rho; := k partmod (&tau;<sup>m</sup> - 1)/(&tau; - 1)</code> </returns>
-		public static ZTauElement partModReduction(BigInteger k, int m, byte a, BigInteger[] s, byte mu, byte c)
+		public static ZTauElement partModReduction(BigInteger k, int m, sbyte a, BigInteger[] s, sbyte mu, sbyte c)
 		{
 			// d0 = s[0] + mu*s[1]; mu is either 1 or -1
 			BigInteger d0;
@@ -640,9 +640,9 @@ namespace org.bouncycastle.math.ec
 			ECCurve.AbstractF2m curve = (ECCurve.AbstractF2m) p.getCurve();
 			int m = curve.getFieldSize();
 			int a = curve.getA().toBigInteger().intValue();
-			byte mu = getMu(a);
+			sbyte mu = getMu(a);
 			BigInteger[] s = curve.getSi();
-			ZTauElement rho = partModReduction(k, m, (byte)a, s, mu, (byte)10);
+			ZTauElement rho = partModReduction(k, m, (sbyte)a, s, mu, (sbyte)10);
 
 			return multiplyTnaf(p, rho);
 		}
@@ -658,8 +658,8 @@ namespace org.bouncycastle.math.ec
 		public static ECPoint.AbstractF2m multiplyTnaf(ECPoint.AbstractF2m p, ZTauElement lambda)
 		{
 			ECCurve.AbstractF2m curve = (ECCurve.AbstractF2m)p.getCurve();
-			byte mu = getMu(curve.getA());
-			byte[] u = tauAdicNaf(mu, lambda);
+			sbyte mu = getMu(curve.getA());
+			sbyte[] u = tauAdicNaf(mu, lambda);
 
 			ECPoint.AbstractF2m q = multiplyFromTnaf(p, u);
 
@@ -674,7 +674,7 @@ namespace org.bouncycastle.math.ec
 		/// <param name="p"> The ECPoint.AbstractF2m to multiply. </param>
 		/// <param name="u"> The the TNAF of <code>&lambda;</code>.. </param>
 		/// <returns> <code>&lambda; * p</code> </returns>
-		public static ECPoint.AbstractF2m multiplyFromTnaf(ECPoint.AbstractF2m p, byte[] u)
+		public static ECPoint.AbstractF2m multiplyFromTnaf(ECPoint.AbstractF2m p, sbyte[] u)
 		{
 			ECCurve curve = p.getCurve();
 			ECPoint.AbstractF2m q = (ECPoint.AbstractF2m)curve.getInfinity();
@@ -683,7 +683,7 @@ namespace org.bouncycastle.math.ec
 			for (int i = u.Length - 1; i >= 0; i--)
 			{
 				++tauCount;
-				byte ui = u[i];
+				sbyte ui = u[i];
 				if (ui != 0)
 				{
 					q = q.tauPow(tauCount);
@@ -713,17 +713,17 @@ namespace org.bouncycastle.math.ec
 		/// <param name="alpha"> The <code>&alpha;<sub>u</sub></code>'s for the window width. </param>
 		/// <returns> The <code>[&tau;]</code>-adic window NAF of
 		/// <code>&lambda;</code>. </returns>
-		public static byte[] tauAdicWNaf(byte mu, ZTauElement lambda, byte width, BigInteger pow2w, BigInteger tw, ZTauElement[] alpha)
+		public static byte[] tauAdicWNaf(sbyte mu, ZTauElement lambda, byte width, BigInteger pow2w, BigInteger tw, ZTauElement[] alpha)
 		{
 			if (!((mu == 1) || (mu == -1)))
 			{
 				throw new IllegalArgumentException("mu must be 1 or -1");
 			}
 
-			BigInteger norm = norm(mu, lambda);
+			BigInteger norma = norm(mu, lambda);
 
 			// Ceiling of log2 of the norm 
-			int log2Norm = norm.bitLength();
+			int log2Norm = norma.bitLength();
 
 			// If length(TNAF) > 30, then length(TNAF) < log2Norm + 3.52
 			int maxLength = log2Norm > 30 ? log2Norm + 4 + width : 34 + width;
@@ -809,7 +809,7 @@ namespace org.bouncycastle.math.ec
 		/// <returns> The precomputation array for <code>p</code>.  </returns>
 		public static ECPoint.AbstractF2m[] getPreComp(ECPoint.AbstractF2m p, byte a)
 		{
-			byte[][] alphaTnaf = (a == 0) ? Tnaf.alpha0Tnaf : Tnaf.alpha1Tnaf;
+			sbyte[][] alphaTnaf = (a == 0) ? Tnaf.alpha0Tnaf : Tnaf.alpha1Tnaf;
 
 			ECPoint.AbstractF2m[] pu = new ECPoint.AbstractF2m[(int)((uint)(alphaTnaf.Length + 1) >> 1)];
 			pu[0] = p;

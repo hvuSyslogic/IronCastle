@@ -1,4 +1,5 @@
-﻿using org.bouncycastle.Port.java.util;
+﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.crypto
 {

@@ -15,5 +15,15 @@ namespace BouncyCastle.Core.Port.java.io
             this.bout = bout;
             this.v = v;
         }
+
+        public void write(object format)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void close()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

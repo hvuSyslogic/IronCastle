@@ -1,4 +1,6 @@
-﻿namespace org.bouncycastle.util
+﻿using org.bouncycastle.Port.java.util;
+
+namespace org.bouncycastle.util
 {
 
 	/// <summary>

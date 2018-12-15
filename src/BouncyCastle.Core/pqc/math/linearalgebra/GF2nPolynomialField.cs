@@ -54,8 +54,8 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			mDegree = deg;
 			computeFieldPolynomial();
 			computeSquaringMatrix();
-			fields = new Vector();
-			matrices = new Vector();
+			fields = new org.bouncycastle.Port.java.util.Vector();
+			matrices = new org.bouncycastle.Port.java.util.Vector();
 		}
 
 		/// <summary>
@@ -84,8 +84,8 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 				computeFieldPolynomial2();
 			}
 			computeSquaringMatrix();
-			fields = new Vector();
-			matrices = new Vector();
+			fields = new org.bouncycastle.Port.java.util.Vector();
+			matrices = new org.bouncycastle.Port.java.util.Vector();
 		}
 
 		/// <summary>
@@ -139,8 +139,8 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			{
 				isPentanomial_Renamed = true;
 			}
-			fields = new Vector();
-			matrices = new Vector();
+			fields = new org.bouncycastle.Port.java.util.Vector();
+			matrices = new org.bouncycastle.Port.java.util.Vector();
 		}
 
 		/// <summary>

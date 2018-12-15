@@ -10,6 +10,10 @@ namespace BouncyCastle.Core.Port.java.lang
         {
         }
 
+        public StringBuilder()
+        {
+        }
+
         public int length()
         {
             throw new NotImplementedException();

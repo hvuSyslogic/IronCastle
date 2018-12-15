@@ -1113,11 +1113,13 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		{
 			if (x > 0 && x < 1)
 			{
-				double d = 1 / x;
+			    {double d = 1 / x;
 				double result = -log(d);
 				return result;
-			}
+			    }
+            }
 
+		    {
 			int tmp = 0;
 			double tmp2 = 1;
 			double d = x;
@@ -1131,15 +1133,16 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			double rem = x / tmp2;
 			rem = logBKM(rem);
 			return tmp + rem;
+		    }
 		}
 
-		/// <summary>
-		/// calculate the logarithm to the base 2.
-		/// </summary>
-		/// <param name="x"> any long value &gt;=1 </param>
-		/// <returns> log_2(x) </returns>
-		/// @deprecated use MathFunctions.log(long) instead 
-		public static double log(long x)
+        /// <summary>
+        /// calculate the logarithm to the base 2.
+        /// </summary>
+        /// <param name="x"> any long value &gt;=1 </param>
+        /// <returns> log_2(x) </returns>
+        /// @deprecated use MathFunctions.log(long) instead 
+        public static double log(long x)
 		{
 			int tmp = floorLog(BigInteger.valueOf(x));
 			long tmp2 = 1 << tmp;

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BouncyCastle.Core.Port.java.util;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
@@ -10,15 +9,15 @@ namespace org.bouncycastle.pqc.crypto.xmss
 	using ASN1ObjectIdentifier = org.bouncycastle.asn1.ASN1ObjectIdentifier;
 	using Digest = org.bouncycastle.crypto.Digest;
 
-	/// <summary>
-	/// BDS.
-	/// </summary>
-	[Serializable]
-	public sealed class BDS
+    /// <summary>
+    /// BDS.
+    /// </summary>
+    //PORT: [Serializable]
+    public sealed class BDS
 	{
 		private const long serialVersionUID = 1L;
 
-		[NonSerialized]
+		//PORT: [NonSerialized]
 		private WOTSPlus wotsPlus;
 
 		private readonly int treeHeight;
@@ -364,9 +363,9 @@ namespace org.bouncycastle.pqc.crypto.xmss
 			return root.clone();
 		}
 
-		public System.Collections.Generic.List<XMSSNode> getAuthenticationPath()
+		public List<XMSSNode> getAuthenticationPath()
 		{
-		    System.Collections.Generic.List<XMSSNode> authenticationPath = new ArrayList<XMSSNode>();
+		    List<XMSSNode> authenticationPath = new ArrayList<XMSSNode>();
 			foreach (XMSSNode node in this.authenticationPath)
 			{
 				authenticationPath.add(node.clone());

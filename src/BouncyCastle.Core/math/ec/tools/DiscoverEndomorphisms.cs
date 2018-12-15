@@ -231,8 +231,8 @@ namespace org.bouncycastle.math.ec.tools
 
 		private static BigInteger[] extEuclidBezout(BigInteger[] ab)
 		{
-			bool swap = ab[0].compareTo(ab[1]) < 0;
-			if (swap)
+			bool swapa = ab[0].compareTo(ab[1]) < 0;
+			if (swapa)
 			{
 				swap(ab);
 			}
@@ -266,7 +266,7 @@ namespace org.bouncycastle.math.ec.tools
 			}
 
 			BigInteger[] st = new BigInteger[]{s1, t1};
-			if (swap)
+			if (swapa)
 			{
 				swap(st);
 			}

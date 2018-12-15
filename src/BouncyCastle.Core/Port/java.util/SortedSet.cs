@@ -63,5 +63,10 @@ namespace org.bouncycastle.Port.java.util
         {
             throw new NotImplementedException();
         }
+
+        public bool containsAll(Set<string> otherActions)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

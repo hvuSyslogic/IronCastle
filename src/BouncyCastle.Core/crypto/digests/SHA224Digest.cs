@@ -170,15 +170,17 @@ namespace org.bouncycastle.crypto.digests
 			//
 			// expand 16 word block into 64 word blocks.
 			//
+		    {
 			for (int t = 16; t <= 63; t++)
 			{
 				X[t] = Theta1(X[t - 2]) + X[t - 7] + Theta0(X[t - 15]) + X[t - 16];
 			}
+		    }
 
-			//
-			// set up working variables.
-			//
-			int a = H1;
+            //
+            // set up working variables.
+            //
+            int a = H1;
 			int b = H2;
 			int c = H3;
 			int d = H4;
@@ -188,6 +190,7 @@ namespace org.bouncycastle.crypto.digests
 			int h = H8;
 
 
+		    {
 			int t = 0;
 			for (int i = 0; i < 8; i++)
 			{
@@ -248,11 +251,12 @@ namespace org.bouncycastle.crypto.digests
 			H6 += f;
 			H7 += g;
 			H8 += h;
+		    }
 
-			//
-			// reset the offset and clean out the word buffer.
-			//
-			xOff = 0;
+            //
+            // reset the offset and clean out the word buffer.
+            //
+            xOff = 0;
 			for (int i = 0; i < 16; i++)
 			{
 				X[i] = 0;

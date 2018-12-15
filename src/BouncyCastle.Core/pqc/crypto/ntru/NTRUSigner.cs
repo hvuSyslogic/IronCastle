@@ -135,7 +135,7 @@ namespace org.bouncycastle.pqc.crypto.ntru
 			int iLoop = perturbationBases;
 			while (iLoop >= 1)
 			{
-				Polynomial f = kPriv.getBasis(iLoop).f;
+			    {Polynomial f = kPriv.getBasis(iLoop).f;
 				Polynomial fPrime = kPriv.getBasis(iLoop).fPrime;
 
 				IntegerPolynomial y = f.mult(i);
@@ -162,9 +162,10 @@ namespace org.bouncycastle.pqc.crypto.ntru
 				i = si.mult(hi, q);
 
 				iLoop--;
-			}
-
-			Polynomial f = kPriv.getBasis(0).f;
+			    }
+            }
+		    {
+                Polynomial f = kPriv.getBasis(0).f;
 			Polynomial fPrime = kPriv.getBasis(0).fPrime;
 
 			IntegerPolynomial y = f.mult(i);
@@ -178,16 +179,17 @@ namespace org.bouncycastle.pqc.crypto.ntru
 			y.sub(x);
 			s.add(y);
 			s.modPositive(q);
-			return s;
+            return s;
+		}
 		}
 
-		/// <summary>
-		/// Verifies a signature for any data previously added via <seealso cref="#update(byte[], int, int)"/>.
-		/// </summary>
-		/// <param name="sig"> a signature </param>
-		/// <returns> whether the signature is valid </returns>
-		/// <exception cref="IllegalStateException"> if <code>initVerify</code> was not called </exception>
-		public virtual bool verifySignature(byte[] sig)
+        /// <summary>
+        /// Verifies a signature for any data previously added via <seealso cref="#update(byte[], int, int)"/>.
+        /// </summary>
+        /// <param name="sig"> a signature </param>
+        /// <returns> whether the signature is valid </returns>
+        /// <exception cref="IllegalStateException"> if <code>initVerify</code> was not called </exception>
+        public virtual bool verifySignature(byte[] sig)
 		{
 			if (hashAlg == null || verificationKey == null)
 			{

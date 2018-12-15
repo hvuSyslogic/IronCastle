@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using org.bouncycastle.Port;
+using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
 
@@ -304,9 +305,7 @@ namespace org.bouncycastle.pqc.crypto.xmss
 			return @out.toByteArray();
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static Object deserialize(byte[] data, final Class clazz) throws java.io.IOException, ClassNotFoundException
-		public static object deserialize(byte[] data, Class clazz)
+		public static object deserialize(byte[] data, Type clazz)
 		{
 			ByteArrayInputStream @in = new ByteArrayInputStream(data);
 			ObjectInputStream @is = new CheckingStream(clazz, @in);
@@ -348,7 +347,7 @@ namespace org.bouncycastle.pqc.crypto.xmss
 			{
 				return false;
 			}
-			return (globalIndex % (long)Math.pow((1 << xmssHeight), layer + 1) == 0) ? true : false;
+			return (globalIndex % (long)Math.Pow((1 << xmssHeight), layer + 1) == 0) ? true : false;
 		}
 
 		public static bool isNewAuthenticationPathNeeded(long globalIndex, int xmssHeight, int layer)
@@ -357,7 +356,7 @@ namespace org.bouncycastle.pqc.crypto.xmss
 			{
 				return false;
 			}
-			return ((globalIndex + 1) % (long)Math.pow((1 << xmssHeight), layer) == 0) ? true : false;
+			return ((globalIndex + 1) % (long)Math.Pow((1 << xmssHeight), layer) == 0) ? true : false;
 		}
 
 		public class CheckingStream : ObjectInputStream
@@ -380,16 +379,16 @@ namespace org.bouncycastle.pqc.crypto.xmss
 				components.add("org.bouncycastle.pqc.crypto.xmss.BDSTreeHash");
 			}
 
-			internal readonly Class mainClass;
+			internal readonly Type mainClass;
 			internal bool found = false;
 
-			public CheckingStream(Class mainClass, InputStream @in) : base(@in)
+			public CheckingStream(Type mainClass, InputStream @in) : base(@in)
 			{
 
 				this.mainClass = mainClass;
 			}
 
-			public virtual Class resolveClass(ObjectStreamClass desc)
+			public virtual Type resolveClass(ObjectStreamClass desc)
 			{
 				if (!found)
 				{

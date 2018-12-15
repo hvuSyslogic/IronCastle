@@ -1,6 +1,7 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
+using Random = org.bouncycastle.Port.java.util.Random;
 
 namespace org.bouncycastle.pqc.math.linearalgebra
 {
@@ -334,7 +335,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		/// Compute the multiplicative inverse of this element.
 		/// </summary>
 		/// <returns> <tt>this<sup>-1</sup></tt> (newly created) </returns>
-		/// <exception cref="ArithmeticException"> if <tt>this</tt> is the zero element. </exception>
+		/// <exception cref="System.ArithmeticException"> if <tt>this</tt> is the zero element. </exception>
 		/// <seealso cref= GF2nPolynomialElement#invertMAIA </seealso>
 		/// <seealso cref= GF2nPolynomialElement#invertEEA </seealso>
 		/// <seealso cref= GF2nPolynomialElement#invertSquare </seealso>
@@ -348,7 +349,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		/// result in a new GF2nPolynomialElement.
 		/// </summary>
 		/// <returns> <i>this</i>^(-1) </returns>
-		/// <exception cref="ArithmeticException"> if <i>this</i> equals zero </exception>
+		/// <exception cref="System.ArithmeticException"> if <i>this</i> equals zero </exception>
 		public virtual GF2nPolynomialElement invertEEA()
 		{
 			if (isZero())

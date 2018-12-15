@@ -31,13 +31,13 @@
 			return getInstance(ASN1Sequence.getInstance(obj, @explicit));
 		}
 
-		/// <summary>
-		/// Construct a ExtensionReq object containing one Extension.
-		/// </summary>
-		/// <param name="Extension"> the Extension to be contained. </param>
-		public ExtensionReq(Extension org)
+        /// <summary>
+        /// Construct a ExtensionReq object containing one Extension.
+        /// </summary>
+        /// <param name="extension"> the Extension to be contained. </param>
+        public ExtensionReq(Extension extension)
 		{
-			this.extensions = new Extension[]{Extension};
+			this.extensions = new Extension[]{ extension };
 		}
 
 

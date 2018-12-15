@@ -270,7 +270,7 @@ namespace org.bouncycastle.crypto.tls
 				byte[] receivedMac = Arrays.copyOfRange(ciphertext, end - macSize, end);
 				byte[] calculatedMac = readMac.calculateMac(seqNo, type, ciphertext, offset, len - macSize);
 
-				bool badMac = !Arrays.constantTimeAreEqual(calculatedMac, receivedMac);
+			    {bool badMac = !Arrays.constantTimeAreEqual(calculatedMac, receivedMac);
 				if (badMac)
 				{
 					/*
@@ -283,7 +283,8 @@ namespace org.bouncycastle.crypto.tls
 					 */
 					throw new TlsFatalAlert(AlertDescription.bad_record_mac);
 				}
-			}
+			    }
+            }
 
 			if (useExplicitIV)
 			{
@@ -300,7 +301,7 @@ namespace org.bouncycastle.crypto.tls
 
 			// If there's anything wrong with the padding, this will return zero
 			int totalPad = checkPaddingConstantTime(ciphertext, offset, blocks_length, blockSize, encryptThenMAC ? 0 : macSize);
-			bool badMac = (totalPad == 0);
+		    {bool badMac = (totalPad == 0);
 
 			int dec_output_length = blocks_length - totalPad;
 
@@ -319,9 +320,11 @@ namespace org.bouncycastle.crypto.tls
 			{
 				throw new TlsFatalAlert(AlertDescription.bad_record_mac);
 			}
+		  
 
-			return Arrays.copyOfRange(ciphertext, offset, offset + dec_output_length);
-		}
+            return Arrays.copyOfRange(ciphertext, offset, offset + dec_output_length);
+		    }
+        }
 
 		public virtual int checkPaddingConstantTime(byte[] buf, int off, int len, int blockSize, int macSize)
 		{

@@ -54,6 +54,15 @@
 		/// <returns> a human readable form of this vector </returns>
 		public override abstract string ToString();
 
+	    public int indexOf(GF2nField basis)
+	    {
+	        throw new System.NotImplementedException();
+	    }
+
+	    public GF2Polynomial[] elementAt(int i)
+	    {
+	        throw new System.NotImplementedException();
+	    }
 	}
 
 }

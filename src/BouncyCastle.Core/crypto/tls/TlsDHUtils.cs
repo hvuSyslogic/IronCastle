@@ -192,7 +192,7 @@ namespace org.bouncycastle.crypto.tls
 		public static short getNegotiatedDHEGroupsServerExtension(Hashtable extensions)
 		{
 			byte[] extensionData = TlsUtils.getExtensionData(extensions, EXT_negotiated_ff_dhe_groups);
-			return extensionData == null ? -1 : readNegotiatedDHEGroupsServerExtension(extensionData);
+			return extensionData == null ? (short)-1 : readNegotiatedDHEGroupsServerExtension(extensionData);
 		}
 
 		public static byte[] createNegotiatedDHEGroupsClientExtension(short[] dheGroups)

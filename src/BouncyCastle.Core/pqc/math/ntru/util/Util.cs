@@ -1,6 +1,8 @@
 ﻿using System.IO;
 using BouncyCastle.Core.Port;
+using BouncyCastle.Core.Port.java.util;
 using org.bouncycastle.Port.java.io;
+using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.pqc.math.ntru.util
 {

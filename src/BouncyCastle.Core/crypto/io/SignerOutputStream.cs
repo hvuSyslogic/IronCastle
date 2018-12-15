@@ -5,26 +5,26 @@ namespace org.bouncycastle.crypto.io
 
 	public class SignerOutputStream : OutputStream
 	{
-		protected internal Signer signer;
+		protected internal Signer _signer;
 
-		public SignerOutputStream(Signer org)
+		public SignerOutputStream(Signer signer)
 		{
-			this.signer = Signer;
+			this._signer = signer;
 		}
 
 		public virtual void write(int b)
 		{
-			signer.update((byte)b);
+		    _signer.update((byte)b);
 		}
 
 		public virtual void write(byte[] b, int off, int len)
 		{
-			signer.update(b, off, len);
+		    _signer.update(b, off, len);
 		}
 
 		public virtual Signer getSigner()
 		{
-			return signer;
+			return _signer;
 		}
 	}
 

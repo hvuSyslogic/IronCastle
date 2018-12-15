@@ -1,4 +1,5 @@
 ﻿using System;
+using org.bouncycastle.Port;
 
 namespace org.bouncycastle.util.test
 {
@@ -157,7 +158,7 @@ namespace org.bouncycastle.util.test
 
 		protected internal static void runTest(Test test)
 		{
-			runTest(test, System.out);
+			runTest(test, JavaSystem.@out);
 		}
 
 		protected internal static void runTest(Test test, PrintStream @out)

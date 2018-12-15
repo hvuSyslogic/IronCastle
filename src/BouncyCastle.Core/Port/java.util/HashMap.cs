@@ -150,5 +150,10 @@ namespace org.bouncycastle.Port.java.util
         {
             return _innerDictionary.Count;
         }
+
+        public bool isEmpty()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

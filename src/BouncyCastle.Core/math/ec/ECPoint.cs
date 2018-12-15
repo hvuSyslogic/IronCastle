@@ -478,20 +478,22 @@ namespace org.bouncycastle.math.ec
 
 			if (compressed)
 			{
-				byte[] PO = new byte[X.Length + 1];
+			    {byte[] PO = new byte[X.Length + 1];
 				PO[0] = (byte)(normed.getCompressionYTilde() ? 0x03 : 0x02);
 				JavaSystem.arraycopy(X, 0, PO, 1, X.Length);
 				return PO;
-			}
+			    }
+            }
 
 			byte[] Y = normed.getYCoord().getEncoded();
 
-			byte[] PO = new byte[X.Length + Y.Length + 1];
+		    {byte[] PO = new byte[X.Length + Y.Length + 1];
 			PO[0] = 0x04;
 			JavaSystem.arraycopy(X, 0, PO, 1, X.Length);
 			JavaSystem.arraycopy(Y, 0, PO, X.Length + 1, Y.Length);
 			return PO;
-		}
+		    }
+        }
 
 		public abstract bool getCompressionYTilde();
 
@@ -1363,16 +1365,17 @@ namespace org.bouncycastle.math.ec
 					if (X.isZero())
 					{
 						// NOTE: For x == 0, we expect the affine-y instead of the lambda-y 
-						ECFieldElement Y = this.y;
+					    {	ECFieldElement Y = this.y;
 						ECFieldElement lhs = Y.square(), rhs = B;
 						if (!ZIsOne)
 						{
 							rhs = rhs.multiply(Z.square());
 						}
 						return lhs.Equals(rhs);
-					}
+					    }
+                    }
 
-					ECFieldElement L = this.y, X2 = X.square();
+				    {ECFieldElement L = this.y, X2 = X.square();
 					ECFieldElement lhs, rhs;
 					if (ZIsOne)
 					{
@@ -1388,9 +1391,10 @@ namespace org.bouncycastle.math.ec
 					}
 					lhs = lhs.multiply(X2);
 					return lhs.Equals(rhs);
-				}
+				    }
+                }
 
-				ECFieldElement Y = this.y;
+			    {ECFieldElement Y = this.y;
 				ECFieldElement lhs = Y.add(X).multiply(Y);
 
 				switch (coord)
@@ -1416,8 +1420,9 @@ namespace org.bouncycastle.math.ec
 				ECFieldElement rhs = X.add(A).multiply(X.square()).add(B);
 				return lhs.Equals(rhs);
 			}
+			}
 
-			public override bool satisfiesOrder()
+            public override bool satisfiesOrder()
 			{
 				BigInteger cofactor = curve.getCofactor();
 				if (ECConstants_Fields.TWO.Equals(cofactor))

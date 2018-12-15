@@ -32,7 +32,7 @@ namespace org.bouncycastle.pqc.crypto.xmss
 			{
 				/* import */
 				int len = @params.getWOTSPlus().getParams().getLen();
-				int indexSize = (int)Math.ceil(@params.getHeight() / (double)8);
+				int indexSize = (int)Math.Ceiling(@params.getHeight() / (double)8);
 				int randomSize = n;
 				int reducedSignatureSizeSingle = ((@params.getHeight() / @params.getLayers()) + len) * n;
 				int reducedSignaturesSizeTotal = reducedSignatureSizeSingle * @params.getLayers();
@@ -138,7 +138,7 @@ namespace org.bouncycastle.pqc.crypto.xmss
 			/* index || random || reduced signatures */
 			int n = @params.getDigestSize();
 			int len = @params.getWOTSPlus().getParams().getLen();
-			int indexSize = (int)Math.ceil(@params.getHeight() / (double)8);
+			int indexSize = (int)Math.Ceiling(@params.getHeight() / (double)8);
 			int randomSize = n;
 			int reducedSignatureSizeSingle = ((@params.getHeight() / @params.getLayers()) + len) * n;
 			int reducedSignaturesSizeTotal = reducedSignatureSizeSingle * @params.getLayers();

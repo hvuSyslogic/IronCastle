@@ -31,11 +31,11 @@ namespace org.bouncycastle.math.ec
 			ECPoint.AbstractF2m p = (ECPoint.AbstractF2m)point;
 			ECCurve.AbstractF2m curve = (ECCurve.AbstractF2m)p.getCurve();
 			int m = curve.getFieldSize();
-			byte a = curve.getA().toBigInteger().byteValue();
-			byte mu = Tnaf.getMu(a);
+			sbyte a = (sbyte)curve.getA().toBigInteger().byteValue();
+			sbyte mu = Tnaf.getMu(a);
 			BigInteger[] s = curve.getSi();
 
-			ZTauElement rho = Tnaf.partModReduction(k, m, a, s, mu, (byte)10);
+			ZTauElement rho = Tnaf.partModReduction(k, m, a, s, mu, (sbyte)10);
 
 			return multiplyWTnaf(p, rho, a, mu);
 		}
@@ -49,7 +49,7 @@ namespace org.bouncycastle.math.ec
 		/// <code><b>Z</b>[&tau;]</code> of which to compute the
 		/// <code>[&tau;]</code>-adic NAF. </param>
 		/// <returns> <code>p</code> multiplied by <code>&lambda;</code>. </returns>
-		private ECPoint.AbstractF2m multiplyWTnaf(ECPoint.AbstractF2m p, ZTauElement lambda, byte a, byte mu)
+		private ECPoint.AbstractF2m multiplyWTnaf(ECPoint.AbstractF2m p, ZTauElement lambda, sbyte a, sbyte mu)
 		{
 			ZTauElement[] alpha = (a == 0) ? Tnaf.alpha0 : Tnaf.alpha1;
 

@@ -274,7 +274,7 @@ namespace org.bouncycastle.pqc.math.ntru.util
 		/// <returns> the decoded array </returns>
 		public static int[] decodeMod3Tight(InputStream @is, int N)
 		{
-			int size = (int)Math.ceil(N * Math.log(3) / Math.log(2) / 8);
+			int size = (int)Math.Ceiling(N * Math.Log(3) / Math.Log(2) / 8);
 			byte[] arr = Util.readFullLength(@is, size);
 			return decodeMod3Tight(arr, N);
 		}

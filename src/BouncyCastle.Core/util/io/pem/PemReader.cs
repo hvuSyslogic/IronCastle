@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+using BouncyCastle.Core.Port.java.io;
 using org.bouncycastle.Port;
+using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.util.io.pem
 {

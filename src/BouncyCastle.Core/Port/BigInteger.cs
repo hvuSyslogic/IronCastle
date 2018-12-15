@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using org.bouncycastle.Port.java.util;
+using Random = System.Random;
 
 namespace BouncyCastle.Core.Port
 {
     public class BigInteger
     {
         public static BigInteger ZERO = valueOf(0);
+        public static BigInteger ONE = valueOf(1);
 
         public BigInteger(string v1)
         {
@@ -31,6 +33,16 @@ namespace BouncyCastle.Core.Port
 
         public BigInteger(int m, org.bouncycastle.Port.java.util.Random rand)
         {
+        }
+
+        public BigInteger(int bytes, Random rand)
+        {
+            throw new NotImplementedException();
+        }
+
+        public BigInteger(int bytes, SecureRandom rand)
+        {
+            throw new NotImplementedException();
         }
 
         public static BigInteger valueOf(long input)
@@ -225,6 +237,31 @@ namespace BouncyCastle.Core.Port
         }
 
         public int getLowestSetBit()
+        {
+            throw new NotImplementedException();
+        }
+
+        public BigInteger clearBit(int i)
+        {
+            throw new NotImplementedException();
+        }
+
+        public BigInteger[] divideAndRemainder(BigInteger r1)
+        {
+            throw new NotImplementedException();
+        }
+
+        public BigInteger xor(BigInteger bigInteger)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int bitCount()
+        {
+            throw new NotImplementedException();
+        }
+
+        public byte byteValue()
         {
             throw new NotImplementedException();
         }

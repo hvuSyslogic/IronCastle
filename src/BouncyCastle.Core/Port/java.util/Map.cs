@@ -17,6 +17,7 @@
         V remove(K key);
 
         int size();
+        bool isEmpty();
     }
 
     public interface Map

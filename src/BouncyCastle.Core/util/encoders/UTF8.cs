@@ -10,34 +10,34 @@
 	public class UTF8
 	{
 		// Constants for the categorization of code units
-		private const byte C_ILL = 0; //- C0..C1, F5..FF  ILLEGAL octets that should never appear in a UTF-8 sequence
-		private const byte C_CR1 = 1; //- 80..8F          Continuation range 1
-		private const byte C_CR2 = 2; //- 90..9F          Continuation range 2
-		private const byte C_CR3 = 3; //- A0..BF          Continuation range 3
-		private const byte C_L2A = 4; //- C2..DF          Leading byte range A / 2-byte sequence
-		private const byte C_L3A = 5; //- E0              Leading byte range A / 3-byte sequence
-		private const byte C_L3B = 6; //- E1..EC, EE..EF  Leading byte range B / 3-byte sequence
-		private const byte C_L3C = 7; //- ED              Leading byte range C / 3-byte sequence
-		private const byte C_L4A = 8; //- F0              Leading byte range A / 4-byte sequence
-		private const byte C_L4B = 9; //- F1..F3          Leading byte range B / 4-byte sequence
-		private const byte C_L4C = 10; //- F4              Leading byte range C / 4-byte sequence
+		private const sbyte C_ILL = 0; //- C0..C1, F5..FF  ILLEGAL octets that should never appear in a UTF-8 sequence
+		private const sbyte C_CR1 = 1; //- 80..8F          Continuation range 1
+		private const sbyte C_CR2 = 2; //- 90..9F          Continuation range 2
+		private const sbyte C_CR3 = 3; //- A0..BF          Continuation range 3
+		private const sbyte C_L2A = 4; //- C2..DF          Leading byte range A / 2-byte sequence
+		private const sbyte C_L3A = 5; //- E0              Leading byte range A / 3-byte sequence
+		private const sbyte C_L3B = 6; //- E1..EC, EE..EF  Leading byte range B / 3-byte sequence
+		private const sbyte C_L3C = 7; //- ED              Leading byte range C / 3-byte sequence
+		private const sbyte C_L4A = 8; //- F0              Leading byte range A / 4-byte sequence
+		private const sbyte C_L4B = 9; //- F1..F3          Leading byte range B / 4-byte sequence
+		private const sbyte C_L4C = 10; //- F4              Leading byte range C / 4-byte sequence
 	//  private static final byte C_ASC = 11;           //- 00..7F          ASCII leading byte range
 
 		// Constants for the states of a DFA
-		private const byte S_ERR = -2; //- Error state
-		private const byte S_END = -1; //- End (or Accept) state
-		private const byte S_CS1 = 0x00; //- Continuation state 1
-		private const byte S_CS2 = 0x10; //- Continuation state 2
-		private const byte S_CS3 = 0x20; //- Continuation state 3
-		private const byte S_P3A = 0x30; //- Partial 3-byte sequence state A
-		private const byte S_P3B = 0x40; //- Partial 3-byte sequence state B
-		private const byte S_P4A = 0x50; //- Partial 4-byte sequence state A
-		private const byte S_P4B = 0x60; //- Partial 4-byte sequence state B
+		private const sbyte S_ERR = -2; //- Error state
+		private const sbyte S_END = -1; //- End (or Accept) state
+		private const sbyte S_CS1 = 0x00; //- Continuation state 1
+		private const sbyte S_CS2 = 0x10; //- Continuation state 2
+		private const sbyte S_CS3 = 0x20; //- Continuation state 3
+		private const sbyte S_P3A = 0x30; //- Partial 3-byte sequence state A
+		private const sbyte S_P3B = 0x40; //- Partial 3-byte sequence state B
+		private const sbyte S_P4A = 0x50; //- Partial 4-byte sequence state A
+		private const sbyte S_P4B = 0x60; //- Partial 4-byte sequence state B
 
 		private static readonly short[] firstUnitTable = new short[128];
-		private static readonly byte[] transitionTable = new byte[S_P4B + 16];
+		private static readonly sbyte[] transitionTable = new sbyte[S_P4B + 16];
 
-		private static void fill(byte[] table, int first, int last, byte b)
+		private static void fill(sbyte[] table, int first, int last, sbyte b)
 		{
 			for (int i = first; i <= last; ++i)
 			{
@@ -47,7 +47,7 @@
 
 		static UTF8()
 		{
-			byte[] categories = new byte[128];
+			sbyte[] categories = new sbyte[128];
 			fill(categories, 0x00, 0x0F, C_CR1);
 			fill(categories, 0x10, 0x1F, C_CR2);
 			fill(categories, 0x20, 0x3F, C_CR3);
@@ -70,16 +70,16 @@
 			fill(transitionTable, S_P3B + 0x8, S_P3B + 0x9, S_CS1);
 			fill(transitionTable, S_P4A + 0x9, S_P4A + 0xB, S_CS2);
 			fill(transitionTable, S_P4B + 0x8, S_P4B + 0x8, S_CS2);
-
-			byte[] firstUnitMasks = new byte[] {0x00, 0x00, 0x00, 0x00, 0x1F, 0x0F, 0x0F, 0x0F, 0x07, 0x07, 0x07};
-			byte[] firstUnitTransitions = new byte[] {S_ERR, S_ERR, S_ERR, S_ERR, S_CS1, S_P3A, S_CS2, S_P3B, S_P4A, S_CS3, S_P4B};
+            
+			sbyte[] firstUnitMasks = new sbyte[] {0x00, 0x00, 0x00, 0x00, 0x1F, 0x0F, 0x0F, 0x0F, 0x07, 0x07, 0x07};
+			sbyte[] firstUnitTransitions = new sbyte[] {S_ERR, S_ERR, S_ERR, S_ERR, S_CS1, S_P3A, S_CS2, S_P3B, S_P4A, S_CS3, S_P4B};
 
 			for (int i = 0x00; i < 0x80; ++i)
 			{
-				byte category = categories[i];
+				sbyte category = categories[i];
 
 				int codePoint = i & firstUnitMasks[category];
-				byte state = firstUnitTransitions[category];
+				sbyte state = firstUnitTransitions[category];
 
 				firstUnitTable[i] = (short)((codePoint << 8) | state);
 			}
@@ -123,7 +123,7 @@
 
 				short first = firstUnitTable[codeUnit & 0x7F];
 				int codePoint = (short)((ushort)first >> 8);
-				byte state = (byte)first;
+				sbyte state = (sbyte)first;
 
 				while (state >= 0)
 				{

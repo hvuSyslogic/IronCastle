@@ -72,7 +72,7 @@ namespace org.bouncycastle.crypto.tls
 		public static short getMaxFragmentLengthExtension(Hashtable extensions)
 		{
 			byte[] extensionData = TlsUtils.getExtensionData(extensions, EXT_max_fragment_length);
-			return extensionData == null ? -1 : readMaxFragmentLengthExtension(extensionData);
+			return extensionData == null ? (short)-1 : readMaxFragmentLengthExtension(extensionData);
 		}
 
 		public static int getPaddingExtension(Hashtable extensions)

@@ -131,10 +131,10 @@ namespace org.bouncycastle.crypto.engines
 			int[] L = new int[(key.Length + bytesPerWord - 1) / bytesPerWord];
 
 			// load all key bytes into array of key dwords
-			for (int i = key.Length - 1; i >= 0; i--)
+		    {for (int i = key.Length - 1; i >= 0; i--)
 			{
 				L[i / bytesPerWord] = (L[i / bytesPerWord] << 8) + (key[i] & 0xff);
-			}
+			}}
 
 			//
 			// Phase 2:
@@ -146,10 +146,10 @@ namespace org.bouncycastle.crypto.engines
 			_S = new int[2 + 2 * _noRounds + 2];
 
 			_S[0] = P32;
-			for (int i = 1; i < _S.Length; i++)
+		    {for (int i = 1; i < _S.Length; i++)
 			{
 				_S[i] = (_S[i - 1] + Q32);
-			}
+			}}
 
 			//
 			// Phase 3:
@@ -169,7 +169,7 @@ namespace org.bouncycastle.crypto.engines
 
 			int A = 0;
 			int B = 0;
-			int i = 0, j = 0;
+		    {int i = 0, j = 0;
 
 			for (int k = 0; k < iter; k++)
 			{
@@ -178,7 +178,8 @@ namespace org.bouncycastle.crypto.engines
 				i = (i + 1) % _S.Length;
 				j = (j + 1) % L.Length;
 			}
-		}
+		    }
+        }
 
 		private int encryptBlock(byte[] @in, int inOff, byte[] @out, int outOff)
 		{

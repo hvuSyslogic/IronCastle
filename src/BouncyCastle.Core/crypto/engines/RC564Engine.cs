@@ -119,10 +119,10 @@ namespace org.bouncycastle.crypto.engines
 			//
 			long[] L = new long[(key.Length + (bytesPerWord - 1)) / bytesPerWord];
 
-			for (int i = 0; i != key.Length; i++)
+		    {for (int i = 0; i != key.Length; i++)
 			{
 				L[i / bytesPerWord] += (long)(key[i] & 0xff) << (8 * (i % bytesPerWord));
-			}
+			}}
 
 			//
 			// Phase 2:
@@ -133,10 +133,10 @@ namespace org.bouncycastle.crypto.engines
 			_S = new long[2 * (_noRounds + 1)];
 
 			_S[0] = P64;
-			for (int i = 1; i < _S.Length; i++)
+		    {for (int i = 1; i < _S.Length; i++)
 			{
 				_S[i] = (_S[i - 1] + Q64);
-			}
+			}}
 
 			//
 			// Phase 3:
@@ -155,7 +155,7 @@ namespace org.bouncycastle.crypto.engines
 			}
 
 			long A = 0, B = 0;
-			int i = 0, j = 0;
+		    {int i = 0, j = 0;
 
 			for (int k = 0; k < iter; k++)
 			{
@@ -164,7 +164,8 @@ namespace org.bouncycastle.crypto.engines
 				i = (i + 1) % _S.Length;
 				j = (j + 1) % L.Length;
 			}
-		}
+		    }
+        }
 
 		/// <summary>
 		/// Encrypt the given block starting at the given offset and place

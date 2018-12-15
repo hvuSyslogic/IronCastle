@@ -1,4 +1,5 @@
-﻿using org.bouncycastle.Port;
+﻿using BouncyCastle.Core.Port.java.util;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.pqc.crypto.xmss

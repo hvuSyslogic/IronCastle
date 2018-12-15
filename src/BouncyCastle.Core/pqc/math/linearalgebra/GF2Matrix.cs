@@ -498,15 +498,16 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 
 				for (int j = 0; j < d; j++)
 				{
-					int a = matrix[i][j];
+				    {int a = matrix[i][j];
 					for (int k = 0; k < 32; k++)
 					{
 						int b = ((int)((uint)a >> k)) & 1;
 						counter = counter + b;
 						elementCounter = elementCounter + 1;
 					}
-				}
-				int a = matrix[i][length - 1];
+				    }
+                }
+			    {int a = matrix[i][length - 1];
 				for (int k = 0; k < rest; k++)
 				{
 					int b = ((int)((uint)a >> k)) & 1;
@@ -514,8 +515,9 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 					elementCounter = elementCounter + 1;
 				}
 			}
+			}
 
-			return counter / elementCounter;
+            return counter / elementCounter;
 		}
 
 		/// <summary>
@@ -661,19 +663,21 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 					for (int j = 0; j < length - 1; j++)
 					{
 						// obtain matrix word
-						int mw = matrix[i][j];
+					    {int mw = matrix[i][j];
 						// shift to correct position
 						result.matrix[i][ind++] |= mw << r;
 						result.matrix[i][ind] |= (int)((uint)mw >> (32 - r));
-					}
-					// process last word
-					int mw = matrix[i][length - 1];
+					    }
+                    }
+                    // process last word
+				    { int mw = matrix[i][length - 1];
 					result.matrix[i][ind++] |= mw << r;
 					if (ind < result.length)
 					{
 						result.matrix[i][ind] |= (int)((uint)mw >> (32 - r));
-					}
-				}
+				        }
+				    }
+                }
 				else
 				{
 					// no shifting necessary
@@ -843,6 +847,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			int row = 0;
 			for (int i = 0; i < q; i++)
 			{
+			{
 				int bitMask = 1;
 				do
 				{
@@ -858,9 +863,11 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 					bitMask <<= 1;
 				} while (bitMask != 0);
 			}
+			}
 
-			// compute scalar products with last word of vector
-			int bitMask = 1;
+            // compute scalar products with last word of vector
+			{
+            int bitMask = 1;
 			while (bitMask != r)
 			{
 				int b = v[q] & bitMask;
@@ -876,16 +883,17 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			}
 
 			return new GF2Vector(res, numColumns);
+		    }
 		}
 
-		/// <summary>
-		/// Compute the product of the matrix <tt>(this | Id)</tt> and a column
-		/// vector, where <tt>Id</tt> is a <tt>(numRows x numRows)</tt> unit
-		/// matrix.
-		/// </summary>
-		/// <param name="vec"> the vector over GF(2) </param>
-		/// <returns> <tt>(this | Id)*vector</tt> </returns>
-		public virtual Vector leftMultiplyLeftCompactForm(Vector vec)
+        /// <summary>
+        /// Compute the product of the matrix <tt>(this | Id)</tt> and a column
+        /// vector, where <tt>Id</tt> is a <tt>(numRows x numRows)</tt> unit
+        /// matrix.
+        /// </summary>
+        /// <param name="vec"> the vector over GF(2) </param>
+        /// <returns> <tt>(this | Id)*vector</tt> </returns>
+        public virtual Vector leftMultiplyLeftCompactForm(Vector vec)
 		{
 			if (!(vec is GF2Vector))
 			{
@@ -905,7 +913,8 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			int row = 0;
 			for (int i = 0; i < words; i++)
 			{
-				int bitMask = 1;
+			    {
+                    int bitMask = 1;
 				do
 				{
 					int b = v[i] & bitMask;
@@ -925,9 +934,11 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 					bitMask <<= 1;
 				} while (bitMask != 0);
 			}
+			}
 
-			// process last word of vector
-			int rem = 1 << (numRows & 0x1f);
+			{
+            // process last word of vector
+                int rem = 1 << (numRows & 0x1f);
 			int bitMask = 1;
 			while (bitMask != rem)
 			{
@@ -950,13 +961,14 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 
 			return new GF2Vector(res, numRows + numColumns);
 		}
+		}
 
-		/// <summary>
-		/// Compute the product of this matrix and a matrix A over GF(2).
-		/// </summary>
-		/// <param name="mat"> a matrix A over GF(2) </param>
-		/// <returns> matrix product <tt>this*matrixA</tt> </returns>
-		public override Matrix rightMultiply(Matrix mat)
+        /// <summary>
+        /// Compute the product of this matrix and a matrix A over GF(2).
+        /// </summary>
+        /// <param name="mat"> a matrix A over GF(2) </param>
+        /// <returns> matrix product <tt>this*matrixA</tt> </returns>
+        public override Matrix rightMultiply(Matrix mat)
 		{
 			if (!(mat is GF2Matrix))
 			{
@@ -986,7 +998,8 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 				int count = 0;
 				for (int j = 0; j < d; j++)
 				{
-					int e = matrix[i][j];
+				    {
+                        int e = matrix[i][j];
 					for (int h = 0; h < 32; h++)
 					{
 						int b = e & (1 << h);
@@ -1000,7 +1013,9 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 						count++;
 					}
 				}
-				int e = matrix[i][length - 1];
+				}
+				{
+                int e = matrix[i][length - 1];
 				for (int h = 0; h < rest; h++)
 				{
 					int b = e & (1 << h);
@@ -1016,16 +1031,17 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 
 			}
 
-			return result;
+		    }
+		    return result;
 		}
 
-		/// <summary>
-		/// Compute the product of this matrix and a permutation matrix which is
-		/// generated from an n-permutation.
-		/// </summary>
-		/// <param name="p"> the permutation </param>
-		/// <returns> <seealso cref="GF2Matrix"/> <tt>this*P</tt> </returns>
-		public override Matrix rightMultiply(Permutation p)
+        /// <summary>
+        /// Compute the product of this matrix and a permutation matrix which is
+        /// generated from an n-permutation.
+        /// </summary>
+        /// <param name="p"> the permutation </param>
+        /// <returns> <seealso cref="GF2Matrix"/> <tt>this*P</tt> </returns>
+        public override Matrix rightMultiply(Permutation p)
 		{
 
 			int[] pVec = p.getVector();
@@ -1235,7 +1251,8 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 				buf.append(i + ": ");
 				for (int j = 0; j < d; j++)
 				{
-					int a = matrix[i][j];
+				    {
+                        int a = matrix[i][j];
 					for (int k = 0; k < 32; k++)
 					{
 						int b = ((int)((uint)a >> k)) & 1;
@@ -1250,7 +1267,9 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 					}
 					buf.append(' ');
 				}
-				int a = matrix[i][length - 1];
+				}
+				{
+                int a = matrix[i][length - 1];
 				for (int k = 0; k < rest; k++)
 				{
 					int b = ((int)((uint)a >> k)) & 1;
@@ -1265,17 +1284,18 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 				}
 				buf.append('\n');
 			}
-
-			return buf.ToString();
 		}
 
-		/// <summary>
-		/// Swap two rows of the given matrix.
-		/// </summary>
-		/// <param name="matrix"> the matrix </param>
-		/// <param name="first">  the index of the first row </param>
-		/// <param name="second"> the index of the second row </param>
-		private static void swapRows(int[][] matrix, int first, int second)
+			return buf.ToString();
+    }
+
+    /// <summary>
+    /// Swap two rows of the given matrix.
+    /// </summary>
+    /// <param name="matrix"> the matrix </param>
+    /// <param name="first">  the index of the first row </param>
+    /// <param name="second"> the index of the second row </param>
+    private static void swapRows(int[][] matrix, int first, int second)
 		{
 			int[] tmp = matrix[first];
 			matrix[first] = matrix[second];

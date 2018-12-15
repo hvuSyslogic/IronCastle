@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using BouncyCastle.Core.Port.java.io;
 using BouncyCastle.Core.Port.java.lang;
+using BouncyCastle.Core.Port.java.text;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 

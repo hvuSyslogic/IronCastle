@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using BouncyCastle.Core.Port;
+using BouncyCastle.Core.Port.java.util;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
@@ -278,13 +279,9 @@ namespace org.bouncycastle.crypto
 			return properties.remove(property.name);
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: private static void checkPermission(final java.security.Permission permission)
 		private static void checkPermission(Permission permission)
 		{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final SecurityManager securityManager = System.getSecurityManager();
-			SecurityManager securityManager = System.getSecurityManager();
+			SecurityManager securityManager = JavaSystem.getSecurityManager();
 
 			if (securityManager != null)
 			{

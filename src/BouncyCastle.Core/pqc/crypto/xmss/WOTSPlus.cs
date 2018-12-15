@@ -104,7 +104,7 @@ namespace org.bouncycastle.pqc.crypto.xmss
 				checksum += @params.getWinternitzParameter() - 1 - baseWMessage.get(i);
 			}
 			checksum <<= (8 - ((@params.getLen2() * XMSSUtil.log2(@params.getWinternitzParameter())) % 8));
-			int len2Bytes = (int)Math.ceil((double)(@params.getLen2() * XMSSUtil.log2(@params.getWinternitzParameter())) / 8);
+			int len2Bytes = (int)Math.Ceiling((double)(@params.getLen2() * XMSSUtil.log2(@params.getWinternitzParameter())) / 8);
 			List<int> baseWChecksum = convertToBaseW(XMSSUtil.toBytesBigEndian(checksum, len2Bytes), @params.getWinternitzParameter(), @params.getLen2());
 
 			/* msg || checksum */
@@ -183,7 +183,7 @@ namespace org.bouncycastle.pqc.crypto.xmss
 				checksum += @params.getWinternitzParameter() - 1 - baseWMessage.get(i);
 			}
 			checksum <<= (8 - ((@params.getLen2() * XMSSUtil.log2(@params.getWinternitzParameter())) % 8));
-			int len2Bytes = (int)Math.ceil((double)(@params.getLen2() * XMSSUtil.log2(@params.getWinternitzParameter())) / 8);
+			int len2Bytes = (int)Math.Ceiling((double)(@params.getLen2() * XMSSUtil.log2(@params.getWinternitzParameter())) / 8);
 			List<int> baseWChecksum = convertToBaseW(XMSSUtil.toBytesBigEndian(checksum, len2Bytes), @params.getWinternitzParameter(), @params.getLen2());
 
 			/* msg || checksum */

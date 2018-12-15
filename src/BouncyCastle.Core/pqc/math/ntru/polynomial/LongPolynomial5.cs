@@ -82,7 +82,8 @@
 			long[] cCoeffs = Arrays.copyOf(prod[0], prod[0].Length + 1);
 			for (int m = 1; m <= 4; m++)
 			{
-				int shift = m * 12;
+			    {
+                    int shift = m * 12;
 				int shift60 = 60 - shift;
 				long mask = (1L << shift60) - 1;
 				int pLen = prod[m].Length;
@@ -96,9 +97,11 @@
 					int nextIdx = i + 1;
 					cCoeffs[nextIdx] = (cCoeffs[nextIdx] + upper) & 0x7FF7FF7FF7FF7FFL;
 				}
-			}
+			    }
+            }
 
 			// reduce indices of cCoeffs modulo numCoeffs
+		    {
 			int shift = 12 * (numCoeffs % 5);
 			for (int cIdx = coeffs.Length - 1; cIdx < cCoeffs.Length; cIdx++)
 			{
@@ -129,8 +132,9 @@
 
 			return new LongPolynomial5(cCoeffs, numCoeffs);
 		}
+		}
 
-		public virtual IntegerPolynomial toIntegerPolynomial()
+        public virtual IntegerPolynomial toIntegerPolynomial()
 		{
 			int[] intCoeffs = new int[numCoeffs];
 			int cIdx = 0;

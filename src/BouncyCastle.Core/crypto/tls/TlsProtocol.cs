@@ -1480,8 +1480,8 @@ namespace org.bouncycastle.crypto.tls
 			{
 				this.outerInstance = outerInstance;
 				TlsUtils.writeUint8(handshakeType, this);
-				// Reserve space for length
-				count += 3;
+                // Reserve space for length
+			    count += 3;
 			}
 
 			public virtual void writeToRecordStream()

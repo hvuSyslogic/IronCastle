@@ -538,9 +538,9 @@ namespace org.bouncycastle.crypto.generators
 
 		private void initialize(byte[] password, int outputLength)
 		{
-			byte[] initialHash = initialHash(parameters, outputLength, password);
+			byte[] initialHasha = initialHash(parameters, outputLength, password);
 
-			fillFirstBlocks(initialHash);
+			fillFirstBlocks(initialHasha);
 		}
 
 		private static void addIntToLittleEndian(Digest digest, int n)

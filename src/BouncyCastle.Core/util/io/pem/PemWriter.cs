@@ -1,12 +1,15 @@
-﻿namespace org.bouncycastle.util.io.pem
+﻿using BouncyCastle.Core.Port.java.io;
+using org.bouncycastle.Port.java.util;
+
+namespace org.bouncycastle.util.io.pem
 {
+    using System;
+    using Base64 = org.bouncycastle.util.encoders.Base64;
 
-	using Base64 = org.bouncycastle.util.encoders.Base64;
-
-	/// <summary>
-	/// A generic PEM writer, based on RFC 1421
-	/// </summary>
-	public class PemWriter : BufferedWriter
+    /// <summary>
+    /// A generic PEM writer, based on RFC 1421
+    /// </summary>
+    public class PemWriter : BufferedWriter
 	{
 		private const int LINE_LENGTH = 64;
 
@@ -87,7 +90,9 @@
 			writePostEncapsulationBoundary(obj.getType());
 		}
 
-		private void writeEncoded(byte[] bytes)
+
+
+	    private void writeEncoded(byte[] bytes)
 		{
 			bytes = Base64.encode(bytes);
 
@@ -109,7 +114,9 @@
 			}
 		}
 
-		private void writePreEncapsulationBoundary(string type)
+
+
+        private void writePreEncapsulationBoundary(string type)
 		{
 			this.write("-----BEGIN " + type + "-----");
 			this.newLine();

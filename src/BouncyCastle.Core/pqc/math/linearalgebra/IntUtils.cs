@@ -116,34 +116,38 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			{
 				if (source[i] <= pivot)
 				{
-					int tmp = source[index];
+				    {
+                        int tmp = source[index];
 					source[index] = source[i];
 					source[i] = tmp;
 					index++;
 				}
-			}
+				}
+            }
 
+		    {
 			int tmp = source[index];
 			source[index] = source[right];
 			source[right] = tmp;
 
 			return index;
+		    }
 		}
 
-		/// <summary>
-		/// Generates a subarray of a given int array.
-		/// </summary>
-		/// <param name="input"> -
-		///              the input int array </param>
-		/// <param name="start"> -
-		///              the start index </param>
-		/// <param name="end">   -
-		///              the end index </param>
-		/// <returns> a subarray of <tt>input</tt>, ranging from <tt>start</tt> to
-		///         <tt>end</tt> </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static int[] subArray(final int[] input, final int start, final int end)
-		public static int[] subArray(int[] input, int start, int end)
+        /// <summary>
+        /// Generates a subarray of a given int array.
+        /// </summary>
+        /// <param name="input"> -
+        ///              the input int array </param>
+        /// <param name="start"> -
+        ///              the start index </param>
+        /// <param name="end">   -
+        ///              the end index </param>
+        /// <returns> a subarray of <tt>input</tt>, ranging from <tt>start</tt> to
+        ///         <tt>end</tt> </returns>
+        //JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
+        //ORIGINAL LINE: public static int[] subArray(final int[] input, final int start, final int end)
+        public static int[] subArray(int[] input, int start, int end)
 		{
 			int[] result = new int[end - start];
 			JavaSystem.arraycopy(input, start, result, 0, end - start);

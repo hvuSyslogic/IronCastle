@@ -82,10 +82,11 @@ namespace org.bouncycastle.crypto.examples
 
 			if (args.Length < 2)
 			{
-				DESExample de = new DESExample();
+			    {DESExample de = new DESExample();
 				JavaSystem.err.println("Usage: java " + de.GetType().getName() + " infile outfile [keyfile]");
 			    JavaSystem.exit(1);
-			}
+			    }
+            }
 
 			keyfile = "deskey.dat";
 			infile = args[0];
@@ -97,9 +98,10 @@ namespace org.bouncycastle.crypto.examples
 				keyfile = args[2];
 			}
 
-			DESExample de = new DESExample(infile, outfile, keyfile, encrypt);
+		    {DESExample de = new DESExample(infile, outfile, keyfile, encrypt);
 			de.process();
-		}
+		    }
+        }
 
 		// Default constructor, used for the usage message
 		public DESExample()

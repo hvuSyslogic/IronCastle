@@ -251,38 +251,38 @@ namespace org.bouncycastle.crypto.engines
 			int k1 = sBoxKeys[1];
 			int k2 = sBoxKeys[2];
 			int k3 = sBoxKeys[3];
-			int b0, b1, b2, b3;
+			int b0a, b1a, b2a, b3a;
 			gSBox = new int[4 * MAX_KEY_BITS];
 			for (int i = 0; i < MAX_KEY_BITS; i++)
 			{
-				b0 = b1 = b2 = b3 = i;
+				b0a = b1a = b2a = b3a = i;
 				switch (k64Cnt & 3)
 				{
 					case 1:
-						gSBox[i * 2] = gMDS0[(P[P_01][b0] & 0xff) ^ b0(k0)];
-						gSBox[i * 2 + 1] = gMDS1[(P[P_11][b1] & 0xff) ^ b1(k0)];
-						gSBox[i * 2 + 0x200] = gMDS2[(P[P_21][b2] & 0xff) ^ b2(k0)];
-						gSBox[i * 2 + 0x201] = gMDS3[(P[P_31][b3] & 0xff) ^ b3(k0)];
+						gSBox[i * 2] = gMDS0[(P[P_01][b0a] & 0xff) ^ b0(k0)];
+						gSBox[i * 2 + 1] = gMDS1[(P[P_11][b1a] & 0xff) ^ b1(k0)];
+						gSBox[i * 2 + 0x200] = gMDS2[(P[P_21][b2a] & 0xff) ^ b2(k0)];
+						gSBox[i * 2 + 0x201] = gMDS3[(P[P_31][b3a] & 0xff) ^ b3(k0)];
 					break;
 					case 0: // 256 bits of key
-						b0 = (P[P_04][b0] & 0xff) ^ b0(k3);
-						b1 = (P[P_14][b1] & 0xff) ^ b1(k3);
-						b2 = (P[P_24][b2] & 0xff) ^ b2(k3);
-						b3 = (P[P_34][b3] & 0xff) ^ b3(k3);
+						b0a = (P[P_04][b0a] & 0xff) ^ b0(k3);
+						b1a = (P[P_14][b1a] & 0xff) ^ b1(k3);
+						b2a = (P[P_24][b2a] & 0xff) ^ b2(k3);
+						b3a = (P[P_34][b3a] & 0xff) ^ b3(k3);
 						// fall through, having pre-processed b[0]..b[3] with k32[3]
 						goto case 3;
 					case 3: // 192 bits of key
-						b0 = (P[P_03][b0] & 0xff) ^ b0(k2);
-						b1 = (P[P_13][b1] & 0xff) ^ b1(k2);
-						b2 = (P[P_23][b2] & 0xff) ^ b2(k2);
-						b3 = (P[P_33][b3] & 0xff) ^ b3(k2);
+						b0a = (P[P_03][b0a] & 0xff) ^ b0(k2);
+						b1a = (P[P_13][b1a] & 0xff) ^ b1(k2);
+						b2a = (P[P_23][b2a] & 0xff) ^ b2(k2);
+						b3a = (P[P_33][b3a] & 0xff) ^ b3(k2);
 						// fall through, having pre-processed b[0]..b[3] with k32[2]
 						goto case 2;
 					case 2: // 128 bits of key
-						gSBox[i * 2] = gMDS0[(P[P_01][(P[P_02][b0] & 0xff) ^ b0(k1)] & 0xff) ^ b0(k0)];
-						gSBox[i * 2 + 1] = gMDS1[(P[P_11][(P[P_12][b1] & 0xff) ^ b1(k1)] & 0xff) ^ b1(k0)];
-						gSBox[i * 2 + 0x200] = gMDS2[(P[P_21][(P[P_22][b2] & 0xff) ^ b2(k1)] & 0xff) ^ b2(k0)];
-						gSBox[i * 2 + 0x201] = gMDS3[(P[P_31][(P[P_32][b3] & 0xff) ^ b3(k1)] & 0xff) ^ b3(k0)];
+						gSBox[i * 2] = gMDS0[(P[P_01][(P[P_02][b0a] & 0xff) ^ b0(k1)] & 0xff) ^ b0(k0)];
+						gSBox[i * 2 + 1] = gMDS1[(P[P_11][(P[P_12][b1a] & 0xff) ^ b1(k1)] & 0xff) ^ b1(k0)];
+						gSBox[i * 2 + 0x200] = gMDS2[(P[P_21][(P[P_22][b2a] & 0xff) ^ b2(k1)] & 0xff) ^ b2(k0)];
+						gSBox[i * 2 + 0x201] = gMDS3[(P[P_31][(P[P_32][b3a] & 0xff) ^ b3(k1)] & 0xff) ^ b3(k0)];
 					break;
 				}
 			}
@@ -373,10 +373,10 @@ namespace org.bouncycastle.crypto.engines
 		 */
 		private int F32(int x, int[] k32)
 		{
-			int b0 = b0(x);
-			int b1 = b1(x);
-			int b2 = b2(x);
-			int b3 = b3(x);
+			int b0a = b0(x);
+			int b1a = b1(x);
+			int b2a = b2(x);
+			int b3a = b3(x);
 			int k0 = k32[0];
 			int k1 = k32[1];
 			int k2 = k32[2];
@@ -386,22 +386,22 @@ namespace org.bouncycastle.crypto.engines
 			switch (k64Cnt & 3)
 			{
 				case 1:
-					result = gMDS0[(P[P_01][b0] & 0xff) ^ b0(k0)] ^ gMDS1[(P[P_11][b1] & 0xff) ^ b1(k0)] ^ gMDS2[(P[P_21][b2] & 0xff) ^ b2(k0)] ^ gMDS3[(P[P_31][b3] & 0xff) ^ b3(k0)];
+					result = gMDS0[(P[P_01][b0a] & 0xff) ^ b0(k0)] ^ gMDS1[(P[P_11][b1a] & 0xff) ^ b1(k0)] ^ gMDS2[(P[P_21][b2a] & 0xff) ^ b2(k0)] ^ gMDS3[(P[P_31][b3a] & 0xff) ^ b3(k0)];
 					break;
 				case 0: // 256 bits of key
-					b0 = (P[P_04][b0] & 0xff) ^ b0(k3);
-					b1 = (P[P_14][b1] & 0xff) ^ b1(k3);
-					b2 = (P[P_24][b2] & 0xff) ^ b2(k3);
-					b3 = (P[P_34][b3] & 0xff) ^ b3(k3);
+					b0a = (P[P_04][b0a] & 0xff) ^ b0(k3);
+					b1a = (P[P_14][b1a] & 0xff) ^ b1(k3);
+					b2a = (P[P_24][b2a] & 0xff) ^ b2(k3);
+					b3a = (P[P_34][b3a] & 0xff) ^ b3(k3);
 					goto case 3;
 				case 3:
-					b0 = (P[P_03][b0] & 0xff) ^ b0(k2);
-					b1 = (P[P_13][b1] & 0xff) ^ b1(k2);
-					b2 = (P[P_23][b2] & 0xff) ^ b2(k2);
-					b3 = (P[P_33][b3] & 0xff) ^ b3(k2);
+					b0a = (P[P_03][b0a] & 0xff) ^ b0(k2);
+					b1a = (P[P_13][b1a] & 0xff) ^ b1(k2);
+					b2a = (P[P_23][b2a] & 0xff) ^ b2(k2);
+					b3a = (P[P_33][b3a] & 0xff) ^ b3(k2);
 					goto case 2;
 				case 2:
-					result = gMDS0[(P[P_01][(P[P_02][b0] & 0xff) ^ b0(k1)] & 0xff) ^ b0(k0)] ^ gMDS1[(P[P_11][(P[P_12][b1] & 0xff) ^ b1(k1)] & 0xff) ^ b1(k0)] ^ gMDS2[(P[P_21][(P[P_22][b2] & 0xff) ^ b2(k1)] & 0xff) ^ b2(k0)] ^ gMDS3[(P[P_31][(P[P_32][b3] & 0xff) ^ b3(k1)] & 0xff) ^ b3(k0)];
+					result = gMDS0[(P[P_01][(P[P_02][b0a] & 0xff) ^ b0(k1)] & 0xff) ^ b0(k0)] ^ gMDS1[(P[P_11][(P[P_12][b1a] & 0xff) ^ b1(k1)] & 0xff) ^ b1(k0)] ^ gMDS2[(P[P_21][(P[P_22][b2a] & 0xff) ^ b2(k1)] & 0xff) ^ b2(k0)] ^ gMDS3[(P[P_31][(P[P_32][b3a] & 0xff) ^ b3(k1)] & 0xff) ^ b3(k0)];
 				break;
 			}
 			return result;

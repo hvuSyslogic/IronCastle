@@ -465,12 +465,13 @@ namespace org.bouncycastle.crypto.tls
 					length = TlsUtils.readUint16(lengthBytes, 0);
 				}
 
-				int received = Math.Min(recordQueue.available(), RECORD_HEADER_LENGTH + length);
+			    {int received = Math.Min(recordQueue.available(), RECORD_HEADER_LENGTH + length);
 				recordQueue.removeData(buf, off, received, 0);
 				return received;
-			}
+			    }
+            }
 
-			int received = transport.receive(buf, off, len, waitMillis);
+		    {int received = transport.receive(buf, off, len, waitMillis);
 			if (received >= RECORD_HEADER_LENGTH)
 			{
 				int fragmentLength = TlsUtils.readUint16(buf, off + 11);
@@ -483,7 +484,8 @@ namespace org.bouncycastle.crypto.tls
 			}
 
 			return received;
-		}
+		    }
+        }
 
 		private void sendRecord(short contentType, byte[] buf, int off, int len)
 		{

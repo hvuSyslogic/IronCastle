@@ -277,7 +277,7 @@ namespace org.bouncycastle.util
 			{
 				return 1;
 			}
-			int minLen = Math.min(a.Length, b.Length);
+			int minLen = Math.Min(a.Length, b.Length);
 			for (int i = 0; i < minLen; ++i)
 			{
 				int aVal = a[i] & 0xFF, bVal = b[i] & 0xFF;

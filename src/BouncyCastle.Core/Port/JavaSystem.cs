@@ -1,4 +1,5 @@
 ﻿using System;
+using org.bouncycastle.crypto.encodings;
 
 namespace org.bouncycastle.Port
 {
@@ -54,5 +55,34 @@ namespace org.bouncycastle.Port
         {
             throw new NotImplementedException();
         }
+
+        public static SecurityManager getSecurityManager()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static object getProperty(string strictLengthEnabledProperty)
+        {
+            throw new NotImplementedException();
+        }
     }
+
+    public class SecurityManager
+    {
+
+    }
+
+    public class AccessController
+    {
+        public static string doPrivileged(PrivilegedAction p0)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class PrivilegedAction
+    {
+
+    }
+
 }

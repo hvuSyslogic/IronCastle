@@ -1,6 +1,7 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.pqc.math.linearalgebra
 {
@@ -143,8 +144,8 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 				throw new RuntimeException("\nThe type of this field is " + mType);
 			}
 			computeFieldPolynomial();
-			fields = new Vector();
-			matrices = new Vector();
+			fields = new org.bouncycastle.Port.java.util.Vector();
+			matrices = new org.bouncycastle.Port.java.util.Vector();
 		}
 
 		// /////////////////////////////////////////////////////////////////////

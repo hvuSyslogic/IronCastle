@@ -304,17 +304,19 @@ namespace org.bouncycastle.crypto.generators
 	//      (optionally) the values of domain_parameter_seed and counter.
 						if (usageIndex >= 0)
 						{
-							BigInteger g = calculateGenerator_FIPS186_3_Verifiable(d, p, q, seed, usageIndex);
+						    {BigInteger g = calculateGenerator_FIPS186_3_Verifiable(d, p, q, seed, usageIndex);
 							if (g != null)
 							{
 							   return new DSAParameters(p, q, g, new DSAValidationParameters(seed, counter, usageIndex));
 							}
-						}
+						    }
+                        }
 
-						BigInteger g = calculateGenerator_FIPS186_3_Unverifiable(p, q, random);
+					    {BigInteger g = calculateGenerator_FIPS186_3_Unverifiable(p, q, random);
 
 						return new DSAParameters(p, q, g, new DSAValidationParameters(seed, counter));
-					}
+					    }
+                    }
 
 	// 11.9 offset = offset + n + 1.      Comment: Increment offset; then, as part of
 	//                                    the loop in step 11, increment counter; if
