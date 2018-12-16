@@ -253,7 +253,7 @@ namespace org.bouncycastle.pqc.crypto.gmss
 				{
 
 					// help <-- hash(stack top element || help)
-					JavaSystem.arraycopy(tailStack.lastElement(), 0, toBeHashed, 0, mdLength);
+					JavaSystem.arraycopy((byte[])tailStack.lastElement(), 0, toBeHashed, 0, mdLength);
 					tailStack.removeElementAt(tailStack.size() - 1);
 					heightOfNodes.removeElementAt(heightOfNodes.size() - 1);
 					JavaSystem.arraycopy(help, 0, toBeHashed, mdLength, mdLength);

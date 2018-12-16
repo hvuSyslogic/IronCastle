@@ -357,7 +357,15 @@ namespace org.bouncycastle.util
 			}
 		}
 
-		public static void fill(short[] array, short value)
+	    public static void fill(ulong[] array, ulong value)
+	    {
+	        for (int i = 0; i < array.Length; i++)
+	        {
+	            array[i] = value;
+	        }
+	    }
+
+        public static void fill(short[] array, short value)
 		{
 			for (int i = 0; i < array.Length; i++)
 			{
@@ -730,7 +738,20 @@ namespace org.bouncycastle.util
 			return copy;
 		}
 
-		public static long[] clone(long[] data, long[] existing)
+	    public static ulong[] clone(ulong[] data)
+	    {
+	        if (data == null)
+	        {
+	            return null;
+	        }
+	        ulong[] copy = new ulong[data.Length];
+
+	        JavaSystem.arraycopy(data, 0, copy, 0, data.Length);
+
+	        return copy;
+	    }
+
+        public static long[] clone(long[] data, long[] existing)
 		{
 			if (data == null)
 			{
@@ -786,7 +807,23 @@ namespace org.bouncycastle.util
 			return tmp;
 		}
 
-		public static char[] copyOf(char[] data, int newLength)
+	    public static sbyte[] copyOf(sbyte[] data, int newLength)
+	    {
+	        sbyte[] tmp = new sbyte[newLength];
+
+	        if (newLength < data.Length)
+	        {
+	            JavaSystem.arraycopy(data, 0, tmp, 0, newLength);
+	        }
+	        else
+	        {
+	            JavaSystem.arraycopy(data, 0, tmp, 0, data.Length);
+	        }
+
+	        return tmp;
+	    }
+
+        public static char[] copyOf(char[] data, int newLength)
 		{
 			char[] tmp = new char[newLength];
 
@@ -1253,6 +1290,17 @@ namespace org.bouncycastle.util
 				}
 			}
 		}
-	}
+
+	    public static void clear(sbyte[] array)
+	    {
+	        if (array != null)
+	        {
+	            for (int i = 0; i < array.Length; i++)
+	            {
+	                array[i] = 0;
+	            }
+	        }
+	    }
+    }
 
 }

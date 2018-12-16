@@ -1,4 +1,5 @@
 ﻿using System;
+using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
 using BouncyCastle.Core.Port.java.lang;
 using BouncyCastle.Core.Port.java.util;
@@ -8,7 +9,7 @@ using org.bouncycastle.Port.java.util;
 namespace org.bouncycastle.pqc.math.ntru.polynomial
 {
 
-	using CryptoServicesRegistrar = org.bouncycastle.crypto.CryptoServicesRegistrar;
+	using CryptoServicesRegistrar = CryptoServicesRegistrar;
 	using Arrays = org.bouncycastle.util.Arrays;
 
 	/// <summary>

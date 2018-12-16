@@ -5,4 +5,11 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="crypto\CryptoServicesPermission.cs" />
+    <Compile Remove="crypto\CryptoServicesRegistrar.cs" />
+    <Compile Remove="crypto\prng\ThreadedSeedGenerator.cs" />
+    <Compile Remove="crypto\tls\UDPTransport.cs" />
+  </ItemGroup>
+
 </Project>

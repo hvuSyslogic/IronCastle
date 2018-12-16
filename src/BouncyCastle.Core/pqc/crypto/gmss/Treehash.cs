@@ -238,7 +238,7 @@ namespace org.bouncycastle.pqc.crypto.gmss
 					byte[] toBeHashed = new byte[this.messDigestTree.getDigestSize() << 1];
 
 					// pop element from stack
-					JavaSystem.arraycopy(this.tailStack.lastElement(), 0, toBeHashed, 0, this.messDigestTree.getDigestSize());
+					JavaSystem.arraycopy((byte[])this.tailStack.lastElement(), 0, toBeHashed, 0, this.messDigestTree.getDigestSize());
 					this.tailStack.removeElementAt(this.tailStack.size() - 1);
 					this.heightOfNodes.removeElementAt(this.heightOfNodes.size() - 1);
 
@@ -266,7 +266,7 @@ namespace org.bouncycastle.pqc.crypto.gmss
 					JavaSystem.arraycopy(this.firstNode, 0, toBeHashed, 0, this.messDigestTree.getDigestSize());
 
 					// pop element from tailStack and copy it into help2 array
-					JavaSystem.arraycopy(this.tailStack.lastElement(), 0, toBeHashed, this.messDigestTree.getDigestSize(), this.messDigestTree.getDigestSize());
+					JavaSystem.arraycopy((byte[])this.tailStack.lastElement(), 0, toBeHashed, this.messDigestTree.getDigestSize(), this.messDigestTree.getDigestSize());
 					this.tailStack.removeElementAt(this.tailStack.size() - 1);
 					this.heightOfNodes.removeElementAt(this.heightOfNodes.size() - 1);
 

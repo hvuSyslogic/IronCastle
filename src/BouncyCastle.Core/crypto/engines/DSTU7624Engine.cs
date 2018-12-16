@@ -18,9 +18,9 @@ namespace org.bouncycastle.crypto.engines
 	*/
 	public class DSTU7624Engine : BlockCipher
 	{
-		private long[] internalState;
-		private long[] workingKey;
-		private long[][] roundKeys;
+		private ulong[] internalState;
+		private ulong[] workingKey;
+		private ulong[][] roundKeys;
 
 		/* Number of 64-bit words in block */
 		private int wordsInBlock;
@@ -46,7 +46,7 @@ namespace org.bouncycastle.crypto.engines
 			}
 
 			wordsInBlock = (int)((uint)blockBitLength >> 6);
-			internalState = new long[wordsInBlock];
+			internalState = new ulong[wordsInBlock];
 		}
 
 		public virtual void init(bool forEncryption, CipherParameters @params)
@@ -89,13 +89,13 @@ namespace org.bouncycastle.crypto.engines
 			wordsInKey = (int)((uint)keyBitLength >> 6);
 
 			/* +1 round key as defined in standard */
-			roundKeys = new long[roundsAmount + 1][];
+			roundKeys = new ulong[roundsAmount + 1][];
 			for (int roundKeyIndex = 0; roundKeyIndex < roundKeys.Length; roundKeyIndex++)
 			{
-				roundKeys[roundKeyIndex] = new long[wordsInBlock];
+				roundKeys[roundKeyIndex] = new ulong[wordsInBlock];
 			}
 
-			workingKey = new long[wordsInKey];
+			workingKey = new ulong[wordsInKey];
 
 			if (keyBytes.Length != ((int)((uint)keyBitLength >> 3)))
 			{
@@ -103,9 +103,9 @@ namespace org.bouncycastle.crypto.engines
 			}
 
 			/* Unpack encryption key bytes to words */
-			Pack.littleEndianToLong(keyBytes, 0, workingKey);
+			Pack.littleEndianToULong(keyBytes, 0, workingKey);
 
-			long[] tempKeys = new long[wordsInBlock];
+			ulong[] tempKeys = new ulong[wordsInBlock];
 
 			/* KSA in DSTU7624 is strengthened to mitigate known weaknesses in AES KSA (eprint.iacr.org/2012/260.pdf) */
 			workingKeyExpandKT(workingKey, tempKeys);
@@ -152,7 +152,7 @@ namespace org.bouncycastle.crypto.engines
 				}
 				default:
 				{
-					Pack.littleEndianToLong(@in, inOff, internalState);
+					Pack.littleEndianToULong(@in, inOff, internalState);
 					addRoundKey(0);
 					for (int round = 0;;)
 					{
@@ -168,7 +168,7 @@ namespace org.bouncycastle.crypto.engines
 						xorRoundKey(round);
 					}
 					addRoundKey(roundsAmount);
-					Pack.longToLittleEndian(internalState, @out, outOff);
+					Pack.UlongToLittleEndian(internalState, @out, outOff);
 					break;
 				}
 				}
@@ -185,7 +185,7 @@ namespace org.bouncycastle.crypto.engines
 				}
 				default:
 				{
-					Pack.littleEndianToLong(@in, inOff, internalState);
+					Pack.littleEndianToULong(@in, inOff, internalState);
 					subRoundKey(roundsAmount);
 					for (int round = roundsAmount;;)
 					{
@@ -201,7 +201,7 @@ namespace org.bouncycastle.crypto.engines
 						xorRoundKey(round);
 					}
 					subRoundKey(0);
-					Pack.longToLittleEndian(internalState, @out, outOff);
+					Pack.UlongToLittleEndian(internalState, @out, outOff);
 					break;
 				}
 				}
@@ -217,7 +217,7 @@ namespace org.bouncycastle.crypto.engines
 
 		private void addRoundKey(int round)
 		{
-			long[] roundKey = roundKeys[round];
+			ulong[] roundKey = roundKeys[round];
 			for (int i = 0; i < wordsInBlock; ++i)
 			{
 				internalState[i] += roundKey[i];
@@ -226,7 +226,7 @@ namespace org.bouncycastle.crypto.engines
 
 		private void subRoundKey(int round)
 		{
-			long[] roundKey = roundKeys[round];
+			ulong[] roundKey = roundKeys[round];
 			for (int i = 0; i < wordsInBlock; ++i)
 			{
 				internalState[i] -= roundKey[i];
@@ -235,20 +235,20 @@ namespace org.bouncycastle.crypto.engines
 
 		private void xorRoundKey(int round)
 		{
-			long[] roundKey = roundKeys[round];
+			ulong[] roundKey = roundKeys[round];
 			for (int i = 0; i < wordsInBlock; ++i)
 			{
 				internalState[i] ^= roundKey[i];
 			}
 		}
 
-		private void workingKeyExpandKT(long[] workingKey, long[] tempKeys)
+		private void workingKeyExpandKT(ulong[] workingKey, ulong[] tempKeys)
 		{
-			long[] k0 = new long[wordsInBlock];
-			long[] k1 = new long[wordsInBlock];
+			ulong[] k0 = new ulong[wordsInBlock];
+			ulong[] k1 = new ulong[wordsInBlock];
 
-			internalState = new long[wordsInBlock];
-			internalState[0] += wordsInBlock + wordsInKey + 1;
+			internalState = new ulong[wordsInBlock];
+			internalState[0] += (ulong)(wordsInBlock + wordsInKey + 1);
 
 			if (wordsInBlock == wordsInKey)
 			{
@@ -292,16 +292,16 @@ namespace org.bouncycastle.crypto.engines
 			JavaSystem.arraycopy(internalState, 0, tempKeys, 0, wordsInBlock);
 		}
 
-		private void workingKeyExpandEven(long[] workingKey, long[] tempKey)
+		private void workingKeyExpandEven(ulong[] workingKey, ulong[] tempKey)
 		{
-			long[] initialData = new long[wordsInKey];
-			long[] tempRoundKey = new long[wordsInBlock];
+			ulong[] initialData = new ulong[wordsInKey];
+			ulong[] tempRoundKey = new ulong[wordsInBlock];
 
 			int round = 0;
 
 			JavaSystem.arraycopy(workingKey, 0, initialData, 0, wordsInKey);
 
-			long tmv = 0x0001000100010001L;
+			ulong tmv = 0x0001000100010001L;
 
 			while (true)
 			{
@@ -384,7 +384,7 @@ namespace org.bouncycastle.crypto.engines
 				round += 2;
 				tmv <<= 1;
 
-				long temp = initialData[0];
+				ulong temp = initialData[0];
 				for (int i = 1; i < initialData.Length; ++i)
 				{
 					initialData[i - 1] = initialData[i];
@@ -403,10 +403,10 @@ namespace org.bouncycastle.crypto.engines
 
 		private void decryptBlock_128(byte[] @in, int inOff, byte[] @out, int outOff)
 		{
-			long c0 = Pack.littleEndianToLong(@in, inOff);
-			long c1 = Pack.littleEndianToLong(@in, inOff + 8);
+			ulong c0 = Pack.littleEndianToULong(@in, inOff);
+			ulong c1 = Pack.littleEndianToULong(@in, inOff + 8);
 
-			long[] roundKey = roundKeys[roundsAmount];
+			ulong[] roundKey = roundKeys[roundsAmount];
 			c0 -= roundKey[0];
 			c1 -= roundKey[1];
 
@@ -429,8 +429,8 @@ namespace org.bouncycastle.crypto.engines
 					byte t6 = T2[((int)((uint)hi1 >> 16)) & 0xFF];
 					byte t7 = T3[(int)((uint)hi1 >> 24)];
 					hi1 = (t4 & 0xFF) | ((t5 & 0xFF) << 8) | ((t6 & 0xFF) << 16) | ((int)t7 << 24);
-					c0 = (lo0 & 0xFFFFFFFFL) | ((long)hi1 << 32);
-				}
+				    c0 = (ulong)lo0 | ((ulong)hi1 << 32);
+                }
 
 				{
 					byte t0 = T0[lo1 & 0xFF];
@@ -443,8 +443,8 @@ namespace org.bouncycastle.crypto.engines
 					byte t6 = T2[((int)((uint)hi0 >> 16)) & 0xFF];
 					byte t7 = T3[(int)((uint)hi0 >> 24)];
 					hi0 = (t4 & 0xFF) | ((t5 & 0xFF) << 8) | ((t6 & 0xFF) << 16) | ((int)t7 << 24);
-					c1 = (lo1 & 0xFFFFFFFFL) | ((long)hi0 << 32);
-				}
+				    c1 = (ulong)lo1 | ((ulong)hi0 << 32);
+                }
 
 				if (--round == 0)
 				{
@@ -460,16 +460,16 @@ namespace org.bouncycastle.crypto.engines
 			c0 -= roundKey[0];
 			c1 -= roundKey[1];
 
-			Pack.longToLittleEndian(c0, @out, outOff);
-			Pack.longToLittleEndian(c1, @out, outOff + 8);
+			Pack.UlongToLittleEndian(c0, @out, outOff);
+			Pack.UlongToLittleEndian(c1, @out, outOff + 8);
 		}
 
 		private void encryptBlock_128(byte[] @in, int inOff, byte[] @out, int outOff)
 		{
-			long c0 = Pack.littleEndianToLong(@in, inOff);
-			long c1 = Pack.littleEndianToLong(@in, inOff + 8);
+			ulong c0 = Pack.littleEndianToULong(@in, inOff);
+			ulong c1 = Pack.littleEndianToULong(@in, inOff + 8);
 
-			long[] roundKey = roundKeys[0];
+			ulong[] roundKey = roundKeys[0];
 			c0 += roundKey[0];
 			c1 += roundKey[1];
 
@@ -489,8 +489,8 @@ namespace org.bouncycastle.crypto.engines
 					byte t6 = S2[((int)((uint)hi1 >> 16)) & 0xFF];
 					byte t7 = S3[(int)((uint)hi1 >> 24)];
 					hi1 = (t4 & 0xFF) | ((t5 & 0xFF) << 8) | ((t6 & 0xFF) << 16) | ((int)t7 << 24);
-					c0 = (lo0 & 0xFFFFFFFFL) | ((long)hi1 << 32);
-				}
+				    c0 = (ulong)lo0 | ((ulong)hi1 << 32);
+                }
 
 				{
 					byte t0 = S0[lo1 & 0xFF];
@@ -503,8 +503,8 @@ namespace org.bouncycastle.crypto.engines
 					byte t6 = S2[((int)((uint)hi0 >> 16)) & 0xFF];
 					byte t7 = S3[(int)((uint)hi0 >> 24)];
 					hi0 = (t4 & 0xFF) | ((t5 & 0xFF) << 8) | ((t6 & 0xFF) << 16) | ((int)t7 << 24);
-					c1 = (lo1 & 0xFFFFFFFFL) | ((long)hi0 << 32);
-				}
+				    c1 = (ulong)lo1 | ((ulong)hi0 << 32);
+                }
 
 				c0 = mixColumn(c0);
 				c1 = mixColumn(c1);
@@ -523,15 +523,15 @@ namespace org.bouncycastle.crypto.engines
 			c0 += roundKey[0];
 			c1 += roundKey[1];
 
-			Pack.longToLittleEndian(c0, @out, outOff);
-			Pack.longToLittleEndian(c1, @out, outOff + 8);
+			Pack.UlongToLittleEndian(c0, @out, outOff);
+			Pack.UlongToLittleEndian(c1, @out, outOff + 8);
 		}
 
 		private void subBytes()
 		{
 			for (int i = 0; i < wordsInBlock; i++)
 			{
-				long u = internalState[i];
+				ulong u = internalState[i];
 				int lo = (int)u, hi = (int)((long)((ulong)u >> 32));
 				byte t0 = S0[lo & 0xFF];
 				byte t1 = S1[((int)((uint)lo >> 8)) & 0xFF];
@@ -543,15 +543,15 @@ namespace org.bouncycastle.crypto.engines
 				byte t6 = S2[((int)((uint)hi >> 16)) & 0xFF];
 				byte t7 = S3[(int)((uint)hi >> 24)];
 				hi = (t4 & 0xFF) | ((t5 & 0xFF) << 8) | ((t6 & 0xFF) << 16) | ((int)t7 << 24);
-				internalState[i] = (lo & 0xFFFFFFFFL) | ((long)hi << 32);
-			}
+			    internalState[i] = (ulong)lo | ((ulong)hi << 32);
+            }
 		}
 
 		private void invSubBytes()
 		{
 			for (int i = 0; i < wordsInBlock; i++)
 			{
-				long u = internalState[i];
+				ulong u = internalState[i];
 				int lo = (int)u, hi = (int)((long)((ulong)u >> 32));
 				byte t0 = T0[lo & 0xFF];
 				byte t1 = T1[((int)((uint)lo >> 8)) & 0xFF];
@@ -563,7 +563,7 @@ namespace org.bouncycastle.crypto.engines
 				byte t6 = T2[((int)((uint)hi >> 16)) & 0xFF];
 				byte t7 = T3[(int)((uint)hi >> 24)];
 				hi = (t4 & 0xFF) | ((t5 & 0xFF) << 8) | ((t6 & 0xFF) << 16) | ((int)t7 << 24);
-				internalState[i] = (lo & 0xFFFFFFFFL) | ((long)hi << 32);
+				internalState[i] = (ulong)lo | ((ulong)hi << 32);
 			}
 		}
 
@@ -573,10 +573,10 @@ namespace org.bouncycastle.crypto.engines
 			{
 			case 2:
 			{
-				long c0 = internalState[0], c1 = internalState[1];
-				long d;
+				ulong c0 = internalState[0], c1 = internalState[1];
+				ulong d;
 
-				d = (c0 ^ c1) & unchecked((long)0xFFFFFFFF00000000L);
+				d = (c0 ^ c1) & unchecked((ulong)0xFFFFFFFF00000000UL);
 				c0 ^= d;
 				c1 ^= d;
 
@@ -586,20 +586,20 @@ namespace org.bouncycastle.crypto.engines
 			}
 			case 4:
 			{
-				long c0 = internalState[0], c1 = internalState[1], c2 = internalState[2], c3 = internalState[3];
-				long d;
+				ulong c0 = internalState[0], c1 = internalState[1], c2 = internalState[2], c3 = internalState[3];
+				ulong d;
 
-				d = (c0 ^ c2) & unchecked((long)0xFFFFFFFF00000000L);
+				d = (c0 ^ c2) & unchecked((ulong)0xFFFFFFFF00000000UL);
 				c0 ^= d;
 				c2 ^= d;
-				d = (c1 ^ c3) & 0x0000FFFFFFFF0000L;
+				d = (c1 ^ c3) & 0x0000FFFFFFFF0000UL;
 				c1 ^= d;
 				c3 ^= d;
 
-				d = (c0 ^ c1) & unchecked((long)0xFFFF0000FFFF0000L);
+				d = (c0 ^ c1) & unchecked((ulong)0xFFFF0000FFFF0000UL);
 				c0 ^= d;
 				c1 ^= d;
-				d = (c2 ^ c3) & unchecked((long)0xFFFF0000FFFF0000L);
+				d = (c2 ^ c3) & unchecked((ulong)0xFFFF0000FFFF0000UL);
 				c2 ^= d;
 				c3 ^= d;
 
@@ -611,46 +611,46 @@ namespace org.bouncycastle.crypto.engines
 			}
 			case 8:
 			{
-				long c0 = internalState[0], c1 = internalState[1], c2 = internalState[2], c3 = internalState[3];
-				long c4 = internalState[4], c5 = internalState[5], c6 = internalState[6], c7 = internalState[7];
-				long d;
+				ulong c0 = internalState[0], c1 = internalState[1], c2 = internalState[2], c3 = internalState[3];
+				ulong c4 = internalState[4], c5 = internalState[5], c6 = internalState[6], c7 = internalState[7];
+				ulong d;
 
-				d = (c0 ^ c4) & unchecked((long)0xFFFFFFFF00000000L);
+				d = (c0 ^ c4) & unchecked((ulong)0xFFFFFFFF00000000UL);
 				c0 ^= d;
 				c4 ^= d;
-				d = (c1 ^ c5) & 0x00FFFFFFFF000000L;
+				d = (c1 ^ c5) & 0x00FFFFFFFF000000UL;
 				c1 ^= d;
 				c5 ^= d;
-				d = (c2 ^ c6) & 0x0000FFFFFFFF0000L;
+				d = (c2 ^ c6) & 0x0000FFFFFFFF0000UL;
 				c2 ^= d;
 				c6 ^= d;
-				d = (c3 ^ c7) & 0x000000FFFFFFFF00L;
+				d = (c3 ^ c7) & 0x000000FFFFFFFF00UL;
 				c3 ^= d;
 				c7 ^= d;
 
-				d = (c0 ^ c2) & unchecked((long)0xFFFF0000FFFF0000L);
+				d = (c0 ^ c2) & unchecked((ulong)0xFFFF0000FFFF0000UL);
 				c0 ^= d;
 				c2 ^= d;
-				d = (c1 ^ c3) & 0x00FFFF0000FFFF00L;
+				d = (c1 ^ c3) & 0x00FFFF0000FFFF00UL;
 				c1 ^= d;
 				c3 ^= d;
-				d = (c4 ^ c6) & unchecked((long)0xFFFF0000FFFF0000L);
+				d = (c4 ^ c6) & unchecked((ulong)0xFFFF0000FFFF0000UL);
 				c4 ^= d;
 				c6 ^= d;
-				d = (c5 ^ c7) & 0x00FFFF0000FFFF00L;
+				d = (c5 ^ c7) & 0x00FFFF0000FFFF00UL;
 				c5 ^= d;
 				c7 ^= d;
 
-				d = (c0 ^ c1) & unchecked((long)0xFF00FF00FF00FF00L);
+				d = (c0 ^ c1) & unchecked((ulong)0xFF00FF00FF00FF00UL);
 				c0 ^= d;
 				c1 ^= d;
-				d = (c2 ^ c3) & unchecked((long)0xFF00FF00FF00FF00L);
+				d = (c2 ^ c3) & unchecked((ulong)0xFF00FF00FF00FF00UL);
 				c2 ^= d;
 				c3 ^= d;
-				d = (c4 ^ c5) & unchecked((long)0xFF00FF00FF00FF00L);
+				d = (c4 ^ c5) & unchecked((ulong)0xFF00FF00FF00FF00UL);
 				c4 ^= d;
 				c5 ^= d;
-				d = (c6 ^ c7) & unchecked((long)0xFF00FF00FF00FF00L);
+				d = (c6 ^ c7) & unchecked((ulong)0xFF00FF00FF00FF00UL);
 				c6 ^= d;
 				c7 ^= d;
 
@@ -677,10 +677,10 @@ namespace org.bouncycastle.crypto.engines
 			{
 			case 2:
 			{
-				long c0 = internalState[0], c1 = internalState[1];
-				long d;
+				ulong c0 = internalState[0], c1 = internalState[1];
+				ulong d;
 
-				d = (c0 ^ c1) & unchecked((long)0xFFFFFFFF00000000L);
+				d = (c0 ^ c1) & unchecked((ulong)0xFFFFFFFF00000000UL);
 				c0 ^= d;
 				c1 ^= d;
 
@@ -690,17 +690,17 @@ namespace org.bouncycastle.crypto.engines
 			}
 			case 4:
 			{
-				long c0 = internalState[0], c1 = internalState[1], c2 = internalState[2], c3 = internalState[3];
-				long d;
+				ulong c0 = internalState[0], c1 = internalState[1], c2 = internalState[2], c3 = internalState[3];
+				ulong d;
 
-				d = (c0 ^ c1) & unchecked((long)0xFFFF0000FFFF0000L);
+				d = (c0 ^ c1) & unchecked((ulong)0xFFFF0000FFFF0000UL);
 				c0 ^= d;
 				c1 ^= d;
-				d = (c2 ^ c3) & unchecked((long)0xFFFF0000FFFF0000L);
+				d = (c2 ^ c3) & unchecked((ulong)0xFFFF0000FFFF0000UL);
 				c2 ^= d;
 				c3 ^= d;
 
-				d = (c0 ^ c2) & unchecked((long)0xFFFFFFFF00000000L);
+				d = (c0 ^ c2) & unchecked((ulong)0xFFFFFFFF00000000UL);
 				c0 ^= d;
 				c2 ^= d;
 				d = (c1 ^ c3) & 0x0000FFFFFFFF0000L;
@@ -715,46 +715,46 @@ namespace org.bouncycastle.crypto.engines
 			}
 			case 8:
 			{
-				long c0 = internalState[0], c1 = internalState[1], c2 = internalState[2], c3 = internalState[3];
-				long c4 = internalState[4], c5 = internalState[5], c6 = internalState[6], c7 = internalState[7];
-				long d;
+				ulong c0 = internalState[0], c1 = internalState[1], c2 = internalState[2], c3 = internalState[3];
+				ulong c4 = internalState[4], c5 = internalState[5], c6 = internalState[6], c7 = internalState[7];
+				ulong d;
 
-				d = (c0 ^ c1) & unchecked((long)0xFF00FF00FF00FF00L);
+				d = (c0 ^ c1) & unchecked((ulong)0xFF00FF00FF00FF00UL);
 				c0 ^= d;
 				c1 ^= d;
-				d = (c2 ^ c3) & unchecked((long)0xFF00FF00FF00FF00L);
+				d = (c2 ^ c3) & unchecked((ulong)0xFF00FF00FF00FF00UL);
 				c2 ^= d;
 				c3 ^= d;
-				d = (c4 ^ c5) & unchecked((long)0xFF00FF00FF00FF00L);
+				d = (c4 ^ c5) & unchecked((ulong)0xFF00FF00FF00FF00UL);
 				c4 ^= d;
 				c5 ^= d;
-				d = (c6 ^ c7) & unchecked((long)0xFF00FF00FF00FF00L);
+				d = (c6 ^ c7) & unchecked((ulong)0xFF00FF00FF00FF00UL);
 				c6 ^= d;
 				c7 ^= d;
 
-				d = (c0 ^ c2) & unchecked((long)0xFFFF0000FFFF0000L);
+				d = (c0 ^ c2) & unchecked((ulong)0xFFFF0000FFFF0000UL);
 				c0 ^= d;
 				c2 ^= d;
-				d = (c1 ^ c3) & 0x00FFFF0000FFFF00L;
+				d = (c1 ^ c3) & 0x00FFFF0000FFFF00UL;
 				c1 ^= d;
 				c3 ^= d;
-				d = (c4 ^ c6) & unchecked((long)0xFFFF0000FFFF0000L);
+				d = (c4 ^ c6) & unchecked((ulong)0xFFFF0000FFFF0000UL);
 				c4 ^= d;
 				c6 ^= d;
-				d = (c5 ^ c7) & 0x00FFFF0000FFFF00L;
+				d = (c5 ^ c7) & 0x00FFFF0000FFFF00UL;
 				c5 ^= d;
 				c7 ^= d;
 
-				d = (c0 ^ c4) & unchecked((long)0xFFFFFFFF00000000L);
+				d = (c0 ^ c4) & unchecked((ulong)0xFFFFFFFF00000000UL);
 				c0 ^= d;
 				c4 ^= d;
-				d = (c1 ^ c5) & 0x00FFFFFFFF000000L;
+				d = (c1 ^ c5) & 0x00FFFFFFFF000000UL;
 				c1 ^= d;
 				c5 ^= d;
-				d = (c2 ^ c6) & 0x0000FFFFFFFF0000L;
+				d = (c2 ^ c6) & 0x0000FFFFFFFF0000UL;
 				c2 ^= d;
 				c6 ^= d;
-				d = (c3 ^ c7) & 0x000000FFFFFFFF00L;
+				d = (c3 ^ c7) & 0x000000FFFFFFFF00UL;
 				c3 ^= d;
 				c7 ^= d;
 
@@ -775,7 +775,7 @@ namespace org.bouncycastle.crypto.engines
 			}
 		}
 
-		private static long mixColumn(long c)
+		private static ulong mixColumn(ulong c)
 		{
 	//        // Calculate column multiplied by powers of 'x'
 	//        long x0 = c;
@@ -803,8 +803,8 @@ namespace org.bouncycastle.crypto.engines
 	//            ^ rotate(48, m6)
 	//            ^ rotate(56, m7);
 
-			long x1 = mulX(c);
-			long u, v;
+			ulong x1 = mulX(c);
+			ulong u, v;
 
 			u = rotate(8, c) ^ c;
 			u ^= rotate(16, u);
@@ -823,7 +823,7 @@ namespace org.bouncycastle.crypto.engines
 			}
 		}
 
-		private static long mixColumnInv(long c)
+		private static ulong mixColumnInv(ulong c)
 		{
 	/*
 	        // Calculate column multiplied by powers of 'x'
@@ -870,28 +870,28 @@ namespace org.bouncycastle.crypto.engines
 	            ^ rotate(56, m7);
 	*/
 
-			long u0 = c;
+			ulong u0 = c;
 			u0 ^= rotate(8, u0);
 			u0 ^= rotate(32, u0);
 			u0 ^= rotate(48, c);
 
-			long t = u0 ^ c;
+			ulong t = u0 ^ c;
 
-			long c48 = rotate(48, c);
-			long c56 = rotate(56, c);
+			ulong c48 = rotate(48, c);
+			ulong c56 = rotate(56, c);
 
-			long u7 = t ^ c56;
-			long u6 = rotate(56, t);
+			ulong u7 = t ^ c56;
+			ulong u6 = rotate(56, t);
 			u6 ^= mulX(u7);
-			long u5 = rotate(16, t) ^ c;
+			ulong u5 = rotate(16, t) ^ c;
 			u5 ^= rotate(40, mulX(u6) ^ c);
-			long u4 = t ^ c48;
+			ulong u4 = t ^ c48;
 			u4 ^= mulX(u5);
-			long u3 = rotate(16, u0);
+			ulong u3 = rotate(16, u0);
 			u3 ^= mulX(u4);
-			long u2 = t ^ rotate(24, c) ^ c48 ^ c56;
+			ulong u2 = t ^ rotate(24, c) ^ c48 ^ c56;
 			u2 ^= mulX(u3);
-			long u1 = rotate(32, t) ^ c ^ c56;
+			ulong u1 = rotate(32, t) ^ c ^ c56;
 			u1 ^= mulX(u2);
 			u0 ^= mulX(rotate(40, u1));
 
@@ -906,15 +906,15 @@ namespace org.bouncycastle.crypto.engines
 			}
 		}
 
-		private static long mulX(long n)
+		private static ulong mulX(ulong n)
 		{
-			return ((n & 0x7F7F7F7F7F7F7F7FL) << 1) ^ (((int)((uint)(n & 0x8080808080808080L) >> 7)) * 0x1DL);
-		}
+		    return ((n & 0x7F7F7F7F7F7F7F7FUL) << 1) ^ (((n & 0x8080808080808080UL) >> 7) * 0x1DUL);
+        }
 
-		private static long mulX2(long n)
+		private static ulong mulX2(ulong n)
 		{
-			return ((n & 0x3F3F3F3F3F3F3F3FL) << 2) ^ (((int)((uint)(n & 0x8080808080808080L) >> 6)) * 0x1DL) ^ (((long)((ulong)(n & 0x4040404040404040L) >> 6)) * 0x1DL);
-		}
+		    return ((n & 0x3F3F3F3F3F3F3F3FUL) << 2) ^ (((n & 0x8080808080808080UL) >> 6) * 0x1DUL) ^ (((n & 0x4040404040404040UL) >> 6) * 0x1DUL);
+        }
 
 	//    private static long mulX4(long n)
 	//    {
@@ -955,43 +955,43 @@ namespace org.bouncycastle.crypto.engines
 	//        return r;
 	//    }
 
-		private static long rotate(int n, long x)
+		private static ulong rotate(int n, ulong x)
 		{
-			return ((long)((ulong)x >> n)) | (x << -n);
+			return ((ulong)((ulong)x >> n)) | (x << -n);
 		}
 
-		private void rotateLeft(long[] x, long[] z)
+		private void rotateLeft(ulong[] x, ulong[] z)
 		{
 			switch (wordsInBlock)
 			{
 			case 2:
 			{
-				long x0 = x[0], x1 = x[1];
-				z[0] = ((long)((ulong)x0 >> 56)) | (x1 << 8);
-				z[1] = ((long)((ulong)x1 >> 56)) | (x0 << 8);
+				ulong x0 = x[0], x1 = x[1];
+				z[0] = ((ulong)((ulong)x0 >> 56)) | (x1 << 8);
+				z[1] = ((ulong)((ulong)x1 >> 56)) | (x0 << 8);
 				break;
 			}
 			case 4:
 			{
-				long x0 = x[0], x1 = x[1], x2 = x[2], x3 = x[3];
-				z[0] = ((long)((ulong)x1 >> 24)) | (x2 << 40);
-				z[1] = ((long)((ulong)x2 >> 24)) | (x3 << 40);
-				z[2] = ((long)((ulong)x3 >> 24)) | (x0 << 40);
-				z[3] = ((long)((ulong)x0 >> 24)) | (x1 << 40);
+				ulong x0 = x[0], x1 = x[1], x2 = x[2], x3 = x[3];
+				z[0] = ((ulong)((ulong)x1 >> 24)) | (x2 << 40);
+				z[1] = ((ulong)((ulong)x2 >> 24)) | (x3 << 40);
+				z[2] = ((ulong)((ulong)x3 >> 24)) | (x0 << 40);
+				z[3] = ((ulong)((ulong)x0 >> 24)) | (x1 << 40);
 				break;
 			}
 			case 8:
 			{
-				long x0 = x[0], x1 = x[1], x2 = x[2], x3 = x[3];
-				long x4 = x[4], x5 = x[5], x6 = x[6], x7 = x[7];
-				z[0] = ((long)((ulong)x2 >> 24)) | (x3 << 40);
-				z[1] = ((long)((ulong)x3 >> 24)) | (x4 << 40);
-				z[2] = ((long)((ulong)x4 >> 24)) | (x5 << 40);
-				z[3] = ((long)((ulong)x5 >> 24)) | (x6 << 40);
-				z[4] = ((long)((ulong)x6 >> 24)) | (x7 << 40);
-				z[5] = ((long)((ulong)x7 >> 24)) | (x0 << 40);
-				z[6] = ((long)((ulong)x0 >> 24)) | (x1 << 40);
-				z[7] = ((long)((ulong)x1 >> 24)) | (x2 << 40);
+				ulong x0 = x[0], x1 = x[1], x2 = x[2], x3 = x[3];
+				ulong x4 = x[4], x5 = x[5], x6 = x[6], x7 = x[7];
+				z[0] = ((ulong)((ulong)x2 >> 24)) | (x3 << 40);
+				z[1] = ((ulong)((ulong)x3 >> 24)) | (x4 << 40);
+				z[2] = ((ulong)((ulong)x4 >> 24)) | (x5 << 40);
+				z[3] = ((ulong)((ulong)x5 >> 24)) | (x6 << 40);
+				z[4] = ((ulong)((ulong)x6 >> 24)) | (x7 << 40);
+				z[5] = ((ulong)((ulong)x7 >> 24)) | (x0 << 40);
+				z[6] = ((ulong)((ulong)x0 >> 24)) | (x1 << 40);
+				z[7] = ((ulong)((ulong)x1 >> 24)) | (x2 << 40);
 				break;
 			}
 			default:

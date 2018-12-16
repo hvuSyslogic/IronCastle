@@ -71,7 +71,7 @@ namespace org.bouncycastle.pqc.crypto.ntru
 			{
 				h = IntegerPolynomial.fromBinary(@is, @params.N, @params.q);
 				IntegerPolynomial fInt = IntegerPolynomial.fromBinary3Tight(@is, @params.N);
-				t = @params.sparse ? new SparseTernaryPolynomial(fInt) : new DenseTernaryPolynomial(fInt);
+				t = @params.sparse ? (Polynomial) new SparseTernaryPolynomial(fInt) : new DenseTernaryPolynomial(fInt);
 			}
 
 			init();

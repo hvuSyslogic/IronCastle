@@ -1,4 +1,5 @@
-﻿using BouncyCastle.Core.Port;
+﻿using BouncyCastle.Core;
+using BouncyCastle.Core.Port;
 
 namespace org.bouncycastle.crypto.@params
 {

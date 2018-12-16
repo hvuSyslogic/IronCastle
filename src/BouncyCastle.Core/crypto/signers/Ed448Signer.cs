@@ -86,7 +86,7 @@ namespace org.bouncycastle.crypto.signers
 				lock (this)
 				{
 					byte[] signature = new byte[Ed448PrivateKeyParameters.SIGNATURE_SIZE];
-					privateKey.sign(Ed448.Algorithm.Ed448, publicKey, ctx, buf, 0, count, signature, 0);
+					privateKey.sign(Ed448.Algorithm.Ed448, publicKey, ctx, buf, 0, buf.Length, signature, 0);
 					reset();
 					return signature;
 				}
@@ -97,7 +97,7 @@ namespace org.bouncycastle.crypto.signers
 				lock (this)
 				{
 					byte[] pk = publicKey.getEncoded();
-					bool result = Ed448.verify(signature, 0, pk, 0, ctx, buf, 0, count);
+					bool result = Ed448.verify(signature, 0, pk, 0, ctx, buf, 0, buf.Length);
 					reset();
 					return result;
 				}
@@ -107,8 +107,8 @@ namespace org.bouncycastle.crypto.signers
 			{
 				lock (this)
 				{
-					Arrays.fill(buf, 0, count, (byte)0);
-					this.count = 0;
+					Arrays.fill(buf, 0, count(), (byte)0);
+					//PORT: this.count = 0;
 				}
 			}
 		}

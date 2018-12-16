@@ -57,12 +57,12 @@
 		{
 			finish();
 
-			Pack.longToBigEndian(H1, @out, outOff);
-			Pack.longToBigEndian(H2, @out, outOff + 8);
-			Pack.longToBigEndian(H3, @out, outOff + 16);
-			Pack.longToBigEndian(H4, @out, outOff + 24);
-			Pack.longToBigEndian(H5, @out, outOff + 32);
-			Pack.longToBigEndian(H6, @out, outOff + 40);
+			Pack.UlongToBigEndian(H1, @out, outOff);
+			Pack.UlongToBigEndian(H2, @out, outOff + 8);
+			Pack.UlongToBigEndian(H3, @out, outOff + 16);
+			Pack.UlongToBigEndian(H4, @out, outOff + 24);
+			Pack.UlongToBigEndian(H5, @out, outOff + 32);
+			Pack.UlongToBigEndian(H6, @out, outOff + 40);
 
 			reset();
 
@@ -80,14 +80,14 @@
 			 * The first 64 bits of the fractional parts of the square roots
 			 * of the 9th through 16th prime numbers
 			 */
-			H1 = unchecked((long)0xcbbb9d5dc1059ed8l);
+			H1 = unchecked((ulong)0xcbbb9d5dc1059ed8Ul);
 			H2 = 0x629a292a367cd507l;
-			H3 = unchecked((long)0x9159015a3070dd17l);
-			H4 = 0x152fecd8f70e5939l;
-			H5 = 0x67332667ffc00b31l;
-			H6 = unchecked((long)0x8eb44a8768581511l);
-			H7 = unchecked((long)0xdb0c2e0d64f98fa7l);
-			H8 = 0x47b5481dbefa4fa4l;
+			H3 = unchecked((ulong)0x9159015a3070dd17Ul);
+			H4 = 0x152fecd8f70e5939Ul;
+			H5 = 0x67332667ffc00b31Ul;
+			H6 = unchecked((ulong)0x8eb44a8768581511Ul);
+			H7 = unchecked((ulong)0xdb0c2e0d64f98fa7Ul);
+			H8 = 0x47b5481dbefa4fa4Ul;
 		}
 
 		public override Memoable copy()

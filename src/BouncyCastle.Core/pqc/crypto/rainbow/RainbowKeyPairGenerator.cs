@@ -1,11 +1,12 @@
-﻿using BouncyCastle.Core.Port;
+﻿using BouncyCastle.Core;
+using BouncyCastle.Core.Port;
 
 namespace org.bouncycastle.pqc.crypto.rainbow
 {
 
 	using AsymmetricCipherKeyPair = org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 	using AsymmetricCipherKeyPairGenerator = org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-	using CryptoServicesRegistrar = org.bouncycastle.crypto.CryptoServicesRegistrar;
+	using CryptoServicesRegistrar = CryptoServicesRegistrar;
 	using KeyGenerationParameters = org.bouncycastle.crypto.KeyGenerationParameters;
 	using ComputeInField = org.bouncycastle.pqc.crypto.rainbow.util.ComputeInField;
 	using GF2Field = org.bouncycastle.pqc.crypto.rainbow.util.GF2Field;

@@ -11,12 +11,12 @@ namespace org.bouncycastle.math.ec.custom.djb
 		private const long M = 0xFFFFFFFFL;
 
 		// 2^255 - 2^4 - 2^1 - 1
-		internal static readonly int[] P = new int[]{unchecked((int)0xFFFFFFED), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), 0x7FFFFFFF};
-		private const int P7 = 0x7FFFFFFF;
-		private static readonly int[] PExt = new int[]{0x00000169, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, unchecked((int)0xFFFFFFED), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), 0x3FFFFFFF};
-		private const int PInv = 0x13;
+		internal static readonly uint[] P = new uint[]{unchecked((uint)0xFFFFFFED), unchecked((uint)0xFFFFFFFF), unchecked((uint)0xFFFFFFFF), unchecked((uint)0xFFFFFFFF), unchecked((uint)0xFFFFFFFF), unchecked((uint)0xFFFFFFFF), unchecked((uint)0xFFFFFFFF), 0x7FFFFFFF};
+		private const uint P7 = 0x7FFFFFFF;
+		private static readonly uint[] PExt = new uint[]{0x00000169, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, unchecked((uint)0xFFFFFFED), unchecked((uint)0xFFFFFFFF), unchecked((uint)0xFFFFFFFF), unchecked((uint)0xFFFFFFFF), unchecked((uint)0xFFFFFFFF), unchecked((uint)0xFFFFFFFF), unchecked((uint)0xFFFFFFFF), 0x3FFFFFFF};
+		private const uint PInv = 0x13;
 
-		public static void add(int[] x, int[] y, int[] z)
+		public static void add(uint[] x, uint[] y, uint[] z)
 		{
 			Nat256.add(x, y, z);
 			if (Nat256.gte(z, P))
@@ -25,7 +25,7 @@ namespace org.bouncycastle.math.ec.custom.djb
 			}
 		}
 
-		public static void addExt(int[] xx, int[] yy, int[] zz)
+		public static void addExt(uint[] xx, uint[] yy, uint[] zz)
 		{
 			Nat.add(16, xx, yy, zz);
 			if (Nat.gte(16, zz, PExt))
@@ -34,7 +34,7 @@ namespace org.bouncycastle.math.ec.custom.djb
 			}
 		}
 
-		public static void addOne(int[] x, int[] z)
+		public static void addOne(uint[] x, uint[] z)
 		{
 			Nat.inc(8, x, z);
 			if (Nat256.gte(z, P))
@@ -94,14 +94,14 @@ namespace org.bouncycastle.math.ec.custom.djb
 			}
 		}
 
-		public static void reduce(int[] xx, int[] z)
+		public static void reduce(uint[] xx, uint[] z)
 		{
 	//        assert xx[15] >>> 30 == 0;
 
-			int xx07 = xx[7];
+			uint xx07 = xx[7];
 			Nat.shiftUpBit(8, xx, 8, xx07, z, 0);
-			int c = Nat256.mulByWordAddTo(PInv, xx, z) << 1;
-			int z7 = z[7];
+			uint c = Nat256.mulByWordAddTo(PInv, xx, z) << 1;
+			uint z7 = z[7];
 			c += ((int)((uint)z7 >> 31)) - ((int)((uint)xx07 >> 31));
 			z7 &= P7;
 			z7 += Nat.addWordTo(7, c * PInv, z);
@@ -112,12 +112,12 @@ namespace org.bouncycastle.math.ec.custom.djb
 			}
 		}
 
-		public static void reduce27(int x, int[] z)
+		public static void reduce27(uint x, uint[] z)
 		{
 	//        assert x >>> 26 == 0;
 
-			int z7 = z[7];
-			int c = (x << 1 | (int)((uint)z7 >> 31));
+			uint z7 = z[7];
+			uint c = (x << 1 | (uint)((uint)z7 >> 31));
 			z7 &= P7;
 			z7 += Nat.addWordTo(7, c * PInv, z);
 			z[7] = z7;
@@ -250,5 +250,4 @@ namespace org.bouncycastle.math.ec.custom.djb
 			return (int)c;
 		}
 	}
-
 }

@@ -1,6 +1,7 @@
 ﻿using org.bouncycastle.math.ec;
 
 using System;
+using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
 
 namespace org.bouncycastle.crypto.signers

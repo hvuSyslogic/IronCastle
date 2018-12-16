@@ -45,7 +45,15 @@
 			bs[++off] = (byte)(n);
 		}
 
-		public static byte[] intToBigEndian(int[] ns)
+	    public static void uintToBigEndian(uint n, byte[] bs, int off)
+	    {
+	        bs[off] = (byte)((int)(n >> 24));
+	        bs[++off] = (byte)((int)(n >> 16));
+	        bs[++off] = (byte)((int)(n >> 8));
+	        bs[++off] = (byte)(n);
+	    }
+
+        public static byte[] intToBigEndian(int[] ns)
 		{
 			byte[] bs = new byte[4 * ns.Length];
 			intToBigEndian(ns, bs, 0);
@@ -68,7 +76,14 @@
 			return ((long)(hi & 0xffffffffL) << 32) | (long)(lo & 0xffffffffL);
 		}
 
-		public static void bigEndianToLong(byte[] bs, int off, long[] ns)
+	    public static ulong bigEndianToULong(byte[] bs, int off)
+	    {
+	        int hi = bigEndianToInt(bs, off);
+	        int lo = bigEndianToInt(bs, off + 4);
+	        return ((ulong)(hi & 0xffffffffL) << 32) | (ulong)(lo & 0xffffffffL);
+	    }
+
+        public static void bigEndianToLong(byte[] bs, int off, long[] ns)
 		{
 			for (int i = 0; i < ns.Length; ++i)
 			{
@@ -90,7 +105,13 @@
 			intToBigEndian(unchecked((int)(n & 0xffffffffL)), bs, off + 4);
 		}
 
-		public static byte[] longToBigEndian(long[] ns)
+	    public static void UlongToBigEndian(ulong n, byte[] bs, int off)
+	    {
+	        uintToBigEndian((uint)((long)(n >> 32)), bs, off);
+	        uintToBigEndian(unchecked((uint)(n & 0xffffffffL)), bs, off + 4);
+	    }
+
+        public static byte[] longToBigEndian(long[] ns)
 		{
 			byte[] bs = new byte[8 * ns.Length];
 			longToBigEndian(ns, bs, 0);
@@ -202,7 +223,14 @@
 			return ((long)(hi & 0xffffffffL) << 32) | (long)(lo & 0xffffffffL);
 		}
 
-		public static void littleEndianToLong(byte[] bs, int off, long[] ns)
+	    public static ulong littleEndianToULong(byte[] bs, int off)
+	    {
+	        int lo = littleEndianToInt(bs, off);
+	        int hi = littleEndianToInt(bs, off + 4);
+	        return ((ulong)(hi & 0xffffffffL) << 32) | (ulong)(lo & 0xffffffffL);
+	    }
+
+        public static void littleEndianToLong(byte[] bs, int off, long[] ns)
 		{
 			for (int i = 0; i < ns.Length; ++i)
 			{
@@ -211,7 +239,16 @@
 			}
 		}
 
-		public static void littleEndianToLong(byte[] bs, int bsOff, long[] ns, int nsOff, int nsLen)
+	    public static void littleEndianToULong(byte[] bs, int off, ulong[] ns)
+	    {
+	        for (int i = 0; i < ns.Length; ++i)
+	        {
+	            ns[i] = littleEndianToULong(bs, off);
+	            off += 8;
+	        }
+	    }
+
+        public static void littleEndianToLong(byte[] bs, int bsOff, long[] ns, int nsOff, int nsLen)
 		{
 			for (int i = 0; i < nsLen; ++i)
 			{
@@ -227,13 +264,26 @@
 			return bs;
 		}
 
-		public static void longToLittleEndian(long n, byte[] bs, int off)
+	    public static byte[] UlongToLittleEndian(ulong n)
+	    {
+	        byte[] bs = new byte[8];
+	        UlongToLittleEndian(n, bs, 0);
+	        return bs;
+	    }
+
+        public static void longToLittleEndian(long n, byte[] bs, int off)
 		{
 			intToLittleEndian(unchecked((int)(n & 0xffffffffL)), bs, off);
 			intToLittleEndian((int)((long)((ulong)n >> 32)), bs, off + 4);
 		}
 
-		public static byte[] longToLittleEndian(long[] ns)
+	    public static void UlongToLittleEndian(ulong n, byte[] bs, int off)
+	    {
+	        intToLittleEndian(unchecked((int)(n & 0xffffffffL)), bs, off);
+	        intToLittleEndian((int)((long)(n >> 32)), bs, off + 4);
+	    }
+
+        public static byte[] longToLittleEndian(long[] ns)
 		{
 			byte[] bs = new byte[8 * ns.Length];
 			longToLittleEndian(ns, bs, 0);
@@ -249,7 +299,16 @@
 			}
 		}
 
-		public static void longToLittleEndian(long[] ns, int nsOff, int nsLen, byte[] bs, int bsOff)
+	    public static void UlongToLittleEndian(ulong[] ns, byte[] bs, int off)
+	    {
+	        for (int i = 0; i < ns.Length; ++i)
+	        {
+	            UlongToLittleEndian(ns[i], bs, off);
+	            off += 8;
+	        }
+	    }
+
+        public static void longToLittleEndian(long[] ns, int nsOff, int nsLen, byte[] bs, int bsOff)
 		{
 			for (int i = 0; i < nsLen; ++i)
 			{

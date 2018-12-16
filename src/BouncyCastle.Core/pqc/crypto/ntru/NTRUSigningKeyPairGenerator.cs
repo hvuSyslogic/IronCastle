@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Threading.Tasks;
+using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
+using BouncyCastle.Core.Port.java.lang;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.util;
 
@@ -8,7 +11,7 @@ namespace org.bouncycastle.pqc.crypto.ntru
 
 	using AsymmetricCipherKeyPair = org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 	using AsymmetricCipherKeyPairGenerator = org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-	using CryptoServicesRegistrar = org.bouncycastle.crypto.CryptoServicesRegistrar;
+	using CryptoServicesRegistrar = CryptoServicesRegistrar;
 	using KeyGenerationParameters = org.bouncycastle.crypto.KeyGenerationParameters;
 	using BigIntEuclidean = org.bouncycastle.pqc.math.ntru.euclid.BigIntEuclidean;
 	using BigDecimalPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.BigDecimalPolynomial;
@@ -36,25 +39,26 @@ namespace org.bouncycastle.pqc.crypto.ntru
 		public virtual AsymmetricCipherKeyPair generateKeyPair()
 		{
 			NTRUSigningPublicKeyParameters pub = null;
-			ExecutorService executor = Executors.newCachedThreadPool();
-			List<Future<NTRUSigningPrivateKeyParameters.Basis>> bases = new ArrayList<Future<NTRUSigningPrivateKeyParameters.Basis>>();
+		    TaskFactory executor = new TaskFactory();
+			List<Task<NTRUSigningPrivateKeyParameters.Basis>> bases = new ArrayList<Task<NTRUSigningPrivateKeyParameters.Basis>>();
 			for (int k = @params.B; k >= 0; k--)
 			{
-				bases.add(executor.submit(new BasisGenerationTask(this)));
+				bases.add(executor.StartNew(() => generateBoundedBasis()));
 			}
-			executor.shutdown();
+
+		    //Task.WaitAll(bases.toArray());
 
 			List<NTRUSigningPrivateKeyParameters.Basis> basises = new ArrayList<NTRUSigningPrivateKeyParameters.Basis>();
 
 			for (int k = @params.B; k >= 0; k--)
 			{
-				Future<NTRUSigningPrivateKeyParameters.Basis> basis = bases.get(k);
+				Task<NTRUSigningPrivateKeyParameters.Basis> basis = bases.get(k);
 				try
 				{
-					basises.add(basis.get());
+					basises.add(basis.Result);
 					if (k == @params.B)
 					{
-						pub = new NTRUSigningPublicKeyParameters(basis.get().h, @params.getSigningParameters());
+						pub = new NTRUSigningPublicKeyParameters(basis.Result.h, @params.getSigningParameters());
 					}
 				}
 				catch (Exception e)
@@ -99,17 +103,17 @@ namespace org.bouncycastle.pqc.crypto.ntru
 		private void minimizeFG(IntegerPolynomial f, IntegerPolynomial g, IntegerPolynomial F, IntegerPolynomial G, int N)
 		{
 			int E = 0;
-			for (int j = 0; j < N; j++)
+		    {for (int j = 0; j < N; j++)
 			{
 				E += 2 * N * (f.coeffs[j] * f.coeffs[j] + g.coeffs[j] * g.coeffs[j]);
-			}
+			}}
 
 			// [f(1)+g(1)]^2 = 4
 			E -= 4;
 
 			IntegerPolynomial u = (IntegerPolynomial)f.clone();
 			IntegerPolynomial v = (IntegerPolynomial)g.clone();
-			int j = 0;
+		    {int j = 0;
 			int k = 0;
 			int maxAdjustment = N;
 			while (k < maxAdjustment && j < N)
@@ -149,13 +153,13 @@ namespace org.bouncycastle.pqc.crypto.ntru
 			    }
             }
 		}
-
-		/// <summary>
-		/// Creates a NTRUSigner basis consisting of polynomials <code>f, g, F, G, h</code>.<br/>
-		/// If <code>KeyGenAlg=FLOAT</code>, the basis may not be valid and this method must be rerun if that is the case.<br/>
-		/// </summary>
-		/// <seealso cref= #generateBoundedBasis() </seealso>
-		private FGBasis generateBasis()
+		}
+        /// <summary>
+        /// Creates a NTRUSigner basis consisting of polynomials <code>f, g, F, G, h</code>.<br/>
+        /// If <code>KeyGenAlg=FLOAT</code>, the basis may not be valid and this method must be rerun if that is the case.<br/>
+        /// </summary>
+        /// <seealso cref= #generateBoundedBasis() </seealso>
+        private FGBasis generateBasis()
 		{
 			int N = @params.N;
 			int q = @params.q;
@@ -181,9 +185,9 @@ namespace org.bouncycastle.pqc.crypto.ntru
 			{
 				do
 				{
-					f = @params.polyType == NTRUParameters.TERNARY_POLYNOMIAL_TYPE_SIMPLE ? DenseTernaryPolynomial.generateRandom(N, d + 1, d, CryptoServicesRegistrar.getSecureRandom()) : ProductFormPolynomial.generateRandom(N, d1, d2, d3 + 1, d3, CryptoServicesRegistrar.getSecureRandom());
+					f = @params.polyType == NTRUParameters.TERNARY_POLYNOMIAL_TYPE_SIMPLE ? (Polynomial) DenseTernaryPolynomial.generateRandom(N, d + 1, d, CryptoServicesRegistrar.getSecureRandom()) : ProductFormPolynomial.generateRandom(N, d1, d2, d3 + 1, d3, CryptoServicesRegistrar.getSecureRandom());
 					fInt = f.toIntegerPolynomial();
-				} while (primeCheck && fInt.resultant(_2n1).res.Equals(ZERO));
+				} while (primeCheck && fInt.resultant(_2n1).res.Equals(BigInteger.ZERO));
 				fq = fInt.invertFq(q);
 			} while (fq == null);
 			rf = fInt.resultant();
@@ -194,13 +198,13 @@ namespace org.bouncycastle.pqc.crypto.ntru
 				{
 					do
 					{
-						g = @params.polyType == NTRUParameters.TERNARY_POLYNOMIAL_TYPE_SIMPLE ? DenseTernaryPolynomial.generateRandom(N, d + 1, d, CryptoServicesRegistrar.getSecureRandom()) : ProductFormPolynomial.generateRandom(N, d1, d2, d3 + 1, d3, CryptoServicesRegistrar.getSecureRandom());
+						g = @params.polyType == NTRUParameters.TERNARY_POLYNOMIAL_TYPE_SIMPLE ? (Polynomial) DenseTernaryPolynomial.generateRandom(N, d + 1, d, CryptoServicesRegistrar.getSecureRandom()) : ProductFormPolynomial.generateRandom(N, d1, d2, d3 + 1, d3, CryptoServicesRegistrar.getSecureRandom());
 						gInt = g.toIntegerPolynomial();
-					} while (primeCheck && gInt.resultant(_2n1).res.Equals(ZERO));
+					} while (primeCheck && gInt.resultant(_2n1).res.Equals(BigInteger.ZERO));
 				} while (gInt.invertFq(q) == null);
 				rg = gInt.resultant();
 				r = BigIntEuclidean.calculate(rf.res, rg.res);
-			} while (!r.gcd.Equals(ONE));
+			} while (!r.gcd.Equals(BigInteger.ONE));
 
 			BigIntPolynomial A = (BigIntPolynomial)rf.rho.clone();
 			A.mult(r.x.multiply(BigInteger.valueOf(q)));
@@ -291,23 +295,6 @@ namespace org.bouncycastle.pqc.crypto.ntru
 				{
 					return basis;
 				}
-			}
-		}
-
-		public class BasisGenerationTask : Callable<NTRUSigningPrivateKeyParameters.Basis>
-		{
-			private readonly NTRUSigningKeyPairGenerator outerInstance;
-
-			public BasisGenerationTask(NTRUSigningKeyPairGenerator outerInstance)
-			{
-				this.outerInstance = outerInstance;
-			}
-
-
-
-			public virtual NTRUSigningPrivateKeyParameters.Basis call()
-			{
-				return outerInstance.generateBoundedBasis();
 			}
 		}
 

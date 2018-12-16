@@ -1,4 +1,5 @@
 ﻿using System;
+using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
@@ -6,7 +7,7 @@ using org.bouncycastle.Port.java.lang;
 namespace org.bouncycastle.pqc.math.linearalgebra
 {
 
-	using CryptoServicesRegistrar = org.bouncycastle.crypto.CryptoServicesRegistrar;
+	using CryptoServicesRegistrar = CryptoServicesRegistrar;
 	using BigIntegers = org.bouncycastle.util.BigIntegers;
 
 	/// <summary>

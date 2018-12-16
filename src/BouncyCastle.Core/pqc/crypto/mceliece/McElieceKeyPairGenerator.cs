@@ -1,11 +1,12 @@
-﻿using BouncyCastle.Core.Port;
+﻿using BouncyCastle.Core;
+using BouncyCastle.Core.Port;
 
 namespace org.bouncycastle.pqc.crypto.mceliece
 {
 
 	using AsymmetricCipherKeyPair = org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 	using AsymmetricCipherKeyPairGenerator = org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-	using CryptoServicesRegistrar = org.bouncycastle.crypto.CryptoServicesRegistrar;
+	using CryptoServicesRegistrar = CryptoServicesRegistrar;
 	using KeyGenerationParameters = org.bouncycastle.crypto.KeyGenerationParameters;
 	using GF2Matrix = org.bouncycastle.pqc.math.linearalgebra.GF2Matrix;
 	using GF2mField = org.bouncycastle.pqc.math.linearalgebra.GF2mField;

@@ -1481,17 +1481,18 @@ namespace org.bouncycastle.crypto.tls
 				this.outerInstance = outerInstance;
 				TlsUtils.writeUint8(handshakeType, this);
                 // Reserve space for length
-			    count += 3;
+			    TlsUtils.writeUint24(0, this);
+                //count += 3;
 			}
 
 			public virtual void writeToRecordStream()
 			{
 				// Patch actual length back in
-				int length = count - 4;
+				int length = count() - 4;
 				TlsUtils.checkUint24(length);
 				TlsUtils.writeUint24(length, buf, 1);
-				outerInstance.writeHandshakeMessage(buf, 0, count);
-				buf = null;
+				outerInstance.writeHandshakeMessage(buf, 0, count());
+				//PORT: buf = null;
 			}
 		}
 	}

@@ -220,7 +220,7 @@ namespace org.bouncycastle.pqc.crypto.ntru
 				else
 				{
 					IntegerPolynomial fInt = IntegerPolynomial.fromBinary3Tight(@is, N);
-					f = sparse ? new SparseTernaryPolynomial(fInt) : new DenseTernaryPolynomial(fInt);
+					f = sparse ? (Polynomial) new SparseTernaryPolynomial(fInt) : new DenseTernaryPolynomial(fInt);
 				}
 
 				if (@params.basisType == NTRUSigningKeyGenerationParameters.BASIS_TYPE_STANDARD)

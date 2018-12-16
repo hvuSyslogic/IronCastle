@@ -11,7 +11,7 @@
 
     public interface MapEntry
     {
-        string getKey();
+        object getKey();
 
         object getValue();
 

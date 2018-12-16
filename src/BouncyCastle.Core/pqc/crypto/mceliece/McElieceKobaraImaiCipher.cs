@@ -1,4 +1,5 @@
-﻿using BouncyCastle.Core.Port;
+﻿using BouncyCastle.Core;
+using BouncyCastle.Core.Port;
 using BouncyCastle.Core.Port.Extensions;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
@@ -7,7 +8,7 @@ namespace org.bouncycastle.pqc.crypto.mceliece
 {
 
 	using CipherParameters = org.bouncycastle.crypto.CipherParameters;
-	using CryptoServicesRegistrar = org.bouncycastle.crypto.CryptoServicesRegistrar;
+	using CryptoServicesRegistrar = CryptoServicesRegistrar;
 	using Digest = org.bouncycastle.crypto.Digest;
 	using InvalidCipherTextException = org.bouncycastle.crypto.InvalidCipherTextException;
 	using SHA1Digest = org.bouncycastle.crypto.digests.SHA1Digest;

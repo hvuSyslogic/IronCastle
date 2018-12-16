@@ -1,4 +1,5 @@
-﻿using BouncyCastle.Core.Port;
+﻿using BouncyCastle.Core;
+using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
@@ -6,7 +7,7 @@ namespace org.bouncycastle.pqc.crypto.mceliece
 {
 
 	using CipherParameters = org.bouncycastle.crypto.CipherParameters;
-	using CryptoServicesRegistrar = org.bouncycastle.crypto.CryptoServicesRegistrar;
+	using CryptoServicesRegistrar = CryptoServicesRegistrar;
 	using InvalidCipherTextException = org.bouncycastle.crypto.InvalidCipherTextException;
 	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
 	using GF2Matrix = org.bouncycastle.pqc.math.linearalgebra.GF2Matrix;

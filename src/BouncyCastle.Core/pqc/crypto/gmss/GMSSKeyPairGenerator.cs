@@ -1,4 +1,5 @@
-﻿using BouncyCastle.Core.Port;
+﻿using BouncyCastle.Core;
+using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.util;
 
@@ -7,7 +8,7 @@ namespace org.bouncycastle.pqc.crypto.gmss
 
 	using AsymmetricCipherKeyPair = org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 	using AsymmetricCipherKeyPairGenerator = org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-	using CryptoServicesRegistrar = org.bouncycastle.crypto.CryptoServicesRegistrar;
+	using CryptoServicesRegistrar = CryptoServicesRegistrar;
 	using Digest = org.bouncycastle.crypto.Digest;
 	using KeyGenerationParameters = org.bouncycastle.crypto.KeyGenerationParameters;
 	using GMSSRandom = org.bouncycastle.pqc.crypto.gmss.util.GMSSRandom;

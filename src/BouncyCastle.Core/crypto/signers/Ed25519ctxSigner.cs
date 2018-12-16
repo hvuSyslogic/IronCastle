@@ -85,7 +85,7 @@ namespace org.bouncycastle.crypto.signers
 				lock (this)
 				{
 					byte[] signature = new byte[Ed25519PrivateKeyParameters.SIGNATURE_SIZE];
-					privateKey.sign(Ed25519.Algorithm.Ed25519ctx, publicKey, ctx, buf, 0, count, signature, 0);
+					privateKey.sign(Ed25519.Algorithm.Ed25519ctx, publicKey, ctx, buf, 0, buf.Length, signature, 0);
 					reset();
 					return signature;
 				}
@@ -96,7 +96,7 @@ namespace org.bouncycastle.crypto.signers
 				lock (this)
 				{
 					byte[] pk = publicKey.getEncoded();
-					bool result = Ed25519.verify(signature, 0, pk, 0, ctx, buf, 0, count);
+					bool result = Ed25519.verify(signature, 0, pk, 0, ctx, buf, 0, buf.Length);
 					reset();
 					return result;
 				}
@@ -106,8 +106,8 @@ namespace org.bouncycastle.crypto.signers
 			{
 				lock (this)
 				{
-					Arrays.fill(buf, 0, count, (byte)0);
-					this.count = 0;
+					Arrays.fill(buf, 0, count(), 0);
+					//this.count = 0;
 				}
 			}
 		}

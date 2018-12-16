@@ -1,11 +1,12 @@
-﻿using BouncyCastle.Core.Port;
+﻿using BouncyCastle.Core;
+using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
 
 namespace org.bouncycastle.pqc.crypto.gmss
 {
 
 	using CipherParameters = org.bouncycastle.crypto.CipherParameters;
-	using CryptoServicesRegistrar = org.bouncycastle.crypto.CryptoServicesRegistrar;
+	using CryptoServicesRegistrar = CryptoServicesRegistrar;
 	using Digest = org.bouncycastle.crypto.Digest;
 	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
 	using GMSSRandom = org.bouncycastle.pqc.crypto.gmss.util.GMSSRandom;

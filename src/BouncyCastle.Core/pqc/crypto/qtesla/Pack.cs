@@ -18,8 +18,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ****************************************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void encodePrivateKeyI(byte[] privateKey, final int[] secretPolynomial, final int[] errorPolynomial, final byte[] seed, int seedOffset)
 		public static void encodePrivateKeyI(byte[] privateKey, int[] secretPolynomial, int[] errorPolynomial, byte[] seed, int seedOffset)
 		{
 
@@ -67,8 +65,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ************************************************************************************************************************************************************ </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void encodePrivateKeyIIISize(byte[] privateKey, final int[] secretPolynomial, final int[] errorPolynomial, final byte[] seed, int seedOffset)
 		public static void encodePrivateKeyIIISize(byte[] privateKey, int[] secretPolynomial, int[] errorPolynomial, byte[] seed, int seedOffset)
 		{
 
@@ -102,8 +98,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ********************************************************************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void encodePrivateKeyIIISpeed(byte[] privateKey, final int[] secretPolynomial, final int[] errorPolynomial, final byte[] seed, int seedOffset)
 		public static void encodePrivateKeyIIISpeed(byte[] privateKey, int[] secretPolynomial, int[] errorPolynomial, byte[] seed, int seedOffset)
 		{
 
@@ -158,8 +152,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ****************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void decodePrivateKeyI(byte[] seed, short[] secretPolynomial, short[] errorPolynomial, final byte[] privateKey)
 		public static void decodePrivateKeyI(byte[] seed, short[] secretPolynomial, short[] errorPolynomial, byte[] privateKey)
 		{
 
@@ -249,8 +241,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ************************************************************************************************************************************ </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void decodePrivateKeyIIISize(byte[] seed, short[] secretPolynomial, short[] errorPolynomial, final byte[] privateKey)
 		public static void decodePrivateKeyIIISize(byte[] seed, short[] secretPolynomial, short[] errorPolynomial, byte[] privateKey)
 		{
 
@@ -283,8 +273,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ************************************************************************************************************************************* </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void decodePrivateKeyIIISpeed(byte[] seed, short[] secretPolynomial, short[] errorPolynomial, final byte[] privateKey)
 		public static void decodePrivateKeyIIISpeed(byte[] seed, short[] secretPolynomial, short[] errorPolynomial, byte[] privateKey)
 		{
 
@@ -433,8 +421,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ******************************************************************************************************************************************************************* </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void packPrivateKey(byte[] privateKey, final long[] secretPolynomial, final long[] errorPolynomial, final byte[] seed, int seedOffset, int n, int k)
 		public static void packPrivateKey(byte[] privateKey, long[] secretPolynomial, long[] errorPolynomial, byte[] seed, int seedOffset, int n, int k)
 		{
 
@@ -474,8 +460,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ************************************************************************************************************************************************* </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void encodePublicKey(byte[] publicKey, final int[] T, final byte[] seedA, int seedAOffset, int n, int qLogarithm)
 		public static void encodePublicKey(byte[] publicKey, int[] T, byte[] seedA, int seedAOffset, int n, int qLogarithm)
 		{
 
@@ -527,8 +511,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ***************************************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void encodePublicKeyIIISpeed(byte[] publicKey, final int[] T, final byte[] seedA, int seedAOffset)
 		public static void encodePublicKeyIIISpeed(byte[] publicKey, int[] T, byte[] seedA, int seedAOffset)
 		{
 
@@ -560,8 +542,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ****************************************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void encodePublicKeyIP(byte[] publicKey, final long[] T, final byte[] seedA, int seedAOffset)
 		public static void encodePublicKeyIP(byte[] publicKey, long[] T, byte[] seedA, int seedAOffset)
 		{
 
@@ -619,8 +599,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ************************************************************************************************************************************************************************************ </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void encodePublicKeyIIIP(byte[] publicKey, final long[] T, final byte[] seedA, int seedAOffset)
 		public static void encodePublicKeyIIIP(byte[] publicKey, long[] T, byte[] seedA, int seedAOffset)
 		{
 
@@ -657,8 +635,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// *************************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void decodePublicKey(int[] publicKey, byte[] seedA, int seedAOffset, final byte[] publicKeyInput, int n, int qLogarithm)
 		public static void decodePublicKey(int[] publicKey, byte[] seedA, int seedAOffset, byte[] publicKeyInput, int n, int qLogarithm)
 		{
 
@@ -752,8 +728,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ************************************************************************************************************************************************ </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void decodePublicKeyIIISpeed(int[] publicKey, byte[] seedA, int seedAOffset, final byte[] publicKeyInput)
 		public static void decodePublicKeyIIISpeed(int[] publicKey, byte[] seedA, int seedAOffset, byte[] publicKeyInput)
 		{
 
@@ -791,8 +765,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// *********************************************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void decodePublicKeyIP(int[] publicKey, byte[] seedA, int seedAOffset, final byte[] publicKeyInput)
 		public static void decodePublicKeyIP(int[] publicKey, byte[] seedA, int seedAOffset, byte[] publicKeyInput)
 		{
 
@@ -886,8 +858,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// *************************************************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void decodePublicKeyIIIP(int[] publicKey, byte[] seedA, int seedAOffset, final byte[] publicKeyInput)
 		public static void decodePublicKeyIIIP(int[] publicKey, byte[] seedA, int seedAOffset, byte[] publicKeyInput)
 		{
 
@@ -1095,8 +1065,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ***************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void decodeSignature(byte[] C, int[] Z, final byte[] signature, int signatureOffset, int n, int d)
 		public static void decodeSignature(byte[] C, int[] Z, byte[] signature, int signatureOffset, int n, int d)
 		{
 
@@ -1188,8 +1156,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ************************************************************************************************************************************* </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void decodeSignatureIIISpeed(byte[] C, int[] Z, final byte[] signature, int signatureOffset)
 		public static void decodeSignatureIIISpeed(byte[] C, int[] Z, byte[] signature, int signatureOffset)
 		{
 
@@ -1249,8 +1215,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// *************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void decodeSignatureIP(byte[] C, long[] Z, final byte[] signature, int signatureOffset)
 		public static void decodeSignatureIP(byte[] C, long[] Z, byte[] signature, int signatureOffset)
 		{
 
@@ -1310,8 +1274,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// *************************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void decodeSignatureIIIP(byte[] C, long[] Z, final byte[] signature, int signatureOffset)
 		public static void decodeSignatureIIIP(byte[] C, long[] Z, byte[] signature, int signatureOffset)
 		{
 

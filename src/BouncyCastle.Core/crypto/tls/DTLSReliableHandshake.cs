@@ -428,7 +428,7 @@ namespace org.bouncycastle.crypto.tls
 			public virtual void sendToRecordLayer(DTLSRecordLayer recordLayer)
 			{
 				recordLayer.send(buf, 0, count());
-				buf = null;
+				//PORT: buf = null;
 			}
 		}
 	}

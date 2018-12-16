@@ -1,4 +1,5 @@
 ﻿using System;
+using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;

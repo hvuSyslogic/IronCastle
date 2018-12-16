@@ -141,7 +141,7 @@ namespace org.bouncycastle.asn1.x509
 
 			for (Iterator it = subtreesMap.entrySet().iterator(); it.hasNext();)
 			{
-				Map.Entry entry = (Map.Entry)it.next();
+				MapEntry entry = (MapEntry)it.next();
 
 				// go through all subtree groups
 				int nameType = ((int?)entry.getKey()).Value;

@@ -27,7 +27,7 @@ namespace org.bouncycastle.crypto.tls
 		private ByteArrayOutputStream buffer = new ByteArrayOutputStream();
 
 		private TlsHandshakeHash handshakeHash = null;
-		private SimpleOutputStream handshakeHashUpdater = new SimpleOutputStreamAnonymousInnerClass(this);
+		private SimpleOutputStream handshakeHashUpdater ;
 
 		public class SimpleOutputStreamAnonymousInnerClass : SimpleOutputStream
 		{
@@ -56,7 +56,8 @@ namespace org.bouncycastle.crypto.tls
 			this.output = output;
 			this.readCompression = new TlsNullCompression();
 			this.writeCompression = this.readCompression;
-		}
+		    handshakeHashUpdater = new SimpleOutputStreamAnonymousInnerClass(this);
+        }
 
 		public virtual void init(TlsContext context)
 		{

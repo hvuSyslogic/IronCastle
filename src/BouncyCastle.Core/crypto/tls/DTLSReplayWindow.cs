@@ -36,7 +36,7 @@ namespace org.bouncycastle.crypto.tls
 				{
 					return true;
 				}
-				if ((bitmap & (1L << diff)) != 0)
+				if ((bitmap & (1L << (int)diff)) != 0)
 				{
 					return true;
 				}
@@ -61,7 +61,7 @@ namespace org.bouncycastle.crypto.tls
 				long diff = latestConfirmedSeq - seq;
 				if (diff < WINDOW_SIZE)
 				{
-					bitmap |= (1L << diff);
+					bitmap |= (1L << (int)diff);
 				}
 			}
 			else

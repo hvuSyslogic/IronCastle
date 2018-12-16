@@ -521,8 +521,6 @@ namespace org.bouncycastle.crypto.generators
 		private void fBlaMka(Block block, int x, int y)
 		{
 			const long m = 0xFFFFFFFFL;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long xy = (block.v[x] & m) * (block.v[y] & m);
 			long xy = (block.v[x] & m) * (block.v[y] & m);
 
 			block.v[x] = block.v[x] + block.v[y] + 2 * xy;
@@ -530,8 +528,6 @@ namespace org.bouncycastle.crypto.generators
 
 		private void rotr64(Block block, int v, int w, long c)
 		{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long temp = block.v[v] ^ block.v[w];
 			long temp = block.v[v] ^ block.v[w];
 			block.v[v] = ((long)((ulong)temp >> c)) | (temp << (64 - c));
 		}

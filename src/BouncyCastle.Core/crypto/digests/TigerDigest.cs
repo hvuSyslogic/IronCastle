@@ -155,8 +155,8 @@ namespace org.bouncycastle.crypto.digests
 
 		private void keySchedule()
 		{
-			x[0] -= x[7] ^ 0xA5A5A5A5A5A5A5A5L;
-			x[1] ^= x[0];
+		    x[0] -= x[7] ^ unchecked((long)0xA5A5A5A5A5A5A5A5L);
+		    x[1] ^= x[0];
 			x[2] += x[1];
 			x[3] -= x[2] ^ ((~x[1]) << 19);
 			x[4] ^= x[3];

@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using BouncyCastle.Core;
 using BouncyCastle.Core.Port.java.io;
 using BouncyCastle.Core.Port.java.lang;
 using BouncyCastle.Core.Port.java.text;
@@ -8,7 +9,7 @@ using org.bouncycastle.Port.java.io;
 namespace org.bouncycastle.pqc.crypto.ntru
 {
 
-	using CryptoServicesRegistrar = org.bouncycastle.crypto.CryptoServicesRegistrar;
+	using CryptoServicesRegistrar = CryptoServicesRegistrar;
 	using Digest = org.bouncycastle.crypto.Digest;
 	using KeyGenerationParameters = org.bouncycastle.crypto.KeyGenerationParameters;
 	using SHA256Digest = org.bouncycastle.crypto.digests.SHA256Digest;

@@ -1,4 +1,5 @@
 ﻿using System;
+using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
 
@@ -6,7 +7,7 @@ namespace org.bouncycastle.pqc.crypto.rainbow
 {
 
 	using CipherParameters = org.bouncycastle.crypto.CipherParameters;
-	using CryptoServicesRegistrar = org.bouncycastle.crypto.CryptoServicesRegistrar;
+	using CryptoServicesRegistrar = CryptoServicesRegistrar;
 	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
 	using ComputeInField = org.bouncycastle.pqc.crypto.rainbow.util.ComputeInField;
 	using GF2Field = org.bouncycastle.pqc.crypto.rainbow.util.GF2Field;

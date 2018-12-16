@@ -20,7 +20,7 @@ namespace org.bouncycastle.Port.java.io
 
         public byte[] buf
         {
-            get { return ms.ToArray(); }
+            get { return ms.GetBuffer(); }
         }
 
         public byte[] toByteArray()

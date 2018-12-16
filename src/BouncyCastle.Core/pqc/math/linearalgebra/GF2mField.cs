@@ -1,10 +1,11 @@
-﻿using BouncyCastle.Core.Port;
+﻿using BouncyCastle.Core;
+using BouncyCastle.Core.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.pqc.math.linearalgebra
 {
 
-	using CryptoServicesRegistrar = org.bouncycastle.crypto.CryptoServicesRegistrar;
+	using CryptoServicesRegistrar = CryptoServicesRegistrar;
 
 	/// <summary>
 	/// This class describes operations with elements from the finite field F =

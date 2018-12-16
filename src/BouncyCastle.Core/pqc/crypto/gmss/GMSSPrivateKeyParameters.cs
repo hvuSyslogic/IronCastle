@@ -805,7 +805,7 @@ namespace org.bouncycastle.pqc.crypto.gmss
 						if (currentRetain[layer][i - (H - K)].size() > 0)
 						{
 							// pop element from retain
-							JavaSystem.arraycopy(currentRetain[layer][i - (H - K)].lastElement(), 0, currentAuthPaths[layer][i], 0, mdLength);
+							JavaSystem.arraycopy((byte[])currentRetain[layer][i - (H - K)].lastElement(), 0, currentAuthPaths[layer][i], 0, mdLength);
 							currentRetain[layer][i - (H - K)].removeElementAt(currentRetain[layer][i - (H - K)].size() - 1);
 						}
 					}

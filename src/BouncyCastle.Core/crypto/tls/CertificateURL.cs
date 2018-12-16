@@ -119,7 +119,7 @@ namespace org.bouncycastle.crypto.tls
 				TlsUtils.checkUint16(length);
 				TlsUtils.writeUint16(length, buf, 0);
 				output.write(buf, 0, count());
-				buf = null;
+				//PORT: buf = null;
 			}
 		}
 	}

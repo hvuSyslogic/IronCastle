@@ -212,42 +212,42 @@ namespace org.bouncycastle.crypto.engines
 		}
 
 
-		//////////////////////////////////////////////////////////////
-		//
-		// PRIVATE Helper Methods
-		//
-		//////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////
+        //
+        // PRIVATE Helper Methods
+        //
+        //////////////////////////////////////////////////////////////
 
-		/// <summary>
-		/// Perform a left "spin" of the word. The rotation of the given
-		/// word <em>x</em> is rotated left by <em>y</em> bits.
-		/// Only the <em>lg(wordSize)</em> low-order bits of <em>y</em>
-		/// are used to determine the rotation amount. Here it is 
-		/// assumed that the wordsize used is a power of 2.
-		/// <para>
-		/// </para>
-		/// </summary>
-		/// <param name="x">  word to rotate </param>
-		/// <param name="y">    number of bits to rotate % wordSize </param>
-		private long rotateLeft(long x, long y)
-		{
-			return ((x << (y & (wordSize-1))) | ((long)((ulong)x >> (wordSize - (y & (wordSize-1))))));
-		}
+        /// <summary>
+        /// Perform a left "spin" of the word. The rotation of the given
+        /// word <em>x</em> is rotated left by <em>y</em> bits.
+        /// Only the <em>lg(wordSize)</em> low-order bits of <em>y</em>
+        /// are used to determine the rotation amount. Here it is 
+        /// assumed that the wordsize used is a power of 2.
+        /// <para>
+        /// </para>
+        /// </summary>
+        /// <param name="x">  word to rotate </param>
+        /// <param name="y">    number of bits to rotate % wordSize </param>
+        private long rotateLeft(long x, long y)
+        {
+            return ((long)((ulong)(x << (int)(y & (wordSize - 1))) | ((ulong)x >> (int)(wordSize - (y & (wordSize - 1))))));
+        }
 
-		/// <summary>
-		/// Perform a right "spin" of the word. The rotation of the given
-		/// word <em>x</em> is rotated left by <em>y</em> bits.
-		/// Only the <em>lg(wordSize)</em> low-order bits of <em>y</em>
-		/// are used to determine the rotation amount. Here it is 
-		/// assumed that the wordsize used is a power of 2.
-		/// <para>
-		/// </para>
-		/// </summary>
-		/// <param name="x">  word to rotate </param>
-		/// <param name="y">    number of bits to rotate % wordSize </param>
-		private long rotateRight(long x, long y)
+        /// <summary>
+        /// Perform a right "spin" of the word. The rotation of the given
+        /// word <em>x</em> is rotated left by <em>y</em> bits.
+        /// Only the <em>lg(wordSize)</em> low-order bits of <em>y</em>
+        /// are used to determine the rotation amount. Here it is 
+        /// assumed that the wordsize used is a power of 2.
+        /// <para>
+        /// </para>
+        /// </summary>
+        /// <param name="x">  word to rotate </param>
+        /// <param name="y">    number of bits to rotate % wordSize </param>
+        private long rotateRight(long x, long y)
 		{
-			return (((long)((ulong)x >> (y & (wordSize-1)))) | (x << (wordSize - (y & (wordSize-1)))));
+		    return ((long)(((ulong)x >> (int)(y & (wordSize - 1))) |(ulong)(x << (int)(wordSize - (y & (wordSize - 1))))));
 		}
 
 		private long bytesToWord(byte[] src, int srcOff)

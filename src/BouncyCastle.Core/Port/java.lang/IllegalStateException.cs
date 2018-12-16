@@ -14,6 +14,11 @@ namespace org.bouncycastle.Port
             
         }
 
+        public IllegalStateException(Exception ex) : base(string.Empty, ex)
+        {
+
+        }
+
         public IllegalStateException(string message, Exception innerException) : base(message, innerException)
         {
         }

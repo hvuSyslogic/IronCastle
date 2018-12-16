@@ -24,9 +24,9 @@ namespace org.bouncycastle.crypto.digests
 		private long byteCount1;
 		private long byteCount2;
 
-		protected internal long H1, H2, H3, H4, H5, H6, H7, H8;
+		protected internal ulong H1, H2, H3, H4, H5, H6, H7, H8;
 
-		private long[] W = new long[80];
+		private ulong[] W = new ulong[80];
 		private int wOff;
 
 		/// <summary>
@@ -76,19 +76,19 @@ namespace org.bouncycastle.crypto.digests
 			Pack.intToBigEndian(xBufOff, state, 8);
 			Pack.longToBigEndian(byteCount1, state, 12);
 			Pack.longToBigEndian(byteCount2, state, 20);
-			Pack.longToBigEndian(H1, state, 28);
-			Pack.longToBigEndian(H2, state, 36);
-			Pack.longToBigEndian(H3, state, 44);
-			Pack.longToBigEndian(H4, state, 52);
-			Pack.longToBigEndian(H5, state, 60);
-			Pack.longToBigEndian(H6, state, 68);
-			Pack.longToBigEndian(H7, state, 76);
-			Pack.longToBigEndian(H8, state, 84);
+			Pack.UlongToBigEndian(H1, state, 28);
+			Pack.UlongToBigEndian(H2, state, 36);
+			Pack.UlongToBigEndian(H3, state, 44);
+			Pack.UlongToBigEndian(H4, state, 52);
+			Pack.UlongToBigEndian(H5, state, 60);
+			Pack.UlongToBigEndian(H6, state, 68);
+			Pack.UlongToBigEndian(H7, state, 76);
+			Pack.UlongToBigEndian(H8, state, 84);
 
 			Pack.intToBigEndian(wOff, state, 92);
 			for (int i = 0; i < wOff; i++)
 			{
-				Pack.longToBigEndian(W[i], state, 96 + (i * 8));
+				Pack.UlongToBigEndian(W[i], state, 96 + (i * 8));
 			}
 		}
 
@@ -99,19 +99,19 @@ namespace org.bouncycastle.crypto.digests
 			byteCount1 = Pack.bigEndianToLong(encodedState, 12);
 			byteCount2 = Pack.bigEndianToLong(encodedState, 20);
 
-			H1 = Pack.bigEndianToLong(encodedState, 28);
-			H2 = Pack.bigEndianToLong(encodedState, 36);
-			H3 = Pack.bigEndianToLong(encodedState, 44);
-			H4 = Pack.bigEndianToLong(encodedState, 52);
-			H5 = Pack.bigEndianToLong(encodedState, 60);
-			H6 = Pack.bigEndianToLong(encodedState, 68);
-			H7 = Pack.bigEndianToLong(encodedState, 76);
-			H8 = Pack.bigEndianToLong(encodedState, 84);
+			H1 = Pack.bigEndianToULong(encodedState, 28);
+			H2 = Pack.bigEndianToULong(encodedState, 36);
+			H3 = Pack.bigEndianToULong(encodedState, 44);
+			H4 = Pack.bigEndianToULong(encodedState, 52);
+			H5 = Pack.bigEndianToULong(encodedState, 60);
+			H6 = Pack.bigEndianToULong(encodedState, 68);
+			H7 = Pack.bigEndianToULong(encodedState, 76);
+			H8 = Pack.bigEndianToULong(encodedState, 84);
 
 			wOff = Pack.bigEndianToInt(encodedState, 92);
 			for (int i = 0; i < wOff; i++)
 			{
-				W[i] = Pack.bigEndianToLong(encodedState, 96 + (i * 8));
+				W[i] = Pack.bigEndianToULong(encodedState, 96 + (i * 8));
 			}
 		}
 
@@ -174,8 +174,8 @@ namespace org.bouncycastle.crypto.digests
 		{
 			adjustByteCounts();
 
-			long lowBitLength = byteCount1 << 3;
-			long hiBitLength = byteCount2;
+			ulong lowBitLength = (ulong) (byteCount1 << 3);
+			ulong hiBitLength = (ulong) byteCount2;
 
 			//
 			// add the pad bytes.
@@ -217,7 +217,7 @@ namespace org.bouncycastle.crypto.digests
 
 		public virtual void processWord(byte[] @in, int inOff)
 		{
-			W[wOff] = Pack.bigEndianToLong(@in, inOff);
+			W[wOff] = Pack.bigEndianToULong(@in, inOff);
 
 			if (++wOff == 16)
 			{
@@ -238,7 +238,7 @@ namespace org.bouncycastle.crypto.digests
 			}
 		}
 
-		public virtual void processLength(long lowW, long hiW)
+		public virtual void processLength(ulong lowW, ulong hiW)
 		{
 			if (wOff > 14)
 			{
@@ -264,14 +264,14 @@ namespace org.bouncycastle.crypto.digests
 			//
 			// set up working variables.
 			//
-			long a = H1;
-			long b = H2;
-			long c = H3;
-			long d = H4;
-			long e = H5;
-			long f = H6;
-			long g = H7;
-			long h = H8;
+			ulong a = H1;
+			ulong b = H2;
+			ulong c = H3;
+			ulong d = H4;
+			ulong e = H5;
+			ulong f = H6;
+			ulong g = H7;
+			ulong h = H8;
 
 		    {int t = 0;
 			for (int i = 0; i < 10; i++)
@@ -337,41 +337,41 @@ namespace org.bouncycastle.crypto.digests
 		}
 
 		/* SHA-384 and SHA-512 functions (as for SHA-256 but for longs) */
-		private long Ch(long x, long y, long z)
+		private ulong Ch(ulong x, ulong y, ulong z)
 		{
 			return ((x & y) ^ ((~x) & z));
 		}
 
-		private long Maj(long x, long y, long z)
+		private ulong Maj(ulong x, ulong y, ulong z)
 		{
 			return ((x & y) ^ (x & z) ^ (y & z));
 		}
 
-		private long Sum0(long x)
+		private ulong Sum0(ulong x)
 		{
-			return ((x << 36) | ((long)((ulong)x >> 28))) ^ ((x << 30) | ((long)((ulong)x >> 34))) ^ ((x << 25) | ((long)((ulong)x >> 39)));
+			return ((x << 36) | ((ulong)((ulong)x >> 28))) ^ ((x << 30) | ((ulong)((ulong)x >> 34))) ^ ((x << 25) | ((ulong)((ulong)x >> 39)));
 		}
 
-		private long Sum1(long x)
+		private ulong Sum1(ulong x)
 		{
-			return ((x << 50) | ((long)((ulong)x >> 14))) ^ ((x << 46) | ((long)((ulong)x >> 18))) ^ ((x << 23) | ((long)((ulong)x >> 41)));
+			return ((x << 50) | ((ulong)((ulong)x >> 14))) ^ ((x << 46) | ((ulong)((ulong)x >> 18))) ^ ((x << 23) | ((ulong)((ulong)x >> 41)));
 		}
 
-		private long Sigma0(long x)
+		private ulong Sigma0(ulong x)
 		{
-			return ((x << 63) | ((long)((ulong)x >> 1))) ^ ((x << 56) | ((long)((ulong)x >> 8))) ^ ((long)((ulong)x >> 7));
+			return ((x << 63) | ((ulong)((ulong)x >> 1))) ^ ((x << 56) | ((ulong)((ulong)x >> 8))) ^ ((ulong)((ulong)x >> 7));
 		}
 
-		private long Sigma1(long x)
+		private ulong Sigma1(ulong x)
 		{
-			return ((x << 45) | ((long)((ulong)x >> 19))) ^ ((x << 3) | ((long)((ulong)x >> 61))) ^ ((long)((ulong)x >> 6));
+			return ((x << 45) | ((ulong)((ulong)x >> 19))) ^ ((x << 3) | ((ulong)((ulong)x >> 61))) ^ ((ulong)((ulong)x >> 6));
 		}
 
 		/* SHA-384 and SHA-512 Constants
 		 * (represent the first 64 bits of the fractional parts of the
 		 * cube roots of the first sixty-four prime numbers)
 		 */
-		internal static readonly long[] K = new long[] {0x428a2f98d728ae22L, 0x7137449123ef65cdL, unchecked((long)0xb5c0fbcfec4d3b2fL), unchecked((long)0xe9b5dba58189dbbcL), 0x3956c25bf348b538L, 0x59f111f1b605d019L, unchecked((long)0x923f82a4af194f9bL), unchecked((long)0xab1c5ed5da6d8118L), unchecked((long)0xd807aa98a3030242L), 0x12835b0145706fbeL, 0x243185be4ee4b28cL, 0x550c7dc3d5ffb4e2L, 0x72be5d74f27b896fL, unchecked((long)0x80deb1fe3b1696b1L), unchecked((long)0x9bdc06a725c71235L), unchecked((long)0xc19bf174cf692694L), unchecked((long)0xe49b69c19ef14ad2L), unchecked((long)0xefbe4786384f25e3L), 0x0fc19dc68b8cd5b5L, 0x240ca1cc77ac9c65L, 0x2de92c6f592b0275L, 0x4a7484aa6ea6e483L, 0x5cb0a9dcbd41fbd4L, 0x76f988da831153b5L, unchecked((long)0x983e5152ee66dfabL), unchecked((long)0xa831c66d2db43210L), unchecked((long)0xb00327c898fb213fL), unchecked((long)0xbf597fc7beef0ee4L), unchecked((long)0xc6e00bf33da88fc2L), unchecked((long)0xd5a79147930aa725L), 0x06ca6351e003826fL, 0x142929670a0e6e70L, 0x27b70a8546d22ffcL, 0x2e1b21385c26c926L, 0x4d2c6dfc5ac42aedL, 0x53380d139d95b3dfL, 0x650a73548baf63deL, 0x766a0abb3c77b2a8L, unchecked((long)0x81c2c92e47edaee6L), unchecked((long)0x92722c851482353bL), unchecked((long)0xa2bfe8a14cf10364L), unchecked((long)0xa81a664bbc423001L), unchecked((long)0xc24b8b70d0f89791L), unchecked((long)0xc76c51a30654be30L), unchecked((long)0xd192e819d6ef5218L), unchecked((long)0xd69906245565a910L), unchecked((long)0xf40e35855771202aL), 0x106aa07032bbd1b8L, 0x19a4c116b8d2d0c8L, 0x1e376c085141ab53L, 0x2748774cdf8eeb99L, 0x34b0bcb5e19b48a8L, 0x391c0cb3c5c95a63L, 0x4ed8aa4ae3418acbL, 0x5b9cca4f7763e373L, 0x682e6ff3d6b2b8a3L, 0x748f82ee5defb2fcL, 0x78a5636f43172f60L, unchecked((long)0x84c87814a1f0ab72L), unchecked((long)0x8cc702081a6439ecL), unchecked((long)0x90befffa23631e28L), unchecked((long)0xa4506cebde82bde9L), unchecked((long)0xbef9a3f7b2c67915L), unchecked((long)0xc67178f2e372532bL), unchecked((long)0xca273eceea26619cL), unchecked((long)0xd186b8c721c0c207L), unchecked((long)0xeada7dd6cde0eb1eL), unchecked((long)0xf57d4f7fee6ed178L), 0x06f067aa72176fbaL, 0x0a637dc5a2c898a6L, 0x113f9804bef90daeL, 0x1b710b35131c471bL, 0x28db77f523047d84L, 0x32caab7b40c72493L, 0x3c9ebe0a15c9bebcL, 0x431d67c49c100d4cL, 0x4cc5d4becb3e42b6L, 0x597f299cfc657e2aL, 0x5fcb6fab3ad6faecL, 0x6c44198c4a475817L};
+		internal static readonly ulong[] K = new ulong[] {0x428a2f98d728ae22UL, 0x7137449123ef65cdUL, unchecked((ulong)0xb5c0fbcfec4d3b2fUL), unchecked((ulong)0xe9b5dba58189dbbcUL), 0x3956c25bf348b538UL, 0x59f111f1b605d019UL, unchecked((ulong)0x923f82a4af194f9bUL), unchecked((ulong)0xab1c5ed5da6d8118UL), unchecked((ulong)0xd807aa98a3030242UL), 0x12835b0145706fbeUL, 0x243185be4ee4b28cUL, 0x550c7dc3d5ffb4e2UL, 0x72be5d74f27b896fUL, unchecked((ulong)0x80deb1fe3b1696b1UL), unchecked((ulong)0x9bdc06a725c71235UL), unchecked((ulong)0xc19bf174cf692694UL), unchecked((ulong)0xe49b69c19ef14ad2UL), unchecked((ulong)0xefbe4786384f25e3UL), 0x0fc19dc68b8cd5b5UL, 0x240ca1cc77ac9c65UL, 0x2de92c6f592b0275UL, 0x4a7484aa6ea6e483UL, 0x5cb0a9dcbd41fbd4UL, 0x76f988da831153b5UL, unchecked((ulong)0x983e5152ee66dfabUL), unchecked((ulong)0xa831c66d2db43210UL), unchecked((ulong)0xb00327c898fb213fUL), unchecked((ulong)0xbf597fc7beef0ee4UL), unchecked((ulong)0xc6e00bf33da88fc2UL), unchecked((ulong)0xd5a79147930aa725UL), 0x06ca6351e003826fUL, 0x142929670a0e6e70UL, 0x27b70a8546d22ffcUL, 0x2e1b21385c26c926UL, 0x4d2c6dfc5ac42aedUL, 0x53380d139d95b3dfUL, 0x650a73548baf63deUL, 0x766a0abb3c77b2a8UL, unchecked((ulong)0x81c2c92e47edaee6UL), unchecked((ulong)0x92722c851482353bUL), unchecked((ulong)0xa2bfe8a14cf10364UL), unchecked((ulong)0xa81a664bbc423001UL), unchecked((ulong)0xc24b8b70d0f89791UL), unchecked((ulong)0xc76c51a30654be30UL), unchecked((ulong)0xd192e819d6ef5218UL), unchecked((ulong)0xd69906245565a910UL), unchecked((ulong)0xf40e35855771202aUL), 0x106aa07032bbd1b8UL, 0x19a4c116b8d2d0c8UL, 0x1e376c085141ab53UL, 0x2748774cdf8eeb99UL, 0x34b0bcb5e19b48a8UL, 0x391c0cb3c5c95a63UL, 0x4ed8aa4ae3418acbUL, 0x5b9cca4f7763e373UL, 0x682e6ff3d6b2b8a3UL, 0x748f82ee5defb2fcUL, 0x78a5636f43172f60UL, unchecked((ulong)0x84c87814a1f0ab72UL), unchecked((ulong)0x8cc702081a6439ecUL), unchecked((ulong)0x90befffa23631e28UL), unchecked((ulong)0xa4506cebde82bde9UL), unchecked((ulong)0xbef9a3f7b2c67915UL), unchecked((ulong)0xc67178f2e372532bUL), unchecked((ulong)0xca273eceea26619cUL), unchecked((ulong)0xd186b8c721c0c207UL), unchecked((ulong)0xeada7dd6cde0eb1eUL), unchecked((ulong)0xf57d4f7fee6ed178UL), 0x06f067aa72176fbaUL, 0x0a637dc5a2c898a6UL, 0x113f9804bef90daeUL, 0x1b710b35131c471bUL, 0x28db77f523047d84UL, 0x32caab7b40c72493UL, 0x3c9ebe0a15c9bebcUL, 0x431d67c49c100d4cUL, 0x4cc5d4becb3e42b6UL, 0x597f299cfc657e2aUL, 0x5fcb6fab3ad6faecUL, 0x6c44198c4a475817UL};
 
 	}
 

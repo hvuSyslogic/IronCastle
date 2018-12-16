@@ -14,7 +14,7 @@ namespace org.bouncycastle.crypto.digests
 	{
 		private int digestLength; // non-final due to old flow analyser.
 
-		private long H1t, H2t, H3t, H4t, H5t, H6t, H7t, H8t;
+		private ulong H1t, H2t, H3t, H4t, H5t, H6t, H7t, H8t;
 
 		/// <summary>
 		/// Standard constructor
@@ -79,14 +79,15 @@ namespace org.bouncycastle.crypto.digests
 		{
 			finish();
 
-			longToBigEndian(H1, @out, outOff, digestLength);
-			longToBigEndian(H2, @out, outOff + 8, digestLength - 8);
-			longToBigEndian(H3, @out, outOff + 16, digestLength - 16);
-			longToBigEndian(H4, @out, outOff + 24, digestLength - 24);
-			longToBigEndian(H5, @out, outOff + 32, digestLength - 32);
-			longToBigEndian(H6, @out, outOff + 40, digestLength - 40);
-			longToBigEndian(H7, @out, outOff + 48, digestLength - 48);
-			longToBigEndian(H8, @out, outOff + 56, digestLength - 56);
+            
+			UlongToBigEndian(H1, @out, outOff, digestLength);
+			UlongToBigEndian(H2, @out, outOff + 8, digestLength - 8);
+			UlongToBigEndian(H3, @out, outOff + 16, digestLength - 16);
+			UlongToBigEndian(H4, @out, outOff + 24, digestLength - 24);
+			UlongToBigEndian(H5, @out, outOff + 32, digestLength - 32);
+			UlongToBigEndian(H6, @out, outOff + 40, digestLength - 40);
+			UlongToBigEndian(H7, @out, outOff + 48, digestLength - 48);
+			UlongToBigEndian(H8, @out, outOff + 56, digestLength - 56);
 
 			reset();
 
@@ -115,15 +116,15 @@ namespace org.bouncycastle.crypto.digests
 
 		private void tIvGenerate(int bitLength)
 		{
-			H1 = 0x6a09e667f3bcc908L ^ 0xa5a5a5a5a5a5a5a5L;
-			H2 = 0xbb67ae8584caa73bL ^ 0xa5a5a5a5a5a5a5a5L;
-			H3 = 0x3c6ef372fe94f82bL ^ 0xa5a5a5a5a5a5a5a5L;
-			H4 = 0xa54ff53a5f1d36f1L ^ 0xa5a5a5a5a5a5a5a5L;
-			H5 = 0x510e527fade682d1L ^ 0xa5a5a5a5a5a5a5a5L;
-			H6 = 0x9b05688c2b3e6c1fL ^ 0xa5a5a5a5a5a5a5a5L;
-			H7 = 0x1f83d9abfb41bd6bL ^ 0xa5a5a5a5a5a5a5a5L;
-			H8 = 0x5be0cd19137e2179L ^ 0xa5a5a5a5a5a5a5a5L;
-
+			H1 = 0x6a09e667f3bcc908L ^ 0xa5a5a5a5a5a5a5a5UL;
+			H2 = 0xbb67ae8584caa73bL ^ 0xa5a5a5a5a5a5a5a5UL;
+			H3 = 0x3c6ef372fe94f82bL ^ 0xa5a5a5a5a5a5a5a5UL;
+			H4 = 0xa54ff53a5f1d36f1L ^ 0xa5a5a5a5a5a5a5a5UL;
+			H5 = 0x510e527fade682d1L ^ 0xa5a5a5a5a5a5a5a5UL;
+			H6 = 0x9b05688c2b3e6c1fL ^ 0xa5a5a5a5a5a5a5a5UL;
+			H7 = 0x1f83d9abfb41bd6bL ^ 0xa5a5a5a5a5a5a5a5UL;
+			H8 = 0x5be0cd19137e2179L ^ 0xa5a5a5a5a5a5a5a5UL;
+                                                         
 			update((byte)0x53);
 			update((byte)0x48);
 			update((byte)0x41);
@@ -164,20 +165,20 @@ namespace org.bouncycastle.crypto.digests
 			H8t = H8;
 		}
 
-		private static void longToBigEndian(long n, byte[] bs, int off, int max)
+		private static void UlongToBigEndian(ulong n, byte[] bs, int off, int max)
 		{
 			if (max > 0)
 			{
-				intToBigEndian((int)((long)((ulong)n >> 32)), bs, off, max);
+				intToBigEndian((uint)((ulong)((ulong)n >> 32)), bs, off, max);
 
 				if (max > 4)
 				{
-					intToBigEndian(unchecked((int)(n & 0xffffffffL)), bs, off + 4, max - 4);
+					intToBigEndian(unchecked((uint)(n & 0xffffffffL)), bs, off + 4, max - 4);
 				}
 			}
 		}
 
-		private static void intToBigEndian(int n, byte[] bs, int off, int max)
+		private static void intToBigEndian(uint n, byte[] bs, int off, int max)
 		{
 			int num = Math.Min(4, max);
 			while (--num >= 0)

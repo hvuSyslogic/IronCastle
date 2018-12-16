@@ -1,11 +1,12 @@
-﻿using BouncyCastle.Core.Port;
+﻿using BouncyCastle.Core;
+using BouncyCastle.Core.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.pqc.crypto.qtesla
 {
 
 	using CipherParameters = org.bouncycastle.crypto.CipherParameters;
-	using CryptoServicesRegistrar = org.bouncycastle.crypto.CryptoServicesRegistrar;
+	using CryptoServicesRegistrar = CryptoServicesRegistrar;
 	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
 
 	/// <summary>
