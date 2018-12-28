@@ -101,7 +101,7 @@ namespace org.bouncycastle.asn1
 	/// </blockquote>
 	/// </para>
 	/// </summary>
-	public abstract class ASN1Set : ASN1Primitive, bouncycastle.util.Iterable<ASN1Encodable>
+	public abstract class ASN1Set : ASN1Primitive, Iterable<ASN1Encodable>
 	{
 		private Vector set = new Vector();
 		private bool isSorted = false;

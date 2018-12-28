@@ -61,7 +61,7 @@ namespace org.bouncycastle.asn1
 	/// its default value.
 	/// </para>
 	/// </summary>
-	public abstract class ASN1Sequence : ASN1Primitive, bouncycastle.util.Iterable<ASN1Encodable>
+	public abstract class ASN1Sequence : ASN1Primitive, Iterable<ASN1Encodable>
 	{
 		protected internal Vector seq = new Vector();
 

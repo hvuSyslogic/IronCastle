@@ -61,14 +61,14 @@ namespace org.bouncycastle.crypto.prng
 			}
 		}
 
-		public virtual void nextBytes(byte[] bytes)
+		public override void nextBytes(byte[] bytes)
 		{
 			JavaSystem.arraycopy(_data, _index, bytes, 0, bytes.Length);
 
 			_index += bytes.Length;
 		}
 
-		public virtual byte[] generateSeed(int numBytes)
+		public override byte[] generateSeed(int numBytes)
 		{
 			byte[] bytes = new byte[numBytes];
 
@@ -81,7 +81,7 @@ namespace org.bouncycastle.crypto.prng
 		// classpath's implementation of SecureRandom doesn't currently go back to nextBytes
 		// when next is called. We can't override next as it's a final method.
 		//
-		public virtual int nextInt()
+		public override int nextInt()
 		{
 			int val = 0;
 
@@ -113,7 +113,7 @@ namespace org.bouncycastle.crypto.prng
 		// classpath's implementation of SecureRandom doesn't currently go back to nextBytes
 		// when next is called. We can't override next as it's a final method.
 		//
-		public virtual long nextLong()
+		public override long nextLong()
 		{
 			long val = 0;
 

@@ -12,12 +12,12 @@ namespace org.bouncycastle.crypto.io
 			this._signer = signer;
 		}
 
-		public virtual void write(int b)
+		public override void write(int b)
 		{
 		    _signer.update((byte)b);
 		}
 
-		public virtual void write(byte[] b, int off, int len)
+		public override void write(byte[] b, int off, int len)
 		{
 		    _signer.update(b, off, len);
 		}

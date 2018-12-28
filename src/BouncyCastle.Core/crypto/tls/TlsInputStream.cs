@@ -16,17 +16,17 @@ namespace org.bouncycastle.crypto.tls
 			this.handler = handler;
 		}
 
-		public virtual int available()
+		public override int available()
 		{
 			return this.handler.applicationDataAvailable();
 		}
 
-		public virtual int read(byte[] buf, int offset, int len)
+		public override int read(byte[] buf, int offset, int len)
 		{
 			return this.handler.readApplicationData(buf, offset, len);
 		}
 
-		public virtual int read()
+		public override int read()
 		{
 			if (this.read(buf) < 0)
 			{
@@ -35,7 +35,7 @@ namespace org.bouncycastle.crypto.tls
 			return buf[0] & 0xff;
 		}
 
-		public virtual void close()
+		public override void close()
 		{
 			handler.close();
 		}

@@ -22,7 +22,7 @@ namespace org.bouncycastle.Port.java.util
             return _innerDictionary[key];
         }
 
-        public object put(object key, object value)
+        public virtual object put(object key, object value)
         {
             object prevValue = _innerDictionary[key];
             _innerDictionary[key] = value;

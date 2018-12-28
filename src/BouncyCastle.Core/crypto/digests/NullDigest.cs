@@ -49,7 +49,7 @@ namespace org.bouncycastle.crypto.digests
 
 		public class OpenByteArrayOutputStream : ByteArrayOutputStream
 		{
-			public virtual void reset()
+			public override void reset()
 			{
 				base.reset();
 

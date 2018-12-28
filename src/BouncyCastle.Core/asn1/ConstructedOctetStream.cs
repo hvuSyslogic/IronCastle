@@ -15,7 +15,7 @@ namespace org.bouncycastle.asn1
 			_parser = parser;
 		}
 
-		public virtual int read(byte[] b, int off, int len)
+		public override int read(byte[] b, int off, int len)
 		{
 			if (_currentStream == null)
 			{
@@ -65,7 +65,7 @@ namespace org.bouncycastle.asn1
 			}
 		}
 
-		public virtual int read()
+		public override int read()
 		{
 			if (_currentStream == null)
 			{

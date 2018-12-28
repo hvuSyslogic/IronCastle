@@ -25,7 +25,7 @@ namespace org.bouncycastle.crypto.tls
 			return bytesToRead;
 		}
 
-		public virtual int read()
+		public override int read()
 		{
 			if (buffer.available() == 0)
 			{
@@ -34,31 +34,31 @@ namespace org.bouncycastle.crypto.tls
 			return buffer.removeData(1, 0)[0] & 0xFF;
 		}
 
-		public virtual int read(byte[] b)
+		public override int read(byte[] b)
 		{
 			return read(b, 0, b.Length);
 		}
 
-		public virtual int read(byte[] b, int off, int len)
+		public override int read(byte[] b, int off, int len)
 		{
 			int bytesToRead = Math.Min(buffer.available(), len);
 			buffer.removeData(b, off, bytesToRead, 0);
 			return bytesToRead;
 		}
 
-		public virtual long skip(long n)
+		public override long skip(long n)
 		{
 			int bytesToRemove = Math.Min((int)n, buffer.available());
 			buffer.removeData(bytesToRemove);
 			return bytesToRemove;
 		}
 
-		public virtual int available()
+		public override int available()
 		{
 			return buffer.available();
 		}
 
-		public virtual void close()
+		public override void close()
 		{
 		}
 	}

@@ -22,7 +22,7 @@ namespace org.bouncycastle.crypto.prng
 			this.predictionResistant = predictionResistant;
 		}
 
-		public virtual void setSeed(byte[] seed)
+		public override void setSeed(byte[] seed)
 		{
 			lock (this)
 			{
@@ -33,7 +33,7 @@ namespace org.bouncycastle.crypto.prng
 			}
 		}
 
-		public virtual void setSeed(long seed)
+		public override void setSeed(long seed)
 		{
 			lock (this)
 			{
@@ -45,7 +45,7 @@ namespace org.bouncycastle.crypto.prng
 			}
 		}
 
-		public virtual void nextBytes(byte[] bytes)
+		public override void nextBytes(byte[] bytes)
 		{
 			lock (this)
 			{
@@ -63,7 +63,7 @@ namespace org.bouncycastle.crypto.prng
 			}
 		}
 
-		public virtual byte[] generateSeed(int numBytes)
+		public override byte[] generateSeed(int numBytes)
 		{
 			return EntropyUtil.generateSeed(entropySource, numBytes);
 		}

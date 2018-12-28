@@ -14,7 +14,6 @@ namespace org.bouncycastle.crypto.agreement
 	using ECConstants = org.bouncycastle.math.ec.ECConstants;
 	using ECCurve = org.bouncycastle.math.ec.ECCurve;
 	using ECPoint = org.bouncycastle.math.ec.ECPoint;
-	using Properties = org.bouncycastle.util.Properties;
 
 	public class ECMQVBasicAgreement : BasicAgreement
 	{

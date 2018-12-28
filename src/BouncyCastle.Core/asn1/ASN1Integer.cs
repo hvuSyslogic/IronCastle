@@ -7,7 +7,6 @@ namespace org.bouncycastle.asn1
 {
 
 	using Arrays = org.bouncycastle.util.Arrays;
-	using Properties = org.bouncycastle.util.Properties;
 
 	/// <summary>
 	/// Class representing the ASN.1 INTEGER type.

@@ -16,23 +16,23 @@ namespace org.bouncycastle.crypto.tls
 			this.handler = handler;
 		}
 
-		public virtual void write(byte[] buf, int offset, int len)
+		public override void write(byte[] buf, int offset, int len)
 		{
 			this.handler.writeData(buf, offset, len);
 		}
 
-		public virtual void write(int arg0)
+		public override void write(int arg0)
 		{
 			buf[0] = (byte)arg0;
 			this.write(buf, 0, 1);
 		}
 
-		public virtual void close()
+		public override void close()
 		{
 			handler.close();
 		}
 
-		public virtual void flush()
+		public override void flush()
 		{
 			handler.flush();
 		}

@@ -4,7 +4,7 @@ namespace BouncyCastle.Core.Port.java.text
 {
     public abstract class DateFormat
     {
-        public  object format(DateTime date)
+        public virtual string format(DateTime date)
         {
             throw new NotImplementedException();
         }
@@ -31,7 +31,7 @@ namespace BouncyCastle.Core.Port.java.text
             throw new NotImplementedException();
         }
 
-        public string format(DateTime time)
+        public override string format(DateTime time)
         {
             throw new NotImplementedException();
         }

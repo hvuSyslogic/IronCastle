@@ -15,12 +15,12 @@ namespace org.bouncycastle.util.test
 		{
 		}
 
-		public virtual void close()
+		public override void close()
 		{
 			throw new RuntimeException("close() called on UncloseableOutputStream");
 		}
 
-		public virtual void write(byte[] b, int off, int len)
+		public override void write(byte[] b, int off, int len)
 		{
 			@out.write(b, off, len);
 		}

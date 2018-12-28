@@ -14,8 +14,5 @@ namespace org.bouncycastle.util
 		/// <param name="obj"> the object to be matched. </param>
 		/// <returns> true if the object is a match for this selector, false otherwise. </returns>
 		bool match(T obj);
-
-		object clone();
 	}
-
 }

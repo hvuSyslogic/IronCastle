@@ -41,7 +41,7 @@ namespace org.bouncycastle.asn1
 			return _eofReached;
 		}
 
-		public virtual int read(byte[] b, int off, int len)
+		public override int read(byte[] b, int off, int len)
 		{
 			// Only use this optimisation if we aren't checking for 00
 			if (_eofOn00 || len < 3)
@@ -77,7 +77,7 @@ namespace org.bouncycastle.asn1
 			return numRead + 2;
 		}
 
-		public virtual int read()
+		public override int read()
 		{
 			if (checkForEof())
 			{

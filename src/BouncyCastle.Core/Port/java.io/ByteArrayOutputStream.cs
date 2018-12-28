@@ -33,7 +33,7 @@ namespace org.bouncycastle.Port.java.io
             return (int)ms.Length;
         }
 
-        public void reset()
+        public virtual void reset()
         {
             throw new NotImplementedException();
         }

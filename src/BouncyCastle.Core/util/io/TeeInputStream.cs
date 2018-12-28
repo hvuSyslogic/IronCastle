@@ -22,12 +22,12 @@ namespace org.bouncycastle.util.io
 			this.output = output;
 		}
 
-		public virtual int read(byte[] buf)
+		public override int read(byte[] buf)
 		{
 			return read(buf, 0, buf.Length);
 		}
 
-		public virtual int read(byte[] buf, int off, int len)
+		public override int read(byte[] buf, int off, int len)
 		{
 			int i = input.read(buf, off, len);
 
@@ -39,7 +39,7 @@ namespace org.bouncycastle.util.io
 			return i;
 		}
 
-		public virtual int read()
+		public override int read()
 		{
 			int i = input.read();
 
@@ -51,7 +51,7 @@ namespace org.bouncycastle.util.io
 			return i;
 		}
 
-		public virtual void close()
+		public override void close()
 		{
 			this.input.close();
 			this.output.close();

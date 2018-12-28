@@ -12,12 +12,12 @@ namespace org.bouncycastle.crypto.io
 			this.digest = org;
 		}
 
-		public virtual void write(int b)
+		public override void write(int b)
 		{
 			digest.update((byte)b);
 		}
 
-		public virtual void write(byte[] b, int off, int len)
+		public override void write(byte[] b, int off, int len)
 		{
 			digest.update(b, off, len);
 		}

@@ -42,7 +42,7 @@ namespace org.bouncycastle.crypto.@params
 		/// </summary>
 		/// <param name="key"> bytes making up the key </param>
 		/// <param name="offset"> offset into the byte array the key starts at </param>
-		public static bool isWeakKey(byte[] key, int offset)
+		public new static bool isWeakKey(byte[] key, int offset)
 		{
 			return isWeakKey(key, offset, key.Length - offset);
 		}

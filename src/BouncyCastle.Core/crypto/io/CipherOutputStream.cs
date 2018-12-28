@@ -57,7 +57,7 @@ namespace org.bouncycastle.crypto.io
 		/// </summary>
 		/// <param name="b"> the <code>byte</code>. </param>
 		/// <exception cref="IOException"> if an I/O error occurs. </exception>
-		public virtual void write(int b)
+		public override void write(int b)
 		{
 			oneByte[0] = (byte)b;
 
@@ -85,7 +85,7 @@ namespace org.bouncycastle.crypto.io
 		/// <param name="b"> the data. </param>
 		/// <exception cref="IOException"> if an I/O error occurs. </exception>
 		/// <seealso cref= #write(byte[], int, int) </seealso>
-		public virtual void write(byte[] b)
+		public override void write(byte[] b)
 		{
 			write(b, 0, b.Length);
 		}
@@ -98,7 +98,7 @@ namespace org.bouncycastle.crypto.io
 		/// <param name="off"> the start offset in the data. </param>
 		/// <param name="len"> the number of bytes to write. </param>
 		/// <exception cref="IOException"> if an I/O error occurs. </exception>
-		public virtual void write(byte[] b, int off, int len)
+		public override void write(byte[] b, int off, int len)
 		{
 			ensureCapacity(len, false);
 
@@ -179,7 +179,7 @@ namespace org.bouncycastle.crypto.io
 		/// </para>
 		/// </summary>
 		/// <exception cref="IOException"> if an I/O error occurs. </exception>
-		public virtual void flush()
+		public override void flush()
 		{
 			@out.flush();
 		}
@@ -203,7 +203,7 @@ namespace org.bouncycastle.crypto.io
 		/// <exception cref="IOException"> if an I/O error occurs. </exception>
 		/// <exception cref="InvalidCipherTextIOException"> if the data written to this stream was invalid ciphertext
 		/// (e.g. the cipher is an AEAD cipher and the ciphertext tag check fails). </exception>
-		public virtual void close()
+		public override void close()
 		{
 			ensureCapacity(0, true);
 			IOException error = null;
@@ -232,8 +232,6 @@ namespace org.bouncycastle.crypto.io
 					streamCipher.reset();
 				}
 			}
-//JAVA TO C# CONVERTER WARNING: 'final' catch parameters are not available in C#:
-//ORIGINAL LINE: catch (final org.bouncycastle.crypto.InvalidCipherTextException e)
 			catch (InvalidCipherTextException e)
 			{
 				error = new InvalidCipherTextIOException("Error finalising cipher data", e);

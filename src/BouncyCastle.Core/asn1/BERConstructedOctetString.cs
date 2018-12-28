@@ -118,7 +118,7 @@ namespace org.bouncycastle.asn1
 			 return vec;
 		}
 
-		public static BEROctetString fromSequence(ASN1Sequence seq)
+		public new static BEROctetString fromSequence(ASN1Sequence seq)
 		{
 			Vector v = new Vector();
 			Enumeration e = seq.getObjects();

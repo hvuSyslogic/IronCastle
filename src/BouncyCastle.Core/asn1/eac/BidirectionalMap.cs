@@ -14,7 +14,7 @@ namespace org.bouncycastle.asn1.eac
 			return reverseMap.get(o);
 		}
 
-		public virtual object put(object key, object o)
+		public override object put(object key, object o)
 		{
 			reverseMap.put(o, key);
 			return base.put(key, o);

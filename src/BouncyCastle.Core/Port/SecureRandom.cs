@@ -16,28 +16,28 @@ namespace BouncyCastle.Core.Port
             throw new NotImplementedException();
         }
 
-        public void nextBytes(byte[] currentSeed)
+        public virtual void nextBytes(byte[] currentSeed)
         {
             throw new NotImplementedException();
         }
 
 
-        public void setSeed(byte[] getBytes)
+        public virtual void setSeed(byte[] getBytes)
         {
             throw new NotImplementedException();
         }
 
-        public byte[] generateSeed(int i)
+        public virtual byte[] generateSeed(int i)
         {
             throw new NotImplementedException();
         }
 
-        internal void setSeed(long seed)
+        public virtual void setSeed(long seed)
         {
             throw new NotImplementedException();
         }
 
-        internal int nextInt(int v)
+        public virtual int nextInt(int v)
         {
             throw new NotImplementedException();
         }

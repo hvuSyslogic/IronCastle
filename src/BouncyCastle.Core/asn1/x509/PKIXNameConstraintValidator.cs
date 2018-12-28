@@ -1862,7 +1862,7 @@ namespace org.bouncycastle.asn1.x509
 				while (it2.hasNext())
 				{
 					object b = it2.next();
-					if (Equals(a, b))
+					if (equals(a, b))
 					{
 						found = true;
 						break;
@@ -1876,7 +1876,7 @@ namespace org.bouncycastle.asn1.x509
 			return true;
 		}
 
-		private bool Equals(object o1, object o2)
+		private bool equals(object o1, object o2)
 		{
 			if (o1 == o2)
 			{

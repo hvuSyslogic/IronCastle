@@ -79,13 +79,13 @@ namespace org.bouncycastle.Port.java.util
             throw new NotImplementedException();
         }
 
-        public bool add(T e)
+        public virtual bool add(T e)
         {
             _innerList.Add(e);
             return true;
         }
 
-        public bool addAll(Collection<T> c)
+        public virtual bool addAll(Collection<T> c)
         {
             var iterator = c.iterator();
 
@@ -97,27 +97,27 @@ namespace org.bouncycastle.Port.java.util
             return true;
         }
 
-        public int size()
+        public virtual int size()
         {
             return _innerList.Count;
         }
 
-        public bool isEmpty()
+        public virtual bool isEmpty()
         {
             return _innerList.Count == 0;
         }
 
-        public T[] toArray()
+        public virtual T[] toArray()
         {
             return _innerList.ToArray();
         }
 
-        public T get(int index)
+        public virtual T get(int index)
         {
             return _innerList[index];
         }
 
-        public int indexOf(T o)
+        public virtual int indexOf(T o)
         {
             return _innerList.IndexOf(o);
         }
@@ -134,7 +134,7 @@ namespace org.bouncycastle.Port.java.util
             return item;
         }
 
-        public T set(int index, T element)
+        public virtual T set(int index, T element)
         {
             T item = _innerList[index];
             _innerList[index] = element;

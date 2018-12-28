@@ -198,14 +198,14 @@ namespace org.bouncycastle.util.test
 			_data = bOut.toByteArray();
 		}
 
-		public virtual void nextBytes(byte[] bytes)
+		public override void nextBytes(byte[] bytes)
 		{
 			JavaSystem.arraycopy(_data, _index, bytes, 0, bytes.Length);
 
 			_index += bytes.Length;
 		}
 
-		public virtual byte[] generateSeed(int numBytes)
+		public override byte[] generateSeed(int numBytes)
 		{
 			byte[] bytes = new byte[numBytes];
 
@@ -218,7 +218,7 @@ namespace org.bouncycastle.util.test
 		// classpath's implementation of SecureRandom doesn't currently go back to nextBytes
 		// when next is called. We can't override next as it's a final method.
 		//
-		public virtual int nextInt()
+		public override int nextInt()
 		{
 			int val = 0;
 
@@ -234,7 +234,7 @@ namespace org.bouncycastle.util.test
 		// classpath's implementation of SecureRandom doesn't currently go back to nextBytes
 		// when next is called. We can't override next as it's a final method.
 		//
-		public virtual long nextLong()
+		public override long nextLong()
 		{
 			long val = 0;
 
@@ -269,7 +269,7 @@ namespace org.bouncycastle.util.test
 			internal byte[] data = Hex.decode("01020304ffffffff0506070811111111");
 			internal int index = 0;
 
-			public virtual void nextBytes(byte[] bytes)
+			public override void nextBytes(byte[] bytes)
 			{
 				JavaSystem.arraycopy(data, index, bytes, 0, bytes.Length);
 
@@ -310,11 +310,9 @@ namespace org.bouncycastle.util.test
 			return v;
 		}
 
-		public class DummyProvider : Provider
+		public class DummyProvider 
 		{
-			public DummyProvider() : base("BCFIPS_FIXED_RNG", 1.0, "BCFIPS Fixed Secure Random Provider")
-			{
-			}
+
 		}
 	}
 

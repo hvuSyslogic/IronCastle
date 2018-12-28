@@ -72,7 +72,7 @@ namespace org.bouncycastle.asn1
 				_derOut = new DEROutputStream(outerInstance._out);
 			}
 
-			public virtual void write(int b)
+			public override void write(int b)
 			{
 				_buf[_off++] = (byte)b;
 
@@ -83,7 +83,7 @@ namespace org.bouncycastle.asn1
 				}
 			}
 
-			public virtual void write(byte[] b, int off, int len)
+			public override void write(byte[] b, int off, int len)
 			{
 				while (len > 0)
 				{
@@ -104,7 +104,7 @@ namespace org.bouncycastle.asn1
 				}
 			}
 
-			public virtual void close()
+			public override void close()
 			{
 				if (_off != 0)
 				{

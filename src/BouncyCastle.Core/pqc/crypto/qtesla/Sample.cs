@@ -1044,7 +1044,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 			HashUtils.customizableSecureHashAlgorithmKECCAK128Simple(randomness, 0, HashUtils.SECURE_HASH_ALGORITHM_KECCAK_128_RATE, domainSeparator++, output, outputOffset, Polynomial.RANDOM);
 
 			/* Use Rejection Sampling to Determine Positions to be Set in the New Vector */
-			Arrays.fill(C, 0, n, (short)0);
+			Arrays.fill(C, 0, n, 0);
 
 			/* Sample A Unique Position k times.
 			 * Use Two Bytes

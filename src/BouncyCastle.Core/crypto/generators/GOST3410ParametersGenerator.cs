@@ -361,10 +361,8 @@ namespace org.bouncycastle.crypto.generators
 					}
 			 step8Continue:;
 		 }
-		 step8Break:;
 		 step3Continue:;
 	 }
-	 step3Break:;
 		}
 
 		//Procedure B'
@@ -450,10 +448,8 @@ namespace org.bouncycastle.crypto.generators
 					}
 			 step8Continue:;
 		 }
-		 step8Break:;
 		 step3Continue:;
 	 }
-	 step3Break:;
 		}
 
 

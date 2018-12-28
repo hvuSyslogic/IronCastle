@@ -38,7 +38,7 @@ namespace org.bouncycastle.crypto.tls
 		        _outerInstance = outerInstance;
 		    }
 
-            public void write(byte[] buf, int off, int len)
+            public override void write(byte[] buf, int off, int len)
 			{
 			    _outerInstance.handshakeHash.update(buf, off, len);
 			}

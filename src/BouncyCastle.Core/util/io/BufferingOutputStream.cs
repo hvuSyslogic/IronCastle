@@ -39,7 +39,7 @@ namespace org.bouncycastle.util.io
 			this.buf = new byte[bufferSize];
 		}
 
-		public virtual void write(byte[] bytes, int offset, int len)
+		public override void write(byte[] bytes, int offset, int len)
 		{
 			if (len < buf.Length - bufOff)
 			{
@@ -72,7 +72,7 @@ namespace org.bouncycastle.util.io
 			}
 		}
 
-		public virtual void write(int b)
+		public override void write(int b)
 		{
 			buf[bufOff++] = (byte)b;
 			if (bufOff == buf.Length)
@@ -85,14 +85,14 @@ namespace org.bouncycastle.util.io
 		/// Flush the internal buffer to the encapsulated output stream. Zero the buffer contents when done.
 		/// </summary>
 		/// <exception cref="IOException"> on error. </exception>
-		public virtual void flush()
+		public override void flush()
 		{
 			other.write(buf, 0, bufOff);
 			bufOff = 0;
 			Arrays.fill(buf, (byte)0);
 		}
 
-		public virtual void close()
+		public override void close()
 		{
 			flush();
 			other.close();

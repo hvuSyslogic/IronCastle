@@ -13,7 +13,7 @@ namespace org.bouncycastle.crypto.io
 			this.signer = signer;
 		}
 
-		public virtual int read()
+		public override int read()
 		{
 			int b = @in.read();
 
@@ -24,7 +24,7 @@ namespace org.bouncycastle.crypto.io
 			return b;
 		}
 
-		public virtual int read(byte[] b, int off, int len)
+		public override int read(byte[] b, int off, int len)
 		{
 			int n = @in.read(b, off, len);
 			if (n > 0)

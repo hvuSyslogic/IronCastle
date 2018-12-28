@@ -191,7 +191,7 @@ namespace org.bouncycastle.crypto.io
 		/// <exception cref="IOException"> if there was an error closing the input stream. </exception>
 		/// <exception cref="InvalidCipherTextIOException"> if the data read from the stream was invalid ciphertext
 		/// (e.g. the cipher is an AEAD cipher and the ciphertext tag check fails). </exception>
-		public virtual int read()
+		public override int read()
 		{
 			if (bufOff >= maxBuf)
 			{
@@ -216,7 +216,7 @@ namespace org.bouncycastle.crypto.io
 		/// <exception cref="IOException"> if there was an error closing the input stream. </exception>
 		/// <exception cref="InvalidCipherTextIOException"> if the data read from the stream was invalid ciphertext
 		/// (e.g. the cipher is an AEAD cipher and the ciphertext tag check fails). </exception>
-		public virtual int read(byte[] b)
+		public override int read(byte[] b)
 		{
 			return read(b, 0, b.Length);
 		}
@@ -235,7 +235,7 @@ namespace org.bouncycastle.crypto.io
 		/// <exception cref="IOException"> if there was an error closing the input stream. </exception>
 		/// <exception cref="InvalidCipherTextIOException"> if the data read from the stream was invalid ciphertext
 		/// (e.g. the cipher is an AEAD cipher and the ciphertext tag check fails). </exception>
-		public virtual int read(byte[] b, int off, int len)
+		public override int read(byte[] b, int off, int len)
 		{
 			if (bufOff >= maxBuf)
 			{
@@ -251,7 +251,7 @@ namespace org.bouncycastle.crypto.io
 			return toSupply;
 		}
 
-		public virtual long skip(long n)
+		public override long skip(long n)
 		{
 			if (n <= 0)
 			{
@@ -290,7 +290,7 @@ namespace org.bouncycastle.crypto.io
 			}
 		}
 
-		public virtual int available()
+		public override int available()
 		{
 			return maxBuf - bufOff;
 		}
@@ -338,7 +338,7 @@ namespace org.bouncycastle.crypto.io
 		/// <exception cref="IOException"> if there was an error closing the input stream. </exception>
 		/// <exception cref="InvalidCipherTextIOException"> if the data read from the stream was invalid ciphertext
 		///             (e.g. the cipher is an AEAD cipher and the ciphertext tag check fails). </exception>
-		public virtual void close()
+		public override void close()
 		{
 			try
 			{
@@ -376,7 +376,7 @@ namespace org.bouncycastle.crypto.io
 		/// in to this stream's constructor is a SkippingCipher (so capable of being reset to an arbitrary point easily).
 		/// </para> </summary>
 		/// <param name="readlimit"> the maximum read ahead required before a reset() may be called. </param>
-		public virtual void mark(int readlimit)
+		public override void mark(int readlimit)
 		{
 			@in.mark(readlimit);
 			if (skippingCipher != null)
@@ -397,7 +397,7 @@ namespace org.bouncycastle.crypto.io
 		/// Reset to the last marked position, if supported.
 		/// </summary>
 		/// <exception cref="IOException"> if marking not supported by the cipher used, or the underlying stream. </exception>
-		public virtual void reset()
+		public override void reset()
 		{
 			if (skippingCipher == null)
 			{
@@ -421,7 +421,7 @@ namespace org.bouncycastle.crypto.io
 		/// cipher used is a SkippingCipher,
 		/// </summary>
 		/// <returns> true if mark(readlimit) supported, false otherwise. </returns>
-		public virtual bool markSupported()
+		public override bool markSupported()
 		{
 			if (skippingCipher != null)
 			{

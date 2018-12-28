@@ -19,32 +19,7 @@ namespace org.bouncycastle.util
 
 		static Strings()
 		{
-			try
-			{
-				LINE_SEPARATOR = AccessController.doPrivileged(new PrivilegedActionAnonymousInnerClass());
-
-			}
-			catch (Exception)
-			{
-				try
-				{
-					// the harder way
-					LINE_SEPARATOR = string.Format("%n");
-				}
-				catch (Exception)
-				{
-					LINE_SEPARATOR = "\n"; // we're desperate use this...
-				}
-			}
-		}
-
-		public class PrivilegedActionAnonymousInnerClass : PrivilegedAction<string>
-		{
-			public string run()
-			{
-				// the easy way
-				return System.getProperty("line.separator");
-			}
+            LINE_SEPARATOR = "\n";
 		}
 
 		public static string fromUTF8ByteArray(byte[] bytes)
@@ -296,21 +271,6 @@ namespace org.bouncycastle.util
 
 		public class StringListImpl : ArrayList<string>, StringList
 		{
-			public virtual bool add(string s)
-			{
-				return base.add(s);
-			}
-
-			public virtual string set(int index, string element)
-			{
-				return base.set(index, element);
-			}
-
-			public virtual void add(int index, string element)
-			{
-				base.add(index, element);
-			}
-
 			public virtual string[] toStringArray()
 			{
 				string[] strs = new string[this.size()];

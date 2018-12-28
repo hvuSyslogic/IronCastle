@@ -23,31 +23,31 @@ namespace org.bouncycastle.util.io
 			this.output2 = output2;
 		}
 
-		public virtual void write(byte[] buf)
+		public override void write(byte[] buf)
 		{
 			this.output1.write(buf);
 			this.output2.write(buf);
 		}
 
-		public virtual void write(byte[] buf, int off, int len)
+		public override void write(byte[] buf, int off, int len)
 		{
 			this.output1.write(buf, off, len);
 			this.output2.write(buf, off, len);
 		}
 
-		public virtual void write(int b)
+		public override void write(int b)
 		{
 			this.output1.write(b);
 			this.output2.write(b);
 		}
 
-		public virtual void flush()
+		public override void flush()
 		{
 			this.output1.flush();
 			this.output2.flush();
 		}
 
-		public virtual void close()
+		public override void close()
 		{
 			this.output1.close();
 			this.output2.close();

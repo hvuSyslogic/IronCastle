@@ -39,7 +39,7 @@ namespace org.bouncycastle.asn1
 			return _remaining;
 		}
 
-		public virtual int read()
+		public override int read()
 		{
 			if (_remaining == 0)
 			{
@@ -61,7 +61,7 @@ namespace org.bouncycastle.asn1
 			return b;
 		}
 
-		public virtual int read(byte[] buf, int off, int len)
+		public override int read(byte[] buf, int off, int len)
 		{
 			if (_remaining == 0)
 			{

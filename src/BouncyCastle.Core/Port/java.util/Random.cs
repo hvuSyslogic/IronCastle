@@ -14,12 +14,12 @@
             _r = new System.Random(seed);
         }
 
-        public int nextInt()
+        public virtual int nextInt()
         {
             return _r.Next();
         }
 
-        public long nextLong()
+        public virtual long nextLong()
         {
             return (long)_r.NextDouble();
         }

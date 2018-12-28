@@ -12,12 +12,12 @@ namespace org.bouncycastle.crypto.io
 			this.mac = mac;
 		}
 
-		public virtual void write(int b)
+		public override void write(int b)
 		{
 			mac.update((byte)b);
 		}
 
-		public virtual void write(byte[] b, int off, int len)
+		public override void write(byte[] b, int off, int len)
 		{
 			mac.update(b, off, len);
 		}

@@ -17,12 +17,12 @@ namespace org.bouncycastle.crypto.tls
 			return buffer;
 		}
 
-		public virtual void write(int b)
+		public override void write(int b)
 		{
 			buffer.addData(new byte[]{(byte)b}, 0, 1);
 		}
 
-		public virtual void write(byte[] b, int off, int len)
+		public override void write(byte[] b, int off, int len)
 		{
 			buffer.addData(b, off, len);
 		}

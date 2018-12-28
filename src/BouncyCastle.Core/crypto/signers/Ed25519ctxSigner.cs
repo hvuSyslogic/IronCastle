@@ -102,7 +102,7 @@ namespace org.bouncycastle.crypto.signers
 				}
 			}
 
-			public virtual void reset()
+			public override void reset()
 			{
 				lock (this)
 				{
