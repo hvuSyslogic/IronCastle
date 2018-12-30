@@ -30,9 +30,9 @@ namespace org.bouncycastle.pqc.crypto.xmss
 
 		public BDSStateMap(BDSStateMap stateMap, XMSSMTParameters @params, long globalIndex, byte[] publicSeed, byte[] secretKeySeed)
 		{
-			for (Iterator it = stateMap.bdsState.keySet().iterator(); it.hasNext();)
+			for (Iterator<int> it = stateMap.bdsState.keySet().iterator(); it.hasNext();)
 			{
-				int? key = (int?)it.next();
+				int key = it.next();
 
 				bdsState.put(key, stateMap.bdsState.get(key));
 			}
@@ -112,7 +112,7 @@ namespace org.bouncycastle.pqc.crypto.xmss
 
 			for (Iterator<int> keys = bdsState.keySet().iterator(); keys.hasNext();)
 			{
-				int? key = keys.next();
+				int key = keys.next();
 
 				newStateMap.bdsState.put(key, bdsState.get(key).withWOTSDigest(digestName));
 			}
@@ -120,5 +120,4 @@ namespace org.bouncycastle.pqc.crypto.xmss
 			return newStateMap;
 		}
 	}
-
 }

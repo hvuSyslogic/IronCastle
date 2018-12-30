@@ -102,8 +102,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ***************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void sampleY(int[] Y, final byte[] seed, int seedOffset, int nonce, int n, int q, int b, int bBit)
 		public static void sampleY(int[] Y, byte[] seed, int seedOffset, int nonce, int n, int q, int b, int bBit)
 		{
 
@@ -213,8 +211,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ****************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void sampleY(long[] Y, final byte[] seed, int seedOffset, int nonce, int n, int q, int b, int bBit)
 		public static void sampleY(long[] Y, byte[] seed, int seedOffset, int nonce, int n, int q, int b, int bBit)
 		{
 
@@ -321,8 +317,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ********************************************************************************************************************* </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void polynomialGaussSamplerI(int[] data, int dataOffset, final byte[] seed, int seedOffset, int nonce)
 		public static void polynomialGaussSamplerI(int[] data, int dataOffset, byte[] seed, int seedOffset, int nonce)
 		{
 
@@ -449,7 +443,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 					} while (bernoulli(buffer, z * ((k << 1) - z), EXPONENTIAL_DISTRIBUTION_I) == 0);
 
 					/* Put Last Random Bits into Sign Bit */
-					randomBit <<= (64 - bitRemained);
+					randomBit <<= (64 - (int)bitRemained);
 
 					if (bitRemained == 0)
 					{
@@ -495,8 +489,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ********************************************************************************************************************* </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void polynomialGaussSamplerIP(long[] data, int dataOffset, final byte[] seed, int seedOffset, int nonce)
 		public static void polynomialGaussSamplerIP(long[] data, int dataOffset, byte[] seed, int seedOffset, int nonce)
 		{
 
@@ -623,7 +615,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 					} while (bernoulli(buffer, z * ((k << 1) - z), EXPONENTIAL_DISTRIBUTION_P) == 0);
 
 					/* Put Last Random Bits into Sign Bit */
-					randomBit <<= (64 - bitRemained);
+					randomBit <<= (64 - (int)bitRemained);
 
 					if (bitRemained == 0)
 					{
@@ -672,8 +664,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ****************************************************************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void polynomialGaussSamplerIII(int[] data, int dataOffset, final byte[] seed, int seedOffset, int nonce, int n, double xi, double[][] exponentialDistribution)
 		public static void polynomialGaussSamplerIII(int[] data, int dataOffset, byte[] seed, int seedOffset, int nonce, int n, double xi, double[][] exponentialDistribution)
 		{
 
@@ -805,7 +795,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 					} while (bernoulli(CommonFunction.load64(seedExpander, (j++) * (sizeof(long) * 8) / Byte.SIZE), z * ((k << 1) - z), exponentialDistribution) == 0);
 
 					/* Put Last Random Bits into Sign Bit */
-					randomBit <<= (64 - bitRemained);
+					randomBit <<= (64 - (int)bitRemained);
 
 					if (bitRemained == 0L)
 					{
@@ -851,8 +841,6 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ************************************************************************************************************************* </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void polynomialGaussSamplerIIIP(long[] data, int dataOffset, final byte[] seed, int seedOffset, int nonce)
 		public static void polynomialGaussSamplerIIIP(long[] data, int dataOffset, byte[] seed, int seedOffset, int nonce)
 		{
 
@@ -984,7 +972,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 					} while (bernoulli(CommonFunction.load64(seedExpander, (j++) * (sizeof(long) * 8) / Byte.SIZE), z * ((k << 1) - z), EXPONENTIAL_DISTRIBUTION_P) == 0);
 
 					/* Put Last Random Bits into Sign Bit */
-					randomBit <<= (64 - bitRemained);
+					randomBit <<= (64 - (int)bitRemained);
 
 					if (bitRemained == 0L)
 					{

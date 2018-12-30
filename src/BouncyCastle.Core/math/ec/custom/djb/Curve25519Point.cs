@@ -1,9 +1,8 @@
 ﻿using org.bouncycastle.Port.java.lang;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.djb
 {
-	using Nat256 = org.bouncycastle.math.raw.Nat256;
-
 	public class Curve25519Point : ECPoint.AbstractFp
 	{
 		/// <summary>
@@ -79,14 +78,14 @@ namespace org.bouncycastle.math.ec.custom.djb
 			Curve25519FieldElement X1 = (Curve25519FieldElement)this.x, Y1 = (Curve25519FieldElement)this.y, Z1 = (Curve25519FieldElement)this.zs[0];
 			Curve25519FieldElement X2 = (Curve25519FieldElement)b.getXCoord(), Y2 = (Curve25519FieldElement)b.getYCoord(), Z2 = (Curve25519FieldElement)b.getZCoord(0);
 
-			int c;
-			int[] tt1 = Nat256.createExt();
-			int[] t2 = Nat256.create();
-			int[] t3 = Nat256.create();
-			int[] t4 = Nat256.create();
+			uint c;
+			uint[] tt1 = Nat256.createExt();
+			uint[] t2 = Nat256.create();
+			uint[] t3 = Nat256.create();
+			uint[] t4 = Nat256.create();
 
 			bool Z1IsOne = Z1.isOne();
-			int[] U2, S2;
+			uint[] U2, S2;
 			if (Z1IsOne)
 			{
 				U2 = X2.x;
@@ -105,7 +104,7 @@ namespace org.bouncycastle.math.ec.custom.djb
 			}
 
 			bool Z2IsOne = Z2.isOne();
-			int[] U1, S1;
+			uint[] U1, S1;
 			if (Z2IsOne)
 			{
 				U1 = X1.x;
@@ -123,10 +122,10 @@ namespace org.bouncycastle.math.ec.custom.djb
 				Curve25519Field.multiply(S1, Y1.x, S1);
 			}
 
-			int[] H = Nat256.create();
+			uint[] H = Nat256.create();
 			Curve25519Field.subtract(U1, U2, H);
 
-			int[] R = t2;
+			uint[] R = t2;
 			Curve25519Field.subtract(S1, S2, R);
 
 			// Check if b == this or b == -this
@@ -142,13 +141,13 @@ namespace org.bouncycastle.math.ec.custom.djb
 				return curve.getInfinity();
 			}
 
-			int[] HSquared = Nat256.create();
+			uint[] HSquared = Nat256.create();
 			Curve25519Field.square(H, HSquared);
 
-			int[] G = Nat256.create();
+			uint[] G = Nat256.create();
 			Curve25519Field.multiply(HSquared, H, G);
 
-			int[] V = t3;
+			uint[] V = t3;
 			Curve25519Field.multiply(HSquared, U1, V);
 
 			Curve25519Field.negate(G, G);
@@ -176,7 +175,7 @@ namespace org.bouncycastle.math.ec.custom.djb
 				Curve25519Field.multiply(Z3.x, Z2.x, Z3.x);
 			}
 
-			int[] Z3Squared = (Z1IsOne && Z2IsOne) ? HSquared : null;
+			uint[] Z3Squared = (Z1IsOne && Z2IsOne) ? HSquared : null;
 
 			// TODO If the result will only be used in a subsequent addition, we don't need W3
 			Curve25519FieldElement W3 = calculateJacobianModifiedW((Curve25519FieldElement)Z3, Z3Squared);
@@ -254,7 +253,7 @@ namespace org.bouncycastle.math.ec.custom.djb
 			return new Curve25519Point(this.getCurve(), this.x, this.y.negate(), this.zs, this.withCompression);
 		}
 
-		public virtual Curve25519FieldElement calculateJacobianModifiedW(Curve25519FieldElement Z, int[] ZSquared)
+		public virtual Curve25519FieldElement calculateJacobianModifiedW(Curve25519FieldElement Z, uint[] ZSquared)
 		{
 			Curve25519FieldElement a4 = (Curve25519FieldElement)this.getCurve().getA();
 			if (Z.isOne())
@@ -288,25 +287,25 @@ namespace org.bouncycastle.math.ec.custom.djb
 		{
 			Curve25519FieldElement X1 = (Curve25519FieldElement)this.x, Y1 = (Curve25519FieldElement)this.y, Z1 = (Curve25519FieldElement)this.zs[0], W1 = getJacobianModifiedW();
 
-			int c;
+			uint c;
 
-			int[] M = Nat256.create();
+			uint[] M = Nat256.create();
 			Curve25519Field.square(X1.x, M);
 			c = Nat256.addBothTo(M, M, M);
 			c += Nat256.addTo(W1.x, M);
 			Curve25519Field.reduce27(c, M);
 
-			int[] _2Y1 = Nat256.create();
+			uint[] _2Y1 = Nat256.create();
 			Curve25519Field.twice(Y1.x, _2Y1);
 
-			int[] _2Y1Squared = Nat256.create();
+			uint[] _2Y1Squared = Nat256.create();
 			Curve25519Field.multiply(_2Y1, Y1.x, _2Y1Squared);
 
-			int[] S = Nat256.create();
+			uint[] S = Nat256.create();
 			Curve25519Field.multiply(_2Y1Squared, X1.x, S);
 			Curve25519Field.twice(S, S);
 
-			int[] _8T = Nat256.create();
+			uint[] _8T = Nat256.create();
 			Curve25519Field.square(_2Y1Squared, _8T);
 			Curve25519Field.twice(_8T, _8T);
 

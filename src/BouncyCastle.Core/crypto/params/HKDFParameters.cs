@@ -14,8 +14,7 @@ namespace org.bouncycastle.crypto.@params
 		private readonly byte[] salt;
 		private readonly byte[] info;
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: private HKDFParameters(final byte[] ikm, final boolean skip, final byte[] salt, final byte[] info)
+
 		private HKDFParameters(byte[] ikm, bool skip, byte[] salt, byte[] info)
 		{
 			if (ikm == null)
@@ -53,8 +52,7 @@ namespace org.bouncycastle.crypto.@params
 		/// <param name="ikm">  the input keying material or seed </param>
 		/// <param name="salt"> the salt to use, may be null for a salt for hashLen zeros </param>
 		/// <param name="info"> the info to use, may be null for an info field of zero bytes </param>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public HKDFParameters(final byte[] ikm, final byte[] salt, final byte[] info)
+
 		public HKDFParameters(byte[] ikm, byte[] salt, byte[] info) : this(ikm, false, salt, info)
 		{
 		}
@@ -67,16 +65,14 @@ namespace org.bouncycastle.crypto.@params
 		///             Expand </param>
 		/// <param name="info"> the info to use, may be null for an info field of zero bytes </param>
 		/// <returns> HKDFParameters that makes the implementation skip step 1 </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static HKDFParameters skipExtractParameters(final byte[] ikm, final byte[] info)
+
 		public static HKDFParameters skipExtractParameters(byte[] ikm, byte[] info)
 		{
 
 			return new HKDFParameters(ikm, true, null, info);
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static HKDFParameters defaultParameters(final byte[] ikm)
+
 		public static HKDFParameters defaultParameters(byte[] ikm)
 		{
 			return new HKDFParameters(ikm, false, null, null);

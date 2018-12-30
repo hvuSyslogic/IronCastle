@@ -278,8 +278,7 @@ namespace org.bouncycastle.math.ec
 			return implIsValid(false, false);
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: boolean implIsValid(final boolean decompressed, final boolean checkOrder)
+
 		public virtual bool implIsValid(bool decompressed, bool checkOrder)
 		{
 			if (isInfinity())

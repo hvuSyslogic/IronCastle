@@ -164,8 +164,6 @@ namespace org.bouncycastle.crypto.engines
 			xor(W3, W1);
 
 			int numRounds = 12 + (keyLenIdx * 2);
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: byte[][] rks = new byte[numRounds + 1][16];
 			byte[][] rks = RectangularArrays.ReturnRectangularSbyteArray(numRounds + 1, 16);
 
 			keyScheduleRound(rks[0], W0, W1, 19);

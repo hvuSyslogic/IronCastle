@@ -1,18 +1,17 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.Port.java.lang;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
 
-	using Mod = org.bouncycastle.math.raw.Mod;
-	using Nat128 = org.bouncycastle.math.raw.Nat128;
 	using Arrays = org.bouncycastle.util.Arrays;
 
 	public class SecP128R1FieldElement : ECFieldElement.AbstractFp
 	{
 		public static readonly BigInteger Q = SecP128R1Curve.q;
 
-		protected internal int[] x;
+		protected internal uint[] x;
 
 		public SecP128R1FieldElement(BigInteger x)
 		{
@@ -29,7 +28,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			this.x = Nat128.create();
 		}
 
-		public SecP128R1FieldElement(int[] x)
+		public SecP128R1FieldElement(uint[] x)
 		{
 			this.x = x;
 		}
@@ -66,28 +65,28 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 		public override ECFieldElement add(ECFieldElement b)
 		{
-			int[] z = Nat128.create();
+			uint[] z = Nat128.create();
 			SecP128R1Field.add(x, ((SecP128R1FieldElement)b).x, z);
 			return new SecP128R1FieldElement(z);
 		}
 
 		public override ECFieldElement addOne()
 		{
-			int[] z = Nat128.create();
+			uint[] z = Nat128.create();
 			SecP128R1Field.addOne(x, z);
 			return new SecP128R1FieldElement(z);
 		}
 
 		public override ECFieldElement subtract(ECFieldElement b)
 		{
-			int[] z = Nat128.create();
+			uint[] z = Nat128.create();
 			SecP128R1Field.subtract(x, ((SecP128R1FieldElement)b).x, z);
 			return new SecP128R1FieldElement(z);
 		}
 
 		public override ECFieldElement multiply(ECFieldElement b)
 		{
-			int[] z = Nat128.create();
+			uint[] z = Nat128.create();
 			SecP128R1Field.multiply(x, ((SecP128R1FieldElement)b).x, z);
 			return new SecP128R1FieldElement(z);
 		}
@@ -95,7 +94,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 		public override ECFieldElement divide(ECFieldElement b)
 		{
 	//        return multiply(b.invert());
-			int[] z = Nat128.create();
+			uint[] z = Nat128.create();
 			Mod.invert(SecP128R1Field.P, ((SecP128R1FieldElement)b).x, z);
 			SecP128R1Field.multiply(z, x, z);
 			return new SecP128R1FieldElement(z);
@@ -103,14 +102,14 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 		public override ECFieldElement negate()
 		{
-			int[] z = Nat128.create();
+			uint[] z = Nat128.create();
 			SecP128R1Field.negate(x, z);
 			return new SecP128R1FieldElement(z);
 		}
 
 		public override ECFieldElement square()
 		{
-			int[] z = Nat128.create();
+			uint[] z = Nat128.create();
 			SecP128R1Field.square(x, z);
 			return new SecP128R1FieldElement(z);
 		}
@@ -118,7 +117,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 		public override ECFieldElement invert()
 		{
 	//        return new SecP128R1FieldElement(toBigInteger().modInverse(Q));
-			int[] z = Nat128.create();
+			uint[] z = Nat128.create();
 			Mod.invert(SecP128R1Field.P, x, z);
 			return new SecP128R1FieldElement(z);
 		}
@@ -140,38 +139,38 @@ namespace org.bouncycastle.math.ec.custom.sec
 			 *     1, 2, 4, 8, 10, 20, 30, [31]
 			 */
 
-			int[] x1 = this.x;
+			uint[] x1 = this.x;
 			if (Nat128.isZero(x1) || Nat128.isOne(x1))
 			{
 				return this;
 			}
 
-			int[] x2 = Nat128.create();
+			uint[] x2 = Nat128.create();
 			SecP128R1Field.square(x1, x2);
 			SecP128R1Field.multiply(x2, x1, x2);
-			int[] x4 = Nat128.create();
+			uint[] x4 = Nat128.create();
 			SecP128R1Field.squareN(x2, 2, x4);
 			SecP128R1Field.multiply(x4, x2, x4);
-			int[] x8 = Nat128.create();
+			uint[] x8 = Nat128.create();
 			SecP128R1Field.squareN(x4, 4, x8);
 			SecP128R1Field.multiply(x8, x4, x8);
-			int[] x10 = x4;
+			uint[] x10 = x4;
 			SecP128R1Field.squareN(x8, 2, x10);
 			SecP128R1Field.multiply(x10, x2, x10);
-			int[] x20 = x2;
+			uint[] x20 = x2;
 			SecP128R1Field.squareN(x10, 10, x20);
 			SecP128R1Field.multiply(x20, x10, x20);
-			int[] x30 = x8;
+			uint[] x30 = x8;
 			SecP128R1Field.squareN(x20, 10, x30);
 			SecP128R1Field.multiply(x30, x10, x30);
-			int[] x31 = x10;
+			uint[] x31 = x10;
 			SecP128R1Field.square(x30, x31);
 			SecP128R1Field.multiply(x31, x1, x31);
 
-			int[] t1 = x31;
+			uint[] t1 = x31;
 			SecP128R1Field.squareN(t1, 95, t1);
 
-			int[] t2 = x30;
+			uint[] t2 = x30;
 			SecP128R1Field.square(t1, t2);
 
 			return Nat128.eq(x1, t2) ? new SecP128R1FieldElement(t1) : null;

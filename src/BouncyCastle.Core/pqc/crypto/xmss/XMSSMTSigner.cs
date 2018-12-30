@@ -72,14 +72,11 @@ namespace org.bouncycastle.pqc.crypto.xmss
 			BDSStateMap bdsState = privateKey.getBDSState();
 
 			// privateKey.increaseIndex(this);
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long globalIndex = privateKey.getIndex();
+
 			long globalIndex = privateKey.getIndex();
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int totalHeight = params.getHeight();
+
 			int totalHeight = @params.getHeight();
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int xmssHeight = xmssParams.getHeight();
+
 			int xmssHeight = xmssParams.getHeight();
 			if (!XMSSUtil.isIndexValid(totalHeight, globalIndex))
 			{

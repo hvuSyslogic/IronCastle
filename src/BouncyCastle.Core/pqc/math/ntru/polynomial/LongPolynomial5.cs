@@ -46,8 +46,7 @@
 		/// </summary>
 		public virtual LongPolynomial5 mult(TernaryPolynomial poly2)
 		{
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: long[][] prod = new long[5][coeffs.Length + (poly2.size() + 4) / 5 - 1]; // intermediate results, the subarrays are shifted by 0,...,4 coefficients
+
 			long[][] prod = RectangularArrays.ReturnRectangularLongArray(5, coeffs.Length + (poly2.size() + 4) / 5 - 1); // intermediate results, the subarrays are shifted by 0,...,4 coefficients
 
 			// multiply ones

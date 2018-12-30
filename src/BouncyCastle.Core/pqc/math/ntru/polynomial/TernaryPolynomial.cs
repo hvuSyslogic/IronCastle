@@ -5,12 +5,6 @@
 	/// </summary>
 	public interface TernaryPolynomial : Polynomial
 	{
-
-		/// <summary>
-		/// Multiplies the polynomial by an <code>IntegerPolynomial</code>, taking the indices mod N
-		/// </summary>
-		IntegerPolynomial mult(IntegerPolynomial poly2);
-
 		int[] getOnes();
 
 		int[] getNegOnes();

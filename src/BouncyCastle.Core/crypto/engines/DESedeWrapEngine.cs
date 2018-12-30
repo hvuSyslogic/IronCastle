@@ -215,8 +215,7 @@ namespace org.bouncycastle.crypto.engines
 				throw new InvalidCipherTextException("Null pointer as ciphertext");
 			}
 
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int blockSize = engine.getBlockSize();
+
 			int blockSize = engine.getBlockSize();
 			if (inLen % blockSize != 0)
 			{

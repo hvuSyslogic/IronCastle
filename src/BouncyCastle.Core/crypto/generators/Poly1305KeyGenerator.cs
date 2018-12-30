@@ -39,8 +39,7 @@ namespace org.bouncycastle.crypto.generators
 		/// </summary>
 		public override byte[] generateKey()
 		{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final byte[] key = super.generateKey();
+
 			byte[] key = base.generateKey();
 			clamp(key);
 			return key;

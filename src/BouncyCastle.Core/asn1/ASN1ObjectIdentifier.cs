@@ -405,8 +405,7 @@ namespace org.bouncycastle.asn1
 		/// <returns> a reference to the identifier in the pool. </returns>
 		public virtual ASN1ObjectIdentifier intern()
 		{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final OidHandle hdl = new OidHandle(getBody());
+
 			OidHandle hdl = new OidHandle(getBody());
 			ASN1ObjectIdentifier oid = pool.get(hdl);
 			if (oid == null)
@@ -451,8 +450,7 @@ namespace org.bouncycastle.asn1
 
 		internal static ASN1ObjectIdentifier fromOctetString(byte[] enc)
 		{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final OidHandle hdl = new OidHandle(enc);
+
 			OidHandle hdl = new OidHandle(enc);
 			ASN1ObjectIdentifier oid = pool.get(hdl);
 			if (oid == null)

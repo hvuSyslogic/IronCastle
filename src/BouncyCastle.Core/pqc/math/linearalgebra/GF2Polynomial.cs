@@ -290,11 +290,9 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		/// <returns> a String representing this GF2Polynomials value. </returns>
 		public virtual string ToString(int radix)
 		{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final char[] HEX_CHARS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+
 			char[] HEX_CHARS = new char[] {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final String[] BIN_CHARS = {"0000", "0001", "0010", "0011", "0100", "0101", "0110", "0111", "1000", "1001", "1010", "1011", "1100", "1101", "1110", "1111"};
+
 			string[] BIN_CHARS = new string[] {"0000", "0001", "0010", "0011", "0100", "0101", "0110", "0111", "1000", "1001", "1010", "1011", "1100", "1101", "1110", "1111"};
 			string res;
 			int i;
@@ -1762,8 +1760,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 				result.doShiftBlocksLeft((int)((uint)k >> 5));
 			}
 			// Shift left by the remaining (<32) amount:
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int remaining = k & 0x1f;
+
 			int remaining = k & 0x1f;
 			if (remaining != 0)
 			{

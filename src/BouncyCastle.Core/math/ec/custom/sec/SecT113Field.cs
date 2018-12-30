@@ -1,24 +1,21 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
-
-	using Interleave = org.bouncycastle.math.raw.Interleave;
-	using Nat128 = org.bouncycastle.math.raw.Nat128;
-
 	public class SecT113Field
 	{
-		private static readonly long M49 = (long)(unchecked((ulong)-1L) >> 15);
-		private static readonly long M57 = (long)(unchecked((ulong)-1L) >> 7);
+		private static readonly ulong M49 = ulong.MaxValue >> 15;
+		private static readonly ulong M57 = ulong.MaxValue >> 7;
 
-		public static void add(long[] x, long[] y, long[] z)
+		public static void add(ulong[] x, ulong[] y, ulong[] z)
 		{
 			z[0] = x[0] ^ y[0];
 			z[1] = x[1] ^ y[1];
 		}
 
-		public static void addExt(long[] xx, long[] yy, long[] zz)
+		public static void addExt(ulong[] xx, ulong[] yy, ulong[] zz)
 		{
 			zz[0] = xx[0] ^ yy[0];
 			zz[1] = xx[1] ^ yy[1];
@@ -26,20 +23,20 @@ namespace org.bouncycastle.math.ec.custom.sec
 			zz[3] = xx[3] ^ yy[3];
 		}
 
-		public static void addOne(long[] x, long[] z)
+		public static void addOne(ulong[] x, ulong[] z)
 		{
 			z[0] = x[0] ^ 1L;
 			z[1] = x[1];
 		}
 
-		public static long[] fromBigInteger(BigInteger x)
+		public static ulong[] fromBigInteger(BigInteger x)
 		{
-			long[] z = Nat128.fromBigInteger64(x);
+			ulong[] z = Nat128.fromBigInteger64(x);
 			reduce15(z, 0);
 			return z;
 		}
 
-		public static void invert(long[] x, long[] z)
+		public static void invert(ulong[] x, ulong[] z)
 		{
 			if (Nat128.isZero64(x))
 			{
@@ -48,8 +45,8 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 			// Itoh-Tsujii inversion
 
-			long[] t0 = Nat128.create64();
-			long[] t1 = Nat128.create64();
+			ulong[] t0 = Nat128.create64();
+			ulong[] t1 = Nat128.create64();
 
 			square(x, t0);
 			multiply(t0, x, t0);
@@ -70,71 +67,71 @@ namespace org.bouncycastle.math.ec.custom.sec
 			square(t1, z);
 		}
 
-		public static void multiply(long[] x, long[] y, long[] z)
+		public static void multiply(ulong[] x, ulong[] y, ulong[] z)
 		{
-			long[] tt = Nat128.createExt64();
+			ulong[] tt = Nat128.createExt64();
 			implMultiply(x, y, tt);
 			reduce(tt, z);
 		}
 
-		public static void multiplyAddToExt(long[] x, long[] y, long[] zz)
+		public static void multiplyAddToExt(ulong[] x, ulong[] y, ulong[] zz)
 		{
-			long[] tt = Nat128.createExt64();
+			ulong[] tt = Nat128.createExt64();
 			implMultiply(x, y, tt);
 			addExt(zz, tt, zz);
 		}
 
-		public static void reduce(long[] xx, long[] z)
+		public static void reduce(ulong[] xx, ulong[] z)
 		{
-			long x0 = xx[0], x1 = xx[1], x2 = xx[2], x3 = xx[3];
+			ulong x0 = xx[0], x1 = xx[1], x2 = xx[2], x3 = xx[3];
 
 			x1 ^= (x3 << 15) ^ (x3 << 24);
-			x2 ^= ((long)((ulong)x3 >> 49)) ^ ((long)((ulong)x3 >> 40));
+			x2 ^= ((x3 >> 49)) ^ ((x3 >> 40));
 
 			x0 ^= (x2 << 15) ^ (x2 << 24);
-			x1 ^= ((long)((ulong)x2 >> 49)) ^ ((long)((ulong)x2 >> 40));
+			x1 ^= ((x2 >> 49)) ^ ((x2 >> 40));
 
-			long t = (long)((ulong)x1 >> 49);
+			ulong t = (x1 >> 49);
 			z[0] = x0 ^ t ^ (t << 9);
 			z[1] = x1 & M49;
 		}
 
-		public static void reduce15(long[] z, int zOff)
+		public static void reduce15(ulong[] z, int zOff)
 		{
-			long z1 = z[zOff + 1], t = (long)((ulong)z1 >> 49);
+			ulong z1 = z[zOff + 1], t = (z1 >> 49);
 			z[zOff] ^= t ^ (t << 9);
 			z[zOff + 1] = z1 & M49;
 		}
 
-		public static void sqrt(long[] x, long[] z)
+		public static void sqrt(ulong[] x, ulong[] z)
 		{
-			long u0 = Interleave.unshuffle(x[0]), u1 = Interleave.unshuffle(x[1]);
-			long e0 = (u0 & 0x00000000FFFFFFFFL) | (u1 << 32);
-			long c0 = ((long)((ulong)u0 >> 32)) | (u1 & unchecked((long)0xFFFFFFFF00000000L));
+			ulong u0 = Interleave.unshuffle(x[0]), u1 = Interleave.unshuffle(x[1]);
+			ulong e0 = (u0 & 0x00000000FFFFFFFFL) | (u1 << 32);
+			ulong c0 = ((u0 >> 32)) | (u1 & unchecked(0xFFFFFFFF00000000UL));
 
 			z[0] = e0 ^ (c0 << 57) ^ (c0 << 5);
-			z[1] = ((long)((ulong)c0 >> 7)) ^ ((long)((ulong)c0 >> 59));
+			z[1] = ((c0 >> 7)) ^ ((c0 >> 59));
 		}
 
-		public static void square(long[] x, long[] z)
+		public static void square(ulong[] x, ulong[] z)
 		{
-			long[] tt = Nat128.createExt64();
+			ulong[] tt = Nat128.createExt64();
 			implSquare(x, tt);
 			reduce(tt, z);
 		}
 
-		public static void squareAddToExt(long[] x, long[] zz)
+		public static void squareAddToExt(ulong[] x, ulong[] zz)
 		{
-			long[] tt = Nat128.createExt64();
+			ulong[] tt = Nat128.createExt64();
 			implSquare(x, tt);
 			addExt(zz, tt, zz);
 		}
 
-		public static void squareN(long[] x, int n, long[] z)
+		public static void squareN(ulong[] x, int n, ulong[] z)
 		{
 	//        assert n > 0;
 
-			long[] tt = Nat128.createExt64();
+			ulong[] tt = Nat128.createExt64();
 			implSquare(x, tt);
 			reduce(tt, z);
 
@@ -145,47 +142,47 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		public static int trace(long[] x)
+		public static int trace(ulong[] x)
 		{
 			// Non-zero-trace bits: 0
 			return (int)(x[0]) & 1;
 		}
 
-		protected internal static void implMultiply(long[] x, long[] y, long[] zz)
+		protected internal static void implMultiply(ulong[] x, ulong[] y, ulong[] zz)
 		{
 			/*
 			 * "Three-way recursion" as described in "Batch binary Edwards", Daniel J. Bernstein.
 			 */
 
-			long f0 = x[0], f1 = x[1];
-			f1 = (((long)((ulong)f0 >> 57)) ^ (f1 << 7)) & M57;
+			ulong f0 = x[0], f1 = x[1];
+			f1 = (((f0 >> 57)) ^ (f1 << 7)) & M57;
 			f0 &= M57;
 
-			long g0 = y[0], g1 = y[1];
-			g1 = (((long)((ulong)g0 >> 57)) ^ (g1 << 7)) & M57;
+			ulong g0 = y[0], g1 = y[1];
+			g1 = (((g0 >> 57)) ^ (g1 << 7)) & M57;
 			g0 &= M57;
 
-			long[] H = new long[6];
+			ulong[] H = new ulong[6];
 
 			implMulw(f0, g0, H, 0); // H(0)       57/56 bits
 			implMulw(f1, g1, H, 2); // H(INF)     57/54 bits
 			implMulw(f0 ^ f1, g0 ^ g1, H, 4); // H(1)       57/56 bits
 
-			long r = H[1] ^ H[2];
-			long z0 = H[0], z3 = H[3], z1 = H[4] ^ z0 ^ r, z2 = H[5] ^ z3 ^ r;
+			ulong r = H[1] ^ H[2];
+			ulong z0 = H[0], z3 = H[3], z1 = H[4] ^ z0 ^ r, z2 = H[5] ^ z3 ^ r;
 
 			zz[0] = z0 ^ (z1 << 57);
-			zz[1] = ((long)((ulong)z1 >> 7)) ^ (z2 << 50);
-			zz[2] = ((long)((ulong)z2 >> 14)) ^ (z3 << 43);
-			zz[3] = ((long)((ulong)z3 >> 21));
+			zz[1] = ((z1 >> 7)) ^ (z2 << 50);
+			zz[2] = ((z2 >> 14)) ^ (z3 << 43);
+			zz[3] = ((z3 >> 21));
 		}
 
-		protected internal static void implMulw(long x, long y, long[] z, int zOff)
+		protected internal static void implMulw(ulong x, ulong y, ulong[] z, int zOff)
 		{
 	//        assert x >>> 57 == 0;
 	//        assert y >>> 57 == 0;
 
-			long[] u = new long[8];
+			ulong[] u = new ulong[8];
 	//      u[0] = 0;
 			u[1] = y;
 			u[2] = u[1] << 1;
@@ -196,25 +193,25 @@ namespace org.bouncycastle.math.ec.custom.sec
 			u[7] = u[6] ^ y;
 
 			int j = (int)x;
-			long g, h = 0, l = u[j & 7];
+			ulong g, h = 0, l = u[j & 7];
 			int k = 48;
 			do
 			{
-				j = (int)((long)((ulong)x >> k));
-				g = u[j & 7] ^ u[((int)((uint)j >> 3)) & 7] << 3 ^ u[((int)((uint)j >> 6)) & 7] << 6;
+				j = (int)((x >> k));
+				g = u[j & 7] ^ u[((j >> 3)) & 7] << 3 ^ u[((j >> 6)) & 7] << 6;
 				l ^= (g << k);
-				h ^= ((long)((ulong)g >> -k));
+				h ^= ((g >> -k));
 			} while ((k -= 9) > 0);
 
-			h ^= (long)((ulong)((x & 0x0100804020100800L) & ((y << 7) >> 63)) >> 8);
+			h ^= (((x & 0x0100804020100800UL) & ((y << 7) >> 63)) >> 8);
 
 	//        assert h >>> 49 == 0;
 
 			z[zOff] = l & M57;
-			z[zOff + 1] = ((long)((ulong)l >> 57)) ^ (h << 7);
+			z[zOff + 1] = ((l >> 57)) ^ (h << 7);
 		}
 
-		protected internal static void implSquare(long[] x, long[] zz)
+		protected internal static void implSquare(ulong[] x, ulong[] zz)
 		{
 			Interleave.expand64To128(x[0], zz, 0);
 			Interleave.expand64To128(x[1], zz, 2);

@@ -8,8 +8,6 @@
 		{
 			if (T == null)
 			{
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: T = new long[256][KGCMUtil_128.SIZE];
 				T = RectangularArrays.ReturnRectangularLongArray(256, KGCMUtil_128.SIZE);
 			}
 			else if (KGCMUtil_128.equal(H, T[1]))

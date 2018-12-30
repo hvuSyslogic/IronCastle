@@ -3,6 +3,7 @@ using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using Org.BouncyCastle.Math.Raw;
 using Random = System.Random;
 
 namespace org.bouncycastle.math.ec
@@ -475,16 +476,13 @@ namespace org.bouncycastle.math.ec
 		/// Create a cache-safe lookup table for the specified sequence of points. All the points MUST
 		/// belong to this <seealso cref="ECCurve"/> instance, and MUST already be normalized.
 		/// </summary>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public ECLookupTable createCacheSafeLookupTable(final ECPoint[] points, int off, final int len)
+
 		public virtual ECLookupTable createCacheSafeLookupTable(ECPoint[] points, int off, int len)
 		{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int FE_BYTES = (getFieldSize() + 7) >>> 3;
+
 			int FE_BYTES = (int)((uint)(getFieldSize() + 7) >> 3);
 
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final byte[] table = new byte[len * FE_BYTES * 2];
+
 			byte[] table = new byte[len * FE_BYTES * 2];
 			{
 				int pos = 0;
@@ -1205,19 +1203,15 @@ namespace org.bouncycastle.math.ec
 				return k3;
 			}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public ECLookupTable createCacheSafeLookupTable(ECPoint[] points, int off, final int len)
+
 			public override ECLookupTable createCacheSafeLookupTable(ECPoint[] points, int off, int len)
 			{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int FE_LONGS = (m + 63) >>> 6;
+
 				int FE_LONGS = (int)((uint)(m + 63) >> 6);
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int[] ks = isTrinomial() ? new int[]{ k1 } : new int[]{ k1, k2, k3 };
+
 				int[] ks = isTrinomial() ? new int[]{k1} : new int[]{k1, k2, k3};
 
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long[] table = new long[len * FE_LONGS * 2];
+
 				long[] table = new long[len * FE_LONGS * 2];
 				{
 					int pos = 0;

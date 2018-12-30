@@ -15,7 +15,6 @@ namespace org.bouncycastle.asn1
 	/// </summary>
 	public abstract class ASN1ApplicationSpecific : ASN1Primitive
 	{
-//JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
 		protected internal readonly bool isConstructed_Renamed;
 		protected internal readonly int tag;
 		protected internal readonly byte[] octets;

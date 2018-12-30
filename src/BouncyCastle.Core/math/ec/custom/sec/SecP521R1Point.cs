@@ -1,8 +1,9 @@
 ﻿using org.bouncycastle.Port.java.lang;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
-	using Nat = org.bouncycastle.math.raw.Nat;
+	
 
 	public class SecP521R1Point : ECPoint.AbstractFp
 	{
@@ -80,13 +81,13 @@ namespace org.bouncycastle.math.ec.custom.sec
 			SecP521R1FieldElement Z1 = (SecP521R1FieldElement)this.zs[0];
 			SecP521R1FieldElement Z2 = (SecP521R1FieldElement)b.getZCoord(0);
 
-			int[] t1 = Nat.create(17);
-			int[] t2 = Nat.create(17);
-			int[] t3 = Nat.create(17);
-			int[] t4 = Nat.create(17);
+			uint[] t1 = Nat.create(17);
+			uint[] t2 = Nat.create(17);
+			uint[] t3 = Nat.create(17);
+			uint[] t4 = Nat.create(17);
 
 			bool Z1IsOne = Z1.isOne();
-			int[] U2, S2;
+			uint[] U2, S2;
 			if (Z1IsOne)
 			{
 				U2 = X2.x;
@@ -105,7 +106,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 
 			bool Z2IsOne = Z2.isOne();
-			int[] U1, S1;
+			uint[] U1, S1;
 			if (Z2IsOne)
 			{
 				U1 = X1.x;
@@ -122,11 +123,11 @@ namespace org.bouncycastle.math.ec.custom.sec
 				SecP521R1Field.multiply(S1, Z2.x, S1);
 				SecP521R1Field.multiply(S1, Y1.x, S1);
 			}
-
-			int[] H = Nat.create(17);
+            
+			uint[] H = Nat.create(17);
 			SecP521R1Field.subtract(U1, U2, H);
 
-			int[] R = t2;
+			uint[] R = t2;
 			SecP521R1Field.subtract(S1, S2, R);
 
 			// Check if b == this or b == -this
@@ -142,13 +143,13 @@ namespace org.bouncycastle.math.ec.custom.sec
 				return curve.getInfinity();
 			}
 
-			int[] HSquared = t3;
+			uint[] HSquared = t3;
 			SecP521R1Field.square(H, HSquared);
 
-			int[] G = Nat.create(17);
+			uint[] G = Nat.create(17);
 			SecP521R1Field.multiply(HSquared, H, G);
 
-			int[] V = t3;
+			uint[] V = t3;
 			SecP521R1Field.multiply(HSquared, U1, V);
 
 			SecP521R1Field.multiply(S1, G, t1);
@@ -196,18 +197,18 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 			SecP521R1FieldElement X1 = (SecP521R1FieldElement)this.x, Z1 = (SecP521R1FieldElement)this.zs[0];
 
-			int[] t1 = Nat.create(17);
-			int[] t2 = Nat.create(17);
+			uint[] t1 = Nat.create(17);
+			uint[] t2 = Nat.create(17);
 
-			int[] Y1Squared = Nat.create(17);
+			uint[] Y1Squared = Nat.create(17);
 			SecP521R1Field.square(Y1.x, Y1Squared);
 
-			int[] T = Nat.create(17);
+			uint[] T = Nat.create(17);
 			SecP521R1Field.square(Y1Squared, T);
 
 			bool Z1IsOne = Z1.isOne();
 
-			int[] Z1Squared = Z1.x;
+			uint[] Z1Squared = Z1.x;
 			if (!Z1IsOne)
 			{
 				Z1Squared = t2;
@@ -216,13 +217,13 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 			SecP521R1Field.subtract(X1.x, Z1Squared, t1);
 
-			int[] M = t2;
+			uint[] M = t2;
 			SecP521R1Field.add(X1.x, Z1Squared, M);
 			SecP521R1Field.multiply(M, t1, M);
 			Nat.addBothTo(17, M, M, M);
 			SecP521R1Field.reduce23(M);
 
-			int[] S = Y1Squared;
+			uint[] S = Y1Squared;
 			SecP521R1Field.multiply(Y1Squared, X1.x, S);
 			Nat.shiftUpBits(17, S, 2, 0);
 			SecP521R1Field.reduce23(S);

@@ -133,8 +133,7 @@ namespace org.bouncycastle.pqc.crypto.rainbow
 
 			// dimension = n-v1 = vi[last] - vi[first]
 			int dim = vi[vi.Length - 1] - vi[0];
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: this.A1 = new short[dim][dim];
+
 			this.A1 = RectangularArrays.ReturnRectangularShortArray(dim, dim);
 			this.A1inv = null;
 			ComputeInField c = new ComputeInField();
@@ -175,8 +174,7 @@ namespace org.bouncycastle.pqc.crypto.rainbow
 
 			// dimension = n = vi[last]
 			int dim = vi[vi.Length - 1];
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: this.A2 = new short[dim][dim];
+
 			this.A2 = RectangularArrays.ReturnRectangularShortArray(dim, dim);
 			this.A2inv = null;
 			ComputeInField c = new ComputeInField();
@@ -236,11 +234,9 @@ namespace org.bouncycastle.pqc.crypto.rainbow
 			int rows = this.vi[this.vi.Length - 1] - this.vi[0];
 			int vars = this.vi[this.vi.Length - 1];
 			// Fpub
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: short[][][] coeff_quadratic_3dim = new short[rows][vars][vars];
+
 			short[][][] coeff_quadratic_3dim = RectangularArrays.ReturnRectangularShortArray(rows, vars, vars);
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: this.pub_singular = new short[rows][vars];
+
 			this.pub_singular = RectangularArrays.ReturnRectangularShortArray(rows, vars);
 			this.pub_scalar = new short[rows];
 
@@ -329,11 +325,9 @@ namespace org.bouncycastle.pqc.crypto.rainbow
 			{
 			// Apply L1 = A1*x+b1 to composition of F and L2
 				// temporary coefficient arrays
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: short[][][] tmp_c_quad = new short[rows][vars][vars];
+
 				short[][][] tmp_c_quad = RectangularArrays.ReturnRectangularShortArray(rows, vars, vars);
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: short[][] tmp_c_sing = new short[rows][vars];
+
 				short[][] tmp_c_sing = RectangularArrays.ReturnRectangularShortArray(rows, vars);
 				short[] tmp_c_scal = new short[rows];
 				for (int r = 0; r < rows; r++)
@@ -368,8 +362,7 @@ namespace org.bouncycastle.pqc.crypto.rainbow
 			int polynomials = coeff_quadratic_to_compact.Length;
 			int n = coeff_quadratic_to_compact[0].Length;
 			int entries = n * (n + 1) / 2; // the small gauss
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: this.pub_quadratic = new short[polynomials][entries];
+
 			this.pub_quadratic = RectangularArrays.ReturnRectangularShortArray(polynomials, entries);
 			int offset = 0;
 

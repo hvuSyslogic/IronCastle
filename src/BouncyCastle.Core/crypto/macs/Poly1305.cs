@@ -70,8 +70,7 @@ namespace org.bouncycastle.crypto.macs
 		/// <summary>
 		/// Constructs a Poly1305 MAC, using a 128 bit block cipher.
 		/// </summary>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public Poly1305(final org.bouncycastle.crypto.BlockCipher cipher)
+
 		public Poly1305(BlockCipher cipher)
 		{
 			if (cipher.getBlockSize() != BLOCK_SIZE)
@@ -116,8 +115,7 @@ namespace org.bouncycastle.crypto.macs
 			reset();
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: private void setKey(final byte[] key, final byte[] nonce)
+
 		private void setKey(byte[] key, byte[] nonce)
 		{
 			if (key.Length != 32)
@@ -148,11 +146,9 @@ namespace org.bouncycastle.crypto.macs
 			s3 = r3 * 5;
 			s4 = r4 * 5;
 
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final byte[] kBytes;
+
 			byte[] kBytes;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int kOff;
+
 			int kOff;
 
 			if (cipher == null)
@@ -186,16 +182,14 @@ namespace org.bouncycastle.crypto.macs
 			return BLOCK_SIZE;
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public void update(final byte in) throws IllegalStateException
+
 		public virtual void update(byte @in)
 		{
 			singleByte[0] = @in;
 			update(singleByte, 0, 1);
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public void update(final byte[] in, final int inOff, final int len) throws org.bouncycastle.crypto.DataLengthException, IllegalStateException
+
 		public virtual void update(byte[] @in, int inOff, int len)
 		{
 			int copied = 0;
@@ -226,17 +220,13 @@ namespace org.bouncycastle.crypto.macs
 				}
 			}
 
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long t0 = 0xffffffffL & org.bouncycastle.util.Pack.littleEndianToInt(currentBlock, 0);
+
 			long t0 = 0xffffffffL & Pack.littleEndianToInt(currentBlock, 0);
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long t1 = 0xffffffffL & org.bouncycastle.util.Pack.littleEndianToInt(currentBlock, 4);
+
 			long t1 = 0xffffffffL & Pack.littleEndianToInt(currentBlock, 4);
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long t2 = 0xffffffffL & org.bouncycastle.util.Pack.littleEndianToInt(currentBlock, 8);
+
 			long t2 = 0xffffffffL & Pack.littleEndianToInt(currentBlock, 8);
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long t3 = 0xffffffffL & org.bouncycastle.util.Pack.littleEndianToInt(currentBlock, 12);
+
 			long t3 = 0xffffffffL & Pack.littleEndianToInt(currentBlock, 12);
 
 			h0 += (int)(t0 & 0x3ffffff);
@@ -270,8 +260,7 @@ namespace org.bouncycastle.crypto.macs
 			h0 &= 0x3ffffff;
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public int doFinal(final byte[] out, final int outOff) throws org.bouncycastle.crypto.DataLengthException, IllegalStateException
+
 		public virtual int doFinal(byte[] @out, int outOff)
 		{
 			if (outOff + BLOCK_SIZE > @out.Length)

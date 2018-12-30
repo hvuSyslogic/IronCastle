@@ -122,8 +122,7 @@ namespace org.bouncycastle.crypto.engines
 		/// </summary>
 		/// <param name="blocksizeBits"> the block size in bits, one of <seealso cref="#BLOCKSIZE_256"/>, <seealso cref="#BLOCKSIZE_512"/>,
 		///                      <seealso cref="#BLOCKSIZE_1024"/>. </param>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public ThreefishEngine(final int blocksizeBits)
+
 		public ThreefishEngine(int blocksizeBits)
 		{
 			this.blocksizeBytes = (blocksizeBits / 8);
@@ -159,11 +158,9 @@ namespace org.bouncycastle.crypto.engines
 		///               use a 0 tweak) </param>
 		public virtual void init(bool forEncryption, CipherParameters @params)
 		{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final byte[] keyBytes;
+
 			byte[] keyBytes;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final byte[] tweakBytes;
+
 			byte[] tweakBytes;
 
 			if (@params is TweakableBlockCipherParameters)
@@ -214,8 +211,7 @@ namespace org.bouncycastle.crypto.engines
 		/// <param name="forEncryption"> the cipher mode. </param>
 		/// <param name="key">           the words of the key, or <code>null</code> to use the current key. </param>
 		/// <param name="tweak">         the 2 word (128 bit) tweak, or <code>null</code> to use the current tweak. </param>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public void init(boolean forEncryption, final long[] key, final long[] tweak)
+
 		public virtual void init(bool forEncryption, long[] key, long[] tweak)
 		{
 			this.forEncryption = forEncryption;
@@ -349,8 +345,7 @@ namespace org.bouncycastle.crypto.engines
 		/// Read a single 64 bit word from input in LSB first order.
 		/// </summary>
 		// At least package protected for efficient access from inner class
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static long bytesToWord(final byte[] bytes, final int off)
+
 		public static long bytesToWord(byte[] bytes, int off)
 		{
 			if ((off + 8) > bytes.Length)
@@ -378,8 +373,7 @@ namespace org.bouncycastle.crypto.engines
 		/// Write a 64 bit word to output in LSB first order.
 		/// </summary>
 		// At least package protected for efficient access from inner class
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void wordToBytes(final long word, final byte[] bytes, final int off)
+
 		public static void wordToBytes(long word, byte[] bytes, int off)
 		{
 			if ((off + 8) > bytes.Length)
@@ -429,8 +423,7 @@ namespace org.bouncycastle.crypto.engines
 			/// </summary>
 			protected internal readonly long[] kw;
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: protected ThreefishCipher(final long[] kw, final long[] t)
+
 			public ThreefishCipher(long[] kw, long[] t)
 			{
 				this.kw = kw;
@@ -464,17 +457,13 @@ namespace org.bouncycastle.crypto.engines
 
 			public override void encryptBlock(long[] block, long[] @out)
 			{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long[] kw = this.kw;
+
 				long[] kw = this.kw;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long[] t = this.t;
+
 				long[] t = this.t;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int[] mod5 = MOD5;
+
 				int[] mod5 = MOD5;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int[] mod3 = MOD3;
+
 				int[] mod3 = MOD3;
 
 				/* Help the JIT avoid index bounds checks */
@@ -516,11 +505,9 @@ namespace org.bouncycastle.crypto.engines
 
 				for (int d = 1; d < (ROUNDS_256 / 4); d += 2)
 				{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int dm5 = mod5[d];
+
 					int dm5 = mod5[d];
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int dm3 = mod3[d];
+
 					int dm3 = mod3[d];
 
 					/*
@@ -584,17 +571,13 @@ namespace org.bouncycastle.crypto.engines
 
 			public override void decryptBlock(long[] block, long[] state)
 			{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long[] kw = this.kw;
+
 				long[] kw = this.kw;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long[] t = this.t;
+
 				long[] t = this.t;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int[] mod5 = MOD5;
+
 				int[] mod5 = MOD5;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int[] mod3 = MOD3;
+
 				int[] mod3 = MOD3;
 
 				/* Help the JIT avoid index bounds checks */
@@ -614,11 +597,9 @@ namespace org.bouncycastle.crypto.engines
 
 				for (int d = (ROUNDS_256 / 4) - 1; d >= 1; d -= 2)
 				{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int dm5 = mod5[d];
+
 					int dm5 = mod5[d];
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int dm3 = mod3[d];
+
 					int dm3 = mod3[d];
 
 					/* Reverse key injection for second 4 rounds */
@@ -717,17 +698,13 @@ namespace org.bouncycastle.crypto.engines
 
 			public override void encryptBlock(long[] block, long[] @out)
 			{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long[] kw = this.kw;
+
 				long[] kw = this.kw;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long[] t = this.t;
+
 				long[] t = this.t;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int[] mod9 = MOD9;
+
 				int[] mod9 = MOD9;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int[] mod3 = MOD3;
+
 				int[] mod3 = MOD3;
 
 				/* Help the JIT avoid index bounds checks */
@@ -777,11 +754,9 @@ namespace org.bouncycastle.crypto.engines
 
 				for (int d = 1; d < (ROUNDS_512 / 4); d += 2)
 				{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int dm9 = mod9[d];
+
 					int dm9 = mod9[d];
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int dm3 = mod3[d];
+
 					int dm3 = mod3[d];
 
 					/*
@@ -873,17 +848,13 @@ namespace org.bouncycastle.crypto.engines
 
 			public override void decryptBlock(long[] block, long[] state)
 			{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long[] kw = this.kw;
+
 				long[] kw = this.kw;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long[] t = this.t;
+
 				long[] t = this.t;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int[] mod9 = MOD9;
+
 				int[] mod9 = MOD9;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int[] mod3 = MOD3;
+
 				int[] mod3 = MOD3;
 
 				/* Help the JIT avoid index bounds checks */
@@ -907,11 +878,9 @@ namespace org.bouncycastle.crypto.engines
 
 				for (int d = (ROUNDS_512 / 4) - 1; d >= 1; d -= 2)
 				{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int dm9 = mod9[d];
+
 					int dm9 = mod9[d];
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int dm3 = mod3[d];
+
 					int dm3 = mod3[d];
 
 					/* Reverse key injection for second 4 rounds */
@@ -1065,17 +1034,13 @@ namespace org.bouncycastle.crypto.engines
 
 			public override void encryptBlock(long[] block, long[] @out)
 			{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long[] kw = this.kw;
+
 				long[] kw = this.kw;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long[] t = this.t;
+
 				long[] t = this.t;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int[] mod17 = MOD17;
+
 				int[] mod17 = MOD17;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int[] mod3 = MOD3;
+
 				int[] mod3 = MOD3;
 
 				/* Help the JIT avoid index bounds checks */
@@ -1141,11 +1106,9 @@ namespace org.bouncycastle.crypto.engines
 
 				for (int d = 1; d < (ROUNDS_1024 / 4); d += 2)
 				{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int dm17 = mod17[d];
+
 					int dm17 = mod17[d];
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int dm3 = mod3[d];
+
 					int dm3 = mod3[d];
 
 					/*
@@ -1294,17 +1257,13 @@ namespace org.bouncycastle.crypto.engines
 
 			public override void decryptBlock(long[] block, long[] state)
 			{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long[] kw = this.kw;
+
 				long[] kw = this.kw;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long[] t = this.t;
+
 				long[] t = this.t;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int[] mod17 = MOD17;
+
 				int[] mod17 = MOD17;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int[] mod3 = MOD3;
+
 				int[] mod3 = MOD3;
 
 				/* Help the JIT avoid index bounds checks */
@@ -1336,11 +1295,9 @@ namespace org.bouncycastle.crypto.engines
 
 				for (int d = (ROUNDS_1024 / 4) - 1; d >= 1; d -= 2)
 				{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int dm17 = mod17[d];
+
 					int dm17 = mod17[d];
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int dm3 = mod3[d];
+
 					int dm3 = mod3[d];
 
 					/* Reverse key injection for second 4 rounds */

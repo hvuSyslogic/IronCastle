@@ -2,11 +2,12 @@
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec
 {
 
-	using Mod = org.bouncycastle.math.raw.Mod;
+	
 	using Nat = org.bouncycastle.math.raw.Nat;
 	using Arrays = org.bouncycastle.util.Arrays;
 	using BigIntegers = org.bouncycastle.util.BigIntegers;
@@ -694,8 +695,7 @@ namespace org.bouncycastle.math.ec
 				}
 			}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public ECFieldElement add(final ECFieldElement b)
+
 			public override ECFieldElement add(ECFieldElement b)
 			{
 				// No check performed here for performance reasons. Instead the
@@ -712,16 +712,14 @@ namespace org.bouncycastle.math.ec
 				return new F2m(m, ks, x.addOne());
 			}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public ECFieldElement subtract(final ECFieldElement b)
+
 			public override ECFieldElement subtract(ECFieldElement b)
 			{
 				// Addition and subtraction are the same in F2m
 				return add(b);
 			}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public ECFieldElement multiply(final ECFieldElement b)
+
 			public override ECFieldElement multiply(ECFieldElement b)
 			{
 				// Right-to-left comb multiplication in the LongArray
@@ -757,8 +755,7 @@ namespace org.bouncycastle.math.ec
 				return new F2m(m, ks, ab);
 			}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public ECFieldElement divide(final ECFieldElement b)
+
 			public override ECFieldElement divide(ECFieldElement b)
 			{
 				// There may be more efficient implementations

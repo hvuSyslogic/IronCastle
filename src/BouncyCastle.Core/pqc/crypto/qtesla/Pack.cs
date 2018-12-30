@@ -863,7 +863,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 
 			int j = 0;
 
-			int mask = (1 << Parameter.Q_LOGARITHM_III_P) - 1;
+			int mask = unchecked((1 << Parameter.Q_LOGARITHM_III_P) - 1);
 
 			for (int i = 0; i < Parameter.N_III_P * Parameter.K_III_P; i += (sizeof(int) * 8))
 			{

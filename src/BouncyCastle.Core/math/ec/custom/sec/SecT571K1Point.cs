@@ -1,10 +1,11 @@
 ﻿using org.bouncycastle.math.ec;
 using org.bouncycastle.Port.java.lang;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
 	using AbstractF2m = org.bouncycastle.math.ec.ECPoint.AbstractF2m;
-	using Nat576 = org.bouncycastle.math.raw.Nat576;
+	
 
 	public class SecT571K1Point : ECPoint.AbstractF2m
 	{

@@ -389,7 +389,7 @@
 			z[9] = z9 + (int)t;
 		}
 
-		public static void negate(int[] x, int[] z)
+		public static void negate(uint[] x, uint[] z)
 		{
 			for (int i = 0; i < SIZE; ++i)
 			{

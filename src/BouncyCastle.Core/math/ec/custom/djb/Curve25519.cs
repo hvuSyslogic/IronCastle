@@ -1,9 +1,8 @@
 ﻿using BouncyCastle.Core.Port;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.djb
 {
-
-	using Nat256 = org.bouncycastle.math.raw.Nat256;
 	using Hex = org.bouncycastle.util.encoders.Hex;
 
 	public class Curve25519 : ECCurve.AbstractFp
@@ -77,7 +76,7 @@ namespace org.bouncycastle.math.ec.custom.djb
 		{
 			const int FE_INTS = 8;
 
-			int[] table = new int[len * FE_INTS * 2];
+			uint[] table = new uint[len * FE_INTS * 2];
 			{
 				int pos = 0;
 				for (int i = 0; i < len; ++i)
@@ -90,18 +89,18 @@ namespace org.bouncycastle.math.ec.custom.djb
 				}
 			}
 
-			return new ECLookupTableAnonymousInnerClass(this, len, FE_INTS, table);
+			return new Curve25519LookupTable(this, len, FE_INTS, table);
 		}
 
-		public class ECLookupTableAnonymousInnerClass : ECLookupTable
+        private class Curve25519LookupTable : ECLookupTable
 		{
 			private readonly Curve25519 outerInstance;
 
 			private int len;
 			private int FE_INTS;
-			private int[] table;
+			private uint[] table;
 
-			public ECLookupTableAnonymousInnerClass(Curve25519 outerInstance, int len, int FE_INTS, int[] table)
+			public Curve25519LookupTable(Curve25519 outerInstance, int len, int FE_INTS, uint[] table)
 			{
 				this.outerInstance = outerInstance;
 				this.len = len;
@@ -116,12 +115,12 @@ namespace org.bouncycastle.math.ec.custom.djb
 
 			public ECPoint lookup(int index)
 			{
-				int[] x = Nat256.create(), y = Nat256.create();
+				uint[] x = Nat256.create(), y = Nat256.create();
 				int pos = 0;
 
 				for (int i = 0; i < len; ++i)
 				{
-					int MASK = ((i ^ index) - 1) >> 31;
+					uint MASK = (uint) (((i ^ index) - 1) >> 31);
 
 					for (int j = 0; j < FE_INTS; ++j)
 					{

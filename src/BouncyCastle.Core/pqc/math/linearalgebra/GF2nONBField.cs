@@ -129,8 +129,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			//
 			if (mType < 3)
 			{
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: mMult = new int[mDegree][2];
+
 				mMult = RectangularArrays.ReturnRectangularIntArray(mDegree, 2);
 				for (int i = 0; i < mDegree; i++)
 				{
@@ -324,12 +323,10 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		public virtual int[][] invMatrix(int[][] a)
 		{
 
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: int[][] A = new int[mDegree][mDegree];
+
 			int[][] A = RectangularArrays.ReturnRectangularIntArray(mDegree, mDegree);
 			A = a;
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: int[][] inv = new int[mDegree][mDegree];
+
 			int[][] inv = RectangularArrays.ReturnRectangularIntArray(mDegree, mDegree);
 
 			for (int i = 0; i < mDegree; i++)

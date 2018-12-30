@@ -1,6 +1,7 @@
-﻿namespace org.bouncycastle.crypto.modes.gcm
+﻿using Org.BouncyCastle.Math.Raw;
+
+namespace org.bouncycastle.crypto.modes.gcm
 {
-	using Interleave = org.bouncycastle.math.raw.Interleave;
 	using Pack = org.bouncycastle.util.Pack;
 
 	public abstract class GCMUtil
@@ -11,7 +12,7 @@
 		public static byte[] oneAsBytes()
 		{
 			byte[] tmp = new byte[16];
-			tmp[0] = unchecked((byte)0x80);
+			tmp[0] = 0x80;
 			return tmp;
 		}
 
@@ -272,7 +273,7 @@
 			return tmp;
 		}
 
-		public static void square(long[] x, long[] z)
+		public static void square(ulong[] x, ulong[] z)
 		{
 			long[] t = new long[4];
 			Interleave.expand64To128Rev(x[0], t, 0);

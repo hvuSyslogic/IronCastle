@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using BouncyCastle.Core.Port;
 using BouncyCastle.Core.Port.java.util;
 using org.bouncycastle.Port.java.io;
@@ -123,10 +124,8 @@ namespace org.bouncycastle.pqc.math.ntru.util
 		public static bool is64BitJVM()
 		{
 			if (!IS_64_BITNESS_KNOWN)
-			{
-				string arch = System.getProperty("os.arch");
-				string sunModel = System.getProperty("sun.arch.data.model");
-				IS_64_BIT_JVM = "amd64".Equals(arch) || "x86_64".Equals(arch) || "ppc64".Equals(arch) || "64".Equals(sunModel);
+            {
+                IS_64_BIT_JVM = Environment.Is64BitProcess;
 				IS_64_BITNESS_KNOWN = true;
 			}
 			return IS_64_BIT_JVM;

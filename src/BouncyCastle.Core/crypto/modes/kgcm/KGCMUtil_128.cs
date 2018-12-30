@@ -1,7 +1,7 @@
-﻿namespace org.bouncycastle.crypto.modes.kgcm
-{
-	using Interleave = org.bouncycastle.math.raw.Interleave;
+﻿using Org.BouncyCastle.Math.Raw;
 
+namespace org.bouncycastle.crypto.modes.kgcm
+{
 	/// <summary>
 	/// Utilities for the GF(2^m) field with corresponding extension polynomial:
 	/// 
@@ -85,7 +85,7 @@
 			z[1] = 0;
 		}
 
-		public static void square(long[] x, long[] z)
+		public static void square(ulong[] x, ulong[] z)
 		{
 			long[] t = new long[4];
 			Interleave.expand64To128(x[0], t, 0);

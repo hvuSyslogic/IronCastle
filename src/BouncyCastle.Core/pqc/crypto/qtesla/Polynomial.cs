@@ -1086,8 +1086,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ************************************************************************************************************************************************************* </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void sparsePolynomialMultiplication16(int[] product, final short[] privateKey, final int[] positionList, final short[] signList, int n, int h)
+
 		public static void sparsePolynomialMultiplication16(int[] product, short[] privateKey, int[] positionList, short[] signList, int n, int h)
 		{
 
@@ -1133,8 +1132,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ***************************************************************************************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void sparsePolynomialMultiplication8(long[] product, int productOffset, final byte[] privateKey, int privateKeyOffset, final int[] positionList, final short[] signList, int n, int h)
+
 		public static void sparsePolynomialMultiplication8(long[] product, int productOffset, byte[] privateKey, int privateKeyOffset, int[] positionList, short[] signList, int n, int h)
 		{
 
@@ -1179,8 +1177,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ********************************************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void sparsePolynomialMultiplication32(int[] product, final int[] publicKey, final int[] positionList, final short[] signList, int n, int h)
+
 		public static void sparsePolynomialMultiplication32(int[] product, int[] publicKey, int[] positionList, short[] signList, int n, int h)
 		{
 
@@ -1229,8 +1226,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> none
 		/// ********************************************************************************************************************************************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static void sparsePolynomialMultiplication32(long[] product, int productOffset, final int[] publicKey, int publicKeyOffset, final int[] positionList, final short[] signList, int n, int h, int q, int barrettMultiplication, int barrettDivision)
+
 		public static void sparsePolynomialMultiplication32(long[] product, int productOffset, int[] publicKey, int publicKeyOffset, int[] positionList, short[] signList, int n, int h, int q, int barrettMultiplication, int barrettDivision)
 		{
 

@@ -56,7 +56,7 @@ namespace org.bouncycastle.Port
 
         public StringBuffer insert(int index, string p1)
         {
-           return new StringBuffer(_innerBuilder.Insert(index, p1).ToString());;
+           return new StringBuffer(_innerBuilder.Insert(index, p1).ToString());
         }
 
         public void insert(int index, char value)

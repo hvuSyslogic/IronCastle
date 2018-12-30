@@ -389,8 +389,7 @@ namespace org.bouncycastle.crypto.digests
 
 		private void reverse(byte[] src, byte[] dst)
 		{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int len = src.length;
+
 			int len = src.Length;
 			for (int i = 0; i < len; i++)
 			{

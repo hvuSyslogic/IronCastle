@@ -57,12 +57,12 @@
 		{
 			finish();
 
-			Pack.UlongToBigEndian(H1, @out, outOff);
-			Pack.UlongToBigEndian(H2, @out, outOff + 8);
-			Pack.UlongToBigEndian(H3, @out, outOff + 16);
-			Pack.UlongToBigEndian(H4, @out, outOff + 24);
-			Pack.UlongToBigEndian(H5, @out, outOff + 32);
-			Pack.UlongToBigEndian(H6, @out, outOff + 40);
+			Pack.ulongToBigEndian(H1, @out, outOff);
+			Pack.ulongToBigEndian(H2, @out, outOff + 8);
+			Pack.ulongToBigEndian(H3, @out, outOff + 16);
+			Pack.ulongToBigEndian(H4, @out, outOff + 24);
+			Pack.ulongToBigEndian(H5, @out, outOff + 32);
+			Pack.ulongToBigEndian(H6, @out, outOff + 40);
 
 			reset();
 

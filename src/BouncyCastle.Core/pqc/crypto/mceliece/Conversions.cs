@@ -35,8 +35,7 @@ namespace org.bouncycastle.pqc.crypto.mceliece
 		/// <param name="t"> integer </param>
 		/// <param name="m"> the message as a byte array </param>
 		/// <returns> the encoded message as <seealso cref="GF2Vector"/> </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static org.bouncycastle.pqc.math.linearalgebra.GF2Vector encode(final int n, final int t, final byte[] m)
+
 		public static GF2Vector encode(int n, int t, byte[] m)
 		{
 			if (n < t)

@@ -1,203 +1,186 @@
-﻿using org.bouncycastle.Port;
-using org.bouncycastle.Port.java.lang;
-using org.bouncycastle.Port.java.util;
+﻿using System;
+using System.Diagnostics;
+using BouncyCastle.Core.Port;
+using Org.BouncyCastle.Crypto.Utilities;
+using Org.BouncyCastle.Security;
+using Org.BouncyCastle.Utilities;
 
-namespace org.bouncycastle.math.raw
+namespace Org.BouncyCastle.Math.Raw
 {
+    internal abstract class Mod
+    {
+        private static readonly SecureRandom RandomSource = new SecureRandom();
 
-	using Pack = org.bouncycastle.util.Pack;
+        public static void invert(uint[] p, uint[] x, uint[] z)
+        {
+            int len = p.Length;
+            if (Nat.isZero(len, x))
+                throw new ArgumentException("cannot be 0", "x");
+            if (Nat.isOne(len, x))
+            {
+                Array.Copy(x, 0, z, 0, len);
+                return;
+            }
 
-	public abstract class Mod
-	{
-		public static int inverse32(int d)
-		{
-	//        int x = d + (((d + 1) & 4) << 1);   // d.x == 1 mod 2**4
-			int x = d; // d.x == 1 mod 2**3
-			x *= 2 - d * x; // d.x == 1 mod 2**6
-			x *= 2 - d * x; // d.x == 1 mod 2**12
-			x *= 2 - d * x; // d.x == 1 mod 2**24
-			x *= 2 - d * x; // d.x == 1 mod 2**48
-	//        assert d * x == 1;
-			return x;
-		}
+            uint[] u = Nat.copy(len, x);
+            uint[] a = Nat.create(len);
+            a[0] = 1;
+            int ac = 0;
 
-		public static void invert(int[] p, int[] x, int[] z)
-		{
-			int len = p.Length;
-			if (Nat.isZero(len, x))
-			{
-				throw new IllegalArgumentException("'x' cannot be 0");
-			}
-			if (Nat.isOne(len, x))
-			{
-				JavaSystem.arraycopy(x, 0, z, 0, len);
-				return;
-			}
+            if ((u[0] & 1) == 0)
+            {
+                inversionStep(p, u, len, a, ref ac);
+            }
+            if (Nat.isOne(len, u))
+            {
+                inversionResult(p, ac, a, z);
+                return;
+            }
 
-			int[] u = Nat.copy(len, x);
-			int[] a = Nat.create(len);
-			a[0] = 1;
-			int ac = 0;
+            uint[] v = Nat.copy(len, p);
+            uint[] b = Nat.create(len);
+            int bc = 0;
 
-			if ((u[0] & 1) == 0)
-			{
-				ac = inversionStep(p, u, len, a, ac);
-			}
-			if (Nat.isOne(len, u))
-			{
-				inversionResult(p, ac, a, z);
-				return;
-			}
+            int uvLen = len;
 
-			int[] v = Nat.copy(len, p);
-			int[] b = Nat.create(len);
-			int bc = 0;
+            for (;;)
+            {
+                while (u[uvLen - 1] == 0 && v[uvLen - 1] == 0)
+                {
+                    --uvLen;
+                }
 
-			int uvLen = len;
+                if (Nat.gte(len, u, v))
+                {
+                    Nat.subFrom(len, v, u);
+                    Debug.Assert((u[0] & 1) == 0);
+                    ac += Nat.subFrom(len, b, a) - bc;
+                    inversionStep(p, u, uvLen, a, ref ac);
+                    if (Nat.isOne(len, u))
+                    {
+                        inversionResult(p, ac, a, z);
+                        return;
+                    }
+                }
+                else
+                {
+                    Nat.subFrom(len, u, v);
+                    Debug.Assert((v[0] & 1) == 0);
+                    bc += Nat.subFrom(len, a, b) - ac;
+                    inversionStep(p, v, uvLen, b, ref bc);
+                    if (Nat.isOne(len, v))
+                    {
+                        inversionResult(p, bc, b, z);
+                        return;
+                    }
+                }
+            }
+        }
 
-			for (;;)
-			{
-				while (u[uvLen - 1] == 0 && v[uvLen - 1] == 0)
-				{
-					--uvLen;
-				}
+        public static uint[] random(uint[] p)
+        {
+            int len = p.Length;
+            uint[] s = Nat.create(len);
 
-				if (Nat.gte(uvLen, u, v))
-				{
-					Nat.subFrom(uvLen, v, u);
-	//              assert (u[0] & 1) == 0;
-					ac += Nat.subFrom(len, b, a) - bc;
-					ac = inversionStep(p, u, uvLen, a, ac);
-					if (Nat.isOne(uvLen, u))
-					{
-						inversionResult(p, ac, a, z);
-						return;
-					}
-				}
-				else
-				{
-					Nat.subFrom(uvLen, u, v);
-	//              assert (v[0] & 1) == 0;
-					bc += Nat.subFrom(len, a, b) - ac;
-					bc = inversionStep(p, v, uvLen, b, bc);
-					if (Nat.isOne(uvLen, v))
-					{
-						inversionResult(p, bc, b, z);
-						return;
-					}
-				}
-			}
-		}
+            uint m = p[len - 1];
+            m |= m >> 1;
+            m |= m >> 2;
+            m |= m >> 4;
+            m |= m >> 8;
+            m |= m >> 16;
 
-		public static int[] random(int[] p)
-		{
-			int len = p.Length;
-			Random rand = new Random();
-			int[] s = Nat.create(len);
+            do
+            {
+                byte[] bytes = new byte[len << 2];
+                RandomSource.NextBytes(bytes);
+                Pack.BE_To_UInt32(bytes, 0, s);
+                s[len - 1] &= m;
+            }
+            while (Nat.gte(len, s, p));
 
-			int m = p[len - 1];
-			m |= (int)((uint)m >> 1);
-			m |= (int)((uint)m >> 2);
-			m |= (int)((uint)m >> 4);
-			m |= (int)((uint)m >> 8);
-			m |= (int)((uint)m >> 16);
+            return s;
+        }
 
-			do
-			{
-				for (int i = 0; i != len; i++)
-				{
-					s[i] = rand.nextInt();
-				}
-				s[len - 1] &= m;
-			} while (Nat.gte(len, s, p));
+        public static void add(uint[] p, uint[] x, uint[] y, uint[] z)
+        {
+            int len = p.Length;
+            uint c = Nat.add(len, x, y, z);
+            if (c != 0)
+            {
+                Nat.subFrom(len, p, z);
+            }
+        }
 
-			return s;
-		}
+        public static void subtract(uint[] p, uint[] x, uint[] y, uint[] z)
+        {
+            int len = p.Length;
+            int c = Nat.sub(len, x, y, z);
+            if (c != 0)
+            {
+                Nat.addTo(len, p, z);
+            }
+        }
 
-		public static void add(int[] p, int[] x, int[] y, int[] z)
-		{
-			int len = p.Length;
-			int c = Nat.add(len, x, y, z);
-			if (c != 0)
-			{
-				Nat.subFrom(len, p, z);
-			}
-		}
+        private static void inversionResult(uint[] p, int ac, uint[] a, uint[] z)
+        {
+            if (ac < 0)
+            {
+                Nat.add(p.Length, a, p, z);
+            }
+            else
+            {
+                Array.Copy(a, 0, z, 0, p.Length);
+            }
+        }
 
-		public static void subtract(int[] p, int[] x, int[] y, int[] z)
-		{
-			int len = p.Length;
-			int c = Nat.sub(len, x, y, z);
-			if (c != 0)
-			{
-				Nat.addTo(len, p, z);
-			}
-		}
+        private static void inversionStep(uint[] p, uint[] u, int uLen, uint[] x, ref int xc)
+        {
+            int len = p.Length;
+            int count = 0;
+            while (u[0] == 0)
+            {
+                Nat.shiftDownWord(uLen, u, 0);
+                count += 32;
+            }
 
-		private static void inversionResult(int[] p, int ac, int[] a, int[] z)
-		{
-			if (ac < 0)
-			{
-				Nat.add(p.Length, a, p, z);
-			}
-			else
-			{
-				JavaSystem.arraycopy(a, 0, z, 0, p.Length);
-			}
-		}
+            {
+                int zeroes = getTrailingZeroes(u[0]);
+                if (zeroes > 0)
+                {
+                    Nat.shiftDownBits(uLen, u, zeroes, 0);
+                    count += zeroes;
+                }
+            }
 
-		private static int inversionStep(int[] p, int[] u, int uLen, int[] x, int xc)
-		{
-			int len = p.Length;
-			int count = 0;
-			while (u[0] == 0)
-			{
-				Nat.shiftDownWord(uLen, u, 0);
-				count += 32;
-			}
+            for (int i = 0; i < count; ++i)
+            {
+                if ((x[0] & 1) != 0)
+                {
+                    if (xc < 0)
+                    {
+                        xc += (int)Nat.addTo(len, p, x);
+                    }
+                    else
+                    {
+                        xc += Nat.subFrom(len, p, x);
+                    }
+                }
 
-			{
-				int zeroes = getTrailingZeroes(u[0]);
-				if (zeroes > 0)
-				{
-					Nat.shiftDownBits(uLen, u, zeroes, 0);
-					count += zeroes;
-				}
-			}
+                Debug.Assert(xc == 0 || xc == -1);
+                Nat.shiftDownBit(len, x, (uint)xc);
+            }
+        }
 
-			for (int i = 0; i < count; ++i)
-			{
-				if ((x[0] & 1) != 0)
-				{
-					if (xc < 0)
-					{
-						xc += Nat.addTo(len, p, x);
-					}
-					else
-					{
-						xc += Nat.subFrom(len, p, x);
-					}
-				}
-
-	//            assert xc == 0 || xc == 1;
-				Nat.shiftDownBit(len, x, xc);
-			}
-
-			return xc;
-		}
-
-		private static int getTrailingZeroes(int x)
-		{
-	//        assert x != 0;
-
-			int count = 0;
-			while ((x & 1) == 0)
-			{
-				x = (int)((uint)x >> 1);
-				++count;
-			}
-			return count;
-		}
-	}
-
+        private static int getTrailingZeroes(uint x)
+        {
+            Debug.Assert(x != 0);
+            int count = 0;
+            while ((x & 1) == 0)
+            {
+                x >>= 1;
+                ++count;
+            }
+            return count;
+        }
+    }
 }

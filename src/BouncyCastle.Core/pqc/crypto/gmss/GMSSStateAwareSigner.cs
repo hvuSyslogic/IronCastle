@@ -21,8 +21,7 @@ namespace org.bouncycastle.pqc.crypto.gmss
 
 		private GMSSPrivateKeyParameters key;
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public GMSSStateAwareSigner(final org.bouncycastle.crypto.Digest digest)
+
 		public GMSSStateAwareSigner(Digest digest)
 		{
 			if (!(digest is Memoable))
@@ -30,8 +29,7 @@ namespace org.bouncycastle.pqc.crypto.gmss
 				throw new IllegalArgumentException("digest must implement Memoable");
 			}
 
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final org.bouncycastle.util.Memoable dig = ((org.bouncycastle.util.Memoable)digest).copy();
+
 			Memoable dig = ((Memoable)digest).copy();
 			gmssSigner = new GMSSSigner(new GMSSDigestProviderAnonymousInnerClass(this, dig));
 		}

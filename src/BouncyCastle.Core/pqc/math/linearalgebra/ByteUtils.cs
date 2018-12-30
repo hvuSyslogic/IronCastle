@@ -197,7 +197,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 				else if (rawChars[i] >= 'A' && rawChars[i] <= 'F')
 				{
 					byteString[pos >> 1] <<= 4;
-					byteString[pos >> 1] |= (byte)(rawChars[i] - 'A') + 10;
+					byteString[pos >> 1] |= (byte)((rawChars[i] - 'A') + 10);
 				}
 				else
 				{

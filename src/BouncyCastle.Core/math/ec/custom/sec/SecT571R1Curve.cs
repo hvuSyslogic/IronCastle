@@ -1,10 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
 
 	using AbstractF2m = org.bouncycastle.math.ec.ECCurve.AbstractF2m;
-	using Nat576 = org.bouncycastle.math.raw.Nat576;
+	
 	using Hex = org.bouncycastle.util.encoders.Hex;
 
 	public class SecT571R1Curve : ECCurve.AbstractF2m
@@ -100,14 +101,12 @@ namespace org.bouncycastle.math.ec.custom.sec
 			return 10;
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public org.bouncycastle.math.ec.ECLookupTable createCacheSafeLookupTable(org.bouncycastle.math.ec.ECPoint[] points, int off, final int len)
+
 		public override ECLookupTable createCacheSafeLookupTable(ECPoint[] points, int off, int len)
 		{
 			const int FE_LONGS = 9;
 
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long[] table = new long[len * FE_LONGS * 2];
+
 			long[] table = new long[len * FE_LONGS * 2];
 			{
 				int pos = 0;

@@ -1,10 +1,8 @@
 ﻿using org.bouncycastle.Port.java.lang;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.gm
 {
-	using Nat = org.bouncycastle.math.raw.Nat;
-	using Nat256 = org.bouncycastle.math.raw.Nat256;
-
 	public class SM2P256V1Point : ECPoint.AbstractFp
 	{
 		/// <summary>
@@ -81,14 +79,14 @@ namespace org.bouncycastle.math.ec.custom.gm
 			SM2P256V1FieldElement Z1 = (SM2P256V1FieldElement)this.zs[0];
 			SM2P256V1FieldElement Z2 = (SM2P256V1FieldElement)b.getZCoord(0);
 
-			int c;
-			int[] tt1 = Nat256.createExt();
-			int[] t2 = Nat256.create();
-			int[] t3 = Nat256.create();
-			int[] t4 = Nat256.create();
+			uint c;
+			uint[] tt1 = Nat256.createExt();
+			uint[] t2 = Nat256.create();
+			uint[] t3 = Nat256.create();
+			uint[] t4 = Nat256.create();
 
 			bool Z1IsOne = Z1.isOne();
-			int[] U2, S2;
+			uint[] U2, S2;
 			if (Z1IsOne)
 			{
 				U2 = X2.x;
@@ -107,7 +105,7 @@ namespace org.bouncycastle.math.ec.custom.gm
 			}
 
 			bool Z2IsOne = Z2.isOne();
-			int[] U1, S1;
+			uint[] U1, S1;
 			if (Z2IsOne)
 			{
 				U1 = X1.x;
@@ -125,10 +123,10 @@ namespace org.bouncycastle.math.ec.custom.gm
 				SM2P256V1Field.multiply(S1, Y1.x, S1);
 			}
 
-			int[] H = Nat256.create();
+			uint[] H = Nat256.create();
 			SM2P256V1Field.subtract(U1, U2, H);
 
-			int[] R = t2;
+			uint[] R = t2;
 			SM2P256V1Field.subtract(S1, S2, R);
 
 			// Check if b == this or b == -this
@@ -144,13 +142,13 @@ namespace org.bouncycastle.math.ec.custom.gm
 				return curve.getInfinity();
 			}
 
-			int[] HSquared = t3;
+			uint[] HSquared = t3;
 			SM2P256V1Field.square(H, HSquared);
 
-			int[] G = Nat256.create();
+			uint[] G = Nat256.create();
 			SM2P256V1Field.multiply(HSquared, H, G);
 
-			int[] V = t3;
+			uint[] V = t3;
 			SM2P256V1Field.multiply(HSquared, U1, V);
 
 			SM2P256V1Field.negate(G, G);
@@ -200,19 +198,19 @@ namespace org.bouncycastle.math.ec.custom.gm
 
 			SM2P256V1FieldElement X1 = (SM2P256V1FieldElement)this.x, Z1 = (SM2P256V1FieldElement)this.zs[0];
 
-			int c;
-			int[] t1 = Nat256.create();
-			int[] t2 = Nat256.create();
+			uint c;
+			uint[] t1 = Nat256.create();
+			uint[] t2 = Nat256.create();
 
-			int[] Y1Squared = Nat256.create();
+			uint[] Y1Squared = Nat256.create();
 			SM2P256V1Field.square(Y1.x, Y1Squared);
 
-			int[] T = Nat256.create();
+			uint[] T = Nat256.create();
 			SM2P256V1Field.square(Y1Squared, T);
 
 			bool Z1IsOne = Z1.isOne();
 
-			int[] Z1Squared = Z1.x;
+			uint[] Z1Squared = Z1.x;
 			if (!Z1IsOne)
 			{
 				Z1Squared = t2;
@@ -221,13 +219,13 @@ namespace org.bouncycastle.math.ec.custom.gm
 
 			SM2P256V1Field.subtract(X1.x, Z1Squared, t1);
 
-			int[] M = t2;
+			uint[] M = t2;
 			SM2P256V1Field.add(X1.x, Z1Squared, M);
 			SM2P256V1Field.multiply(M, t1, M);
 			c = Nat256.addBothTo(M, M, M);
 			SM2P256V1Field.reduce32(c, M);
 
-			int[] S = Y1Squared;
+			uint[] S = Y1Squared;
 			SM2P256V1Field.multiply(Y1Squared, X1.x, S);
 			c = Nat.shiftUpBits(8, S, 2, 0);
 			SM2P256V1Field.reduce32(c, S);

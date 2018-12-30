@@ -253,11 +253,7 @@ namespace org.bouncycastle.crypto.engines
 			int KC;
 			int t, rconpointer = 0;
 			int keyBits = key.Length * 8;
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: byte[][] tk = new byte[4][MAXKC];
 			byte[][] tk = RectangularArrays.ReturnRectangularSbyteArray(4, MAXKC);
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: long[][] W = new long[MAXROUNDS+1][4];
 			long[][] W = RectangularArrays.ReturnRectangularLongArray(MAXROUNDS + 1, 4);
 
 			switch (keyBits)

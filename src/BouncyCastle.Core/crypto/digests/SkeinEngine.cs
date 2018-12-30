@@ -431,7 +431,6 @@ namespace org.bouncycastle.crypto.digests
 		/// <summary>
 		/// The initial state value
 		/// </summary>
-//JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
 		private long[] initialState_Renamed;
 
 		/// <summary>
@@ -566,11 +565,7 @@ namespace org.bouncycastle.crypto.digests
 		private void initParams(Hashtable parameters)
 		{
 			Enumeration keys = parameters.keys();
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final java.util.Vector pre = new java.util.Vector();
 			Vector pre = new Vector();
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final java.util.Vector post = new java.util.Vector();
 			Vector post = new Vector();
 
 			while (keys.hasMoreElements())
@@ -728,16 +723,10 @@ namespace org.bouncycastle.crypto.digests
 			}
 
 			// Perform the output transform
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int blockSize = getBlockSize();
 			int blockSize = getBlockSize();
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int blocksRequired = ((outputSizeBytes + blockSize - 1) / blockSize);
 			int blocksRequired = ((outputSizeBytes + blockSize - 1) / blockSize);
 			for (int i = 0; i < blocksRequired; i++)
 			{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int toWrite = Math.Min(blockSize, outputSizeBytes - (i * blockSize));
 				int toWrite = Math.Min(blockSize, outputSizeBytes - (i * blockSize));
 				output(i, @out, outOff + (i * blockSize), toWrite);
 			}
@@ -759,8 +748,6 @@ namespace org.bouncycastle.crypto.digests
 			this.ubi.update(currentBytes, 0, currentBytes.Length, outputWords);
 			ubi.doFinal(outputWords);
 
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int wordsRequired = ((outputBytes + 8 - 1) / 8);
 			int wordsRequired = ((outputBytes + 8 - 1) / 8);
 			for (int i = 0; i < wordsRequired; i++)
 			{

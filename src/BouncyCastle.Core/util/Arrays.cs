@@ -231,7 +231,35 @@ namespace org.bouncycastle.util
 			return true;
 		}
 
-		public static bool areEqual(object[] a, object[] b)
+        public static bool areEqual(ulong[] a, ulong[] b)
+        {
+            if (a == b)
+            {
+                return true;
+            }
+
+            if (a == null || b == null)
+            {
+                return false;
+            }
+
+            if (a.Length != b.Length)
+            {
+                return false;
+            }
+
+            for (int i = 0; i != a.Length; i++)
+            {
+                if (a[i] != b[i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static bool areEqual(object[] a, object[] b)
 		{
 			if (a == b)
 			{
@@ -341,7 +369,15 @@ namespace org.bouncycastle.util
 			}
 		}
 
-		public static void fill(char[] array, char value)
+        public static void fill(short[] array, int start, int finish, byte value)
+        {
+            for (int i = start; i < finish; i++)
+            {
+                array[i] = value;
+            }
+        }
+
+        public static void fill(char[] array, char value)
 		{
 			for (int i = 0; i < array.Length; i++)
 			{
@@ -494,7 +530,19 @@ namespace org.bouncycastle.util
 			return hc;
 		}
 
-		public static int GetHashCode(int[] data)
+        public static int GetHashCode(uint[][] ints)
+        {
+            int hc = 0;
+
+            for (int i = 0; i != ints.Length; i++)
+            {
+                hc = hc * 257 + GetHashCode(ints[i]);
+            }
+
+            return hc;
+        }
+
+        public static int GetHashCode(int[] data)
 		{
 			if (data == null)
 			{
@@ -513,7 +561,26 @@ namespace org.bouncycastle.util
 			return hc;
 		}
 
-		public static int GetHashCode(int[] data, int off, int len)
+        public static int GetHashCode(uint[] data)
+        {
+            if (data == null)
+            {
+                return 0;
+            }
+
+            int i = data.Length;
+            int hc = i + 1;
+
+            while (--i >= 0)
+            {
+                hc *= 257;
+                hc ^= (int)data[i];
+            }
+
+            return hc;
+        }
+
+        public static int GetHashCode(int[] data, int off, int len)
 		{
 			if (data == null)
 			{
@@ -532,7 +599,26 @@ namespace org.bouncycastle.util
 			return hc;
 		}
 
-		public static int GetHashCode(long[] data)
+        public static int GetHashCode(uint[] data, int off, int len)
+        {
+            if (data == null)
+            {
+                return 0;
+            }
+
+            int i = len;
+            int hc = i + 1;
+
+            while (--i >= 0)
+            {
+                hc *= 257;
+                hc ^= (int)data[off + i];
+            }
+
+            return hc;
+        }
+
+        public static int GetHashCode(long[] data)
 		{
 			if (data == null)
 			{
@@ -576,7 +662,29 @@ namespace org.bouncycastle.util
 			return hc;
 		}
 
-		public static int GetHashCode(short[][][] shorts)
+        public static int GetHashCode(ulong[] data, int off, int len)
+        {
+            if (data == null)
+            {
+                return 0;
+            }
+
+            int i = len;
+            int hc = i + 1;
+
+            while (--i >= 0)
+            {
+                ulong di = data[off + i];
+                hc *= 257;
+                hc ^= (int)di;
+                hc *= 257;
+                hc ^= (int)(di >> 32);
+            }
+
+            return hc;
+        }
+
+        public static int GetHashCode(short[][][] shorts)
 		{
 			int hc = 0;
 

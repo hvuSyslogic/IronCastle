@@ -28,8 +28,7 @@ namespace org.bouncycastle.crypto.prng
 		/// </summary>
 		/// <param name="bitsRequired"> size (in bits) of entropy to be created by the provided source. </param>
 		/// <returns> an EntropySource that generates bitsRequired bits of entropy on each call to its getEntropy() method. </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public EntropySource get(final int bitsRequired)
+
 		public virtual EntropySource get(int bitsRequired)
 		{
 			return new EntropySourceAnonymousInnerClass(this, bitsRequired);

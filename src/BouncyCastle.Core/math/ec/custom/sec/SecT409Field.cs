@@ -1,11 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
 
-	using Interleave = org.bouncycastle.math.raw.Interleave;
-	using Nat = org.bouncycastle.math.raw.Nat;
+	
+	
 	using Nat448 = org.bouncycastle.math.raw.Nat448;
 
 	public class SecT409Field
@@ -13,7 +14,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 		private static readonly long M25 = (long)(unchecked((ulong)-1L) >> 39);
 		private static readonly long M59 = (long)(unchecked((ulong)-1L) >> 5);
 
-		public static void add(long[] x, long[] y, long[] z)
+		public static void add(ulong[] x, ulong[] y, ulong[] z)
 		{
 			z[0] = x[0] ^ y[0];
 			z[1] = x[1] ^ y[1];
@@ -24,7 +25,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			z[6] = x[6] ^ y[6];
 		}
 
-		public static void addExt(long[] xx, long[] yy, long[] zz)
+		public static void addExt(ulong[] xx, ulong[] yy, ulong[] zz)
 		{
 			for (int i = 0; i < 13; ++i)
 			{
@@ -32,7 +33,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		public static void addOne(long[] x, long[] z)
+		public static void addOne(ulong[] x, ulong[] z)
 		{
 			z[0] = x[0] ^ 1L;
 			z[1] = x[1];
@@ -50,7 +51,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			return z;
 		}
 
-		public static void invert(long[] x, long[] z)
+		public static void invert(ulong[] x, ulong[] z)
 		{
 			if (Nat448.isZero64(x))
 			{
@@ -103,21 +104,21 @@ namespace org.bouncycastle.math.ec.custom.sec
 			multiply(t0, t2, z);
 		}
 
-		public static void multiply(long[] x, long[] y, long[] z)
+		public static void multiply(ulong[] x, ulong[] y, ulong[] z)
 		{
 			long[] tt = Nat448.createExt64();
 			implMultiply(x, y, tt);
 			reduce(tt, z);
 		}
 
-		public static void multiplyAddToExt(long[] x, long[] y, long[] zz)
+		public static void multiplyAddToExt(ulong[] x, ulong[] y, ulong[] zz)
 		{
 			long[] tt = Nat448.createExt64();
 			implMultiply(x, y, tt);
 			addExt(zz, tt, zz);
 		}
 
-		public static void reduce(long[] xx, long[] z)
+		public static void reduce(ulong[] xx, ulong[] z)
 		{
 			long x00 = xx[0], x01 = xx[1], x02 = xx[2], x03 = xx[3];
 			long x04 = xx[4], x05 = xx[5], x06 = xx[6], x07 = xx[7];
@@ -170,7 +171,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			z[zOff + 6] = z6 & M25;
 		}
 
-		public static void sqrt(long[] x, long[] z)
+		public static void sqrt(ulong[] x, ulong[] z)
 		{
 			long u0, u1;
 			u0 = Interleave.unshuffle(x[0]);
@@ -203,21 +204,21 @@ namespace org.bouncycastle.math.ec.custom.sec
 	//        assert (c3 >>> 51) == 0;
 		}
 
-		public static void square(long[] x, long[] z)
+		public static void square(ulong[] x, ulong[] z)
 		{
 			long[] tt = Nat.create64(13);
 			implSquare(x, tt);
 			reduce(tt, z);
 		}
 
-		public static void squareAddToExt(long[] x, long[] zz)
+		public static void squareAddToExt(ulong[] x, ulong[] zz)
 		{
 			long[] tt = Nat.create64(13);
 			implSquare(x, tt);
 			addExt(zz, tt, zz);
 		}
 
-		public static void squareN(long[] x, int n, long[] z)
+		public static void squareN(ulong[] x, int n, ulong[] z)
 		{
 	//        assert n > 0;
 
@@ -270,7 +271,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			z[6] = (((long)((ulong)x5 >> 34)) ^ (x6 << 30));
 		}
 
-		protected internal static void implMultiply(long[] x, long[] y, long[] zz)
+		protected internal static void implMultiply(ulong[] x, ulong[] y, ulong[] zz)
 		{
 			long[] a = new long[7], b = new long[7];
 			implExpand(x, a);
@@ -322,7 +323,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		protected internal static void implSquare(long[] x, long[] zz)
+		protected internal static void implSquare(ulong[] x, ulong[] zz)
 		{
 			for (int i = 0; i < 6; ++i)
 			{

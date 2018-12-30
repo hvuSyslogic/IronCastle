@@ -1,5 +1,6 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec
 {

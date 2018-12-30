@@ -43,7 +43,6 @@ namespace org.bouncycastle.crypto.tls
 		/// <summary>
 		/// How many bytes in the buffer are valid data.
 		/// </summary>
-//JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
 		private int available_Renamed = 0;
 
 		private bool readOnlyBuf = false;

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
@@ -513,7 +512,7 @@ namespace org.bouncycastle.pqc.math.ntru.polynomial
 			BigInteger res = Constants.BIGINT_ONE;
 			int numEqual = 1; // number of consecutive modular resultants equal to each other
 
-			PrimeGenerator primes = new PrimeGenerator(this);
+			PrimeGenerator primes = new PrimeGenerator();
 
 			while (true)
 			{
@@ -528,6 +527,8 @@ namespace org.bouncycastle.pqc.math.ntru.polynomial
 				BigInteger res2 = crr.res.multiply(er.y.multiply(pProd));
 				res = res.add(res2).mod(temp);
 				pProd = temp;
+
+                {
 
 				BigInteger pProd2 = pProd.divide(BigInteger.valueOf(2));
 				BigInteger pProd2n = pProd2.negate();
@@ -552,12 +553,14 @@ namespace org.bouncycastle.pqc.math.ntru.polynomial
 				{
 					numEqual = 1;
 				}
-			}
+                }
 
-			// Combine modular rho's to obtain the final rho.
-			// For efficiency, first combine all pairs of small resultants to bigger resultants,
-			// then combine pairs of those, etc. until only one is left.
-			while (modResultants.size() > 1)
+            }
+
+            // Combine modular rho's to obtain the final rho.
+            // For efficiency, first combine all pairs of small resultants to bigger resultants,
+            // then combine pairs of those, etc. until only one is left.
+            while (modResultants.size() > 1)
 			{
 				ModularResultant modRes1 = modResultants.removeFirst();
 				ModularResultant modRes2 = modResultants.removeFirst();
@@ -566,6 +569,7 @@ namespace org.bouncycastle.pqc.math.ntru.polynomial
 			}
 			BigIntPolynomial rhoP = modResultants.getFirst().rho;
 
+            {
 			BigInteger pProd2 = pProd.divide(BigInteger.valueOf(2));
 			BigInteger pProd2n = pProd2.negate();
 			if (res.compareTo(pProd2) > 0)
@@ -592,103 +596,106 @@ namespace org.bouncycastle.pqc.math.ntru.polynomial
 
 			return new Resultant(rhoP, res);
 		}
+        }
 
-		/// <summary>
-		/// Multithreaded version of <seealso cref="#resultant()"/>.
-		/// </summary>
-		/// <returns> <code>(rho, res)</code> satisfying <code>res = rho*this + t*(x^n-1)</code> for some integer <code>t</code>. </returns>
-		public virtual Resultant resultantMultiThread()
-		{
-			int N = coeffs.Length;
+        /// <summary>
+        /// Multithreaded version of <seealso cref="#resultant()"/>.
+        /// </summary>
+        /// <returns> <code>(rho, res)</code> satisfying <code>res = rho*this + t*(x^n-1)</code> for some integer <code>t</code>. </returns>
+        //
+        //PORT NOTE: Disabled this for now 
+        //public virtual Resultant resultantMultiThread()
+        //{
+        //	int N = coeffs.Length;
 
-			// upper bound for resultant(f, g) = ||f, 2||^deg(g) * ||g, 2||^deg(f) = squaresum(f)^(N/2) * 2^(deg(f)/2) because g(x)=x^N-1
-			// see http://jondalon.mathematik.uni-osnabrueck.de/staff/phpages/brunsw/CompAlg.pdf chapter 3
-			BigInteger max = squareSum().pow((N + 1) / 2);
-			max = max.multiply(BigInteger.valueOf(2).pow((degree() + 1) / 2));
-			BigInteger max2 = max.multiply(BigInteger.valueOf(2));
+        //	// upper bound for resultant(f, g) = ||f, 2||^deg(g) * ||g, 2||^deg(f) = squaresum(f)^(N/2) * 2^(deg(f)/2) because g(x)=x^N-1
+        //	// see http://jondalon.mathematik.uni-osnabrueck.de/staff/phpages/brunsw/CompAlg.pdf chapter 3
+        //	BigInteger max = squareSum().pow((N + 1) / 2);
+        //	max = max.multiply(BigInteger.valueOf(2).pow((degree() + 1) / 2));
+        //	BigInteger max2 = max.multiply(BigInteger.valueOf(2));
 
-			// compute resultants modulo prime numbers
-			BigInteger prime = BigInteger.valueOf(10000);
-			BigInteger pProd = Constants.BIGINT_ONE;
-			LinkedBlockingQueue<Future<ModularResultant>> resultantTasks = new LinkedBlockingQueue<Future<ModularResultant>>();
-			Iterator<BigInteger> primes = BIGINT_PRIMES.iterator();
-			ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-			while (pProd.compareTo(max2) < 0)
-			{
-				if (primes.hasNext())
-				{
-					prime = primes.next();
-				}
-				else
-				{
-					prime = prime.nextProbablePrime();
-				}
-				Future<ModularResultant> task = executor.submit(new ModResultantTask(this, prime.intValue()));
-				resultantTasks.add(task);
-				pProd = pProd.multiply(prime);
-			}
+        //	// compute resultants modulo prime numbers
+        //	BigInteger prime = BigInteger.valueOf(10000);
+        //	BigInteger pProd = Constants.BIGINT_ONE;
+        //	LinkedBlockingQueue<Future<ModularResultant>> resultantTasks = new LinkedBlockingQueue<Future<ModularResultant>>();
+        //	Iterator<BigInteger> primes = BIGINT_PRIMES.iterator();
+        //	ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+        //	while (pProd.compareTo(max2) < 0)
+        //	{
+        //		if (primes.hasNext())
+        //		{
+        //			prime = primes.next();
+        //		}
+        //		else
+        //		{
+        //			prime = prime.nextProbablePrime();
+        //		}
+        //		Future<ModularResultant> task = executor.submit(new ModResultantTask(this, prime.intValue()));
+        //		resultantTasks.add(task);
+        //		pProd = pProd.multiply(prime);
+        //	}
 
-			// Combine modular resultants to obtain the resultant.
-			// For efficiency, first combine all pairs of small resultants to bigger resultants,
-			// then combine pairs of those, etc. until only one is left.
-			ModularResultant overallResultant = null;
-			while (!resultantTasks.isEmpty())
-			{
-				try
-				{
-					Future<ModularResultant> modRes1 = resultantTasks.take();
-					Future<ModularResultant> modRes2 = resultantTasks.poll();
-					if (modRes2 == null)
-					{
-						// modRes1 is the only one left
-						overallResultant = modRes1.get();
-						break;
-					}
-					Future<ModularResultant> newTask = executor.submit(new CombineTask(this, modRes1.get(), modRes2.get()));
-					resultantTasks.add(newTask);
-				}
-				catch (Exception e)
-				{
-					throw new IllegalStateException(e.ToString());
-				}
-			}
-			executor.shutdown();
-			BigInteger res = overallResultant.res;
-			BigIntPolynomial rhoP = overallResultant.rho;
+        //	// Combine modular resultants to obtain the resultant.
+        //	// For efficiency, first combine all pairs of small resultants to bigger resultants,
+        //	// then combine pairs of those, etc. until only one is left.
+        //	ModularResultant overallResultant = null;
+        //	while (!resultantTasks.isEmpty())
+        //	{
+        //		try
+        //		{
+        //			Future<ModularResultant> modRes1 = resultantTasks.take();
+        //			Future<ModularResultant> modRes2 = resultantTasks.poll();
+        //			if (modRes2 == null)
+        //			{
+        //				// modRes1 is the only one left
+        //				overallResultant = modRes1.get();
+        //				break;
+        //			}
+        //			Future<ModularResultant> newTask = executor.submit(new CombineTask(this, modRes1.get(), modRes2.get()));
+        //			resultantTasks.add(newTask);
+        //		}
+        //		catch (Exception e)
+        //		{
+        //			throw new IllegalStateException(e.ToString());
+        //		}
+        //	}
+        //	executor.shutdown();
+        //	BigInteger res = overallResultant.res;
+        //	BigIntPolynomial rhoP = overallResultant.rho;
 
-			BigInteger pProd2 = pProd.divide(BigInteger.valueOf(2));
-			BigInteger pProd2n = pProd2.negate();
+        //	BigInteger pProd2 = pProd.divide(BigInteger.valueOf(2));
+        //	BigInteger pProd2n = pProd2.negate();
 
-			if (res.compareTo(pProd2) > 0)
-			{
-				res = res.subtract(pProd);
-			}
-			if (res.compareTo(pProd2n) < 0)
-			{
-				res = res.add(pProd);
-			}
+        //	if (res.compareTo(pProd2) > 0)
+        //	{
+        //		res = res.subtract(pProd);
+        //	}
+        //	if (res.compareTo(pProd2n) < 0)
+        //	{
+        //		res = res.add(pProd);
+        //	}
 
-			for (int i = 0; i < N; i++)
-			{
-				BigInteger c = rhoP.coeffs[i];
-				if (c.compareTo(pProd2) > 0)
-				{
-					rhoP.coeffs[i] = c.subtract(pProd);
-				}
-				if (c.compareTo(pProd2n) < 0)
-				{
-					rhoP.coeffs[i] = c.add(pProd);
-				}
-			}
+        //	for (int i = 0; i < N; i++)
+        //	{
+        //		BigInteger c = rhoP.coeffs[i];
+        //		if (c.compareTo(pProd2) > 0)
+        //		{
+        //			rhoP.coeffs[i] = c.subtract(pProd);
+        //		}
+        //		if (c.compareTo(pProd2n) < 0)
+        //		{
+        //			rhoP.coeffs[i] = c.add(pProd);
+        //		}
+        //	}
 
-			return new Resultant(rhoP, res);
-		}
+        //	return new Resultant(rhoP, res);
+        //}
 
-		/// <summary>
-		/// Resultant of this polynomial with <code>x^n-1 mod p</code>.
-		/// </summary>
-		/// <returns> <code>(rho, res)</code> satisfying <code>res = rho*this + t*(x^n-1) mod p</code> for some integer <code>t</code>. </returns>
-		public virtual ModularResultant resultant(int p)
+        /// <summary>
+        /// Resultant of this polynomial with <code>x^n-1 mod p</code>.
+        /// </summary>
+        /// <returns> <code>(rho, res)</code> satisfying <code>res = rho*this + t*(x^n-1) mod p</code> for some integer <code>t</code>. </returns>
+        public virtual ModularResultant resultant(int p)
 		{
 			// Add a coefficient as the following operations involve polynomials of degree deg(f)+1
 			int[] fcoeffs = Arrays.copyOf(coeffs, coeffs.Length + 1);
@@ -1197,7 +1204,7 @@ namespace org.bouncycastle.pqc.math.ntru.polynomial
 
 		public virtual object clone()
 		{
-			return new IntegerPolynomial(coeffs.Clone());
+			return new IntegerPolynomial((int[])coeffs.Clone());
 		}
 
 		public override bool Equals(object obj)
@@ -1212,59 +1219,52 @@ namespace org.bouncycastle.pqc.math.ntru.polynomial
 			}
 		}
 
-		/// <summary>
-		/// Calls {@link IntegerPolynomial#resultant(int)
-		/// </summary>
-		public class ModResultantTask : Callable<ModularResultant>
-		{
-			private readonly IntegerPolynomial outerInstance;
+		///// <summary>
+		///// Calls {@link IntegerPolynomial#resultant(int)
+		///// </summary>
+		//public class ModResultantTask : Callable<ModularResultant>
+		//{
+		//	private readonly IntegerPolynomial outerInstance;
 
-			internal int modulus;
+		//	internal int modulus;
 
-			public ModResultantTask(IntegerPolynomial outerInstance, int modulus)
-			{
-				this.outerInstance = outerInstance;
-				this.modulus = modulus;
-			}
+		//	public ModResultantTask(IntegerPolynomial outerInstance, int modulus)
+		//	{
+		//		this.outerInstance = outerInstance;
+		//		this.modulus = modulus;
+		//	}
 
-			public virtual ModularResultant call()
-			{
-				return outerInstance.resultant(modulus);
-			}
-		}
+		//	public virtual ModularResultant call()
+		//	{
+		//		return outerInstance.resultant(modulus);
+		//	}
+		//}
 
-		/// <summary>
-		/// Calls {@link ModularResultant#combineRho(ModularResultant, ModularResultant)
-		/// </summary>
-		public class CombineTask : Callable<ModularResultant>
-		{
-			private readonly IntegerPolynomial outerInstance;
+		///// <summary>
+		///// Calls {@link ModularResultant#combineRho(ModularResultant, ModularResultant)
+		///// </summary>
+		//public class CombineTask : Callable<ModularResultant>
+		//{
+		//	private readonly IntegerPolynomial outerInstance;
 
-			internal ModularResultant modRes1;
-			internal ModularResultant modRes2;
+		//	internal ModularResultant modRes1;
+		//	internal ModularResultant modRes2;
 
-			public CombineTask(IntegerPolynomial outerInstance, ModularResultant modRes1, ModularResultant modRes2)
-			{
-				this.outerInstance = outerInstance;
-				this.modRes1 = modRes1;
-				this.modRes2 = modRes2;
-			}
+		//	public CombineTask(IntegerPolynomial outerInstance, ModularResultant modRes1, ModularResultant modRes2)
+		//	{
+		//		this.outerInstance = outerInstance;
+		//		this.modRes1 = modRes1;
+		//		this.modRes2 = modRes2;
+		//	}
 
-			public virtual ModularResultant call()
-			{
-				return ModularResultant.combineRho(modRes1, modRes2);
-			}
-		}
+		//	public virtual ModularResultant call()
+		//	{
+		//		return ModularResultant.combineRho(modRes1, modRes2);
+		//	}
+		//}
 
 		public class PrimeGenerator
 		{
-			private readonly IntegerPolynomial outerInstance;
-
-			public PrimeGenerator(IntegerPolynomial outerInstance)
-			{
-				this.outerInstance = outerInstance;
-			}
-
 			internal int index = 0;
 			internal BigInteger prime;
 

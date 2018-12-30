@@ -1,61 +1,58 @@
-﻿using BouncyCastle.Core.Port;
+﻿using System.Diagnostics;
+using BouncyCastle.Core.Port;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
-
-	using Nat = org.bouncycastle.math.raw.Nat;
-	using Nat128 = org.bouncycastle.math.raw.Nat128;
-	using Nat256 = org.bouncycastle.math.raw.Nat256;
-
 	public class SecP128R1Field
 	{
 		private const long M = 0xFFFFFFFFL;
 
 		// 2^128 - 2^97 - 1
-		internal static readonly int[] P = new int[] {unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFD)};
-		internal static readonly int[] PExt = new int[] {0x00000001, 0x00000000, 0x00000000, 0x00000004, unchecked((int)0xFFFFFFFE), unchecked((int)0xFFFFFFFF), 0x00000003, unchecked((int)0xFFFFFFFC)};
-		private static readonly int[] PExtInv = new int[]{unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFB), 0x00000001, 0x00000000, unchecked((int)0xFFFFFFFC), 0x00000003};
-		private static readonly int P3s1 = (int)((uint)0xFFFFFFFD >> 1);
-		private static readonly int PExt7s1 = (int)((uint)0xFFFFFFFC >> 1);
+		internal static readonly uint[] P = new uint[] {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFD};
+		internal static readonly uint[] PExt = new uint[] {0x00000001, 0x00000000, 0x00000000, 0x00000004, 0xFFFFFFFE, 0xFFFFFFFF, 0x00000003, 0xFFFFFFFC};
+		private static readonly uint[] PExtInv = new uint[]{0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFB, 0x00000001, 0x00000000, 0xFFFFFFFC, 0x00000003};
+        private const uint P3s1 = 0xFFFFFFFD;
+        private const uint PExt7s1 = 0xFFFFFFFC;
 
-		public static void add(int[] x, int[] y, int[] z)
+        public static void add(uint[] x, uint[] y, uint[] z)
 		{
-			int c = Nat128.add(x, y, z);
-			if (c != 0 || (((int)((uint)z[3] >> 1)) >= P3s1 && Nat128.gte(z, P)))
+			uint c = Nat128.add(x, y, z);
+			if (c != 0 || (z[3] >> 1) >= P3s1 && Nat128.gte(z, P))
 			{
 				addPInvTo(z);
 			}
 		}
 
-		public static void addExt(int[] xx, int[] yy, int[] zz)
+		public static void addExt(uint[] xx, uint[] yy, uint[] zz)
 		{
-			int c = Nat256.add(xx, yy, zz);
-			if (c != 0 || (((int)((uint)zz[7] >> 1)) >= PExt7s1 && Nat256.gte(zz, PExt)))
+			uint c = Nat256.add(xx, yy, zz);
+			if (c != 0 || ((zz[7] >> 1) >= PExt7s1 && Nat256.gte(zz, PExt)))
 			{
 				Nat.addTo(PExtInv.Length, PExtInv, zz);
 			}
 		}
 
-		public static void addOne(int[] x, int[] z)
+		public static void addOne(uint[] x, uint[] z)
 		{
-			int c = Nat.inc(4, x, z);
-			if (c != 0 || (((int)((uint)z[3] >> 1)) >= P3s1 && Nat128.gte(z, P)))
+			uint c = Nat.inc(4, x, z);
+			if (c != 0 || ((z[3] >> 1) >= P3s1 && Nat128.gte(z, P)))
 			{
 				addPInvTo(z);
 			}
 		}
 
-		public static int[] fromBigInteger(BigInteger x)
+		public static uint[] fromBigInteger(BigInteger x)
 		{
-			int[] z = Nat128.fromBigInteger(x);
-			if (((int)((uint)z[3] >> 1)) >= P3s1 && Nat128.gte(z, P))
+			uint[] z = Nat128.fromBigInteger(x);
+			if ((z[3] >> 1) >= P3s1 && Nat128.gte(z, P))
 			{
 				Nat128.subFrom(P, z);
 			}
 			return z;
 		}
 
-		public static void half(int[] x, int[] z)
+		public static void half(uint[] x, uint[] z)
 		{
 			if ((x[0] & 1) == 0)
 			{
@@ -63,28 +60,28 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 			else
 			{
-				int c = Nat128.add(x, P, z);
+				uint c = Nat128.add(x, P, z);
 				Nat.shiftDownBit(4, z, c);
 			}
 		}
 
-		public static void multiply(int[] x, int[] y, int[] z)
+		public static void multiply(uint[] x, uint[] y, uint[] z)
 		{
-			int[] tt = Nat128.createExt();
+			uint[] tt = Nat128.createExt();
 			Nat128.mul(x, y, tt);
 			reduce(tt, z);
 		}
 
-		public static void multiplyAddToExt(int[] x, int[] y, int[] zz)
+		public static void multiplyAddToExt(uint[] x, uint[] y, uint[] zz)
 		{
-			int c = Nat128.mulAddTo(x, y, zz);
-			if (c != 0 || (((int)((uint)zz[7] >> 1)) >= PExt7s1 && Nat256.gte(zz, PExt)))
+			uint c = Nat128.mulAddTo(x, y, zz);
+			if (c != 0 || ((zz[7] >> 1) >= PExt7s1 && Nat256.gte(zz, PExt)))
 			{
 				Nat.addTo(PExtInv.Length, PExtInv, zz);
 			}
 		}
 
-		public static void negate(int[] x, int[] z)
+		public static void negate(uint[] x, uint[] z)
 		{
 			if (Nat128.isZero(x))
 			{
@@ -96,7 +93,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		public static void reduce(int[] xx, int[] z)
+		public static void reduce(uint[] xx, uint[] z)
 		{
 			long x0 = xx[0] & M, x1 = xx[1] & M, x2 = xx[2] & M, x3 = xx[3] & M;
 			long x4 = xx[4] & M, x5 = xx[5] & M, x6 = xx[6] & M, x7 = xx[7] & M;
@@ -110,57 +107,57 @@ namespace org.bouncycastle.math.ec.custom.sec
 			x0 += x4;
 			x3 += (x4 << 1);
 
-			z[0] = (int)x0;
-			x1 += ((long)((ulong)x0 >> 32));
-			z[1] = (int)x1;
-			x2 += ((long)((ulong)x1 >> 32));
-			z[2] = (int)x2;
-			x3 += ((long)((ulong)x2 >> 32));
-			z[3] = (int)x3;
+			z[0] = (uint)x0;
+			x1 += (x0 >> 32);
+			z[1] = (uint)x1;
+			x2 += x1 >> 32;
+			z[2] = (uint)x2;
+			x3 += x2 >> 32;
+			z[3] = (uint)x3;
 
-			reduce32((int)((long)((ulong)x3 >> 32)), z);
+			reduce32((uint)(x3 >> 32), z);
 		}
 
-		public static void reduce32(int x, int[] z)
+		public static void reduce32(uint x, uint[] z)
 		{
 			while (x != 0)
 			{
 				long c, x4 = x & M;
 
 				c = (z[0] & M) + x4;
-				z[0] = (int)c;
+				z[0] = (uint)c;
 				c >>= 32;
 				if (c != 0)
 				{
 					c += (z[1] & M);
-					z[1] = (int)c;
+					z[1] = (uint)c;
 					c >>= 32;
 					c += (z[2] & M);
-					z[2] = (int)c;
+					z[2] = (uint)c;
 					c >>= 32;
 				}
 				c += (z[3] & M) + (x4 << 1);
-				z[3] = (int)c;
+				z[3] = (uint)c;
 				c >>= 32;
 
-	//            assert c >= 0 && c <= 2;
-
-				x = (int)c;
+                Debug.Assert(c >= 0 && c <= 2);
+                
+                x = (uint)c;
 			}
 		}
 
-		public static void square(int[] x, int[] z)
+		public static void square(uint[] x, uint[] z)
 		{
-			int[] tt = Nat128.createExt();
+			uint[] tt = Nat128.createExt();
 			Nat128.square(x, tt);
 			reduce(tt, z);
 		}
 
-		public static void squareN(int[] x, int n, int[] z)
+		public static void squareN(uint[] x, int n, uint[] z)
 		{
 	//        assert n > 0;
 
-			int[] tt = Nat128.createExt();
+			uint[] tt = Nat128.createExt();
 			Nat128.square(x, tt);
 			reduce(tt, z);
 
@@ -171,7 +168,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		public static void subtract(int[] x, int[] y, int[] z)
+		public static void subtract(uint[] x, uint[] y, uint[] z)
 		{
 			int c = Nat128.sub(x, y, z);
 			if (c != 0)
@@ -180,7 +177,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		public static void subtractExt(int[] xx, int[] yy, int[] zz)
+		public static void subtractExt(uint[] xx, uint[] yy, uint[] zz)
 		{
 			int c = Nat.sub(10, xx, yy, zz);
 			if (c != 0)
@@ -189,49 +186,49 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		public static void twice(int[] x, int[] z)
+		public static void twice(uint[] x, uint[] z)
 		{
-			int c = Nat.shiftUpBit(4, x, 0, z);
-			if (c != 0 || (((int)((uint)z[3] >> 1)) >= P3s1 && Nat128.gte(z, P)))
+			uint c = Nat.shiftUpBit(4, x, 0, z);
+			if (c != 0 || (((z[3] >> 1)) >= P3s1 && Nat128.gte(z, P)))
 			{
 				addPInvTo(z);
 			}
 		}
 
-		private static void addPInvTo(int[] z)
+		private static void addPInvTo(uint[] z)
 		{
 			long c = (z[0] & M) + 1;
-			z[0] = (int)c;
+			z[0] = (uint)c;
 			c >>= 32;
 			if (c != 0)
 			{
 				c += (z[1] & M);
-				z[1] = (int)c;
+				z[1] = (uint)c;
 				c >>= 32;
 				c += (z[2] & M);
-				z[2] = (int)c;
+				z[2] = (uint)c;
 				c >>= 32;
 			}
 			c += (z[3] & M) + 2;
-			z[3] = (int)c;
+			z[3] = (uint)c;
 		}
 
-		private static void subPInvFrom(int[] z)
+		private static void subPInvFrom(uint[] z)
 		{
 			long c = (z[0] & M) - 1;
-			z[0] = (int)c;
+			z[0] = (uint)c;
 			c >>= 32;
 			if (c != 0)
 			{
 				c += (z[1] & M);
-				z[1] = (int)c;
+				z[1] = (uint)c;
 				c >>= 32;
 				c += (z[2] & M);
-				z[2] = (int)c;
+				z[2] = (uint)c;
 				c >>= 32;
 			}
 			c += (z[3] & M) - 2;
-			z[3] = (int)c;
+			z[3] = (uint)c;
 		}
 	}
 

@@ -30,8 +30,7 @@ namespace org.bouncycastle.crypto.macs
 		/// </summary>
 		/// <param name="cipher">
 		///            the cipher to be used in GCM mode to generate the MAC. </param>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public KGMac(final org.bouncycastle.crypto.modes.KGCMBlockCipher cipher)
+
 		public KGMac(KGCMBlockCipher cipher)
 		{
 			// use of this confused flow analyser in some earlier JDKs
@@ -47,8 +46,7 @@ namespace org.bouncycastle.crypto.macs
 		///            Sizes less than 96 are not recommended, but are supported for specialized applications. </param>
 		/// <param name="cipher">
 		///            the cipher to be used in GCM mode to generate the MAC. </param>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public KGMac(final org.bouncycastle.crypto.modes.KGCMBlockCipher cipher, final int macSizeBits)
+
 		public KGMac(KGCMBlockCipher cipher, int macSizeBits)
 		{
 			this.cipher = cipher;
@@ -59,21 +57,17 @@ namespace org.bouncycastle.crypto.macs
 		/// Initialises the GMAC - requires a <seealso cref="ParametersWithIV"/> providing a <seealso cref="KeyParameter"/>
 		/// and a nonce.
 		/// </summary>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public void init(final org.bouncycastle.crypto.CipherParameters params) throws IllegalArgumentException
+
 		public virtual void init(CipherParameters @params)
 		{
 			if (@params is ParametersWithIV)
 			{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final org.bouncycastle.crypto.params.ParametersWithIV param = (org.bouncycastle.crypto.params.ParametersWithIV)params;
+
 				ParametersWithIV param = (ParametersWithIV)@params;
 
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final byte[] iv = param.getIV();
+
 				byte[] iv = param.getIV();
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final org.bouncycastle.crypto.params.KeyParameter keyParam = (org.bouncycastle.crypto.params.KeyParameter)param.getParameters();
+
 				KeyParameter keyParam = (KeyParameter)param.getParameters();
 
 				// GCM is always operated in encrypt mode to calculate MAC

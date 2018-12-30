@@ -12,8 +12,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// Description:	Hash Function to Generate C' for Heuristic qTESLA Security Category-1 and Category-3 (Option for Size or Speed)
 		/// *****************************************************************************************************************************************
 		/// </summary>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: private static void hashFunction(byte[] output, int outputOffset, int[] V, final byte[] message, int messageOffset, int n, int d, int q)
+
 		private static void hashFunction(byte[] output, int outputOffset, int[] V, byte[] message, int messageOffset, int n, int d, int q)
 		{
 
@@ -58,8 +57,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// Description:	Hash Function to Generate C' for Provably-Secure qTESLA Security Category-1 and Security Category-3
 		/// *************************************************************************************************************************************************
 		/// </summary>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: private static void hashFunction(byte[] output, int outputOffset, long[] V, final byte[] message, int messageOffset, int n, int k, int d, int q)
+
 		private static void hashFunction(byte[] output, int outputOffset, long[] V, byte[] message, int messageOffset, int n, int k, int d, int q)
 		{
 
@@ -922,8 +920,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> 0                                    Successful Execution
 		/// ***************************************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: private static int signing(byte[] signature, final byte[] message, int messageOffset, int messageLength, final byte[] privateKey, java.security.SecureRandom secureRandom, int n, int h, int q, long qInverse, int qLogarithm, int b, int bBit, int d, int u, int rejection, int generatorA, int inverseNumberTheoreticTransform, int barrettMultiplication, int barrettDivision, int[] zeta)
+
 		private static int signing(byte[] signature, byte[] message, int messageOffset, int messageLength, byte[] privateKey, SecureRandom secureRandom, int n, int h, int q, long qInverse, int qLogarithm, int b, int bBit, int d, int u, int rejection, int generatorA, int inverseNumberTheoreticTransform, int barrettMultiplication, int barrettDivision, int[] zeta)
 		{
 
@@ -1069,8 +1066,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> 0                                    Successful Execution
 		/// **************************************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: static int signingI(byte[] signature, final byte[] message, int messageOffset, int messageLength, final byte[] privateKey, java.security.SecureRandom secureRandom)
+
 		internal static int signingI(byte[] signature, byte[] message, int messageOffset, int messageLength, byte[] privateKey, SecureRandom secureRandom)
 		{
 
@@ -1092,8 +1088,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> 0                                    Successful Execution
 		/// **************************************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: static int signingIIISize(byte[] signature, final byte[] message, int messageOffset, int messageLength, final byte[] privateKey, java.security.SecureRandom secureRandom)
+
 		internal static int signingIIISize(byte[] signature, byte[] message, int messageOffset, int messageLength, byte[] privateKey, SecureRandom secureRandom)
 		{
 
@@ -1115,8 +1110,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> 0                                    Successful Execution
 		/// *************************************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: static int signingIIISpeed(byte[] signature, final byte[] message, int messageOffset, int messageLength, final byte[] privateKey, java.security.SecureRandom secureRandom)
+
 		internal static int signingIIISpeed(byte[] signature, byte[] message, int messageOffset, int messageLength, byte[] privateKey, SecureRandom secureRandom)
 		{
 
@@ -1154,8 +1148,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> 0                                    Successful Execution
 		/// **************************************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: private static int signing(byte[] signature, final byte[] message, int messageOffset, int messageLength, final byte[] privateKey, java.security.SecureRandom secureRandom, int n, int k, int h, int q, long qInverse, int qLogarithm, int b, int bBit, int d, int u, int rejection, int generatorA, int inverseNumberTheoreticTransform, int privateKeySize, int barrettMultiplication, int barrettDivision)
+
 		private static int signing(byte[] signature, byte[] message, int messageOffset, int messageLength, byte[] privateKey, SecureRandom secureRandom, int n, int k, int h, int q, long qInverse, int qLogarithm, int b, int bBit, int d, int u, int rejection, int generatorA, int inverseNumberTheoreticTransform, int privateKeySize, int barrettMultiplication, int barrettDivision)
 		{
 
@@ -1299,8 +1292,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> 0                                    Successful Execution
 		/// **************************************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static int signingIP(byte[] signature, final byte[] message, int messageOffset, int messageLength, final byte[] privateKey, java.security.SecureRandom secureRandom)
+
 		public static int signingIP(byte[] signature, byte[] message, int messageOffset, int messageLength, byte[] privateKey, SecureRandom secureRandom)
 		{
 
@@ -1322,8 +1314,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// </param>
 		/// <returns> 0                                    Successful Execution
 		/// ********************************************************************************************************************************************* </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static int signingIIIP(byte[] signature, final byte[] message, int messageOffset, int messageLength, final byte[] privateKey, java.security.SecureRandom secureRandom)
+
 		public static int signingIIIP(byte[] signature, byte[] message, int messageOffset, int messageLength, byte[] privateKey, SecureRandom secureRandom)
 		{
 
@@ -1360,8 +1351,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// <returns> 0                                    Valid Signature
 		/// 				< 0									Invalid Signature
 		/// ******************************************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: private static int verifying(byte[] message, final byte[] signature, int signatureOffset, int signatureLength, final byte[] publicKey, int n, int h, int q, long qInverse, int qLogarithm, int b, int d, int u, int r, int signatureSize, int generatorA, int inverseNumberTheoreticTransform, int barrettMultiplication, int barrettDivision, int[] zeta)
+
 		private static int verifying(byte[] message, byte[] signature, int signatureOffset, int signatureLength, byte[] publicKey, int n, int h, int q, long qInverse, int qLogarithm, int b, int d, int u, int r, int signatureSize, int generatorA, int inverseNumberTheoreticTransform, int barrettMultiplication, int barrettDivision, int[] zeta)
 		{
 
@@ -1475,8 +1465,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// <returns> 0                                    Valid Signature
 		/// 				< 0									Invalid Signature
 		/// ****************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: static int verifyingI(byte[] message, final byte[] signature, int signatureOffset, int signatureLength, final byte[] publicKey)
+
 		internal static int verifyingI(byte[] message, byte[] signature, int signatureOffset, int signatureLength, byte[] publicKey)
 		{
 
@@ -1498,8 +1487,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// <returns> 0                                    Valid Signature
 		/// 				< 0									Invalid Signature
 		/// ***************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: static int verifyingIIISize(byte[] message, final byte[] signature, int signatureOffset, int signatureLength, final byte[] publicKey)
+
 		internal static int verifyingIIISize(byte[] message, byte[] signature, int signatureOffset, int signatureLength, byte[] publicKey)
 		{
 
@@ -1521,8 +1509,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// <returns> 0                                    Valid Signature
 		/// 				< 0									Invalid Signature
 		/// ********************************************************************************************************* </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: static int verifyingIIISpeed(byte[] message, final byte[] signature, int signatureOffset, int signatureLength, final byte[] publicKey)
+
 		internal static int verifyingIIISpeed(byte[] message, byte[] signature, int signatureOffset, int signatureLength, byte[] publicKey)
 		{
 
@@ -1558,8 +1545,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// <returns> 0                                    Valid Signature
 		/// 				< 0									Invalid Signature
 		/// ************************************************************************************************************************ </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: private static int verifying(byte[] message, final byte[] signature, int signatureOffset, int signatureLength, final byte[] publicKey, int n, int k, int h, int q, long qInverse, int qLogarithm, int b, int d, int u, int signatureSize, int generatorA, int inverseNumberTheoreticTransform, int barrettMultiplication, int barrettDivision, long[] zeta)
+
 		private static int verifying(byte[] message, byte[] signature, int signatureOffset, int signatureLength, byte[] publicKey, int n, int k, int h, int q, long qInverse, int qLogarithm, int b, int d, int u, int signatureSize, int generatorA, int inverseNumberTheoreticTransform, int barrettMultiplication, int barrettDivision, long[] zeta)
 		{
 
@@ -1681,8 +1667,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// <returns> 0                                    Valid Signature
 		/// 				< 0									Invalid Signature
 		/// **************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: static int verifyingPI(byte[] message, final byte[] signature, int signatureOffset, int signatureLength, final byte[] publicKey)
+
 		internal static int verifyingPI(byte[] message, byte[] signature, int signatureOffset, int signatureLength, byte[] publicKey)
 		{
 
@@ -1704,8 +1689,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 		/// <returns> 0                                    Valid Signature
 		/// 				< 0									Invalid Signature
 		/// **************************************************************************************************** </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: static int verifyingPIII(byte[] message, final byte[] signature, int signatureOffset, int signatureLength, final byte[] publicKey)
+
 		internal static int verifyingPIII(byte[] message, byte[] signature, int signatureOffset, int signatureLength, byte[] publicKey)
 		{
 			return verifying(message, signature, signatureOffset, signatureLength, publicKey, Parameter.N_III_P, Parameter.K_III_P, Parameter.H_III_P, Parameter.Q_III_P, Parameter.Q_INVERSE_III_P, Parameter.Q_LOGARITHM_III_P, Parameter.B_III_P, Parameter.D_III_P, Parameter.U_III_P, Polynomial.SIGNATURE_III_P, Parameter.GENERATOR_A_III_P, Parameter.INVERSE_NUMBER_THEORETIC_TRANSFORM_III_P, Parameter.BARRETT_MULTIPLICATION_III_P, Parameter.BARRETT_DIVISION_III_P, PolynomialProvablySecure.ZETA_III_P);

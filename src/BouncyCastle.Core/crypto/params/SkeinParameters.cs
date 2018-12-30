@@ -84,8 +84,7 @@ namespace org.bouncycastle.crypto.@params
 		{
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: private SkeinParameters(final java.util.Hashtable parameters)
+
 		private SkeinParameters(Hashtable parameters)
 		{
 			this.parameters = parameters;
@@ -276,14 +275,11 @@ namespace org.bouncycastle.crypto.@params
 			 {
 				 try
 				 {
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final java.io.ByteArrayOutputStream bout = new java.io.ByteArrayOutputStream();
+
 					 ByteArrayOutputStream bout = new ByteArrayOutputStream();
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final java.io.OutputStreamWriter out = new java.io.OutputStreamWriter(bout, "UTF-8");
+
 					 OutputStreamWriter @out = new OutputStreamWriter(bout, "UTF-8");
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final java.text.DateFormat format = new java.text.SimpleDateFormat("YYYYMMDD", dateLocale);
+
 					 DateFormat format = new SimpleDateFormat("YYYYMMDD", dateLocale);
 					 @out.write(format.format(date));
 					 @out.write(" ");

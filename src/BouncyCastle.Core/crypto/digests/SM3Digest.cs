@@ -206,55 +206,35 @@ namespace org.bouncycastle.crypto.digests
 	
 	 */
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: private int P0(final int x)
 		private int P0(int x)
 		{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int r9 = ((x << 9) | (x >>> (32 - 9)));
 			int r9 = ((x << 9) | ((int)((uint)x >> (32 - 9))));
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int r17 = ((x << 17) | (x >>> (32 - 17)));
 			int r17 = ((x << 17) | ((int)((uint)x >> (32 - 17))));
 			return (x ^ r9 ^ r17);
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: private int P1(final int x)
 		private int P1(int x)
 		{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int r15 = ((x << 15) | (x >>> (32 - 15)));
 			int r15 = ((x << 15) | ((int)((uint)x >> (32 - 15))));
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int r23 = ((x << 23) | (x >>> (32 - 23)));
 			int r23 = ((x << 23) | ((int)((uint)x >> (32 - 23))));
 			return (x ^ r15 ^ r23);
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: private int FF0(final int x, final int y, final int z)
 		private int FF0(int x, int y, int z)
 		{
 			return (x ^ y ^ z);
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: private int FF1(final int x, final int y, final int z)
 		private int FF1(int x, int y, int z)
 		{
 			return ((x & y) | (x & z) | (y & z));
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: private int GG0(final int x, final int y, final int z)
 		private int GG0(int x, int y, int z)
 		{
 			return (x ^ y ^ z);
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: private int GG1(final int x, final int y, final int z)
 		private int GG1(int x, int y, int z)
 		{
 			return ((x & y) | ((~x) & z));

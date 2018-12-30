@@ -262,7 +262,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 
 			for (int i = 0; i < mLength && result; i++)
 			{
-				result = result && ((mPol[i] & 0xFFFFFFFFFFFFFFFFL) == 0);
+				result = result && ((mPol[i] & 0xFFFFFFFFFFFFFFFFUL) == 0);
 			}
 
 			return result;
@@ -975,8 +975,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			}
 			else if (radix == 16)
 			{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final char[] HEX_CHARS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+
 				char[] HEX_CHARS = new char[] {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 				for (int i = a.Length - 1; i >= 0; i--)
 				{

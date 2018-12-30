@@ -650,8 +650,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			}
 			int d = computeDegree(a) >> 1;
 			int[] u = new int[] {0, 1};
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int[] Y = {0, 1};
+
 			int[] Y = new int[] {0, 1};
 			int fieldDegree = field.getDegree();
 			for (int i = 0; i < d; i++)

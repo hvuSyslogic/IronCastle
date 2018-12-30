@@ -19,7 +19,6 @@ namespace org.bouncycastle.crypto.tls
 		private readonly ByteQueue recordQueue = new ByteQueue();
 
 		private volatile bool closed = false;
-//JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
 		private volatile bool failed_Renamed = false;
 		private volatile ProtocolVersion readVersion = null, writeVersion = null;
 		private volatile bool inHandshake;

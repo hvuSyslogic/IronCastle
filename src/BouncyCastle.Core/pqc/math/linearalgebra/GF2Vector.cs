@@ -386,20 +386,20 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		///         elements of this vector </returns>
 		public virtual GF2Vector extractRightVector(int k)
 		{
-			if (k > length)
+			if (k > getLength())
 			{
 				throw new ArithmeticException("invalid length");
 			}
 
-			if (k == length)
+			if (k == getLength())
 			{
 				return new GF2Vector(this);
 			}
 
 			GF2Vector result = new GF2Vector(k);
 
-			int q = (length - k) >> 5;
-			int r = (length - k) & 0x1f;
+			int q = (getLength() - k) >> 5;
+			int r = (getLength() - k) & 0x1f;
 			int length = (k + 31) >> 5;
 
 			int ind = q;

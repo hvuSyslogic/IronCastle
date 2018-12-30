@@ -1,10 +1,8 @@
 ﻿using org.bouncycastle.Port.java.lang;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
-	using Nat = org.bouncycastle.math.raw.Nat;
-	using Nat192 = org.bouncycastle.math.raw.Nat192;
-
 	public class SecP192R1Point : ECPoint.AbstractFp
 	{
 		/// <summary>
@@ -82,14 +80,14 @@ namespace org.bouncycastle.math.ec.custom.sec
 			SecP192R1FieldElement Z1 = (SecP192R1FieldElement)this.zs[0];
 			SecP192R1FieldElement Z2 = (SecP192R1FieldElement)b.getZCoord(0);
 
-			int c;
-			int[] tt1 = Nat192.createExt();
-			int[] t2 = Nat192.create();
-			int[] t3 = Nat192.create();
-			int[] t4 = Nat192.create();
+			uint c;
+			uint[] tt1 = Nat192.createExt();
+			uint[] t2 = Nat192.create();
+			uint[] t3 = Nat192.create();
+			uint[] t4 = Nat192.create();
 
 			bool Z1IsOne = Z1.isOne();
-			int[] U2, S2;
+			uint[] U2, S2;
 			if (Z1IsOne)
 			{
 				U2 = X2.x;
@@ -108,7 +106,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 
 			bool Z2IsOne = Z2.isOne();
-			int[] U1, S1;
+			uint[] U1, S1;
 			if (Z2IsOne)
 			{
 				U1 = X1.x;
@@ -126,10 +124,10 @@ namespace org.bouncycastle.math.ec.custom.sec
 				SecP192R1Field.multiply(S1, Y1.x, S1);
 			}
 
-			int[] H = Nat192.create();
+			uint[] H = Nat192.create();
 			SecP192R1Field.subtract(U1, U2, H);
 
-			int[] R = t2;
+			uint[] R = t2;
 			SecP192R1Field.subtract(S1, S2, R);
 
 			// Check if b == this or b == -this
@@ -145,13 +143,13 @@ namespace org.bouncycastle.math.ec.custom.sec
 				return curve.getInfinity();
 			}
 
-			int[] HSquared = t3;
+			uint[] HSquared = t3;
 			SecP192R1Field.square(H, HSquared);
 
-			int[] G = Nat192.create();
+			uint[] G = Nat192.create();
 			SecP192R1Field.multiply(HSquared, H, G);
 
-			int[] V = t3;
+			uint[] V = t3;
 			SecP192R1Field.multiply(HSquared, U1, V);
 
 			SecP192R1Field.negate(G, G);
@@ -202,19 +200,19 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 			SecP192R1FieldElement X1 = (SecP192R1FieldElement)this.x, Z1 = (SecP192R1FieldElement)this.zs[0];
 
-			int c;
-			int[] t1 = Nat192.create();
-			int[] t2 = Nat192.create();
+			uint c;
+			uint[] t1 = Nat192.create();
+			uint[] t2 = Nat192.create();
 
-			int[] Y1Squared = Nat192.create();
+			uint[] Y1Squared = Nat192.create();
 			SecP192R1Field.square(Y1.x, Y1Squared);
 
-			int[] T = Nat192.create();
+			uint[] T = Nat192.create();
 			SecP192R1Field.square(Y1Squared, T);
 
 			bool Z1IsOne = Z1.isOne();
 
-			int[] Z1Squared = Z1.x;
+			uint[] Z1Squared = Z1.x;
 			if (!Z1IsOne)
 			{
 				Z1Squared = t2;
@@ -223,13 +221,13 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 			SecP192R1Field.subtract(X1.x, Z1Squared, t1);
 
-			int[] M = t2;
+			uint[] M = t2;
 			SecP192R1Field.add(X1.x, Z1Squared, M);
 			SecP192R1Field.multiply(M, t1, M);
 			c = Nat192.addBothTo(M, M, M);
 			SecP192R1Field.reduce32(c, M);
 
-			int[] S = Y1Squared;
+			uint[] S = Y1Squared;
 			SecP192R1Field.multiply(Y1Squared, X1.x, S);
 			c = Nat.shiftUpBits(6, S, 2, 0);
 			SecP192R1Field.reduce32(c, S);

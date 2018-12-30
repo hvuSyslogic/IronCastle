@@ -307,8 +307,7 @@ namespace org.bouncycastle.asn1
 
 		public virtual ASN1SetParser parser()
 		{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final ASN1Set outer = this;
+
 			ASN1Set outer = this;
 
 			return new ASN1SetParserAnonymousInnerClass(this, outer);

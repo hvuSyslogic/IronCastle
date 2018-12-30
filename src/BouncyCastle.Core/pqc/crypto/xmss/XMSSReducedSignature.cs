@@ -63,8 +63,7 @@ namespace org.bouncycastle.pqc.crypto.xmss
 				}
 				else
 				{
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: wotsPlusSignature = new WOTSPlusSignature(params.getWOTSPlus().getParams(), new byte[len][n]);
+
 					wotsPlusSignature = new WOTSPlusSignature(@params.getWOTSPlus().getParams(), RectangularArrays.ReturnRectangularSbyteArray(len, n));
 				}
 				List<XMSSNode> tmpAuthPath = builder.authPath;

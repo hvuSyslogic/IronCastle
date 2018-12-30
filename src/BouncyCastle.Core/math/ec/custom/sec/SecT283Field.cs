@@ -1,11 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
 
-	using Interleave = org.bouncycastle.math.raw.Interleave;
-	using Nat = org.bouncycastle.math.raw.Nat;
+	
+	
 	using Nat320 = org.bouncycastle.math.raw.Nat320;
 
 	public class SecT283Field
@@ -15,7 +16,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 		private static readonly long[] ROOT_Z = new long[]{0x0C30C30C30C30808L, 0x30C30C30C30C30C3L, unchecked((long)0x820820820820830CL), 0x0820820820820820L, 0x2082082L};
 
-		public static void add(long[] x, long[] y, long[] z)
+		public static void add(ulong[] x, ulong[] y, ulong[] z)
 		{
 			z[0] = x[0] ^ y[0];
 			z[1] = x[1] ^ y[1];
@@ -24,7 +25,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			z[4] = x[4] ^ y[4];
 		}
 
-		public static void addExt(long[] xx, long[] yy, long[] zz)
+		public static void addExt(ulong[] xx, ulong[] yy, ulong[] zz)
 		{
 			zz[0] = xx[0] ^ yy[0];
 			zz[1] = xx[1] ^ yy[1];
@@ -37,7 +38,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			zz[8] = xx[8] ^ yy[8];
 		}
 
-		public static void addOne(long[] x, long[] z)
+		public static void addOne(ulong[] x, ulong[] z)
 		{
 			z[0] = x[0] ^ 1L;
 			z[1] = x[1];
@@ -53,7 +54,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			return z;
 		}
 
-		public static void invert(long[] x, long[] z)
+		public static void invert(ulong[] x, ulong[] z)
 		{
 			if (Nat320.isZero64(x))
 			{
@@ -90,21 +91,21 @@ namespace org.bouncycastle.math.ec.custom.sec
 			square(t1, z);
 		}
 
-		public static void multiply(long[] x, long[] y, long[] z)
+		public static void multiply(ulong[] x, ulong[] y, ulong[] z)
 		{
 			long[] tt = Nat320.createExt64();
 			implMultiply(x, y, tt);
 			reduce(tt, z);
 		}
 
-		public static void multiplyAddToExt(long[] x, long[] y, long[] zz)
+		public static void multiplyAddToExt(ulong[] x, ulong[] y, ulong[] zz)
 		{
 			long[] tt = Nat320.createExt64();
 			implMultiply(x, y, tt);
 			addExt(zz, tt, zz);
 		}
 
-		public static void reduce(long[] xx, long[] z)
+		public static void reduce(ulong[] xx, ulong[] z)
 		{
 			long x0 = xx[0], x1 = xx[1], x2 = xx[2], x3 = xx[3], x4 = xx[4];
 			long x5 = xx[5], x6 = xx[6], x7 = xx[7], x8 = xx[8];
@@ -136,7 +137,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			z[zOff + 4] = z4 & M27;
 		}
 
-		public static void sqrt(long[] x, long[] z)
+		public static void sqrt(ulong[] x, ulong[] z)
 		{
 			long[] odd = Nat320.create64();
 
@@ -162,21 +163,21 @@ namespace org.bouncycastle.math.ec.custom.sec
 			z[2] ^= e2;
 		}
 
-		public static void square(long[] x, long[] z)
+		public static void square(ulong[] x, ulong[] z)
 		{
 			long[] tt = Nat.create64(9);
 			implSquare(x, tt);
 			reduce(tt, z);
 		}
 
-		public static void squareAddToExt(long[] x, long[] zz)
+		public static void squareAddToExt(ulong[] x, ulong[] zz)
 		{
 			long[] tt = Nat.create64(9);
 			implSquare(x, tt);
 			addExt(zz, tt, zz);
 		}
 
-		public static void squareN(long[] x, int n, long[] z)
+		public static void squareN(ulong[] x, int n, ulong[] z)
 		{
 	//        assert n > 0;
 
@@ -236,7 +237,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 	//        zz[zOff + 1] ^= t1;
 	//    }
 
-		protected internal static void implMultiply(long[] x, long[] y, long[] zz)
+		protected internal static void implMultiply(ulong[] x, ulong[] y, ulong[] zz)
 		{
 			/*
 			 * Formula (17) from "Some New Results on Binary Polynomial Multiplication",
@@ -360,7 +361,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			implCompactExt(zz);
 		}
 
-		protected internal static void implMulw(long x, long y, long[] z, int zOff)
+		protected internal static void implMulw(ulong x, ulong y, ulong[] z, int zOff)
 		{
 	//        assert x >>> 57 == 0;
 	//        assert y >>> 57 == 0;
@@ -394,7 +395,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			z[zOff + 1] = ((long)((ulong)l >> 57)) ^ (h << 7);
 		}
 
-		protected internal static void implSquare(long[] x, long[] zz)
+		protected internal static void implSquare(ulong[] x, ulong[] zz)
 		{
 			for (int i = 0; i < 4; ++i)
 			{

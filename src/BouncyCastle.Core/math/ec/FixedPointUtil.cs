@@ -19,12 +19,10 @@ namespace org.bouncycastle.math.ec
 			return (preCompInfo is FixedPointPreCompInfo) ? (FixedPointPreCompInfo)preCompInfo : null;
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static FixedPointPreCompInfo precompute(final ECPoint p)
+
 		public static FixedPointPreCompInfo precompute(ECPoint p)
 		{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final ECCurve c = p.getCurve();
+
 			ECCurve c = p.getCurve();
 
 			return (FixedPointPreCompInfo)c.precompute(p, PRECOMP_NAME, new PreCompCallbackAnonymousInnerClass(p, c));

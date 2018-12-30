@@ -230,8 +230,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		/// </summary>
 		/// <param name="input"> the int array </param>
 		/// <returns> the converted array </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static byte[] toByteArray(final int[] input)
+
 		public static byte[] toByteArray(int[] input)
 		{
 			byte[] result = new byte[input.Length << 2];
@@ -250,12 +249,10 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		/// <param name="input">  the int array </param>
 		/// <param name="length"> the length of the converted array </param>
 		/// <returns> the converted array </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static byte[] toByteArray(final int[] input, int length)
+
 		public static byte[] toByteArray(int[] input, int length)
 		{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int intLen = input.length;
+
 			int intLen = input.Length;
 			byte[] result = new byte[length];
 			int index = 0;
@@ -274,11 +271,9 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		/// <returns> the converted array </returns>
 		public static int[] toIntArray(byte[] input)
 		{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int intLen = (input.length + 3) / 4;
+
 			int intLen = (input.Length + 3) / 4;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int lastLen = input.length & 0x03;
+
 			int lastLen = input.Length & 0x03;
 			int[] result = new int[intLen];
 

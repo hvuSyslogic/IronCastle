@@ -1,18 +1,17 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.Port.java.lang;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.gm
 {
 
-	using Mod = org.bouncycastle.math.raw.Mod;
-	using Nat256 = org.bouncycastle.math.raw.Nat256;
 	using Arrays = org.bouncycastle.util.Arrays;
 
 	public class SM2P256V1FieldElement : ECFieldElement.AbstractFp
 	{
 		public static readonly BigInteger Q = SM2P256V1Curve.q;
 
-		protected internal int[] x;
+		protected internal uint[] x;
 
 		public SM2P256V1FieldElement(BigInteger x)
 		{
@@ -29,7 +28,7 @@ namespace org.bouncycastle.math.ec.custom.gm
 			this.x = Nat256.create();
 		}
 
-		public SM2P256V1FieldElement(int[] x)
+		public SM2P256V1FieldElement(uint[] x)
 		{
 			this.x = x;
 		}
@@ -66,28 +65,28 @@ namespace org.bouncycastle.math.ec.custom.gm
 
 		public override ECFieldElement add(ECFieldElement b)
 		{
-			int[] z = Nat256.create();
+			uint[] z = Nat256.create();
 			SM2P256V1Field.add(x, ((SM2P256V1FieldElement)b).x, z);
 			return new SM2P256V1FieldElement(z);
 		}
 
 		public override ECFieldElement addOne()
 		{
-			int[] z = Nat256.create();
+			uint[] z = Nat256.create();
 			SM2P256V1Field.addOne(x, z);
 			return new SM2P256V1FieldElement(z);
 		}
 
 		public override ECFieldElement subtract(ECFieldElement b)
 		{
-			int[] z = Nat256.create();
+			uint[] z = Nat256.create();
 			SM2P256V1Field.subtract(x, ((SM2P256V1FieldElement)b).x, z);
 			return new SM2P256V1FieldElement(z);
 		}
 
 		public override ECFieldElement multiply(ECFieldElement b)
 		{
-			int[] z = Nat256.create();
+			uint[] z = Nat256.create();
 			SM2P256V1Field.multiply(x, ((SM2P256V1FieldElement)b).x, z);
 			return new SM2P256V1FieldElement(z);
 		}
@@ -95,7 +94,7 @@ namespace org.bouncycastle.math.ec.custom.gm
 		public override ECFieldElement divide(ECFieldElement b)
 		{
 	//        return multiply(b.invert());
-			int[] z = Nat256.create();
+			uint[] z = Nat256.create();
 			Mod.invert(SM2P256V1Field.P, ((SM2P256V1FieldElement)b).x, z);
 			SM2P256V1Field.multiply(z, x, z);
 			return new SM2P256V1FieldElement(z);
@@ -103,14 +102,14 @@ namespace org.bouncycastle.math.ec.custom.gm
 
 		public override ECFieldElement negate()
 		{
-			int[] z = Nat256.create();
+			uint[] z = Nat256.create();
 			SM2P256V1Field.negate(x, z);
 			return new SM2P256V1FieldElement(z);
 		}
 
 		public override ECFieldElement square()
 		{
-			int[] z = Nat256.create();
+			uint[] z = Nat256.create();
 			SM2P256V1Field.square(x, z);
 			return new SM2P256V1FieldElement(z);
 		}
@@ -118,7 +117,7 @@ namespace org.bouncycastle.math.ec.custom.gm
 		public override ECFieldElement invert()
 		{
 	//        return new SM2P256V1FieldElement(toBigInteger().modInverse(Q));
-			int[] z = Nat256.create();
+			uint[] z = Nat256.create();
 			Mod.invert(SM2P256V1Field.P, x, z);
 			return new SM2P256V1FieldElement(z);
 		}
@@ -138,38 +137,38 @@ namespace org.bouncycastle.math.ec.custom.gm
 			 * We use an addition chain for the beginning: [1], 2, 3, 6, 12, [24], 30, [31] 
 			 */
 
-			int[] x1 = this.x;
+			uint[] x1 = this.x;
 			if (Nat256.isZero(x1) || Nat256.isOne(x1))
 			{
 				return this;
 			}
 
-			int[] x2 = Nat256.create();
+			uint[] x2 = Nat256.create();
 			SM2P256V1Field.square(x1, x2);
 			SM2P256V1Field.multiply(x2, x1, x2);
-			int[] x4 = Nat256.create();
+			uint[] x4 = Nat256.create();
 			SM2P256V1Field.squareN(x2, 2, x4);
 			SM2P256V1Field.multiply(x4, x2, x4);
-			int[] x6 = Nat256.create();
+			uint[] x6 = Nat256.create();
 			SM2P256V1Field.squareN(x4, 2, x6);
 			SM2P256V1Field.multiply(x6, x2, x6);
-			int[] x12 = x2;
+			uint[] x12 = x2;
 			SM2P256V1Field.squareN(x6, 6, x12);
 			SM2P256V1Field.multiply(x12, x6, x12);
-			int[] x24 = Nat256.create();
+			uint[] x24 = Nat256.create();
 			SM2P256V1Field.squareN(x12, 12, x24);
 			SM2P256V1Field.multiply(x24, x12, x24);
-			int[] x30 = x12;
+			uint[] x30 = x12;
 			SM2P256V1Field.squareN(x24, 6, x30);
 			SM2P256V1Field.multiply(x30, x6, x30);
-			int[] x31 = x6;
+			uint[] x31 = x6;
 			SM2P256V1Field.square(x30, x31);
 			SM2P256V1Field.multiply(x31, x1, x31);
 
-			int[] t1 = x24;
+			uint[] t1 = x24;
 			SM2P256V1Field.squareN(x31, 31, t1);
 
-			int[] x62 = x30;
+			uint[] x62 = x30;
 			SM2P256V1Field.multiply(t1, x31, x62);
 
 			SM2P256V1Field.squareN(t1, 32, t1);
@@ -182,7 +181,7 @@ namespace org.bouncycastle.math.ec.custom.gm
 			SM2P256V1Field.multiply(t1, x1, t1);
 			SM2P256V1Field.squareN(t1, 62, t1);
 
-			int[] t2 = x4;
+			uint[] t2 = x4;
 			SM2P256V1Field.square(t1, t2);
 
 			return Nat256.eq(x1, t2) ? new SM2P256V1FieldElement(t1) : null;

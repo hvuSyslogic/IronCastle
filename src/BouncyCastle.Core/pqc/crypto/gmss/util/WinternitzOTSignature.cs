@@ -88,8 +88,6 @@ namespace org.bouncycastle.pqc.crypto.gmss.util
 			   * keysize = messagesize + (checksumsize+w-1)/w;
 			   */
 			// define the private key messagesize
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: privateKeyOTS = new byte[keysize][mdsize];
 			privateKeyOTS = RectangularArrays.ReturnRectangularSbyteArray(keysize, mdsize);
 
 			// gmssRandom.setSeed(seed0);

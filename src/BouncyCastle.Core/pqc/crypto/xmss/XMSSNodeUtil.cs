@@ -32,14 +32,14 @@ namespace org.bouncycastle.pqc.crypto.xmss
 			address = (LTreeAddress)(new LTreeAddress.Builder()).withLayerAddress(address.getLayerAddress()).withTreeAddress(address.getTreeAddress()).withLTreeAddress(address.getLTreeAddress()).withTreeHeight(0).withTreeIndex(address.getTreeIndex()).withKeyAndMask(address.getKeyAndMask()).build();
 			while (len > 1)
 			{
-				for (int i = 0; i < (int)Math.Floor(len / 2); i++)
+				for (int i = 0; i < (int)Math.Floor(len / 2.0f); i++)
 				{
 					address = (LTreeAddress)(new LTreeAddress.Builder()).withLayerAddress(address.getLayerAddress()).withTreeAddress(address.getTreeAddress()).withLTreeAddress(address.getLTreeAddress()).withTreeHeight(address.getTreeHeight()).withTreeIndex(i).withKeyAndMask(address.getKeyAndMask()).build();
 					publicKeyNodes[i] = randomizeHash(wotsPlus, publicKeyNodes[2 * i], publicKeyNodes[(2 * i) + 1], address);
 				}
 				if (len % 2 == 1)
 				{
-					publicKeyNodes[(int)Math.Floor(len / 2)] = publicKeyNodes[len - 1];
+					publicKeyNodes[(int)Math.Floor(len / 2.0f)] = publicKeyNodes[len - 1];
 				}
 				len = (int)Math.Ceiling((double)len / 2);
 				address = (LTreeAddress)(new LTreeAddress.Builder()).withLayerAddress(address.getLayerAddress()).withTreeAddress(address.getTreeAddress()).withLTreeAddress(address.getLTreeAddress()).withTreeHeight(address.getTreeHeight() + 1).withTreeIndex(address.getTreeIndex()).withKeyAndMask(address.getKeyAndMask()).build();

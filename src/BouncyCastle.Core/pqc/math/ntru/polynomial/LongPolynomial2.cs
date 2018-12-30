@@ -234,7 +234,7 @@ namespace org.bouncycastle.pqc.math.ntru.polynomial
 
 		public virtual object clone()
 		{
-			LongPolynomial2 p = new LongPolynomial2(coeffs.Clone());
+			LongPolynomial2 p = new LongPolynomial2((long[])coeffs.Clone());
 			p.numCoeffs = numCoeffs;
 			return p;
 		}

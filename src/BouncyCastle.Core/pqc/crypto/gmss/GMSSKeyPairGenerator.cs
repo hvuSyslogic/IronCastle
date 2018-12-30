@@ -140,15 +140,11 @@ namespace org.bouncycastle.pqc.crypto.gmss
 
 			for (int i = 0; i < numLayer; i++)
 			{
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: currentAuthPaths[i] = new byte[heightOfTrees[i]][mdLength];
 				currentAuthPaths[i] = RectangularArrays.ReturnRectangularSbyteArray(heightOfTrees[i], mdLength);
 				currentTreehash[i] = new Treehash[heightOfTrees[i] - K[i]];
 
 				if (i > 0)
 				{
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: nextAuthPaths[i - 1] = new byte[heightOfTrees[i]][mdLength];
 					nextAuthPaths[i - 1] = RectangularArrays.ReturnRectangularSbyteArray(heightOfTrees[i], mdLength);
 					nextTreehash[i - 1] = new Treehash[heightOfTrees[i] - K[i]];
 				}
@@ -161,15 +157,9 @@ namespace org.bouncycastle.pqc.crypto.gmss
 			}
 
 			// initialize roots
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: byte[][] currentRoots = new byte[numLayer][mdLength];
 			byte[][] currentRoots = RectangularArrays.ReturnRectangularSbyteArray(numLayer, mdLength);
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: byte[][] nextRoots = new byte[numLayer - 1][mdLength];
 			byte[][] nextRoots = RectangularArrays.ReturnRectangularSbyteArray(numLayer - 1, mdLength);
 			// initialize seeds
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: byte[][] seeds = new byte[numLayer][mdLength];
 			byte[][] seeds = RectangularArrays.ReturnRectangularSbyteArray(numLayer, mdLength);
 			// initialize seeds[] by copying starting-seeds of first trees of each
 			// layer
@@ -179,8 +169,6 @@ namespace org.bouncycastle.pqc.crypto.gmss
 			}
 
 			// initialize rootSigs
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: currentRootSigs = new byte[numLayer - 1][mdLength];
 			currentRootSigs = RectangularArrays.ReturnRectangularSbyteArray(numLayer - 1, mdLength);
 
 			// -------------------------
@@ -434,11 +422,7 @@ namespace org.bouncycastle.pqc.crypto.gmss
 			this.K = gmssPS.getK();
 
 			// seeds
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: this.currentSeeds = new byte[numLayer][mdLength];
 			this.currentSeeds = RectangularArrays.ReturnRectangularSbyteArray(numLayer, mdLength);
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: this.nextNextSeeds = new byte[numLayer - 1][mdLength];
 			this.nextNextSeeds = RectangularArrays.ReturnRectangularSbyteArray(numLayer - 1, mdLength);
 
 			// construct SecureRandom for initial seed generation

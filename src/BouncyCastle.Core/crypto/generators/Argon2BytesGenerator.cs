@@ -528,8 +528,9 @@ namespace org.bouncycastle.crypto.generators
 
 		private void rotr64(Block block, int v, int w, long c)
 		{
-			long temp = block.v[v] ^ block.v[w];
-			block.v[v] = ((long)((ulong)temp >> c)) | (temp << (64 - c));
+            //PORT NOTE: This code changed a bit.
+			ulong temp = (ulong)(block.v[v] ^ block.v[w]);
+			block.v[v] = (long) ((temp >> (int)c) | (temp << (64 - (int)c)));
 		}
 
 		private void initialize(byte[] password, int outputLength)
@@ -566,11 +567,9 @@ namespace org.bouncycastle.crypto.generators
 		/// </summary>
 		private void fillFirstBlocks(byte[] initialHash)
 		{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final byte[] zeroBytes = {0, 0, 0, 0};
+
 			byte[] zeroBytes = new byte[] {0, 0, 0, 0};
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final byte[] oneBytes = {1, 0, 0, 0};
+
 			byte[] oneBytes = new byte[] {1, 0, 0, 0};
 
 			byte[] initialHashWithZeros = getInitialHashLong(initialHash, zeroBytes);

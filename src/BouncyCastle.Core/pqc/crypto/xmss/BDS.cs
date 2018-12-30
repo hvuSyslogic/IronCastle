@@ -1,4 +1,5 @@
-﻿using BouncyCastle.Core.Port.java.util;
+﻿using System;
+using BouncyCastle.Core.Port.java.util;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
@@ -21,12 +22,12 @@ namespace org.bouncycastle.pqc.crypto.xmss
 		private WOTSPlus wotsPlus;
 
 		private readonly int treeHeight;
-		private readonly System.Collections.Generic.List<BDSTreeHash> treeHashInstances;
+		private readonly ArrayList<BDSTreeHash> treeHashInstances;
 		private int k;
 		private XMSSNode root;
-		private System.Collections.Generic.List<XMSSNode> authenticationPath;
+		private ArrayList<XMSSNode> authenticationPath;
 		private Map<int, LinkedList<XMSSNode>> retain;
-		private System.Collections.Generic.Stack<XMSSNode> stack;
+		private Stack<XMSSNode> stack;
 
 		private Map<int, XMSSNode> keep;
 		private int index;
@@ -86,7 +87,7 @@ namespace org.bouncycastle.pqc.crypto.xmss
 			}
 			authenticationPath = new ArrayList<XMSSNode>();
 			retain = new TreeMap<int, LinkedList<XMSSNode>>();
-			stack = new System.Collections.Generic.Stack<XMSSNode>();
+			stack = new Stack<XMSSNode>();
 
 			treeHashInstances = new ArrayList<BDSTreeHash>();
 			for (int height = 0; height < (treeHeight - k); height++)
@@ -108,7 +109,7 @@ namespace org.bouncycastle.pqc.crypto.xmss
 			this.authenticationPath = new ArrayList<XMSSNode>(); // note use of addAll to avoid serialization issues
 			this.authenticationPath.addAll(last.authenticationPath);
 			this.retain = last.retain;
-			this.stack = new System.Collections.Generic.Stack<XMSSNode>(); // note use of addAll to avoid serialization issues
+			this.stack = new Stack<XMSSNode>(); // note use of addAll to avoid serialization issues
 			this.stack.addAll(last.stack);
 			this.treeHashInstances = last.treeHashInstances;
 			this.keep = new TreeMap<int, XMSSNode>(last.keep);
@@ -128,7 +129,7 @@ namespace org.bouncycastle.pqc.crypto.xmss
 			this.authenticationPath = new ArrayList<XMSSNode>(); // note use of addAll to avoid serialization issues
 			this.authenticationPath.addAll(last.authenticationPath);
 			this.retain = last.retain;
-			this.stack = new System.Collections.Generic.Stack<XMSSNode>(); // note use of addAll to avoid serialization issues
+			this.stack = new Stack<XMSSNode>(); // note use of addAll to avoid serialization issues
 			this.stack.addAll(last.stack);
 			this.treeHashInstances = last.treeHashInstances;
 			this.keep = new TreeMap<int, XMSSNode>(last.keep);
@@ -363,9 +364,9 @@ namespace org.bouncycastle.pqc.crypto.xmss
 			return root.clone();
 		}
 
-		public List<XMSSNode> getAuthenticationPath()
+		public Port.java.util.List<XMSSNode> getAuthenticationPath()
 		{
-		    List<XMSSNode> authenticationPath = new ArrayList<XMSSNode>();
+            List<XMSSNode> authenticationPath = new ArrayList<XMSSNode>();
 			foreach (XMSSNode node in this.authenticationPath)
 			{
 				authenticationPath.add(node.clone());

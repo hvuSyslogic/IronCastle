@@ -54,8 +54,7 @@ namespace org.bouncycastle.pqc.crypto.rainbow.util
 				// b is stored as the last column.
 				// B contains one column more than rows.
 				// In this column we store a free coefficient that should be later subtracted from b
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: A = new short[B.Length][B.Length + 1];
+
 				A = RectangularArrays.ReturnRectangularShortArray(B.Length, B.Length + 1);
 				// stores the solution of the LES
 				x = new short[B.Length];
@@ -113,8 +112,7 @@ namespace org.bouncycastle.pqc.crypto.rainbow.util
 				/// Initialization: * </summary>
 				short factor;
 				short[][] inverse;
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: A = new short[coef.Length][2 * coef.Length];
+
 				A = RectangularArrays.ReturnRectangularShortArray(coef.Length, 2 * coef.Length);
 				if (coef.Length != coef[0].Length)
 				{
@@ -157,8 +155,7 @@ namespace org.bouncycastle.pqc.crypto.rainbow.util
 				computeZerosAbove();
 
 				// copy the result (the second half of A) in the matrix inverse.
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: inverse = new short[A.Length][A.Length];
+
 				inverse = RectangularArrays.ReturnRectangularShortArray(A.Length, A.Length);
 				for (int i = 0; i < A.Length; i++)
 				{
@@ -340,8 +337,7 @@ namespace org.bouncycastle.pqc.crypto.rainbow.util
 				throw new RuntimeException("Multiplication is not possible!");
 			}
 			short tmp = 0;
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: A = new short[M1.Length][M2[0].Length];
+
 			A = RectangularArrays.ReturnRectangularShortArray(M1.Length, M2[0].Length);
 			for (int i = 0; i < M1.Length; i++)
 			{
@@ -424,8 +420,7 @@ namespace org.bouncycastle.pqc.crypto.rainbow.util
 			{
 				throw new RuntimeException("Multiplication is not possible!");
 			}
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: short[][] rslt = new short[vector1.Length][vector2.Length];
+
 			short[][] rslt = RectangularArrays.ReturnRectangularShortArray(vector1.Length, vector2.Length);
 			for (int i = 0; i < vector1.Length; i++)
 			{
@@ -461,8 +456,7 @@ namespace org.bouncycastle.pqc.crypto.rainbow.util
 		/// <returns> matrix multiplied with scalar </returns>
 		public virtual short[][] multMatrix(short scalar, short[][] matrix)
 		{
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: short[][] rslt = new short[matrix.Length][matrix[0].Length];
+
 			short[][] rslt = RectangularArrays.ReturnRectangularShortArray(matrix.Length, matrix[0].Length);
 			for (int i = 0; i < matrix.Length; i++)
 			{
@@ -489,8 +483,7 @@ namespace org.bouncycastle.pqc.crypto.rainbow.util
 				throw new RuntimeException("Addition is not possible!");
 			}
 
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: short[][] rslt = new short[matrix1.Length][matrix1.Length];
+
 			short[][] rslt = RectangularArrays.ReturnRectangularShortArray(matrix1.Length, matrix1.Length);
 			for (int i = 0; i < matrix1.Length; i++)
 			{

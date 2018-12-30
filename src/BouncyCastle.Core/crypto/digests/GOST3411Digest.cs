@@ -17,8 +17,6 @@ namespace org.bouncycastle.crypto.digests
 		private const int DIGEST_LENGTH = 32;
 
 		private byte[] H = new byte[32], L = new byte[32], M = new byte[32], Sum = new byte[32];
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: private byte[][] C = new byte[4][32];
 		private byte[][] C = RectangularArrays.ReturnRectangularSbyteArray(4, 32);
 
 		private byte[] xBuf = new byte[32];

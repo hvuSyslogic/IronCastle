@@ -14,7 +14,6 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 
 		private GF2nElement[] coeff; // keeps the coefficients of this polynomial
 
-//JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
 		private int size_Renamed; // the size of this polynomial
 
 		/// <summary>

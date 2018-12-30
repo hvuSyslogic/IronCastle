@@ -127,13 +127,11 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 
 			/* create matrix H over GF(2^m) */
 
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: int[][] hArray = new int[t][n];
+
 			int[][] hArray = RectangularArrays.ReturnRectangularIntArray(t, n);
 
 			// create matrix YZ
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: int[][] yz = new int[t][n];
+
 			int[][] yz = RectangularArrays.ReturnRectangularIntArray(t, n);
 			for (int j = 0; j < n; j++)
 			{
@@ -164,8 +162,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 
 			/* convert to matrix over GF(2) */
 
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: int[][] result = new int[t * m][(int)((uint)(n + 31) >> 5)];
+
 			int[][] result = RectangularArrays.ReturnRectangularIntArray(t * m, (int)((uint)(n + 31) >> 5));
 
 			for (int j = 0; j < n; j++)

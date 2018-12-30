@@ -1,9 +1,10 @@
 ﻿using org.bouncycastle.Port.java.lang;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
-	using Nat = org.bouncycastle.math.raw.Nat;
-	using Nat160 = org.bouncycastle.math.raw.Nat160;
+	
+	
 
 	public class SecP160K1Point : ECPoint.AbstractFp
 	{
@@ -82,14 +83,14 @@ namespace org.bouncycastle.math.ec.custom.sec
 			SecP160R2FieldElement Z1 = (SecP160R2FieldElement)this.zs[0];
 			SecP160R2FieldElement Z2 = (SecP160R2FieldElement)b.getZCoord(0);
 
-			int c;
-			int[] tt1 = Nat160.createExt();
-			int[] t2 = Nat160.create();
-			int[] t3 = Nat160.create();
-			int[] t4 = Nat160.create();
+			uint c;
+			uint[] tt1 = Nat160.createExt();
+			uint[] t2 = Nat160.create();
+			uint[] t3 = Nat160.create();
+			uint[] t4 = Nat160.create();
 
 			bool Z1IsOne = Z1.isOne();
-			int[] U2, S2;
+			uint[] U2, S2;
 			if (Z1IsOne)
 			{
 				U2 = X2.x;
@@ -108,7 +109,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 
 			bool Z2IsOne = Z2.isOne();
-			int[] U1, S1;
+			uint[] U1, S1;
 			if (Z2IsOne)
 			{
 				U1 = X1.x;
@@ -126,10 +127,10 @@ namespace org.bouncycastle.math.ec.custom.sec
 				SecP160R2Field.multiply(S1, Y1.x, S1);
 			}
 
-			int[] H = Nat160.create();
+			uint[] H = Nat160.create();
 			SecP160R2Field.subtract(U1, U2, H);
 
-			int[] R = t2;
+			uint[] R = t2;
 			SecP160R2Field.subtract(S1, S2, R);
 
 			// Check if b == this or b == -this
@@ -145,13 +146,13 @@ namespace org.bouncycastle.math.ec.custom.sec
 				return curve.getInfinity();
 			}
 
-			int[] HSquared = t3;
+			uint[] HSquared = t3;
 			SecP160R2Field.square(H, HSquared);
 
-			int[] G = Nat160.create();
+			uint[] G = Nat160.create();
 			SecP160R2Field.multiply(HSquared, H, G);
 
-			int[] V = t3;
+			uint[] V = t3;
 			SecP160R2Field.multiply(HSquared, U1, V);
 
 			SecP160R2Field.negate(G, G);
@@ -202,25 +203,25 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 			SecP160R2FieldElement X1 = (SecP160R2FieldElement)this.x, Z1 = (SecP160R2FieldElement)this.zs[0];
 
-			int c;
+			uint c;
 
-			int[] Y1Squared = Nat160.create();
+			uint[] Y1Squared = Nat160.create();
 			SecP160R2Field.square(Y1.x, Y1Squared);
 
-			int[] T = Nat160.create();
+			uint[] T = Nat160.create();
 			SecP160R2Field.square(Y1Squared, T);
 
-			int[] M = Nat160.create();
+			uint[] M = Nat160.create();
 			SecP160R2Field.square(X1.x, M);
 			c = Nat160.addBothTo(M, M, M);
 			SecP160R2Field.reduce32(c, M);
 
-			int[] S = Y1Squared;
+			uint[] S = Y1Squared;
 			SecP160R2Field.multiply(Y1Squared, X1.x, S);
 			c = Nat.shiftUpBits(5, S, 2, 0);
 			SecP160R2Field.reduce32(c, S);
 
-			int[] t1 = Nat160.create();
+			uint[] t1 = Nat160.create();
 			c = Nat.shiftUpBits(5, T, 3, 0, t1);
 			SecP160R2Field.reduce32(c, t1);
 

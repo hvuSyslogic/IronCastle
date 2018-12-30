@@ -6,7 +6,6 @@ namespace org.bouncycastle.asn1.esf
 	public class SignaturePolicyIdentifier : ASN1Object
 	{
 		private SignaturePolicyId signaturePolicyId;
-//JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
 		private bool isSignaturePolicyImplied_Renamed;
 
 		public static SignaturePolicyIdentifier getInstance(object obj)

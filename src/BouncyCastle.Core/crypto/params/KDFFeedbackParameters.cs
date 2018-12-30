@@ -17,7 +17,6 @@ namespace org.bouncycastle.crypto.@params
 
 		private readonly byte[] ki;
 		private readonly byte[] iv;
-//JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
 		private readonly bool useCounter_Renamed;
 		private readonly int r;
 		private readonly byte[] fixedInputData;
@@ -53,8 +52,7 @@ namespace org.bouncycastle.crypto.@params
 			this.useCounter_Renamed = useCounter;
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static KDFFeedbackParameters createWithCounter(byte[] ki, final byte[] iv, byte[] fixedInputData, int r)
+
 		public static KDFFeedbackParameters createWithCounter(byte[] ki, byte[] iv, byte[] fixedInputData, int r)
 		{
 			if (r != 8 && r != 16 && r != 24 && r != 32)
@@ -65,8 +63,7 @@ namespace org.bouncycastle.crypto.@params
 			return new KDFFeedbackParameters(ki, iv, fixedInputData, r, true);
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static KDFFeedbackParameters createWithoutCounter(byte[] ki, final byte[] iv, byte[] fixedInputData)
+
 		public static KDFFeedbackParameters createWithoutCounter(byte[] ki, byte[] iv, byte[] fixedInputData)
 		{
 			return new KDFFeedbackParameters(ki, iv, fixedInputData, UNUSED_R, false);

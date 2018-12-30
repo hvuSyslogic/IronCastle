@@ -1,12 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using org.bouncycastle.pqc.crypto.xmss;
 using org.bouncycastle.Port.java.util;
 
 namespace BouncyCastle.Core.Port.java.util
 {
     public class TreeMap<K, V> : Map<K, V>
     {
+        public TreeMap()
+        {
+
+        }
+
+        public TreeMap(Map<int, XMSSNode> lastKeep)
+        {
+            throw new NotImplementedException();
+        }
+
         public V get(K key)
         {
             throw new NotImplementedException();

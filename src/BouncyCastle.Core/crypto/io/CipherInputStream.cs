@@ -170,8 +170,7 @@ namespace org.bouncycastle.crypto.io
 					maxBuf = 0; // a stream cipher
 				}
 			}
-//JAVA TO C# CONVERTER WARNING: 'final' catch parameters are not available in C#:
-//ORIGINAL LINE: catch (final org.bouncycastle.crypto.InvalidCipherTextException e)
+
 			catch (InvalidCipherTextException e)
 			{
 				throw new InvalidCipherTextIOException("Error finalising cipher", e);

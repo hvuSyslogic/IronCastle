@@ -77,14 +77,11 @@ namespace org.bouncycastle.pqc.crypto.rainbow
 			this.oi = viNext - vi;
 
 			// the coefficients of all polynomials in this layer
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: this.coeff_alpha = new short[this.oi][this.oi][this.vi];
+
 			this.coeff_alpha = RectangularArrays.ReturnRectangularShortArray(this.oi, this.oi, this.vi);
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: this.coeff_beta = new short[this.oi][this.vi][this.vi];
+
 			this.coeff_beta = RectangularArrays.ReturnRectangularShortArray(this.oi, this.vi, this.vi);
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: this.coeff_gamma = new short[this.oi][this.viNext];
+
 			this.coeff_gamma = RectangularArrays.ReturnRectangularShortArray(this.oi, this.viNext);
 			this.coeff_eta = new short[this.oi];
 
@@ -145,8 +142,7 @@ namespace org.bouncycastle.pqc.crypto.rainbow
 			// temporary variable needed for the multiplication
 			short tmpMult = 0;
 			// coeff: 1st index = which polynomial, 2nd index=which variable
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: short[][] coeff = new short[oi][oi + 1]; // gets returned
+
 			short[][] coeff = RectangularArrays.ReturnRectangularShortArray(oi, oi + 1); // gets returned
 			// free coefficient per polynomial
 			short[] sum = new short[oi];

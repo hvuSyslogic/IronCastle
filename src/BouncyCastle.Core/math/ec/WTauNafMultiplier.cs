@@ -68,13 +68,11 @@ namespace org.bouncycastle.math.ec
 		/// <param name="p"> The ECPoint.AbstractF2m to multiply. </param>
 		/// <param name="u"> The the WTNAF of <code>&lambda;</code>.. </param>
 		/// <returns> <code>&lambda; * p</code> </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: private static ECPoint.AbstractF2m multiplyFromWTnaf(final ECPoint.AbstractF2m p, byte[] u)
+
 		private static ECPoint.AbstractF2m multiplyFromWTnaf(ECPoint.AbstractF2m p, byte[] u)
 		{
 			ECCurve.AbstractF2m curve = (ECCurve.AbstractF2m)p.getCurve();
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final byte a = curve.getA().toBigInteger().byteValue();
+
 			byte a = curve.getA().toBigInteger().byteValue();
 
 			WTauNafPreCompInfo preCompInfo = (WTauNafPreCompInfo)curve.precompute(p, PRECOMP_NAME, new PreCompCallbackAnonymousInnerClass(p, a));

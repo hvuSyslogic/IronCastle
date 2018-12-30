@@ -1,9 +1,12 @@
 ﻿using System;
 using System.IO;
+using BouncyCastle.Core.Port.java.io;
+using BouncyCastle.Core.Port.java.text;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.pqc.crypto.xmss
 {
@@ -317,7 +320,7 @@ namespace org.bouncycastle.pqc.crypto.xmss
 				throw new IOException("unexpected data found at end of ObjectInputStream");
 			}
 			// you'd hope this would always succeed!
-			if (clazz.isInstance(obj))
+			if (clazz.IsInstanceOfType(obj))
 			{
 				return obj;
 			}
@@ -388,7 +391,7 @@ namespace org.bouncycastle.pqc.crypto.xmss
 				this.mainClass = mainClass;
 			}
 
-			public virtual Type resolveClass(ObjectStreamClass desc)
+			public override Type resolveClass(Type desc)
 			{
 				if (!found)
 				{

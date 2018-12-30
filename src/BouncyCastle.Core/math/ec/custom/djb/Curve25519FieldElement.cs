@@ -1,11 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.Port.java.lang;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.djb
 {
 
-	using Mod = org.bouncycastle.math.raw.Mod;
-	using Nat256 = org.bouncycastle.math.raw.Nat256;
 	using Arrays = org.bouncycastle.util.Arrays;
 
 	public class Curve25519FieldElement : ECFieldElement.AbstractFp
@@ -13,9 +12,9 @@ namespace org.bouncycastle.math.ec.custom.djb
 		public static readonly BigInteger Q = Curve25519.q;
 
 		// Calculated as ECConstants.TWO.modPow(Q.shiftRight(2), Q)
-		private static readonly int[] PRECOMP_POW2 = new int[]{0x4a0ea0b0, unchecked((int)0xc4ee1b27), unchecked((int)0xad2fe478), 0x2f431806, 0x3dfbd7a7, 0x2b4d0099, 0x4fc1df0b, 0x2b832480};
+		private static readonly uint[] PRECOMP_POW2 = new uint[]{0x4a0ea0b0, 0xc4ee1b27, 0xad2fe478, 0x2f431806, 0x3dfbd7a7, 0x2b4d0099, 0x4fc1df0b, 0x2b832480};
 
-		protected internal int[] x;
+		protected internal uint[] x;
 
 		public Curve25519FieldElement(BigInteger x)
 		{
@@ -32,7 +31,7 @@ namespace org.bouncycastle.math.ec.custom.djb
 			this.x = Nat256.create();
 		}
 
-		public Curve25519FieldElement(int[] x)
+		public Curve25519FieldElement(uint[] x)
 		{
 			this.x = x;
 		}
@@ -69,28 +68,28 @@ namespace org.bouncycastle.math.ec.custom.djb
 
 		public override ECFieldElement add(ECFieldElement b)
 		{
-			int[] z = Nat256.create();
+			uint[] z = Nat256.create();
 			Curve25519Field.add(x, ((Curve25519FieldElement)b).x, z);
 			return new Curve25519FieldElement(z);
 		}
 
 		public override ECFieldElement addOne()
 		{
-			int[] z = Nat256.create();
+			uint[] z = Nat256.create();
 			Curve25519Field.addOne(x, z);
 			return new Curve25519FieldElement(z);
 		}
 
 		public override ECFieldElement subtract(ECFieldElement b)
 		{
-			int[] z = Nat256.create();
+			uint[] z = Nat256.create();
 			Curve25519Field.subtract(x, ((Curve25519FieldElement)b).x, z);
 			return new Curve25519FieldElement(z);
 		}
 
 		public override ECFieldElement multiply(ECFieldElement b)
 		{
-			int[] z = Nat256.create();
+			uint[] z = Nat256.create();
 			Curve25519Field.multiply(x, ((Curve25519FieldElement)b).x, z);
 			return new Curve25519FieldElement(z);
 		}
@@ -98,7 +97,7 @@ namespace org.bouncycastle.math.ec.custom.djb
 		public override ECFieldElement divide(ECFieldElement b)
 		{
 	//        return multiply(b.invert());
-			int[] z = Nat256.create();
+			uint[] z = Nat256.create();
 			Mod.invert(Curve25519Field.P, ((Curve25519FieldElement)b).x, z);
 			Curve25519Field.multiply(z, x, z);
 			return new Curve25519FieldElement(z);
@@ -106,14 +105,14 @@ namespace org.bouncycastle.math.ec.custom.djb
 
 		public override ECFieldElement negate()
 		{
-			int[] z = Nat256.create();
+			uint[] z = Nat256.create();
 			Curve25519Field.negate(x, z);
 			return new Curve25519FieldElement(z);
 		}
 
 		public override ECFieldElement square()
 		{
-			int[] z = Nat256.create();
+			uint[] z = Nat256.create();
 			Curve25519Field.square(x, z);
 			return new Curve25519FieldElement(z);
 		}
@@ -121,7 +120,7 @@ namespace org.bouncycastle.math.ec.custom.djb
 		public override ECFieldElement invert()
 		{
 	//        return new Curve25519FieldElement(toBigInteger().modInverse(Q));
-			int[] z = Nat256.create();
+			uint[] z = Nat256.create();
 			Mod.invert(Curve25519Field.P, x, z);
 			return new Curve25519FieldElement(z);
 		}
@@ -144,50 +143,50 @@ namespace org.bouncycastle.math.ec.custom.djb
 			 * We use: 1, 2, 3, 4, 7, 11, 15, 30, 60, 120, 131, [251]
 			 */
 
-			int[] x1 = this.x;
+			uint[] x1 = this.x;
 			if (Nat256.isZero(x1) || Nat256.isOne(x1))
 			{
 				return this;
 			}
 
-			int[] x2 = Nat256.create();
+			uint[] x2 = Nat256.create();
 			Curve25519Field.square(x1, x2);
 			Curve25519Field.multiply(x2, x1, x2);
-			int[] x3 = x2;
+			uint[] x3 = x2;
 			Curve25519Field.square(x2, x3);
 			Curve25519Field.multiply(x3, x1, x3);
-			int[] x4 = Nat256.create();
+			uint[] x4 = Nat256.create();
 			Curve25519Field.square(x3, x4);
 			Curve25519Field.multiply(x4, x1, x4);
-			int[] x7 = Nat256.create();
+			uint[] x7 = Nat256.create();
 			Curve25519Field.squareN(x4, 3, x7);
 			Curve25519Field.multiply(x7, x3, x7);
-			int[] x11 = x3;
+			uint[] x11 = x3;
 			Curve25519Field.squareN(x7, 4, x11);
 			Curve25519Field.multiply(x11, x4, x11);
-			int[] x15 = x7;
+			uint[] x15 = x7;
 			Curve25519Field.squareN(x11, 4, x15);
 			Curve25519Field.multiply(x15, x4, x15);
-			int[] x30 = x4;
+			uint[] x30 = x4;
 			Curve25519Field.squareN(x15, 15, x30);
 			Curve25519Field.multiply(x30, x15, x30);
-			int[] x60 = x15;
+			uint[] x60 = x15;
 			Curve25519Field.squareN(x30, 30, x60);
 			Curve25519Field.multiply(x60, x30, x60);
-			int[] x120 = x30;
+			uint[] x120 = x30;
 			Curve25519Field.squareN(x60, 60, x120);
 			Curve25519Field.multiply(x120, x60, x120);
-			int[] x131 = x60;
+			uint[] x131 = x60;
 			Curve25519Field.squareN(x120, 11, x131);
 			Curve25519Field.multiply(x131, x11, x131);
-			int[] x251 = x11;
+			uint[] x251 = x11;
 			Curve25519Field.squareN(x131, 120, x251);
 			Curve25519Field.multiply(x251, x120, x251);
 
-			int[] t1 = x251;
+			uint[] t1 = x251;
 			Curve25519Field.square(t1, t1);
 
-			int[] t2 = x120;
+			uint[] t2 = x120;
 			Curve25519Field.square(t1, t2);
 
 			if (Nat256.eq(x1, t2))

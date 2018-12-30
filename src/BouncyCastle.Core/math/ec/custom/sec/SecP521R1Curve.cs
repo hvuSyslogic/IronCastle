@@ -1,9 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
 
-	using Nat = org.bouncycastle.math.raw.Nat;
+	
 	using Hex = org.bouncycastle.util.encoders.Hex;
 
 	public class SecP521R1Curve : ECCurve.AbstractFp
@@ -73,15 +74,13 @@ namespace org.bouncycastle.math.ec.custom.sec
 			return infinity;
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public org.bouncycastle.math.ec.ECLookupTable createCacheSafeLookupTable(org.bouncycastle.math.ec.ECPoint[] points, int off, final int len)
+
 		public override ECLookupTable createCacheSafeLookupTable(ECPoint[] points, int off, int len)
 		{
 			const int FE_INTS = 17;
 
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int[] table = new int[len * FE_INTS * 2];
-			int[] table = new int[len * FE_INTS * 2];
+
+			uint[] table = new uint[len * FE_INTS * 2];
 			{
 				int pos = 0;
 				for (int i = 0; i < len; ++i)
@@ -94,18 +93,18 @@ namespace org.bouncycastle.math.ec.custom.sec
 				}
 			}
 
-			return new ECLookupTableAnonymousInnerClass(this, len, FE_INTS, table);
+			return new SecP521R1LookupTable(this, len, FE_INTS, table);
 		}
 
-		public class ECLookupTableAnonymousInnerClass : ECLookupTable
+		public class SecP521R1LookupTable : ECLookupTable
 		{
 			private readonly SecP521R1Curve outerInstance;
 
 			private int len;
 			private int FE_INTS;
-			private int[] table;
+			private uint[] table;
 
-			public ECLookupTableAnonymousInnerClass(SecP521R1Curve outerInstance, int len, int FE_INTS, int[] table)
+			public SecP521R1LookupTable(SecP521R1Curve outerInstance, int len, int FE_INTS, uint[] table)
 			{
 				this.outerInstance = outerInstance;
 				this.len = len;
@@ -120,12 +119,12 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 			public ECPoint lookup(int index)
 			{
-				int[] x = Nat.create(FE_INTS), y = Nat.create(FE_INTS);
+				uint[] x = Nat.create(FE_INTS), y = Nat.create(FE_INTS);
 				int pos = 0;
 
 				for (int i = 0; i < len; ++i)
 				{
-					int MASK = ((i ^ index) - 1) >> 31;
+					uint MASK = (uint) (((i ^ index) - 1) >> 31);
 
 					for (int j = 0; j < FE_INTS; ++j)
 					{

@@ -342,7 +342,7 @@ namespace org.bouncycastle.pqc.math.ntru.polynomial
 		/// </summary>
 		public virtual object clone()
 		{
-			return new BigIntPolynomial(coeffs.Clone());
+			return new BigIntPolynomial((BigInteger[])coeffs.Clone());
 		}
 
 		public override int GetHashCode()

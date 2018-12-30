@@ -1,4 +1,5 @@
 ﻿using BouncyCastle.Core.Port;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
@@ -102,14 +103,12 @@ namespace org.bouncycastle.math.ec.custom.sec
 			return 0;
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public org.bouncycastle.math.ec.ECLookupTable createCacheSafeLookupTable(org.bouncycastle.math.ec.ECPoint[] points, int off, final int len)
+
 		public override ECLookupTable createCacheSafeLookupTable(ECPoint[] points, int off, int len)
 		{
 			const int FE_LONGS = 7;
 
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final long[] table = new long[len * FE_LONGS * 2];
+
 			long[] table = new long[len * FE_LONGS * 2];
 			{
 				int pos = 0;

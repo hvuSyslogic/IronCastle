@@ -113,7 +113,7 @@ namespace org.bouncycastle.pqc.math.ntru.polynomial
 			int n = poly2.coeffs.Length;
 			if (n <= 1)
 			{
-				BigDecimal[] c = coeffs.Clone();
+				BigDecimal[] c = (BigDecimal[])coeffs.Clone();
 				for (int i = 0; i < coeffs.Length; i++)
 				{
 					c[i] = c[i].multiply(poly2.coeffs[0]);
@@ -219,7 +219,7 @@ namespace org.bouncycastle.pqc.math.ntru.polynomial
 		/// </summary>
 		public virtual object clone()
 		{
-			return new BigDecimalPolynomial(coeffs.Clone());
+			return new BigDecimalPolynomial((BigDecimal[])coeffs.Clone());
 		}
 
 		private BigDecimal[] copyOf(BigDecimal[] a, int length)

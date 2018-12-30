@@ -20,17 +20,14 @@ namespace org.bouncycastle.asn1.x509
 	{
 		private DistributionPointName distributionPoint;
 
-//JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
 		private bool onlyContainsUserCerts_Renamed;
 
-//JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
 		private bool onlyContainsCACerts_Renamed;
 
 		private ReasonFlags onlySomeReasons;
 
 		private bool indirectCRL;
 
-//JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
 		private bool onlyContainsAttributeCerts_Renamed;
 
 		private ASN1Sequence seq;

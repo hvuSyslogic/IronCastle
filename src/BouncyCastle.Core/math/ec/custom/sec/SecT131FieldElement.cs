@@ -1,10 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.Port.java.lang;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
 
-	using Nat = org.bouncycastle.math.raw.Nat;
+	
 	using Nat192 = org.bouncycastle.math.raw.Nat192;
 	using Arrays = org.bouncycastle.util.Arrays;
 

@@ -1,10 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.Port.java.lang;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
 
-	using Nat576 = org.bouncycastle.math.raw.Nat576;
+	
 	using Arrays = org.bouncycastle.util.Arrays;
 
 	public class SecT571FieldElement : ECFieldElement.AbstractF2m

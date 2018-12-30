@@ -554,8 +554,7 @@ namespace org.bouncycastle.pqc.crypto.gmss
 		public virtual byte[][] getStatByte()
 		{
 
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: byte[][] statByte = new byte[5][mdsize];
+
 			byte[][] statByte = RectangularArrays.ReturnRectangularSbyteArray(5, mdsize);
 			statByte[0] = privateKeyOTS;
 			statByte[1] = seed;
@@ -623,8 +622,7 @@ namespace org.bouncycastle.pqc.crypto.gmss
 			string @out = "" + this.big8 + "  ";
 			int[] statInt = new int[9];
 			statInt = this.getStatInt();
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: byte[][] statByte = new byte[5][mdsize];
+
 			byte[][] statByte = RectangularArrays.ReturnRectangularSbyteArray(5, mdsize);
 			statByte = this.getStatByte();
 			for (int i = 0; i < 9; i++)

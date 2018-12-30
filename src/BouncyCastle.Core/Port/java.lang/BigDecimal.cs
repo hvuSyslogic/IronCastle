@@ -50,5 +50,10 @@ namespace BouncyCastle.Core.Port.java.lang
         {
             throw new NotImplementedException();
         }
+
+        public BigDecimal divide(BigDecimal divisor, int i, bool roundHalfEven)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

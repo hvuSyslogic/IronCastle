@@ -118,8 +118,6 @@ namespace org.bouncycastle.pqc.crypto.gmss
 			this.mdLength = messDigestTree.getDigestSize();
 			this.K = K;
 			this.index = new int[heightOfTree];
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: this.AuthPath = new byte[heightOfTree][mdLength];
 			this.AuthPath = RectangularArrays.ReturnRectangularSbyteArray(heightOfTree, mdLength);
 			this.root = new byte[mdLength];
 			// this.treehash = new Treehash[this.heightOfTree - this.K];
@@ -144,8 +142,6 @@ namespace org.bouncycastle.pqc.crypto.gmss
 			}
 
 			this.index = new int[heightOfTree];
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: this.AuthPath = new byte[heightOfTree][mdLength];
 			this.AuthPath = RectangularArrays.ReturnRectangularSbyteArray(heightOfTree, mdLength);
 			this.root = new byte[mdLength];
 
@@ -409,8 +405,6 @@ namespace org.bouncycastle.pqc.crypto.gmss
 			{
 				tailLength = tailStack.size();
 			}
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: byte[][] statByte = new byte[1 + heightOfTree + tailLength][64]; //FIXME: messDigestTree.getByteLength()
 			byte[][] statByte = RectangularArrays.ReturnRectangularSbyteArray(1 + heightOfTree + tailLength, 64); //FIXME: messDigestTree.getByteLength()
 			statByte[0] = root;
 

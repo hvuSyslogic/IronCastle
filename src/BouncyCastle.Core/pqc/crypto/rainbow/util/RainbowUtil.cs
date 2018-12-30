@@ -49,8 +49,7 @@
 		///         short-matrix that corresponds the input </returns>
 		public static short[][] convertArray(byte[][] @in)
 		{
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: short[][] out = new short[in.Length][in[0].Length];
+
 			short[][] @out = RectangularArrays.ReturnRectangularShortArray(@in.Length, @in[0].Length);
 			for (int i = 0; i < @in.Length; i++)
 			{
@@ -70,8 +69,7 @@
 		///         short-array that corresponds the input </returns>
 		public static short[][][] convertArray(byte[][][] @in)
 		{
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: short[][][] out = new short[in.Length][in[0].Length][in[0][0].Length];
+
 			short[][][] @out = RectangularArrays.ReturnRectangularShortArray(@in.Length, @in[0].Length, @in[0][0].Length);
 			for (int i = 0; i < @in.Length; i++)
 			{
@@ -127,8 +125,7 @@
 		///         the byte-matrix that corresponds the input </returns>
 		public static byte[][] convertArray(short[][] @in)
 		{
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: byte[][] out = new byte[in.Length][in[0].Length];
+
 			byte[][] @out = RectangularArrays.ReturnRectangularSbyteArray(@in.Length, @in[0].Length);
 			for (int i = 0; i < @in.Length; i++)
 			{
@@ -148,8 +145,7 @@
 		///         the byte-array that corresponds the input </returns>
 		public static byte[][][] convertArray(short[][][] @in)
 		{
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: byte[][][] out = new byte[in.Length][in[0].Length][in[0][0].Length];
+
 			byte[][][] @out = RectangularArrays.ReturnRectangularSbyteArray(@in.Length, @in[0].Length, @in[0][0].Length);
 			for (int i = 0; i < @in.Length; i++)
 			{

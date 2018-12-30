@@ -414,8 +414,7 @@ namespace org.bouncycastle.pqc.crypto.gmss
 		public virtual byte[][] getStatByte()
 		{
 
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: byte[][] statByte = new byte[3 + tailLength][this.messDigestTree.getDigestSize()];
+
 			byte[][] statByte = RectangularArrays.ReturnRectangularSbyteArray(3 + tailLength, this.messDigestTree.getDigestSize());
 			statByte[0] = firstNode;
 			statByte[1] = seedActive;

@@ -1,6 +1,7 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.rfc8032
 {
@@ -11,7 +12,7 @@ namespace org.bouncycastle.math.ec.rfc8032
 	using X25519Field = org.bouncycastle.math.ec.rfc7748.X25519Field;
 	using Interleave = org.bouncycastle.math.raw.Interleave;
 	using Nat = org.bouncycastle.math.raw.Nat;
-	using Nat256 = org.bouncycastle.math.raw.Nat256;
+	
 	using Arrays = org.bouncycastle.util.Arrays;
 	using Strings = org.bouncycastle.util.Strings;
 
@@ -301,14 +302,11 @@ namespace org.bouncycastle.math.ec.rfc8032
 
 			byte[] ws = new byte[256];
 
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int pow2 = 1 << width;
+
 			int pow2 = 1 << width;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int mask = pow2 - 1;
+
 			int mask = pow2 - 1;
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int sign = pow2 >>> 1;
+
 			int sign = (int)((uint)pow2 >> 1);
 
 			int j = 0, carry = 0;

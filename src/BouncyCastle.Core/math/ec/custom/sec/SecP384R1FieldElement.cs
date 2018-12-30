@@ -1,18 +1,19 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.Port.java.lang;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
 
-	using Mod = org.bouncycastle.math.raw.Mod;
-	using Nat = org.bouncycastle.math.raw.Nat;
+	
+	
 	using Arrays = org.bouncycastle.util.Arrays;
 
 	public class SecP384R1FieldElement : ECFieldElement.AbstractFp
 	{
 		public static readonly BigInteger Q = SecP384R1Curve.q;
 
-		protected internal int[] x;
+		protected internal uint[] x;
 
 		public SecP384R1FieldElement(BigInteger x)
 		{
@@ -29,7 +30,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			this.x = Nat.create(12);
 		}
 
-		public SecP384R1FieldElement(int[] x)
+		public SecP384R1FieldElement(uint[] x)
 		{
 			this.x = x;
 		}
@@ -66,28 +67,28 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 		public override ECFieldElement add(ECFieldElement b)
 		{
-			int[] z = Nat.create(12);
+			uint[] z = Nat.create(12);
 			SecP384R1Field.add(x, ((SecP384R1FieldElement)b).x, z);
 			return new SecP384R1FieldElement(z);
 		}
 
 		public override ECFieldElement addOne()
 		{
-			int[] z = Nat.create(12);
+			uint[] z = Nat.create(12);
 			SecP384R1Field.addOne(x, z);
 			return new SecP384R1FieldElement(z);
 		}
 
 		public override ECFieldElement subtract(ECFieldElement b)
 		{
-			int[] z = Nat.create(12);
+			uint[] z = Nat.create(12);
 			SecP384R1Field.subtract(x, ((SecP384R1FieldElement)b).x, z);
 			return new SecP384R1FieldElement(z);
 		}
 
 		public override ECFieldElement multiply(ECFieldElement b)
 		{
-			int[] z = Nat.create(12);
+			uint[] z = Nat.create(12);
 			SecP384R1Field.multiply(x, ((SecP384R1FieldElement)b).x, z);
 			return new SecP384R1FieldElement(z);
 		}
@@ -95,7 +96,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 		public override ECFieldElement divide(ECFieldElement b)
 		{
 	//        return multiply(b.invert());
-			int[] z = Nat.create(12);
+			uint[] z = Nat.create(12);
 			Mod.invert(SecP384R1Field.P, ((SecP384R1FieldElement)b).x, z);
 			SecP384R1Field.multiply(z, x, z);
 			return new SecP384R1FieldElement(z);
@@ -103,14 +104,14 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 		public override ECFieldElement negate()
 		{
-			int[] z = Nat.create(12);
+			uint[] z = Nat.create(12);
 			SecP384R1Field.negate(x, z);
 			return new SecP384R1FieldElement(z);
 		}
 
 		public override ECFieldElement square()
 		{
-			int[] z = Nat.create(12);
+			uint[] z = Nat.create(12);
 			SecP384R1Field.square(x, z);
 			return new SecP384R1FieldElement(z);
 		}
@@ -118,7 +119,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 		public override ECFieldElement invert()
 		{
 	//        return new SecP384R1FieldElement(toBigInteger().modInverse(Q));
-			int[] z = Nat.create(12);
+			uint[] z = Nat.create(12);
 			Mod.invert(SecP384R1Field.P, x, z);
 			return new SecP384R1FieldElement(z);
 		}
@@ -131,16 +132,16 @@ namespace org.bouncycastle.math.ec.custom.sec
 		{
 			// Raise this element to the exponent 2^382 - 2^126 - 2^94 + 2^30
 
-			int[] x1 = this.x;
+			uint[] x1 = this.x;
 			if (Nat.isZero(12, x1) || Nat.isOne(12, x1))
 			{
 				return this;
 			}
 
-			int[] t1 = Nat.create(12);
-			int[] t2 = Nat.create(12);
-			int[] t3 = Nat.create(12);
-			int[] t4 = Nat.create(12);
+			uint[] t1 = Nat.create(12);
+            uint[] t2 = Nat.create(12);
+            uint[] t3 = Nat.create(12);
+            uint[] t4 = Nat.create(12);
 
 			SecP384R1Field.square(x1, t1);
 			SecP384R1Field.multiply(t1, x1, t1);
@@ -169,7 +170,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			SecP384R1Field.squareN(t2, 60, t3);
 			SecP384R1Field.multiply(t3, t2, t3);
 
-			int[] r = t2;
+            uint[] r = t2;
 
 			SecP384R1Field.squareN(t3, 120, r);
 			SecP384R1Field.multiply(r, t3, r);

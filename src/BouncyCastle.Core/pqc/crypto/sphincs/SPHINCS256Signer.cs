@@ -369,7 +369,7 @@ namespace org.bouncycastle.pqc.crypto.sphincs
 			}
 
 
-			(new Horst()).horst_verify(hs, root, sig, sigp + (SPHINCS256Config.TOTALTREE_HEIGHT + 7) / 8, tpk, m_h);
+			Horst.horst_verify(hs, root, sig, sigp + (SPHINCS256Config.TOTALTREE_HEIGHT + 7) / 8, tpk, m_h);
 
 			sigp += (SPHINCS256Config.TOTALTREE_HEIGHT + 7) / 8;
 			smlen -= (SPHINCS256Config.TOTALTREE_HEIGHT + 7) / 8;

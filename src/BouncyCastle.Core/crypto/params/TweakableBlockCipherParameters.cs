@@ -10,8 +10,7 @@
 		private readonly byte[] tweak;
 		private readonly KeyParameter key;
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public TweakableBlockCipherParameters(final KeyParameter key, final byte[] tweak)
+
 		public TweakableBlockCipherParameters(KeyParameter key, byte[] tweak)
 		{
 			this.key = key;

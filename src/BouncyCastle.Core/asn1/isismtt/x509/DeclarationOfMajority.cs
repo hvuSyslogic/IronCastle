@@ -26,9 +26,7 @@ namespace org.bouncycastle.asn1.isismtt.x509
 	/// </summary>
 	public class DeclarationOfMajority : ASN1Object, ASN1Choice
 	{
-//JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
 		public const int notYoungerThan_Renamed = 0;
-//JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
 		public const int fullAgeAtCountry_Renamed = 1;
 		public const int dateOfBirth = 2;
 

@@ -78,8 +78,7 @@ namespace org.bouncycastle.math.ec
 		/// <param name="lambda"> The element <code>&lambda;</code> of
 		/// <code><b>Z</b>[&tau;]</code>. </param>
 		/// <returns> The norm of <code>&lambda;</code>. </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static java.math.BigInteger norm(final byte mu, ZTauElement lambda)
+
 		public static BigInteger norm(sbyte mu, ZTauElement lambda)
 		{
 			BigInteger norm;
@@ -120,8 +119,7 @@ namespace org.bouncycastle.math.ec
 		/// <param name="v"> The <code>&tau;</code>-adic part of the element
 		/// <code>&lambda;</code> of <code><b>R</b>[&tau;]</code>. </param>
 		/// <returns> The norm of <code>&lambda;</code>. </returns>
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static SimpleBigDecimal norm(final byte mu, SimpleBigDecimal u, SimpleBigDecimal v)
+
 		public static SimpleBigDecimal norm(byte mu, SimpleBigDecimal u, SimpleBigDecimal v)
 		{
 			SimpleBigDecimal norm;

@@ -2,7 +2,7 @@
 
 namespace org.bouncycastle.Port.java.lang
 {
-    public interface Iterable<T>
+    public interface Iterable<T> 
     {
         /// <summary>
         /// Returns an iterator over a set of elements of type T.

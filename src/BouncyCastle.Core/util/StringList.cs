@@ -1,4 +1,6 @@
-﻿namespace org.bouncycastle.util
+﻿using org.bouncycastle.Port.java.lang;
+
+namespace org.bouncycastle.util
 {
 	/// <summary>
 	/// An interface defining a list of strings.

@@ -25,11 +25,9 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		internal GF2Polynomial[] squaringMatrix;
 
 		// field polynomial is a trinomial
-//JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
 		private bool isTrinomial_Renamed = false;
 
 		// field polynomial is a pentanomial
-//JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
 		private bool isPentanomial_Renamed = false;
 
 		// middle coefficient of the field polynomial in case it is a trinomial

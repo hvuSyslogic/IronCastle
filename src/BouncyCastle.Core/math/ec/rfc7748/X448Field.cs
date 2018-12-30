@@ -1,4 +1,6 @@
-﻿namespace org.bouncycastle.math.ec.rfc7748
+﻿using Org.BouncyCastle.Math.Raw;
+
+namespace org.bouncycastle.math.ec.rfc7748
 {
 	using Nat = org.bouncycastle.math.raw.Nat;
 
@@ -504,7 +506,7 @@
 			z[15] = z15;
 		}
 
-		public static void negate(int[] x, int[] z)
+		public static void negate(uint[] x, uint[] z)
 		{
 			int[] zero = create();
 			sub(zero, x, z);

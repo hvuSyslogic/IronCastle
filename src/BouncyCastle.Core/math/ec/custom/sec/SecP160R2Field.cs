@@ -1,33 +1,32 @@
 ﻿using BouncyCastle.Core.Port;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
 
-	using Nat = org.bouncycastle.math.raw.Nat;
-	using Nat160 = org.bouncycastle.math.raw.Nat160;
 
 	public class SecP160R2Field
 	{
 		// 2^160 - 2^32 - 2^14 - 2^12 - 2^9 - 2^8 - 2^7 - 2^3 - 2^2 - 1
-		internal static readonly int[] P = new int[]{unchecked((int)0xFFFFAC73), unchecked((int)0xFFFFFFFE), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF)};
-		internal static readonly int[] PExt = new int[]{0x1B44BBA9, 0x0000A71A, 0x00000001, 0x00000000, 0x00000000, unchecked((int)0xFFFF58E6), unchecked((int)0xFFFFFFFD), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF)};
-		private static readonly int[] PExtInv = new int[]{unchecked((int)0xE4BB4457), unchecked((int)0xFFFF58E5), unchecked((int)0xFFFFFFFE), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), 0x0000A719, 0x00000002};
-		private const int P4 = unchecked((int)0xFFFFFFFF);
-		private const int PExt9 = unchecked((int)0xFFFFFFFF);
-		private const int PInv33 = 0x538D;
+		internal static readonly uint[] P = new uint[]{0xFFFFAC73, 0xFFFFFFFE, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF};
+		internal static readonly uint[] PExt = new uint[]{0x1B44BBA9, 0x0000A71A, 0x00000001, 0x00000000, 0x00000000, 0xFFFF58E6, 0xFFFFFFFD, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF};
+		private static readonly uint[] PExtInv = new uint[]{0xE4BB4457, 0xFFFF58E5, 0xFFFFFFFE, 0xFFFFFFFF, 0xFFFFFFFF, 0x0000A719, 0x00000002};
+		private const uint P4 = 0xFFFFFFFF;
+		private const uint PExt9 = 0xFFFFFFFF;
+		private const uint PInv33 = 0x538D;
 
-		public static void add(int[] x, int[] y, int[] z)
+		public static void add(uint[] x, uint[] y, uint[] z)
 		{
-			int c = Nat160.add(x, y, z);
+			uint c = Nat160.add(x, y, z);
 			if (c != 0 || (z[4] == P4 && Nat160.gte(z, P)))
 			{
 				Nat.add33To(5, PInv33, z);
 			}
 		}
 
-		public static void addExt(int[] xx, int[] yy, int[] zz)
+		public static void addExt(uint[] xx, uint[] yy, uint[] zz)
 		{
-			int c = Nat.add(10, xx, yy, zz);
+			uint c = Nat.add(10, xx, yy, zz);
 			if (c != 0 || (zz[9] == PExt9 && Nat.gte(10, zz, PExt)))
 			{
 				if (Nat.addTo(PExtInv.Length, PExtInv, zz) != 0)
@@ -37,18 +36,18 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		public static void addOne(int[] x, int[] z)
+		public static void addOne(uint[] x, uint[] z)
 		{
-			int c = Nat.inc(5, x, z);
+			uint c = Nat.inc(5, x, z);
 			if (c != 0 || (z[4] == P4 && Nat160.gte(z, P)))
 			{
 				Nat.add33To(5, PInv33, z);
 			}
 		}
 
-		public static int[] fromBigInteger(BigInteger x)
+		public static uint[] fromBigInteger(BigInteger x)
 		{
-			int[] z = Nat160.fromBigInteger(x);
+			uint[] z = Nat160.fromBigInteger(x);
 			if (z[4] == P4 && Nat160.gte(z, P))
 			{
 				Nat160.subFrom(P, z);
@@ -56,7 +55,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			return z;
 		}
 
-		public static void half(int[] x, int[] z)
+		public static void half(uint[] x, uint[] z)
 		{
 			if ((x[0] & 1) == 0)
 			{
@@ -64,21 +63,21 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 			else
 			{
-				int c = Nat160.add(x, P, z);
+				uint c = Nat160.add(x, P, z);
 				Nat.shiftDownBit(5, z, c);
 			}
 		}
 
-		public static void multiply(int[] x, int[] y, int[] z)
+		public static void multiply(uint[] x, uint[] y, uint[] z)
 		{
-			int[] tt = Nat160.createExt();
+			uint[] tt = Nat160.createExt();
 			Nat160.mul(x, y, tt);
 			reduce(tt, z);
 		}
 
-		public static void multiplyAddToExt(int[] x, int[] y, int[] zz)
+		public static void multiplyAddToExt(uint[] x, uint[] y, uint[] zz)
 		{
-			int c = Nat160.mulAddTo(x, y, zz);
+			uint c = Nat160.mulAddTo(x, y, zz);
 			if (c != 0 || (zz[9] == PExt9 && Nat.gte(10, zz, PExt)))
 			{
 				if (Nat.addTo(PExtInv.Length, PExtInv, zz) != 0)
@@ -88,7 +87,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		public static void negate(int[] x, int[] z)
+		public static void negate(uint[] x, uint[] z)
 		{
 			if (Nat160.isZero(x))
 			{
@@ -100,10 +99,10 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		public static void reduce(int[] xx, int[] z)
+		public static void reduce(uint[] xx, uint[] z)
 		{
-			long cc = Nat160.mul33Add(PInv33, xx, 5, xx, 0, z, 0);
-			int c = Nat160.mul33DWordAdd(PInv33, cc, z, 0);
+			ulong cc = Nat160.mul33Add(PInv33, xx, 5, xx, 0, z, 0);
+			uint c = Nat160.mul33DWordAdd(PInv33, cc, z, 0);
 
 			// assert c == 0 || c == 1;
 
@@ -113,7 +112,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		public static void reduce32(int x, int[] z)
+		public static void reduce32(uint x, uint[] z)
 		{
 			if ((x != 0 && Nat160.mul33WordAdd(PInv33, x, z, 0) != 0) || (z[4] == P4 && Nat160.gte(z, P)))
 			{
@@ -121,18 +120,18 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		public static void square(int[] x, int[] z)
+		public static void square(uint[] x, uint[] z)
 		{
-			int[] tt = Nat160.createExt();
+			uint[] tt = Nat160.createExt();
 			Nat160.square(x, tt);
 			reduce(tt, z);
 		}
 
-		public static void squareN(int[] x, int n, int[] z)
+		public static void squareN(uint[] x, int n, uint[] z)
 		{
 	//        assert n > 0;
 
-			int[] tt = Nat160.createExt();
+			uint[] tt = Nat160.createExt();
 			Nat160.square(x, tt);
 			reduce(tt, z);
 
@@ -143,7 +142,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		public static void subtract(int[] x, int[] y, int[] z)
+		public static void subtract(uint[] x, uint[] y, uint[] z)
 		{
 			int c = Nat160.sub(x, y, z);
 			if (c != 0)
@@ -152,7 +151,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		public static void subtractExt(int[] xx, int[] yy, int[] zz)
+		public static void subtractExt(uint[] xx, uint[] yy, uint[] zz)
 		{
 			int c = Nat.sub(10, xx, yy, zz);
 			if (c != 0)
@@ -164,9 +163,9 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		public static void twice(int[] x, int[] z)
+		public static void twice(uint[] x, uint[] z)
 		{
-			int c = Nat.shiftUpBit(5, x, 0, z);
+			uint c = Nat.shiftUpBit(5, x, 0, z);
 			if (c != 0 || (z[4] == P4 && Nat160.gte(z, P)))
 			{
 				Nat.add33To(5, PInv33, z);

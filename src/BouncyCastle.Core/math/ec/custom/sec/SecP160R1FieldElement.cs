@@ -1,18 +1,19 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.Port.java.lang;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
 
-	using Mod = org.bouncycastle.math.raw.Mod;
-	using Nat160 = org.bouncycastle.math.raw.Nat160;
+	
+	
 	using Arrays = org.bouncycastle.util.Arrays;
 
 	public class SecP160R1FieldElement : ECFieldElement.AbstractFp
 	{
 		public static readonly BigInteger Q = SecP160R1Curve.q;
 
-		protected internal int[] x;
+		protected internal uint[] x;
 
 		public SecP160R1FieldElement(BigInteger x)
 		{
@@ -29,7 +30,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			this.x = Nat160.create();
 		}
 
-		public SecP160R1FieldElement(int[] x)
+		public SecP160R1FieldElement(uint[] x)
 		{
 			this.x = x;
 		}
@@ -66,28 +67,28 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 		public override ECFieldElement add(ECFieldElement b)
 		{
-			int[] z = Nat160.create();
+			uint[] z = Nat160.create();
 			SecP160R1Field.add(x, ((SecP160R1FieldElement)b).x, z);
 			return new SecP160R1FieldElement(z);
 		}
 
 		public override ECFieldElement addOne()
 		{
-			int[] z = Nat160.create();
+			uint[] z = Nat160.create();
 			SecP160R1Field.addOne(x, z);
 			return new SecP160R1FieldElement(z);
 		}
 
 		public override ECFieldElement subtract(ECFieldElement b)
 		{
-			int[] z = Nat160.create();
+			uint[] z = Nat160.create();
 			SecP160R1Field.subtract(x, ((SecP160R1FieldElement)b).x, z);
 			return new SecP160R1FieldElement(z);
 		}
 
 		public override ECFieldElement multiply(ECFieldElement b)
 		{
-			int[] z = Nat160.create();
+			uint[] z = Nat160.create();
 			SecP160R1Field.multiply(x, ((SecP160R1FieldElement)b).x, z);
 			return new SecP160R1FieldElement(z);
 		}
@@ -95,7 +96,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 		public override ECFieldElement divide(ECFieldElement b)
 		{
 	//        return multiply(b.invert());
-			int[] z = Nat160.create();
+			uint[] z = Nat160.create();
 			Mod.invert(SecP160R1Field.P, ((SecP160R1FieldElement)b).x, z);
 			SecP160R1Field.multiply(z, x, z);
 			return new SecP160R1FieldElement(z);
@@ -103,14 +104,14 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 		public override ECFieldElement negate()
 		{
-			int[] z = Nat160.create();
+			uint[] z = Nat160.create();
 			SecP160R1Field.negate(x, z);
 			return new SecP160R1FieldElement(z);
 		}
 
 		public override ECFieldElement square()
 		{
-			int[] z = Nat160.create();
+			uint[] z = Nat160.create();
 			SecP160R1Field.square(x, z);
 			return new SecP160R1FieldElement(z);
 		}
@@ -118,7 +119,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 		public override ECFieldElement invert()
 		{
 	//        return new SecP160R1FieldElement(toBigInteger().modInverse(Q));
-			int[] z = Nat160.create();
+			uint[] z = Nat160.create();
 			Mod.invert(SecP160R1Field.P, x, z);
 			return new SecP160R1FieldElement(z);
 		}
@@ -140,41 +141,41 @@ namespace org.bouncycastle.math.ec.custom.sec
 			 *     1, 2, 4, 8, 16, 32, 64, 128, [129]
 			 */
 
-			int[] x1 = this.x;
+			uint[] x1 = this.x;
 			if (Nat160.isZero(x1) || Nat160.isOne(x1))
 			{
 				return this;
 			}
 
-			int[] x2 = Nat160.create();
+			uint[] x2 = Nat160.create();
 			SecP160R1Field.square(x1, x2);
 			SecP160R1Field.multiply(x2, x1, x2);
-			int[] x4 = Nat160.create();
+			uint[] x4 = Nat160.create();
 			SecP160R1Field.squareN(x2, 2, x4);
 			SecP160R1Field.multiply(x4, x2, x4);
-			int[] x8 = x2;
+			var x8 = x2;
 			SecP160R1Field.squareN(x4, 4, x8);
 			SecP160R1Field.multiply(x8, x4, x8);
-			int[] x16 = x4;
+			var x16 = x4;
 			SecP160R1Field.squareN(x8, 8, x16);
 			SecP160R1Field.multiply(x16, x8, x16);
-			int[] x32 = x8;
+			var x32 = x8;
 			SecP160R1Field.squareN(x16, 16, x32);
 			SecP160R1Field.multiply(x32, x16, x32);
-			int[] x64 = x16;
+			var x64 = x16;
 			SecP160R1Field.squareN(x32, 32, x64);
 			SecP160R1Field.multiply(x64, x32, x64);
-			int[] x128 = x32;
+			var x128 = x32;
 			SecP160R1Field.squareN(x64, 64, x128);
 			SecP160R1Field.multiply(x128, x64, x128);
-			int[] x129 = x64;
+            var x129 = x64;
 			SecP160R1Field.square(x128, x129);
 			SecP160R1Field.multiply(x129, x1, x129);
 
-			int[] t1 = x129;
+            var t1 = x129;
 			SecP160R1Field.squareN(t1, 29, t1);
 
-			int[] t2 = x128;
+            var t2 = x128;
 			SecP160R1Field.square(t1, t2);
 
 			return Nat160.eq(x1, t2) ? new SecP160R1FieldElement(t1) : null;

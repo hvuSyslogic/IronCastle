@@ -50,8 +50,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			}
 
 			length = (int)((uint)(numColumns + 31) >> 5);
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: matrix = new int[numRows][length];
+
 			matrix = RectangularArrays.ReturnRectangularIntArray(numRows, length);
 
 			// number of "full" integer
@@ -196,8 +195,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			numRows = m;
 			numColumns = n;
 			length = (int)((uint)(n + 31) >> 5);
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: matrix = new int[numRows][length];
+
 			matrix = RectangularArrays.ReturnRectangularIntArray(numRows, length);
 			for (int i = 0; i < numRows; i++)
 			{
@@ -217,8 +215,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			numRows = n;
 			numColumns = n;
 			length = (int)((uint)(n + 31) >> 5);
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: matrix = new int[numRows][length];
+
 			matrix = RectangularArrays.ReturnRectangularIntArray(numRows, length);
 			for (int i = 0; i < numRows; i++)
 			{
@@ -244,8 +241,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			numRows = n;
 			numColumns = n;
 			length = (int)((uint)(n + 31) >> 5);
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: matrix = new int[numRows][length];
+
 			matrix = RectangularArrays.ReturnRectangularIntArray(numRows, length);
 			for (int i = 0; i < numRows; i++)
 			{
@@ -277,8 +273,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			numRows = n;
 			numColumns = n;
 			length = (int)((uint)(n + 31) >> 5);
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: matrix = new int[numRows][length];
+
 			matrix = RectangularArrays.ReturnRectangularIntArray(numRows, length);
 			int rest = n & 0x1f;
 			int help;
@@ -320,8 +315,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			numRows = n;
 			numColumns = n;
 			length = (int)((uint)(n + 31) >> 5);
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: matrix = new int[numRows][length];
+
 			matrix = RectangularArrays.ReturnRectangularIntArray(numRows, length);
 			GF2Matrix lm = new GF2Matrix(n, Matrix.MATRIX_TYPE_RANDOM_LT, sr);
 			GF2Matrix um = new GF2Matrix(n, Matrix.MATRIX_TYPE_RANDOM_UT, sr);
@@ -357,8 +351,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			Permutation p = new Permutation(n, sr);
 			int[] pVec = p.getVector();
 
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: int[][] matrix = new int[n][length];
+
 			int[][] matrix = RectangularArrays.ReturnRectangularIntArray(n, length);
 			for (int i = 0; i < n; i++)
 			{
@@ -551,8 +544,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 				throw new ArithmeticException("empty submatrix");
 			}
 			int length = (numRows + 31) >> 5;
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: int[][] result = new int[numRows][length];
+
 			int[][] result = RectangularArrays.ReturnRectangularIntArray(numRows, length);
 			int bitMask = (1 << (numRows & 0x1f)) - 1;
 			if (bitMask == 0)
@@ -694,8 +686,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		/// <returns> <tt>(this)<sup>T</sup></tt> </returns>
 		public virtual Matrix computeTranspose()
 		{
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: int[][] result = new int[numColumns][(int)((uint)(numRows + 31) >> 5)];
+
 			int[][] result = RectangularArrays.ReturnRectangularIntArray(numColumns, (int)((uint)(numRows + 31) >> 5));
 			for (int i = 0; i < numRows; i++)
 			{
@@ -729,8 +720,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			}
 
 			// clone this matrix
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: int[][] tmpMatrix = new int[numRows][length];
+
 			int[][] tmpMatrix = RectangularArrays.ReturnRectangularIntArray(numRows, length);
 			for (int i = numRows - 1; i >= 0; i--)
 			{
@@ -738,8 +728,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			}
 
 			// initialize inverse matrix as unit matrix
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: int[][] invMatrix = new int[numRows][length];
+
 			int[][] invMatrix = RectangularArrays.ReturnRectangularIntArray(numRows, length);
 			for (int i = numRows - 1; i >= 0; i--)
 			{

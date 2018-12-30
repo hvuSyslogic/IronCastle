@@ -188,8 +188,7 @@ namespace org.bouncycastle.pqc.crypto.gmss
 			// copy the main tree authentication path
 			for (int j = 0; j < numLayer; j++)
 			{
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: currentAuthPaths[j] = new byte[helpCurrentAuthPaths[j].Length][mdLength];
+
 				currentAuthPaths[j] = RectangularArrays.ReturnRectangularSbyteArray(helpCurrentAuthPaths[j].Length, mdLength);
 				for (int i = 0; i < helpCurrentAuthPaths[j].Length; i++)
 				{
@@ -351,8 +350,7 @@ namespace org.bouncycastle.pqc.crypto.gmss
 				}
 
 				// get authentication path from the signature
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: authPath = new byte[gmssPS.getHeightOfTrees()[j]][mdLength];
+
 				authPath = RectangularArrays.ReturnRectangularSbyteArray(gmssPS.getHeightOfTrees()[j], mdLength);
 				for (int i = 0; i < authPath.Length; i++)
 				{

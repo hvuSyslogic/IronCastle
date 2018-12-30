@@ -16,7 +16,6 @@ namespace org.bouncycastle.crypto.@params
 		private const int UNUSED_R = 32;
 
 		private readonly byte[] ki;
-//JAVA TO C# CONVERTER NOTE: Fields cannot have the same name as methods:
 		private readonly bool useCounter_Renamed;
 		private readonly int r;
 		private readonly byte[] fixedInputData;

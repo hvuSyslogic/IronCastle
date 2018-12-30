@@ -120,8 +120,6 @@ namespace org.bouncycastle.crypto.engines
 
 			int KC = (int)((uint)keyLen >> 2);
 			ROUNDS = KC + 6; // This is not always true for the generalized Rijndael that allows larger block sizes
-//JAVA TO C# CONVERTER NOTE: The following call to the 'RectangularArrays' helper class reproduces the rectangular array initialization that is automatic in Java:
-//ORIGINAL LINE: int[][] W = new int[ROUNDS+1][4]; // 4 words in a block
 			int[][] W = RectangularArrays.ReturnRectangularIntArray(ROUNDS + 1, 4); // 4 words in a block
 
 			switch (KC)

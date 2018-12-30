@@ -265,5 +265,10 @@ namespace BouncyCastle.Core.Port
         {
             throw new NotImplementedException();
         }
+
+        public BigInteger nextProbablePrime()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

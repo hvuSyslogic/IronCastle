@@ -28,8 +28,7 @@ namespace org.bouncycastle.crypto.util
 			{
 				return primitive.getEncoded();
 			}
-//JAVA TO C# CONVERTER WARNING: 'final' catch parameters are not available in C#:
-//ORIGINAL LINE: catch (final java.io.IOException e)
+
 			catch (IOException e)
 			{
 				throw new IllegalStateExceptionAnonymousInnerClass("Cannot get encoding: " + e.Message, e);

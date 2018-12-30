@@ -76,19 +76,19 @@ namespace org.bouncycastle.crypto.digests
 			Pack.intToBigEndian(xBufOff, state, 8);
 			Pack.longToBigEndian(byteCount1, state, 12);
 			Pack.longToBigEndian(byteCount2, state, 20);
-			Pack.UlongToBigEndian(H1, state, 28);
-			Pack.UlongToBigEndian(H2, state, 36);
-			Pack.UlongToBigEndian(H3, state, 44);
-			Pack.UlongToBigEndian(H4, state, 52);
-			Pack.UlongToBigEndian(H5, state, 60);
-			Pack.UlongToBigEndian(H6, state, 68);
-			Pack.UlongToBigEndian(H7, state, 76);
-			Pack.UlongToBigEndian(H8, state, 84);
+			Pack.ulongToBigEndian(H1, state, 28);
+			Pack.ulongToBigEndian(H2, state, 36);
+			Pack.ulongToBigEndian(H3, state, 44);
+			Pack.ulongToBigEndian(H4, state, 52);
+			Pack.ulongToBigEndian(H5, state, 60);
+			Pack.ulongToBigEndian(H6, state, 68);
+			Pack.ulongToBigEndian(H7, state, 76);
+			Pack.ulongToBigEndian(H8, state, 84);
 
 			Pack.intToBigEndian(wOff, state, 92);
 			for (int i = 0; i < wOff; i++)
 			{
-				Pack.UlongToBigEndian(W[i], state, 96 + (i * 8));
+				Pack.ulongToBigEndian(W[i], state, 96 + (i * 8));
 			}
 		}
 

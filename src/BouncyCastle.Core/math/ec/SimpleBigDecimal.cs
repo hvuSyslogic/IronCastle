@@ -1,4 +1,5 @@
 ﻿using BouncyCastle.Core.Port;
+using BouncyCastle.Core.Port.java.lang;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
@@ -11,7 +12,7 @@ namespace org.bouncycastle.math.ec
 	/// <seealso cref="BigInteger"/> with a few digits on the right of
 	/// the decimal point. The number of (binary) digits on the right of the decimal
 	/// point is called the <code>scale</code> of the <code>SimpleBigDecimal</code>.
-	/// Unlike in <seealso cref="java.math.BigDecimal BigDecimal"/>, the scale is not adjusted
+	/// Unlike in <seealso cref="BigDecimal"/>, the scale is not adjusted
 	/// automatically, but must be set manually. All <code>SimpleBigDecimal</code>s
 	/// taking part in the same arithmetic operation must have equal scale. The
 	/// result of a multiplication of two <code>SimpleBigDecimal</code>s returns a

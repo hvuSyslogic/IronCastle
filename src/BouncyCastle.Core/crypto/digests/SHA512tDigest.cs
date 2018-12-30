@@ -216,8 +216,7 @@ namespace org.bouncycastle.crypto.digests
 
 		public override byte[] getEncodedState()
 		{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final int baseSize = getEncodedStateSize();
+
 			int baseSize = getEncodedStateSize();
 			byte[] encoded = new byte[baseSize + 4];
 			populateState(encoded);

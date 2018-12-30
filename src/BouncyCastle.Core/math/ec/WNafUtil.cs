@@ -340,15 +340,12 @@ namespace org.bouncycastle.math.ec
 			return w + 2;
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static ECPoint mapPointWithPrecomp(ECPoint p, final int width, final boolean includeNegated, final ECPointMap pointMap)
+
 		public static ECPoint mapPointWithPrecomp(ECPoint p, int width, bool includeNegated, ECPointMap pointMap)
 		{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final ECCurve c = p.getCurve();
+
 			ECCurve c = p.getCurve();
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final WNafPreCompInfo wnafPreCompP = precompute(p, width, includeNegated);
+
 			WNafPreCompInfo wnafPreCompP = precompute(p, width, includeNegated);
 
 			ECPoint q = pointMap.map(p);
@@ -403,12 +400,10 @@ namespace org.bouncycastle.math.ec
 			}
 		}
 
-//JAVA TO C# CONVERTER WARNING: 'final' parameters are not available in .NET:
-//ORIGINAL LINE: public static WNafPreCompInfo precompute(final ECPoint p, final int width, final boolean includeNegated)
+
 		public static WNafPreCompInfo precompute(ECPoint p, int width, bool includeNegated)
 		{
-//JAVA TO C# CONVERTER WARNING: The original Java variable was marked 'final':
-//ORIGINAL LINE: final ECCurve c = p.getCurve();
+
 			ECCurve c = p.getCurve();
 
 			return (WNafPreCompInfo)c.precompute(p, PRECOMP_NAME, new PreCompCallbackAnonymousInnerClass2(p, width, includeNegated, c));
