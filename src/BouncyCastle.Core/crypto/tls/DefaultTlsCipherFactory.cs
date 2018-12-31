@@ -1,18 +1,10 @@
-﻿namespace org.bouncycastle.crypto.tls
+﻿using org.bouncycastle.crypto.engines;
+using org.bouncycastle.crypto.modes;
+
+namespace org.bouncycastle.crypto.tls
 {
 
-	using AESEngine = org.bouncycastle.crypto.engines.AESEngine;
-	using CamelliaEngine = org.bouncycastle.crypto.engines.CamelliaEngine;
-	using DESedeEngine = org.bouncycastle.crypto.engines.DESedeEngine;
-	using RC4Engine = org.bouncycastle.crypto.engines.RC4Engine;
-	using SEEDEngine = org.bouncycastle.crypto.engines.SEEDEngine;
-	using Salsa20Engine = org.bouncycastle.crypto.engines.Salsa20Engine;
-	using AEADBlockCipher = org.bouncycastle.crypto.modes.AEADBlockCipher;
-	using CBCBlockCipher = org.bouncycastle.crypto.modes.CBCBlockCipher;
-	using CCMBlockCipher = org.bouncycastle.crypto.modes.CCMBlockCipher;
-	using GCMBlockCipher = org.bouncycastle.crypto.modes.GCMBlockCipher;
-	using OCBBlockCipher = org.bouncycastle.crypto.modes.OCBBlockCipher;
-
+											
 	public class DefaultTlsCipherFactory : AbstractTlsCipherFactory
 	{
 		public override TlsCipher createCipher(TlsContext context, int encryptionAlgorithm, int macAlgorithm)

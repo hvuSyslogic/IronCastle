@@ -1,14 +1,14 @@
 ﻿using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.crypto.util;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.encodings
 {
 
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using DigestFactory = org.bouncycastle.crypto.util.DigestFactory;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+			
 	/// <summary>
 	/// Optimal Asymmetric Encryption Padding (OAEP) - see PKCS 1 V 2.
 	/// </summary>

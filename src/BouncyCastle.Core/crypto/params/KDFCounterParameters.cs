@@ -1,9 +1,9 @@
 ﻿using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.@params
 {
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// This KDF has been defined by the publicly available NIST SP 800-108 specification.
 	/// NIST SP800-108 allows for alternative orderings of the input fields, meaning that the input can be formated in multiple ways.

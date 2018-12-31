@@ -1,12 +1,12 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.math.linearalgebra
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// This class implements the abstract class <tt>Vector</tt> for the case of
 	/// vectors over the finite field GF(2). <br>

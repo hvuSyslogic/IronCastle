@@ -1,12 +1,12 @@
 ﻿using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using Integers = org.bouncycastle.util.Integers;
-
+	
 	public class TlsExtensionsUtils
 	{
 		public static readonly int? EXT_encrypt_then_mac = Integers.valueOf(ExtensionType.encrypt_then_mac);

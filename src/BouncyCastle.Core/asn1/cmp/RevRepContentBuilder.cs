@@ -1,10 +1,10 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.asn1.crmf;
+using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port;
 
 namespace org.bouncycastle.asn1.cmp
 {
-	using CertId = org.bouncycastle.asn1.crmf.CertId;
-	using CertificateList = org.bouncycastle.asn1.x509.CertificateList;
-
+		
 	public class RevRepContentBuilder
 	{
 		private ASN1EncodableVector status = new ASN1EncodableVector();

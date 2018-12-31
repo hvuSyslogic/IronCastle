@@ -1,14 +1,13 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.macs
 {
 
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using Integers = org.bouncycastle.util.Integers;
-	using Memoable = org.bouncycastle.util.Memoable;
-
+			
 	/// <summary>
 	/// HMAC implementation based on RFC2104
 	/// 

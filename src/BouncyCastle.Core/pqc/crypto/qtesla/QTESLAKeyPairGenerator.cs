@@ -1,13 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.pqc.crypto.qtesla
 {
 
-	using AsymmetricCipherKeyPair = org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-	using AsymmetricCipherKeyPairGenerator = org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-	using KeyGenerationParameters = org.bouncycastle.crypto.KeyGenerationParameters;
-
+			
 	/// <summary>
 	/// Key-pair generator for qTESLA keys.
 	/// </summary>

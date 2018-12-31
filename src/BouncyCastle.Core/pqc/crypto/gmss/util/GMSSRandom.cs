@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.pqc.crypto.gmss.util
-{
-	using Digest = org.bouncycastle.crypto.Digest;
+﻿using org.bouncycastle.crypto;
 
+namespace org.bouncycastle.pqc.crypto.gmss.util
+{
+	
 	/// <summary>
 	/// This class provides a PRNG for GMSS
 	/// </summary>

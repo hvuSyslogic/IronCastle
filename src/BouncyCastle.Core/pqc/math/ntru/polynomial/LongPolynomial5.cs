@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.pqc.math.ntru.polynomial
-{
-	using Arrays = org.bouncycastle.util.Arrays;
+﻿using org.bouncycastle.util;
 
+namespace org.bouncycastle.pqc.math.ntru.polynomial
+{
+	
 	/// <summary>
 	/// A polynomial class that combines five coefficients into one <code>long</code> value for
 	/// faster multiplication by a ternary polynomial.<br>

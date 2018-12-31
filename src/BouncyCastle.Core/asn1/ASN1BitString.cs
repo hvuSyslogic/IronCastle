@@ -2,13 +2,13 @@
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
+using org.bouncycastle.util.io;
 
 namespace org.bouncycastle.asn1
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Streams = org.bouncycastle.util.io.Streams;
-
+		
 	/// <summary>
 	/// Base class for BIT STRING objects
 	/// </summary>

@@ -1,10 +1,10 @@
 ﻿using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.cryptopro
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// ASN.1 algorithm identifier parameters for GOST-28147
 	/// </summary>

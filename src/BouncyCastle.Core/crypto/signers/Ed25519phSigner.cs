@@ -1,12 +1,11 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.math.ec.rfc8032;
+using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.signers
 {
-	using Ed25519PrivateKeyParameters = org.bouncycastle.crypto.@params.Ed25519PrivateKeyParameters;
-	using Ed25519PublicKeyParameters = org.bouncycastle.crypto.@params.Ed25519PublicKeyParameters;
-	using Ed25519 = org.bouncycastle.math.ec.rfc8032.Ed25519;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+				
 	public class Ed25519phSigner : Signer
 	{
 		private readonly Digest prehash = Ed25519.createPrehash();

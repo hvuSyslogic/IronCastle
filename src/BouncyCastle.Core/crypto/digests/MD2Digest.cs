@@ -1,10 +1,10 @@
 ﻿using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.digests
 {
 	using org.bouncycastle.crypto;
-	using Memoable = org.bouncycastle.util.Memoable;
-
+	
 	/// <summary>
 	/// implementation of MD2
 	/// as outlined in RFC1319 by B.Kaliski from RSA Laboratories April 1992

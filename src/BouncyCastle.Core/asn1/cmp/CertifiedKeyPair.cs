@@ -1,10 +1,9 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.crmf;
+using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.cmp
 {
-	using EncryptedValue = org.bouncycastle.asn1.crmf.EncryptedValue;
-	using PKIPublicationInfo = org.bouncycastle.asn1.crmf.PKIPublicationInfo;
-
+		
 	/// <summary>
 	/// <pre>
 	/// CertifiedKeyPair ::= SEQUENCE {

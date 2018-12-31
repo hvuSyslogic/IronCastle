@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.crypto.ec
-{
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
+﻿using org.bouncycastle.math.ec;
 
+namespace org.bouncycastle.crypto.ec
+{
+	
 	public interface ECEncryptor
 	{
 		void init(CipherParameters @params);

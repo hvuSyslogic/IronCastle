@@ -1,13 +1,12 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.macs;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.modes
 {
-	using CMac = org.bouncycastle.crypto.macs.CMac;
-	using AEADParameters = org.bouncycastle.crypto.@params.AEADParameters;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+				
 	/// <summary>
 	/// A Two-Pass Authenticated-Encryption Scheme Optimized for Simplicity and
 	/// Efficiency - by M. Bellare, P. Rogaway, D. Wagner.

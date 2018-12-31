@@ -1,13 +1,12 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.x500;
+using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.asn1.pkcs
 {
 
-	using X500Name = org.bouncycastle.asn1.x500.X500Name;
-	using SubjectPublicKeyInfo = org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-	using X509Name = org.bouncycastle.asn1.x509.X509Name;
-
+			
 	/// <summary>
 	/// PKCS10 CertificationRequestInfo object.
 	/// <pre>

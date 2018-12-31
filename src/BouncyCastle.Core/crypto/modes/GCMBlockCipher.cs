@@ -1,20 +1,13 @@
 ﻿using System;
+using org.bouncycastle.crypto.modes.gcm;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.modes
 {
-	using BasicGCMExponentiator = org.bouncycastle.crypto.modes.gcm.BasicGCMExponentiator;
-	using GCMExponentiator = org.bouncycastle.crypto.modes.gcm.GCMExponentiator;
-	using GCMMultiplier = org.bouncycastle.crypto.modes.gcm.GCMMultiplier;
-	using GCMUtil = org.bouncycastle.crypto.modes.gcm.GCMUtil;
-	using Tables4kGCMMultiplier = org.bouncycastle.crypto.modes.gcm.Tables4kGCMMultiplier;
-	using AEADParameters = org.bouncycastle.crypto.@params.AEADParameters;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Pack = org.bouncycastle.util.Pack;
-
+										
 	/// <summary>
 	/// Implements the Galois/Counter mode (GCM) detailed in
 	/// NIST Special Publication 800-38D.

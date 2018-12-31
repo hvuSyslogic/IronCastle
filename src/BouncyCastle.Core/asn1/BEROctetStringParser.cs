@@ -1,11 +1,11 @@
 ﻿using System.IO;
 using org.bouncycastle.Port.java.io;
+using org.bouncycastle.util.io;
 
 namespace org.bouncycastle.asn1
 {
 
-	using Streams = org.bouncycastle.util.io.Streams;
-
+	
 	/// <summary>
 	/// A parser for indefinite-length OCTET STRINGs.
 	/// </summary>

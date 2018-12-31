@@ -1,9 +1,9 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.cms
 {
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-
+	
 	/// <summary>
 	/// <a href="http://tools.ietf.org/html/rfc3274">RFC 3274</a>: CMS Compressed Data.
 	/// 

@@ -1,14 +1,13 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.signers
 {
 
-	using RSAKeyParameters = org.bouncycastle.crypto.@params.RSAKeyParameters;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+			
 	/// <summary>
 	/// X9.31-1998 - signing using a hash.
 	/// <para>

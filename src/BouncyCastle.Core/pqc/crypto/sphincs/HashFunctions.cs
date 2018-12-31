@@ -1,9 +1,10 @@
-﻿namespace org.bouncycastle.pqc.crypto.sphincs
+﻿using org.bouncycastle.crypto;
+using org.bouncycastle.util;
+
+namespace org.bouncycastle.pqc.crypto.sphincs
 {
 
-	using Digest = org.bouncycastle.crypto.Digest;
-	using Strings = org.bouncycastle.util.Strings;
-
+		
 
 	public class HashFunctions
 	{

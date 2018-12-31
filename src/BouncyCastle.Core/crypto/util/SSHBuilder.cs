@@ -1,12 +1,12 @@
 ﻿using System.IO;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.util
 {
 
-	using Strings = org.bouncycastle.util.Strings;
-
+	
 	public class SSHBuilder
 	{
 		private readonly ByteArrayOutputStream bos = new ByteArrayOutputStream();

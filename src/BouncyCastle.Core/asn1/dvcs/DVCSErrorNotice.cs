@@ -1,8 +1,9 @@
-﻿namespace org.bouncycastle.asn1.dvcs
-{
-	using PKIStatusInfo = org.bouncycastle.asn1.cmp.PKIStatusInfo;
-	using GeneralName = org.bouncycastle.asn1.x509.GeneralName;
+﻿using org.bouncycastle.asn1.cmp;
+using org.bouncycastle.asn1.x509;
 
+namespace org.bouncycastle.asn1.dvcs
+{
+		
 	/// <summary>
 	/// <pre>
 	///     DVCSErrorNotice ::= SEQUENCE {

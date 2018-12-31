@@ -1,11 +1,11 @@
 ﻿using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.digests
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 
 	public class NullDigest : Digest
 	{

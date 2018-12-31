@@ -1,16 +1,12 @@
 ﻿using System;
+using org.bouncycastle.crypto;
+using org.bouncycastle.pqc.crypto.gmss.util;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.crypto.gmss
 {
-
-	using Digest = org.bouncycastle.crypto.Digest;
-	using GMSSRandom = org.bouncycastle.pqc.crypto.gmss.util.GMSSRandom;
-	using WinternitzOTSignature = org.bouncycastle.pqc.crypto.gmss.util.WinternitzOTSignature;
-	using Arrays = org.bouncycastle.util.Arrays;
-
-
 	/// <summary>
 	/// This class provides a specification for a GMSS private key.
 	/// </summary>

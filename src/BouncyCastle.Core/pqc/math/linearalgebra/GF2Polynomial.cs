@@ -2,14 +2,14 @@
 using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 using Random = org.bouncycastle.Port.java.util.Random;
 
 namespace org.bouncycastle.pqc.math.linearalgebra
 {
 
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 
 	/// <summary>
 	/// This class stores very long strings of bits and does some basic arithmetics.

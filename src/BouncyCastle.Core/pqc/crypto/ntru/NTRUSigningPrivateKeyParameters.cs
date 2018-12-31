@@ -1,17 +1,13 @@
 ﻿using System.IO;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.pqc.math.ntru.polynomial;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.pqc.crypto.ntru
 {
 
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using DenseTernaryPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.DenseTernaryPolynomial;
-	using IntegerPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.IntegerPolynomial;
-	using Polynomial = org.bouncycastle.pqc.math.ntru.polynomial.Polynomial;
-	using ProductFormPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.ProductFormPolynomial;
-	using SparseTernaryPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.SparseTernaryPolynomial;
-
+						
 	/// <summary>
 	/// A NtruSign private key comprises one or more <seealso cref="NTRUSigningPrivateKeyParameters.Basis"/> of three polynomials each,
 	/// except the zeroth basis for which <code>h</code> is undefined.

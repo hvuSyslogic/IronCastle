@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.pqc.crypto.ntru
-{
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
+﻿using org.bouncycastle.crypto.@params;
 
+namespace org.bouncycastle.pqc.crypto.ntru
+{
+	
 	public class NTRUEncryptionKeyParameters : AsymmetricKeyParameter
 	{
 		protected internal readonly NTRUEncryptionParameters @params;

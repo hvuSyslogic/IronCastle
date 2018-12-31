@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1;
 using org.bouncycastle.asn1.pkcs;
 using org.bouncycastle.asn1.x509;
 using org.bouncycastle.asn1.x9;
@@ -8,6 +9,9 @@ using org.bouncycastle.asn1.cryptopro;
 using org.bouncycastle.asn1.rosstandart;
 using org.bouncycastle.asn1.ua;
 using org.bouncycastle.asn1.edec;
+using org.bouncycastle.crypto.ec;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.math.ec;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
@@ -16,62 +20,7 @@ using org.bouncycastle.Port.java.util;
 namespace org.bouncycastle.crypto.util
 {
 
-	using ASN1Encodable = org.bouncycastle.asn1.ASN1Encodable;
-	using ASN1InputStream = org.bouncycastle.asn1.ASN1InputStream;
-	using ASN1Integer = org.bouncycastle.asn1.ASN1Integer;
-	using ASN1ObjectIdentifier = org.bouncycastle.asn1.ASN1ObjectIdentifier;
-	using ASN1OctetString = org.bouncycastle.asn1.ASN1OctetString;
-	using ASN1Primitive = org.bouncycastle.asn1.ASN1Primitive;
-	using DERBitString = org.bouncycastle.asn1.DERBitString;
-	using DEROctetString = org.bouncycastle.asn1.DEROctetString;
-	using CryptoProObjectIdentifiers = org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-	using ECGOST3410NamedCurves = org.bouncycastle.asn1.cryptopro.ECGOST3410NamedCurves;
-	using GOST3410PublicKeyAlgParameters = org.bouncycastle.asn1.cryptopro.GOST3410PublicKeyAlgParameters;
-	using EdECObjectIdentifiers = org.bouncycastle.asn1.edec.EdECObjectIdentifiers;
-	using ElGamalParameter = org.bouncycastle.asn1.oiw.ElGamalParameter;
-	using OIWObjectIdentifiers = org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-	using DHParameter = org.bouncycastle.asn1.pkcs.DHParameter;
-	using PKCSObjectIdentifiers = org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-	using RSAPublicKey = org.bouncycastle.asn1.pkcs.RSAPublicKey;
-	using RosstandartObjectIdentifiers = org.bouncycastle.asn1.rosstandart.RosstandartObjectIdentifiers;
-	using DSTU4145BinaryField = org.bouncycastle.asn1.ua.DSTU4145BinaryField;
-	using DSTU4145ECBinary = org.bouncycastle.asn1.ua.DSTU4145ECBinary;
-	using DSTU4145NamedCurves = org.bouncycastle.asn1.ua.DSTU4145NamedCurves;
-	using DSTU4145Params = org.bouncycastle.asn1.ua.DSTU4145Params;
-	using DSTU4145PointEncoder = org.bouncycastle.asn1.ua.DSTU4145PointEncoder;
-	using UAObjectIdentifiers = org.bouncycastle.asn1.ua.UAObjectIdentifiers;
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-	using DSAParameter = org.bouncycastle.asn1.x509.DSAParameter;
-	using SubjectPublicKeyInfo = org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-	using X509ObjectIdentifiers = org.bouncycastle.asn1.x509.X509ObjectIdentifiers;
-	using DHPublicKey = org.bouncycastle.asn1.x9.DHPublicKey;
-	using DomainParameters = org.bouncycastle.asn1.x9.DomainParameters;
-	using ECNamedCurveTable = org.bouncycastle.asn1.x9.ECNamedCurveTable;
-	using ValidationParams = org.bouncycastle.asn1.x9.ValidationParams;
-	using X962Parameters = org.bouncycastle.asn1.x9.X962Parameters;
-	using X9ECParameters = org.bouncycastle.asn1.x9.X9ECParameters;
-	using X9ECPoint = org.bouncycastle.asn1.x9.X9ECPoint;
-	using X9IntegerConverter = org.bouncycastle.asn1.x9.X9IntegerConverter;
-	using X9ObjectIdentifiers = org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
-	using CustomNamedCurves = org.bouncycastle.crypto.ec.CustomNamedCurves;
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using DHParameters = org.bouncycastle.crypto.@params.DHParameters;
-	using DHPublicKeyParameters = org.bouncycastle.crypto.@params.DHPublicKeyParameters;
-	using DHValidationParameters = org.bouncycastle.crypto.@params.DHValidationParameters;
-	using DSAParameters = org.bouncycastle.crypto.@params.DSAParameters;
-	using DSAPublicKeyParameters = org.bouncycastle.crypto.@params.DSAPublicKeyParameters;
-	using ECDomainParameters = org.bouncycastle.crypto.@params.ECDomainParameters;
-	using ECNamedDomainParameters = org.bouncycastle.crypto.@params.ECNamedDomainParameters;
-	using ECPublicKeyParameters = org.bouncycastle.crypto.@params.ECPublicKeyParameters;
-	using Ed25519PublicKeyParameters = org.bouncycastle.crypto.@params.Ed25519PublicKeyParameters;
-	using Ed448PublicKeyParameters = org.bouncycastle.crypto.@params.Ed448PublicKeyParameters;
-	using ElGamalParameters = org.bouncycastle.crypto.@params.ElGamalParameters;
-	using ElGamalPublicKeyParameters = org.bouncycastle.crypto.@params.ElGamalPublicKeyParameters;
-	using RSAKeyParameters = org.bouncycastle.crypto.@params.RSAKeyParameters;
-	using X25519PublicKeyParameters = org.bouncycastle.crypto.@params.X25519PublicKeyParameters;
-	using X448PublicKeyParameters = org.bouncycastle.crypto.@params.X448PublicKeyParameters;
-	using ECCurve = org.bouncycastle.math.ec.ECCurve;
-
+																																																							
 	/// <summary>
 	/// Factory to create asymmetric public key parameters for asymmetric ciphers from range of
 	/// ASN.1 encoded SubjectPublicKeyInfo objects.

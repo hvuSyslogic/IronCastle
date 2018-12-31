@@ -1,11 +1,10 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.engines
 {
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+		
 	/// <summary>
 	/// Block cipher Shacal2, designed by Helena Handschuh and David Naccache,
 	/// based on hash function SHA-256,

@@ -1,19 +1,18 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto;
+using org.bouncycastle.crypto.digests;
+using org.bouncycastle.math.ec.rfc7748;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 using Org.BouncyCastle.Math.Raw;
+using Strings = org.bouncycastle.util.Strings;
 
 namespace org.bouncycastle.math.ec.rfc8032
 {
 
-	using Digest = org.bouncycastle.crypto.Digest;
-	using SHA512Digest = org.bouncycastle.crypto.digests.SHA512Digest;
-	using X25519 = org.bouncycastle.math.ec.rfc7748.X25519;
-	using X25519Field = org.bouncycastle.math.ec.rfc7748.X25519Field;
-	
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Strings = org.bouncycastle.util.Strings;
-
+					
+		
 	public abstract class Ed25519
 	{
 		public sealed class Algorithm

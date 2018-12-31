@@ -1,15 +1,13 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.modes
 {
 
-	using AEADParameters = org.bouncycastle.crypto.@params.AEADParameters;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+				
 	/// <summary>
 	/// An implementation of <a href="http://tools.ietf.org/html/rfc7253">RFC 7253 on The OCB
 	/// Authenticated-Encryption Algorithm</a>, licensed per:

@@ -1,15 +1,15 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.math.ec.rfc8032;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
+using org.bouncycastle.util.io;
 
 namespace org.bouncycastle.crypto.@params
 {
 
-	using Ed25519 = org.bouncycastle.math.ec.rfc8032.Ed25519;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Streams = org.bouncycastle.util.io.Streams;
-
+			
 	public sealed class Ed25519PrivateKeyParameters : AsymmetricKeyParameter
 	{
 		public const int KEY_SIZE = Ed25519.SECRET_KEY_SIZE;

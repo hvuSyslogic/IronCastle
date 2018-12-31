@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.util.encoders;
 
 namespace org.bouncycastle.crypto.agreement.srp
 {
 
-	using SRP6GroupParameters = org.bouncycastle.crypto.@params.SRP6GroupParameters;
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+		
 	public class SRP6StandardGroups
 	{
 		private static BigInteger fromHex(string hex)

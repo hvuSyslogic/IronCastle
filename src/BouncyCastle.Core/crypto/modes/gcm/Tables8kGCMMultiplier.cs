@@ -1,8 +1,8 @@
-﻿namespace org.bouncycastle.crypto.modes.gcm
-{
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Pack = org.bouncycastle.util.Pack;
+﻿using org.bouncycastle.util;
 
+namespace org.bouncycastle.crypto.modes.gcm
+{
+		
 	public class Tables8kGCMMultiplier : GCMMultiplier
 	{
 		private byte[] H;

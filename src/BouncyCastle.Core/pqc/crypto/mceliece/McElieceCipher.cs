@@ -1,23 +1,15 @@
 ﻿using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.pqc.math.linearalgebra;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.pqc.crypto.mceliece
 {
 
-	using CipherParameters = org.bouncycastle.crypto.CipherParameters;
-	using CryptoServicesRegistrar = CryptoServicesRegistrar;
-	using InvalidCipherTextException = org.bouncycastle.crypto.InvalidCipherTextException;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using GF2Matrix = org.bouncycastle.pqc.math.linearalgebra.GF2Matrix;
-	using GF2Vector = org.bouncycastle.pqc.math.linearalgebra.GF2Vector;
-	using GF2mField = org.bouncycastle.pqc.math.linearalgebra.GF2mField;
-	using GoppaCode = org.bouncycastle.pqc.math.linearalgebra.GoppaCode;
-	using Permutation = org.bouncycastle.pqc.math.linearalgebra.Permutation;
-	using PolynomialGF2mSmallM = org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM;
-	using Vector = org.bouncycastle.pqc.math.linearalgebra.Vector;
-
+											
 	/// <summary>
 	/// This class implements the McEliece Public Key cryptosystem (McEliecePKCS). It
 	/// was first described in R.J. McEliece, "A public key cryptosystem based on

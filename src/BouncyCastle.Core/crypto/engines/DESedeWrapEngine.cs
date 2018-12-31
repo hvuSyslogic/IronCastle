@@ -1,18 +1,16 @@
 ﻿using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.modes;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.crypto.util;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.engines
 {
 
-	using CBCBlockCipher = org.bouncycastle.crypto.modes.CBCBlockCipher;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using DigestFactory = org.bouncycastle.crypto.util.DigestFactory;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+						
 	/// <summary>
 	/// Wrap keys according to
 	/// <A HREF="https://www.ietf.org/rfc/rfc3217.txt">

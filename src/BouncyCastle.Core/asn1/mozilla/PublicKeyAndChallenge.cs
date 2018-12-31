@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.asn1.mozilla
-{
-	using SubjectPublicKeyInfo = org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
+﻿using org.bouncycastle.asn1.x509;
 
+namespace org.bouncycastle.asn1.mozilla
+{
+	
 	/// <summary>
 	/// This is designed to parse
 	/// the PublicKeyAndChallenge created by the KEYGEN tag included by

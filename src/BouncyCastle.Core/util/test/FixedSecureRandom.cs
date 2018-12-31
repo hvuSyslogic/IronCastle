@@ -3,12 +3,10 @@ using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util.encoders;
 
 namespace org.bouncycastle.util.test
 {
-
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
 	/// <summary>
 	/// A secure random that returns pre-seeded data to calls of nextBytes() or generateSeed().
 	/// </summary>

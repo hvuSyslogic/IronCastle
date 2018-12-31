@@ -1,14 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.generators
 {
 
-	using CramerShoupKeyGenerationParameters = org.bouncycastle.crypto.@params.CramerShoupKeyGenerationParameters;
-	using CramerShoupParameters = org.bouncycastle.crypto.@params.CramerShoupParameters;
-	using CramerShoupPrivateKeyParameters = org.bouncycastle.crypto.@params.CramerShoupPrivateKeyParameters;
-	using CramerShoupPublicKeyParameters = org.bouncycastle.crypto.@params.CramerShoupPublicKeyParameters;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+					
 	/// <summary>
 	/// a Cramer Shoup key pair generator
 	/// 

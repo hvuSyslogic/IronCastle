@@ -1,10 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.prng;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using RandomGenerator = org.bouncycastle.crypto.prng.RandomGenerator;
-
+	
 	public interface TlsContext
 	{
 		RandomGenerator getNonceRandomGenerator();

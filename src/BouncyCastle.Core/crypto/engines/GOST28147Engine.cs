@@ -1,16 +1,14 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.engines
 {
 
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using ParametersWithSBox = org.bouncycastle.crypto.@params.ParametersWithSBox;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Strings = org.bouncycastle.util.Strings;
-
+				
 	/// <summary>
 	/// implementation of GOST 28147-89
 	/// </summary>

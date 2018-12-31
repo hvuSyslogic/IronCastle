@@ -1,13 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.agreement
 {
 
-	using DHUPrivateParameters = org.bouncycastle.crypto.@params.DHUPrivateParameters;
-	using DHUPublicParameters = org.bouncycastle.crypto.@params.DHUPublicParameters;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+				
 	/// <summary>
 	/// FFC Unified static/ephemeral agreement as described in NIST SP 800-56A.
 	/// </summary>

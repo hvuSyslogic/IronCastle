@@ -1,11 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto;
 
 namespace org.bouncycastle.pqc.crypto.xmss
 {
 
-	using AsymmetricCipherKeyPair = org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-	using KeyGenerationParameters = org.bouncycastle.crypto.KeyGenerationParameters;
-
+		
 	/// <summary>
 	/// Key pair generator for XMSS^MT keys.
 	/// </summary>

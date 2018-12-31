@@ -1,13 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1;
+using org.bouncycastle.math.ec;
 
 namespace org.bouncycastle.crypto.@params
 {
 
-	using ASN1ObjectIdentifier = org.bouncycastle.asn1.ASN1ObjectIdentifier;
-	using ECConstants = org.bouncycastle.math.ec.ECConstants;
-	using ECCurve = org.bouncycastle.math.ec.ECCurve;
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
-
+				
 	public class ECNamedDomainParameters : ECDomainParameters
 	{
 		private ASN1ObjectIdentifier name;

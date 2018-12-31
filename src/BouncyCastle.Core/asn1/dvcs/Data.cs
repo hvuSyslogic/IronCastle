@@ -1,10 +1,10 @@
-﻿using org.bouncycastle.Port.Extensions;
+﻿using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.dvcs
 {
-	using DigestInfo = org.bouncycastle.asn1.x509.DigestInfo;
-
+	
 	/// <summary>
 	/// <pre>
 	/// Data ::= CHOICE {

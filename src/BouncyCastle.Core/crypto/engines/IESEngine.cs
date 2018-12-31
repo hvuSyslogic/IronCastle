@@ -1,23 +1,16 @@
 ﻿using System.IO;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.generators;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.engines
 {
 
-	using EphemeralKeyPairGenerator = org.bouncycastle.crypto.generators.EphemeralKeyPairGenerator;
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using IESParameters = org.bouncycastle.crypto.@params.IESParameters;
-	using IESWithCipherParameters = org.bouncycastle.crypto.@params.IESWithCipherParameters;
-	using KDFParameters = org.bouncycastle.crypto.@params.KDFParameters;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-	using Pack = org.bouncycastle.util.Pack;
-
+										
 	/// <summary>
 	/// Support class for constructing integrated encryption ciphers
 	/// for doing basic message exchanges on top of key agreement ciphers.

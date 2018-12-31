@@ -1,12 +1,12 @@
 ﻿using System;
+using org.bouncycastle.asn1.x500.style;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.asn1.x500
 {
 
-	using BCStyle = org.bouncycastle.asn1.x500.style.BCStyle;
-
+	
 	/// <summary>
 	/// The X.500 Name object.
 	/// <pre>

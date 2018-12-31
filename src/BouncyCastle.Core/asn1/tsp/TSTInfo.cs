@@ -1,12 +1,11 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.asn1.tsp
 {
 
-	using Extensions = org.bouncycastle.asn1.x509.Extensions;
-	using GeneralName = org.bouncycastle.asn1.x509.GeneralName;
-
+		
 	public class TSTInfo : ASN1Object
 	{
 		private ASN1Integer version;

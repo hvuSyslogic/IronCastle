@@ -1,12 +1,12 @@
-﻿using org.bouncycastle.Port.Extensions;
+﻿using org.bouncycastle.asn1.x500;
+using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.asn1.x509.sigi
 {
 
-	using DirectoryString = org.bouncycastle.asn1.x500.DirectoryString;
-
+	
 	/// <summary>
 	/// Structure for a name or pseudonym.
 	/// 

@@ -1,14 +1,13 @@
 ﻿using System;
+using org.bouncycastle.crypto.modes;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using AEADBlockCipher = org.bouncycastle.crypto.modes.AEADBlockCipher;
-	using AEADParameters = org.bouncycastle.crypto.@params.AEADParameters;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+				
 	public class TlsAEADCipher : TlsCipher
 	{
 		// TODO[draft-zauner-tls-aes-ocb-04] Apply data volume limit described in section 8.4

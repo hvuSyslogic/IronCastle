@@ -1,9 +1,9 @@
 ﻿using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.digests
 {
-	using Memoable = org.bouncycastle.util.Memoable;
-
+	
 	/// <summary>
 	/// implementation of GOST R 34.11-2012 256-bit
 	/// </summary>

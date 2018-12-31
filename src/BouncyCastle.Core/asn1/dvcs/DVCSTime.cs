@@ -4,8 +4,7 @@ using BouncyCastle.Core.Port.java.text;
 namespace org.bouncycastle.asn1.dvcs
 {
 
-	using ContentInfo = org.bouncycastle.asn1.cms.ContentInfo;
-
+	
 	/// <summary>
 	/// <pre>
 	///     DVCSTime ::= CHOICE  {

@@ -1,11 +1,10 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.x500;
+using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.cmc
 {
-	using X500Name = org.bouncycastle.asn1.x500.X500Name;
-	using GeneralName = org.bouncycastle.asn1.x509.GeneralName;
-	using ReasonFlags = org.bouncycastle.asn1.x509.ReasonFlags;
-
+			
 	/// <summary>
 	/// <pre>
 	/// id-cmc-getCRL OBJECT IDENTIFIER ::= {id-cmc 16}

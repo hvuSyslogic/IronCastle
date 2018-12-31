@@ -1,10 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.math.ec;
 
 namespace org.bouncycastle.asn1.x9
 {
 
-	using ECFieldElement = org.bouncycastle.math.ec.ECFieldElement;
-
+	
 	/// <summary>
 	/// class for processing an FieldElement as a DER object.
 	/// </summary>

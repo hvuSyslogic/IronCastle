@@ -1,15 +1,13 @@
 ﻿using org.bouncycastle.crypto.util;
 
 using System.Collections.Generic;
+using org.bouncycastle.asn1;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.util
 {
-	using ASN1OctetString = org.bouncycastle.asn1.ASN1OctetString;
-	using DERTaggedObject = org.bouncycastle.asn1.DERTaggedObject;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Strings = org.bouncycastle.util.Strings;
-
+				
 	/// <summary>
 	/// Builder and holder class for preparing SP 800-56A compliant MacData. Elements in the data are encoded
 	/// as DER objects with empty octet strings used to represent nulls in compulsory fields.

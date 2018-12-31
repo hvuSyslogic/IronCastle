@@ -1,11 +1,10 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.engines
 {
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-
+		
 	/// <summary>
 	/// Implementation of Martin Hell's, Thomas Johansson's and Willi Meier's stream
 	/// cipher, Grain v1.

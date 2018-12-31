@@ -1,9 +1,9 @@
 ﻿using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	public class TlsSessionImpl : TlsSession
 	{
 		internal readonly byte[] sessionID;

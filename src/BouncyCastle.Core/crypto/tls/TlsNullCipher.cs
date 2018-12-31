@@ -1,10 +1,10 @@
 ﻿using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// A NULL CipherSuite with optional MAC
 	/// </summary>

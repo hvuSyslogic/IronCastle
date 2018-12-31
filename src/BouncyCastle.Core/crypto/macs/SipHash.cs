@@ -1,10 +1,10 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.macs
 {
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using Pack = org.bouncycastle.util.Pack;
-
+		
 	/// <summary>
 	/// Implementation of SipHash as specified in "SipHash: a fast short-input PRF", by Jean-Philippe
 	/// Aumasson and Daniel J. Bernstein (https://131002.net/siphash/siphash.pdf).

@@ -1,9 +1,9 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.esf
 {
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-
+	
 	public class OtherHashAlgAndValue : ASN1Object
 	{
 		private AlgorithmIdentifier hashAlgorithm;

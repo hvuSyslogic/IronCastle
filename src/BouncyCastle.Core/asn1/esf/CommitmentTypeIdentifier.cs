@@ -2,8 +2,7 @@
 
 namespace org.bouncycastle.asn1.esf
 {
-	using PKCSObjectIdentifiers = org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-
+	
 	public interface CommitmentTypeIdentifier
 	{
 	}

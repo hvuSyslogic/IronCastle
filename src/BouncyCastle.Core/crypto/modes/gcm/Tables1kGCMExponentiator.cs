@@ -1,10 +1,10 @@
 ﻿using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.modes.gcm
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	public class Tables1kGCMExponentiator : GCMExponentiator
 	{
 		// A lookup table of the power-of-two powers of 'x'

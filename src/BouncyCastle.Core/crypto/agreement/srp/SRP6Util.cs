@@ -1,12 +1,12 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.agreement.srp
 {
 
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+	
 	public class SRP6Util
 	{
 		private static BigInteger ZERO = BigInteger.valueOf(0);

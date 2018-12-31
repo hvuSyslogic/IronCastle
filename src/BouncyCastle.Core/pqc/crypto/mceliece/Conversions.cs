@@ -1,15 +1,13 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.pqc.math.linearalgebra;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.pqc.crypto.mceliece
 {
 
-	using BigIntUtils = org.bouncycastle.pqc.math.linearalgebra.BigIntUtils;
-	using GF2Vector = org.bouncycastle.pqc.math.linearalgebra.GF2Vector;
-	using IntegerFunctions = org.bouncycastle.pqc.math.linearalgebra.IntegerFunctions;
-
+			
 
 	/// <summary>
 	/// Provides methods for CCA2-Secure Conversions of McEliece PKCS

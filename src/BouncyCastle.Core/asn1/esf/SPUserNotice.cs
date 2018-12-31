@@ -1,13 +1,12 @@
-﻿using org.bouncycastle.Port.Extensions;
+﻿using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.asn1.esf
 {
 
-	using DisplayText = org.bouncycastle.asn1.x509.DisplayText;
-	using NoticeReference = org.bouncycastle.asn1.x509.NoticeReference;
-
+		
 	public class SPUserNotice : ASN1Object
 	{
 		private NoticeReference noticeRef;

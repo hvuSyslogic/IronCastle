@@ -1,12 +1,11 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.digests;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.crypto.signers;
+using org.bouncycastle.Port;
 
 namespace org.bouncycastle.crypto.tls
 {
-	using NullDigest = org.bouncycastle.crypto.digests.NullDigest;
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using DSADigestSigner = org.bouncycastle.crypto.signers.DSADigestSigner;
-
+				
 	public abstract class TlsDSASigner : AbstractTlsSigner
 	{
 		public override byte[] generateRawSignature(SignatureAndHashAlgorithm algorithm, AsymmetricKeyParameter privateKey, byte[] hash)

@@ -1,9 +1,9 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.x500;
+using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.x509
 {
-	using X500Name = org.bouncycastle.asn1.x500.X500Name;
-
+	
 	/// <summary>
 	/// an X509Certificate structure.
 	/// <pre>

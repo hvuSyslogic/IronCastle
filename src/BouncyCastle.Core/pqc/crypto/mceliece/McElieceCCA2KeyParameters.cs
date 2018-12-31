@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.pqc.crypto.mceliece
-{
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
+﻿using org.bouncycastle.crypto.@params;
 
+namespace org.bouncycastle.pqc.crypto.mceliece
+{
+	
 
 	public class McElieceCCA2KeyParameters : AsymmetricKeyParameter
 	{

@@ -1,13 +1,12 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.x500;
+using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.asn1.cmp
 {
 
-	using X500Name = org.bouncycastle.asn1.x500.X500Name;
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-	using GeneralName = org.bouncycastle.asn1.x509.GeneralName;
-
+			
 	public class PKIHeader : ASN1Object
 	{
 		/// <summary>

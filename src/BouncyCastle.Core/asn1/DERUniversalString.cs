@@ -4,12 +4,12 @@ using org.bouncycastle.Port;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// DER UniversalString object - encodes UNICODE (ISO 10646) characters using 32-bit format. In Java we
 	/// have no way of representing this directly so we rely on byte arrays to carry these.

@@ -2,8 +2,7 @@
 
 namespace org.bouncycastle.asn1.icao
 {
-	using Certificate = org.bouncycastle.asn1.x509.Certificate;
-
+	
 	/// <summary>
 	/// The CscaMasterList object. This object can be wrapped in a
 	/// CMSSignedData to be published in LDAP.

@@ -1,8 +1,9 @@
-﻿namespace org.bouncycastle.asn1.cms
+﻿using org.bouncycastle.asn1.x509;
+
+namespace org.bouncycastle.asn1.cms
 {
 
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-
+	
 	/// <summary>
 	/// Parser of <a href="http://tools.ietf.org/html/rfc3274">RFC 3274</a> <seealso cref="CompressedData"/> object.
 	/// <para>

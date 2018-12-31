@@ -1,26 +1,19 @@
 ﻿using System;
 using System.IO;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1.x9;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.math.ec;
+using org.bouncycastle.math.ec.custom.sec;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.util
 {
 
-	using ECNamedCurveTable = org.bouncycastle.asn1.x9.ECNamedCurveTable;
-	using X9ECParameters = org.bouncycastle.asn1.x9.X9ECParameters;
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using DSAParameters = org.bouncycastle.crypto.@params.DSAParameters;
-	using DSAPublicKeyParameters = org.bouncycastle.crypto.@params.DSAPublicKeyParameters;
-	using ECDomainParameters = org.bouncycastle.crypto.@params.ECDomainParameters;
-	using ECPublicKeyParameters = org.bouncycastle.crypto.@params.ECPublicKeyParameters;
-	using Ed25519PublicKeyParameters = org.bouncycastle.crypto.@params.Ed25519PublicKeyParameters;
-	using RSAKeyParameters = org.bouncycastle.crypto.@params.RSAKeyParameters;
-	using ECCurve = org.bouncycastle.math.ec.ECCurve;
-	using SecP256R1Curve = org.bouncycastle.math.ec.custom.sec.SecP256R1Curve;
-	using Strings = org.bouncycastle.util.Strings;
-
+												
 
 	/// <summary>
 	/// OpenSSHPublicKeyUtil utility classes for parsing OpenSSH public keys.

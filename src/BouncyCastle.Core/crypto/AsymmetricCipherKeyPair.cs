@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.crypto
-{
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
+﻿using org.bouncycastle.crypto.@params;
 
+namespace org.bouncycastle.crypto
+{
+	
 	/// <summary>
 	/// a holding class for public/private parameter pairs.
 	/// </summary>

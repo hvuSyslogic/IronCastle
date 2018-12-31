@@ -1,9 +1,9 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.asn1.x500;
+using org.bouncycastle.Port;
 
 namespace org.bouncycastle.asn1.x509
 {
-	using X500Name = org.bouncycastle.asn1.x500.X500Name;
-
+	
 	/// <summary>
 	/// Generator for Version 3 TBSCertificateStructures.
 	/// <pre>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using BouncyCastle.Core.Port.java.util;
+using org.bouncycastle.asn1.x500;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
@@ -8,9 +9,7 @@ using org.bouncycastle.Port.java.lang;
 namespace org.bouncycastle.asn1.x509
 {
 
-	using X500Name = org.bouncycastle.asn1.x500.X500Name;
-	using IPAddress = org.bouncycastle.util.IPAddress;
-
+		
 	/// <summary>
 	/// The GeneralName object.
 	/// <pre>

@@ -1,14 +1,14 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.text;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.crypto.xmss
 {
 
-	using AsymmetricCipherKeyPair = org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+		
 	/// <summary>
 	/// XMSS.
 	/// </summary>

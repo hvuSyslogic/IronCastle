@@ -1,15 +1,15 @@
 ﻿using System;
 using System.IO;
+using org.bouncycastle.crypto.modes;
 using org.bouncycastle.notexisting;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.io
 {
 
-	using AEADBlockCipher = org.bouncycastle.crypto.modes.AEADBlockCipher;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+		
 	/// <summary>
 	/// A CipherInputStream is composed of an InputStream and a cipher so that read() methods return data
 	/// that are read in from the underlying InputStream but have been additionally processed by the

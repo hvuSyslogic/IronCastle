@@ -1,37 +1,15 @@
 ﻿using System.IO;
+using org.bouncycastle.asn1;
 using org.bouncycastle.asn1.pkcs;
 using org.bouncycastle.asn1.x9;
 using org.bouncycastle.asn1.edec;
+using org.bouncycastle.asn1.x509;
+using org.bouncycastle.crypto.@params;
 
 namespace org.bouncycastle.crypto.util
 {
 
-	using ASN1Encodable = org.bouncycastle.asn1.ASN1Encodable;
-	using ASN1Integer = org.bouncycastle.asn1.ASN1Integer;
-	using ASN1OctetString = org.bouncycastle.asn1.ASN1OctetString;
-	using DERNull = org.bouncycastle.asn1.DERNull;
-	using EdECObjectIdentifiers = org.bouncycastle.asn1.edec.EdECObjectIdentifiers;
-	using PKCSObjectIdentifiers = org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-	using RSAPublicKey = org.bouncycastle.asn1.pkcs.RSAPublicKey;
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-	using DSAParameter = org.bouncycastle.asn1.x509.DSAParameter;
-	using SubjectPublicKeyInfo = org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-	using X962Parameters = org.bouncycastle.asn1.x9.X962Parameters;
-	using X9ECParameters = org.bouncycastle.asn1.x9.X9ECParameters;
-	using X9ECPoint = org.bouncycastle.asn1.x9.X9ECPoint;
-	using X9ObjectIdentifiers = org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using DSAParameters = org.bouncycastle.crypto.@params.DSAParameters;
-	using DSAPublicKeyParameters = org.bouncycastle.crypto.@params.DSAPublicKeyParameters;
-	using ECDomainParameters = org.bouncycastle.crypto.@params.ECDomainParameters;
-	using ECNamedDomainParameters = org.bouncycastle.crypto.@params.ECNamedDomainParameters;
-	using ECPublicKeyParameters = org.bouncycastle.crypto.@params.ECPublicKeyParameters;
-	using Ed25519PublicKeyParameters = org.bouncycastle.crypto.@params.Ed25519PublicKeyParameters;
-	using Ed448PublicKeyParameters = org.bouncycastle.crypto.@params.Ed448PublicKeyParameters;
-	using RSAKeyParameters = org.bouncycastle.crypto.@params.RSAKeyParameters;
-	using X25519PublicKeyParameters = org.bouncycastle.crypto.@params.X25519PublicKeyParameters;
-	using X448PublicKeyParameters = org.bouncycastle.crypto.@params.X448PublicKeyParameters;
-
+																									
 	/// <summary>
 	/// Factory to create ASN.1 subject public key info objects from lightweight public keys.
 	/// </summary>

@@ -1,8 +1,9 @@
-﻿namespace org.bouncycastle.pqc.crypto
-{
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using Arrays = org.bouncycastle.util.Arrays;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.util;
 
+namespace org.bouncycastle.pqc.crypto
+{
+		
 	/// <summary>
 	/// Pair for a value exchange algorithm where the responding party has no private key, such as NewHope.
 	/// </summary>

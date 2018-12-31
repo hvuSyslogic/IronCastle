@@ -1,10 +1,10 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.math.ec;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.@params
 {
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
-
+	
 	/// <summary>
 	/// Private parameters for an SM2 key exchange. The ephemeralPrivateKey is used to calculate the random point used in the algorithm.
 	/// </summary>

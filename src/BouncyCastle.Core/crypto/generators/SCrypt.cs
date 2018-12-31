@@ -1,14 +1,13 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.digests;
+using org.bouncycastle.crypto.engines;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.generators
 {
-	using SHA256Digest = org.bouncycastle.crypto.digests.SHA256Digest;
-	using Salsa20Engine = org.bouncycastle.crypto.engines.Salsa20Engine;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Pack = org.bouncycastle.util.Pack;
-
+					
 	/// <summary>
 	/// Implementation of the scrypt a password-based key derivation function.
 	/// <para>

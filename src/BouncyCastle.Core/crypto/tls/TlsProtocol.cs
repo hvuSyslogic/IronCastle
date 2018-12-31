@@ -1,18 +1,18 @@
 ﻿using System;
 using System.IO;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.prng;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
+using Arrays = org.bouncycastle.util.Arrays;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using RandomGenerator = org.bouncycastle.crypto.prng.RandomGenerator;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Integers = org.bouncycastle.util.Integers;
-
+			
 	public abstract class TlsProtocol
 	{
 		protected internal static readonly int? EXT_RenegotiationInfo = Integers.valueOf(ExtensionType.renegotiation_info);

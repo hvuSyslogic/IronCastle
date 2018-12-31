@@ -1,14 +1,13 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.generators
 {
 
-	using KDFFeedbackParameters = org.bouncycastle.crypto.@params.KDFFeedbackParameters;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-
+		
 	/// <summary>
 	/// This KDF has been defined by the publicly available NIST SP 800-108 specification.
 	/// </summary>

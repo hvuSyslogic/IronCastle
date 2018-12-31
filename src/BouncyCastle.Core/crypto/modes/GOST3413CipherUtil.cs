@@ -1,9 +1,9 @@
 ﻿using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.modes
 {
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// Some methods for GOST 3412 cipher algorithm
 	/// </summary>

@@ -1,10 +1,10 @@
 ﻿using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.crypto.xmss
 {
-	using Pack = org.bouncycastle.util.Pack;
-
+	
 	/// <summary>
 	/// XMSS Signature.
 	/// </summary>

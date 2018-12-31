@@ -1,16 +1,13 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.math.ec;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.@params
 {
 
-	using ECAlgorithms = org.bouncycastle.math.ec.ECAlgorithms;
-	using ECConstants = org.bouncycastle.math.ec.ECConstants;
-	using ECCurve = org.bouncycastle.math.ec.ECCurve;
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+					
 	public class ECDomainParameters : ECConstants
 	{
 		private ECCurve curve;

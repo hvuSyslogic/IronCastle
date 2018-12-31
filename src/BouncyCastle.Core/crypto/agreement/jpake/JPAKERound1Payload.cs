@@ -1,10 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.agreement.jpake
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// The payload sent/received during the first round of a J-PAKE exchange.
 	/// <para>

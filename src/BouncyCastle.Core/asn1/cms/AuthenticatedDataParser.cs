@@ -1,10 +1,10 @@
 ﻿using org.bouncycastle.asn1;
+using org.bouncycastle.asn1.x509;
 
 namespace org.bouncycastle.asn1.cms
 {
 
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-
+	
 	/// <summary>
 	/// Parse <seealso cref="AuthenticatedData"/> stream.
 	/// <pre>

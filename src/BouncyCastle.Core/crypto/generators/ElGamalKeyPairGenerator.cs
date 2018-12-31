@@ -1,14 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 
 namespace org.bouncycastle.crypto.generators
 {
 
-	using DHParameters = org.bouncycastle.crypto.@params.DHParameters;
-	using ElGamalKeyGenerationParameters = org.bouncycastle.crypto.@params.ElGamalKeyGenerationParameters;
-	using ElGamalParameters = org.bouncycastle.crypto.@params.ElGamalParameters;
-	using ElGamalPrivateKeyParameters = org.bouncycastle.crypto.@params.ElGamalPrivateKeyParameters;
-	using ElGamalPublicKeyParameters = org.bouncycastle.crypto.@params.ElGamalPublicKeyParameters;
-
+					
 	/// <summary>
 	/// a ElGamal key pair generator.
 	/// <para>

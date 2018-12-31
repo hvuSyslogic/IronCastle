@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.crypto.prng
-{
-	using Pack = org.bouncycastle.util.Pack;
+﻿using org.bouncycastle.util;
 
+namespace org.bouncycastle.crypto.prng
+{
+	
 	public class VMPCRandomGenerator : RandomGenerator
 	{
 		private byte n = 0;

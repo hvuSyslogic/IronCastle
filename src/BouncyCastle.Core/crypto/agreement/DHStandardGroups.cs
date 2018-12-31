@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.util.encoders;
 
 namespace org.bouncycastle.crypto.agreement
 {
 
-	using DHParameters = org.bouncycastle.crypto.@params.DHParameters;
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+		
 	/// <summary>
 	/// Standard Diffie-Hellman groups from various IETF specifications.
 	/// </summary>

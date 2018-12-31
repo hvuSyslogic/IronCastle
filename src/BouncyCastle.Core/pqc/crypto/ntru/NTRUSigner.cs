@@ -1,13 +1,11 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto;
+using org.bouncycastle.pqc.math.ntru.polynomial;
+using org.bouncycastle.Port;
 
 namespace org.bouncycastle.pqc.crypto.ntru
 {
 
-	using CipherParameters = org.bouncycastle.crypto.CipherParameters;
-	using Digest = org.bouncycastle.crypto.Digest;
-	using IntegerPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.IntegerPolynomial;
-	using Polynomial = org.bouncycastle.pqc.math.ntru.polynomial.Polynomial;
-
+				
 	/// <summary>
 	/// Signs, verifies data and generates key pairs. </summary>
 	/// @deprecated the NTRUSigner algorithm was broken in 2012 by Ducas and Nguyen. See

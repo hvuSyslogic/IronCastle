@@ -1,9 +1,9 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.cms;
+using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.crmf
 {
-	using EnvelopedData = org.bouncycastle.asn1.cms.EnvelopedData;
-
+	
 	public class POPOPrivKey : ASN1Object, ASN1Choice
 	{
 		public const int thisMessage = 0;

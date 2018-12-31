@@ -1,15 +1,13 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.engines
 {
-	using Arrays = org.bouncycastle.util.Arrays;
-
-	using NaccacheSternKeyParameters = org.bouncycastle.crypto.@params.NaccacheSternKeyParameters;
-	using NaccacheSternPrivateKeyParameters = org.bouncycastle.crypto.@params.NaccacheSternPrivateKeyParameters;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-
+	
+			
 	/// <summary>
 	/// NaccacheStern Engine. For details on this cipher, please see
 	/// http://www.gemplus.com/smart/rd/publications/pdf/NS98pkcs.pdf

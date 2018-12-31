@@ -1,10 +1,9 @@
 ﻿using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.crmf
 {
-	using IssuerAndSerialNumber = org.bouncycastle.asn1.cms.IssuerAndSerialNumber;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+		
 	/// <summary>
 	/// From RFC 2875 for Diffie-Hellman POP.
 	/// <pre>

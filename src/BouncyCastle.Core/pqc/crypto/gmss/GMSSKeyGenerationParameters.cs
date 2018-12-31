@@ -1,10 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto;
 
 namespace org.bouncycastle.pqc.crypto.gmss
 {
 
-	using KeyGenerationParameters = org.bouncycastle.crypto.KeyGenerationParameters;
-
+	
 	public class GMSSKeyGenerationParameters : KeyGenerationParameters
 	{
 

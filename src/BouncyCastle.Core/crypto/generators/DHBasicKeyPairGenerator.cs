@@ -1,12 +1,9 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 
 namespace org.bouncycastle.crypto.generators
 {
-	using DHKeyGenerationParameters = org.bouncycastle.crypto.@params.DHKeyGenerationParameters;
-	using DHParameters = org.bouncycastle.crypto.@params.DHParameters;
-	using DHPrivateKeyParameters = org.bouncycastle.crypto.@params.DHPrivateKeyParameters;
-	using DHPublicKeyParameters = org.bouncycastle.crypto.@params.DHPublicKeyParameters;
-
+				
 	/// <summary>
 	/// a basic Diffie-Hellman key pair generator.
 	/// 

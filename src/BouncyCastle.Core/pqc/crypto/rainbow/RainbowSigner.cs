@@ -1,17 +1,15 @@
 ﻿using System;
 using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.pqc.crypto.rainbow.util;
 using org.bouncycastle.Port;
 
 namespace org.bouncycastle.pqc.crypto.rainbow
 {
 
-	using CipherParameters = org.bouncycastle.crypto.CipherParameters;
-	using CryptoServicesRegistrar = CryptoServicesRegistrar;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using ComputeInField = org.bouncycastle.pqc.crypto.rainbow.util.ComputeInField;
-	using GF2Field = org.bouncycastle.pqc.crypto.rainbow.util.GF2Field;
-
+					
 	/// <summary>
 	/// It implements the sign and verify functions for the Rainbow Signature Scheme.
 	/// Here the message, which has to be signed, is updated. The use of

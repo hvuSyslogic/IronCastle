@@ -1,9 +1,9 @@
 ﻿using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.cryptopro
 {
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// <pre>
 	/// Gost28147-89-EncryptedKey ::=   SEQUENCE {

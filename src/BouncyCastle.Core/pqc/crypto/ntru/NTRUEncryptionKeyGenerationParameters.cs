@@ -2,18 +2,15 @@
 using BouncyCastle.Core;
 using BouncyCastle.Core.Port.java.io;
 using BouncyCastle.Core.Port.java.lang;
+using org.bouncycastle.crypto;
+using org.bouncycastle.crypto.digests;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.crypto.ntru
 {
 
-	using CryptoServicesRegistrar = CryptoServicesRegistrar;
-	using Digest = org.bouncycastle.crypto.Digest;
-	using KeyGenerationParameters = org.bouncycastle.crypto.KeyGenerationParameters;
-	using SHA256Digest = org.bouncycastle.crypto.digests.SHA256Digest;
-	using SHA512Digest = org.bouncycastle.crypto.digests.SHA512Digest;
-
+					
 	/// <summary>
 	/// A set of parameters for NtruEncrypt. Several predefined parameter sets are available and new ones can be created as well.
 	/// </summary>
@@ -445,7 +442,7 @@ namespace org.bouncycastle.pqc.crypto.ntru
 			{
 				output.append(" polyType=PRODUCT df1=" + df1 + " df2=" + df2 + " df3=" + df3);
 			}
-			output.append(" dm0=" + dm0 + " db=" + db + " c=" + c + " minCallsR=" + minCallsR + " minCallsMask=" + minCallsMask + " hashSeed=" + hashSeed + " hashAlg=" + hashAlg + " oid=" + org.bouncycastle.Port.java.util.Arrays.ToString(oid) + " sparse=" + sparse + ")");
+			output.append(" dm0=" + dm0 + " db=" + db + " c=" + c + " minCallsR=" + minCallsR + " minCallsMask=" + minCallsMask + " hashSeed=" + hashSeed + " hashAlg=" + hashAlg + " oid=" + Arrays.ToString(oid) + " sparse=" + sparse + ")");
 			return output.ToString();
 		}
 	}

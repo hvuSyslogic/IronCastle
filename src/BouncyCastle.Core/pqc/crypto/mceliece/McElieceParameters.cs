@@ -1,11 +1,10 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.crypto;
+using org.bouncycastle.pqc.math.linearalgebra;
+using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.pqc.crypto.mceliece
 {
-	using CipherParameters = org.bouncycastle.crypto.CipherParameters;
-	using Digest = org.bouncycastle.crypto.Digest;
-	using PolynomialRingGF2 = org.bouncycastle.pqc.math.linearalgebra.PolynomialRingGF2;
-
+			
 	public class McElieceParameters : CipherParameters
 	{
 

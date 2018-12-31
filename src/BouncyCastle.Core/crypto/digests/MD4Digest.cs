@@ -1,10 +1,10 @@
 ﻿using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.digests
 {
 
-	using Memoable = org.bouncycastle.util.Memoable;
-
+	
 	/// <summary>
 	/// implementation of MD4 as RFC 1320 by R. Rivest, MIT Laboratory for
 	/// Computer Science and RSA Data Security, Inc.

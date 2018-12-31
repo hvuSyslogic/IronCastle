@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1.x509;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.cms
 {
 
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-
+	
 	/// <summary>
 	/// RFC 5990 RSA KEM parameters class.
 	/// <pre>

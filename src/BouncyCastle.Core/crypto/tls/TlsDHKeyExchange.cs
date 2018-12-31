@@ -1,4 +1,6 @@
 ﻿using org.bouncycastle.asn1.x509;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.crypto.util;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
@@ -7,14 +9,7 @@ using org.bouncycastle.Port.java.util;
 namespace org.bouncycastle.crypto.tls
 {
 
-	using KeyUsage = org.bouncycastle.asn1.x509.KeyUsage;
-	using SubjectPublicKeyInfo = org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using DHParameters = org.bouncycastle.crypto.@params.DHParameters;
-	using DHPrivateKeyParameters = org.bouncycastle.crypto.@params.DHPrivateKeyParameters;
-	using DHPublicKeyParameters = org.bouncycastle.crypto.@params.DHPublicKeyParameters;
-	using PublicKeyFactory = org.bouncycastle.crypto.util.PublicKeyFactory;
-
+							
 	/// <summary>
 	/// (D)TLS DH key exchange.
 	/// </summary>

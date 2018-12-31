@@ -1,12 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.pqc.math.ntru.util;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.math.ntru.polynomial
 {
 
-	using Util = org.bouncycastle.pqc.math.ntru.util.Util;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+		
 	/// <summary>
 	/// A <code>TernaryPolynomial</code> with a "high" number of nonzero coefficients.
 	/// </summary>

@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.math.linearalgebra
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// This class implements permutations of the set {0,1,...,n-1} for some given n
 	/// &gt; 0, i.e., ordered sequences containing each number <tt>m</tt> (<tt>0 &lt;=

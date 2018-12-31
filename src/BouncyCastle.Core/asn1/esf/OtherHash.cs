@@ -1,10 +1,9 @@
 ﻿using org.bouncycastle.asn1.oiw;
+using org.bouncycastle.asn1.x509;
 
 namespace org.bouncycastle.asn1.esf
 {
-	using OIWObjectIdentifiers = org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-
+		
 	/// <summary>
 	/// <pre>
 	/// OtherHash ::= CHOICE {

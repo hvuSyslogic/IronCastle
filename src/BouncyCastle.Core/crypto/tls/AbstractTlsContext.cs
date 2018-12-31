@@ -1,14 +1,13 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.prng;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using DigestRandomGenerator = org.bouncycastle.crypto.prng.DigestRandomGenerator;
-	using RandomGenerator = org.bouncycastle.crypto.prng.RandomGenerator;
-	using Times = org.bouncycastle.util.Times;
-
+			
 	public abstract class AbstractTlsContext : TlsContext
 	{
 		public abstract bool isServer();

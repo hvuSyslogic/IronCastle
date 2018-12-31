@@ -1,16 +1,14 @@
 ﻿using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.generators
 {
 
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using RSAKeyParameters = org.bouncycastle.crypto.@params.RSAKeyParameters;
-	using RSAPrivateCrtKeyParameters = org.bouncycastle.crypto.@params.RSAPrivateCrtKeyParameters;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+				
 	/// <summary>
 	/// Generate a random factor suitable for use with RSA blind signatures
 	/// as outlined in Chaum's blinding and unblinding as outlined in

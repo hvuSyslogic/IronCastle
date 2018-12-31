@@ -1,11 +1,11 @@
 ﻿using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.crypto.gmss
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	public class GMSSUtils
 	{
 		internal static GMSSLeaf[] clone(GMSSLeaf[] data)

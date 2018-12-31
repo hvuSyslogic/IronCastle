@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.crypto.digests
-{
-	using Arrays = org.bouncycastle.util.Arrays;
+﻿using org.bouncycastle.util;
 
+namespace org.bouncycastle.crypto.digests
+{
+	
 	/// <summary>
 	/// Customizable SHAKE function.
 	/// </summary>

@@ -1,10 +1,9 @@
 ﻿using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.digests
 {
-	using Memoable = org.bouncycastle.util.Memoable;
-	using Pack = org.bouncycastle.util.Pack;
-
+		
 	/// <summary>
 	/// Implementation of Chinese SM3 digest as described at
 	/// http://tools.ietf.org/html/draft-shen-sm3-hash-01

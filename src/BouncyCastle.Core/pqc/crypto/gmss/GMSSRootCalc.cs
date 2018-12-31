@@ -1,14 +1,13 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
+using org.bouncycastle.util.encoders;
 
 namespace org.bouncycastle.pqc.crypto.gmss
 {
 
-	using Digest = org.bouncycastle.crypto.Digest;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Integers = org.bouncycastle.util.Integers;
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+				
 
 	/// <summary>
 	/// This class computes a whole Merkle tree and saves the needed values for

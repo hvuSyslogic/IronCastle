@@ -1,12 +1,12 @@
 ﻿using System.IO;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// Public facade of ASN.1 Boolean data.
 	/// <para>

@@ -1,15 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.math.ec;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.generators
 {
 
-	using GOST3410KeyGenerationParameters = org.bouncycastle.crypto.@params.GOST3410KeyGenerationParameters;
-	using GOST3410Parameters = org.bouncycastle.crypto.@params.GOST3410Parameters;
-	using GOST3410PrivateKeyParameters = org.bouncycastle.crypto.@params.GOST3410PrivateKeyParameters;
-	using GOST3410PublicKeyParameters = org.bouncycastle.crypto.@params.GOST3410PublicKeyParameters;
-	using WNafUtil = org.bouncycastle.math.ec.WNafUtil;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+						
 	/// <summary>
 	/// a GOST3410 key pair generator.
 	/// This generates GOST3410 keys in line with the method described

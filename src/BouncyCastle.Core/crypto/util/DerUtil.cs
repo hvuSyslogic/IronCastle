@@ -1,15 +1,13 @@
 ﻿using System;
 using System.IO;
+using org.bouncycastle.asn1;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.util
 {
 
-	using ASN1OctetString = org.bouncycastle.asn1.ASN1OctetString;
-	using ASN1Primitive = org.bouncycastle.asn1.ASN1Primitive;
-	using DEROctetString = org.bouncycastle.asn1.DEROctetString;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+				
 	public class DerUtil
 	{
 		internal static ASN1OctetString getOctetString(byte[] data)

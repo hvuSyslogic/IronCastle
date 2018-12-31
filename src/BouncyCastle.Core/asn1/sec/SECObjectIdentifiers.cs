@@ -2,8 +2,7 @@
 
 namespace org.bouncycastle.asn1.sec
 {
-	using X9ObjectIdentifiers = org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
-
+	
 	/// <summary>
 	/// Certicom object identifiers
 	/// <pre>

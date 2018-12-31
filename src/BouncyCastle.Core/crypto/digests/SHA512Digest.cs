@@ -1,8 +1,8 @@
-﻿namespace org.bouncycastle.crypto.digests
-{
-	using Memoable = org.bouncycastle.util.Memoable;
-	using Pack = org.bouncycastle.util.Pack;
+﻿using org.bouncycastle.util;
 
+namespace org.bouncycastle.crypto.digests
+{
+		
 
 	/// <summary>
 	/// FIPS 180-2 implementation of SHA-512.

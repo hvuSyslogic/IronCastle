@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.crypto.modes.gcm
-{
-	using Arrays = org.bouncycastle.util.Arrays;
+﻿using org.bouncycastle.util;
 
+namespace org.bouncycastle.crypto.modes.gcm
+{
+	
 	public class BasicGCMExponentiator : GCMExponentiator
 	{
 		private ulong[] x;

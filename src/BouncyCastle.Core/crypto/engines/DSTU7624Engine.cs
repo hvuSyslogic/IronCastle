@@ -1,12 +1,11 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.engines
 {
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Pack = org.bouncycastle.util.Pack;
-
+			
 
 	/*
 	* Reference implementation of DSTU7624 national Ukrainian standard of block encryption.

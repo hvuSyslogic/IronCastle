@@ -1,8 +1,9 @@
-﻿namespace org.bouncycastle.pqc.crypto.newhope
-{
-	using SHAKEDigest = org.bouncycastle.crypto.digests.SHAKEDigest;
-	using Pack = org.bouncycastle.util.Pack;
+﻿using org.bouncycastle.crypto.digests;
+using org.bouncycastle.util;
 
+namespace org.bouncycastle.pqc.crypto.newhope
+{
+		
 	public class Poly
 	{
 		internal static void add(short[] x, short[] y, short[] z)

@@ -1,7 +1,6 @@
 ﻿namespace org.bouncycastle.asn1.ocsp
 {
-	using Extensions = org.bouncycastle.asn1.x509.Extensions;
-
+	
 	public class Request : ASN1Object
 	{
 		internal CertID reqCert;

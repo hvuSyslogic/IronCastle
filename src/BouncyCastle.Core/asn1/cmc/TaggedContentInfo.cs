@@ -2,8 +2,7 @@
 
 namespace org.bouncycastle.asn1.cmc
 {
-	using ContentInfo = org.bouncycastle.asn1.cms.ContentInfo;
-
+	
 	/// <summary>
 	/// <pre>
 	/// TaggedContentInfo ::= SEQUENCE {

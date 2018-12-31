@@ -1,12 +1,12 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.digests;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.macs
 {
-	using DSTU7564Digest = org.bouncycastle.crypto.digests.DSTU7564Digest;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using Pack = org.bouncycastle.util.Pack;
-
+			
 	/// <summary>
 	/// Implementation of DSTU7564 MAC mode
 	/// </summary>

@@ -1,9 +1,9 @@
-﻿namespace org.bouncycastle.pqc.crypto
+﻿using org.bouncycastle.crypto;
+
+namespace org.bouncycastle.pqc.crypto
 {
 
-	using CipherParameters = org.bouncycastle.crypto.CipherParameters;
-	using InvalidCipherTextException = org.bouncycastle.crypto.InvalidCipherTextException;
-
+		
 	/// <summary>
 	/// Base interface for a PQC encryption algorithm.
 	/// </summary>

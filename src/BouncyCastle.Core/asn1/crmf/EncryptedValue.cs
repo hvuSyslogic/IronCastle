@@ -1,9 +1,9 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.crmf
 {
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-
+	
 	public class EncryptedValue : ASN1Object
 	{
 		private AlgorithmIdentifier intendedAlg;

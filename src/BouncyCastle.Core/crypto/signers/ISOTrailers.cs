@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port.java.util;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.signers
 {
 
-	using Integers = org.bouncycastle.util.Integers;
-
+	
 	public class ISOTrailers
 	{
 		private static readonly Map<string, int> trailerMap;

@@ -5,8 +5,7 @@ using org.bouncycastle.Port.java.lang;
 namespace org.bouncycastle.pqc.math.linearalgebra
 {
 
-	using CryptoServicesRegistrar = CryptoServicesRegistrar;
-
+	
 	/// <summary>
 	/// This class describes operations with elements from the finite field F =
 	/// GF(2^m). ( GF(2^m)= GF(2)[A] where A is a root of irreducible polynomial with

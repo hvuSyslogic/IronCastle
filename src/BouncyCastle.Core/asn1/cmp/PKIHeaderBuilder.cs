@@ -1,8 +1,8 @@
-﻿namespace org.bouncycastle.asn1.cmp
-{
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-	using GeneralName = org.bouncycastle.asn1.x509.GeneralName;
+﻿using org.bouncycastle.asn1.x509;
 
+namespace org.bouncycastle.asn1.cmp
+{
+		
 	public class PKIHeaderBuilder
 	{
 		private ASN1Integer pvno;

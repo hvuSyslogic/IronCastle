@@ -1,16 +1,12 @@
 ﻿using System.IO;
+using org.bouncycastle.pqc.math.ntru.polynomial;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 
 namespace org.bouncycastle.pqc.crypto.ntru
 {
 
-	using DenseTernaryPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.DenseTernaryPolynomial;
-	using IntegerPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.IntegerPolynomial;
-	using Polynomial = org.bouncycastle.pqc.math.ntru.polynomial.Polynomial;
-	using ProductFormPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.ProductFormPolynomial;
-	using SparseTernaryPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.SparseTernaryPolynomial;
-
+					
 	/// <summary>
 	/// A NtruEncrypt private key is essentially a polynomial named <code>f</code>
 	/// which takes different forms depending on whether product-form polynomials are used,

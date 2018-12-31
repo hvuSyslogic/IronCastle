@@ -1,9 +1,9 @@
 ﻿using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.@params
 {
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// Note that counter is only supported at the location presented in the
 	/// NIST SP 800-108 specification, not in the additional locations present

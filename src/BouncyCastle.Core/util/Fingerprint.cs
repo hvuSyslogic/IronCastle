@@ -1,11 +1,10 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.digests;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.util
 {
-	using SHA512tDigest = org.bouncycastle.crypto.digests.SHA512tDigest;
-	using SHAKEDigest = org.bouncycastle.crypto.digests.SHAKEDigest;
-
+		
 	/// <summary>
 	/// Basic 20 byte finger print class.
 	/// </summary>

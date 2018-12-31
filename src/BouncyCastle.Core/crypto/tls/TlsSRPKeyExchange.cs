@@ -1,25 +1,20 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.asn1.x509;
+using org.bouncycastle.crypto.agreement.srp;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.crypto.util;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
+using org.bouncycastle.util.io;
+using Arrays = org.bouncycastle.util.Arrays;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using KeyUsage = org.bouncycastle.asn1.x509.KeyUsage;
-	using SubjectPublicKeyInfo = org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-	using SRP6Client = org.bouncycastle.crypto.agreement.srp.SRP6Client;
-	using SRP6Server = org.bouncycastle.crypto.agreement.srp.SRP6Server;
-	using SRP6Util = org.bouncycastle.crypto.agreement.srp.SRP6Util;
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using SRP6GroupParameters = org.bouncycastle.crypto.@params.SRP6GroupParameters;
-	using PublicKeyFactory = org.bouncycastle.crypto.util.PublicKeyFactory;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-	using TeeInputStream = org.bouncycastle.util.io.TeeInputStream;
-
+											
 	/// <summary>
 	/// (D)TLS SRP key exchange (RFC 5054).
 	/// </summary>

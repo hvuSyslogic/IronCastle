@@ -1,9 +1,9 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.generators
 {
-	using DESParameters = org.bouncycastle.crypto.@params.DESParameters;
-
+	
 	public class DESKeyGenerator : CipherKeyGenerator
 	{
 		/// <summary>

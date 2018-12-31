@@ -1,11 +1,11 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.paddings;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.macs
 {
-	using BlockCipherPadding = org.bouncycastle.crypto.paddings.BlockCipherPadding;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-
+		
 	/// <summary>
 	/// implements a Cipher-FeedBack (CFB) mode on top of a simple cipher.
 	/// </summary>

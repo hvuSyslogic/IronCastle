@@ -1,10 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 
 namespace org.bouncycastle.crypto.agreement.srp
 {
 
-	using SRP6GroupParameters = org.bouncycastle.crypto.@params.SRP6GroupParameters;
-
+	
 	/// <summary>
 	/// Implements the server side SRP-6a protocol. Note that this class is stateful, and therefore NOT threadsafe.
 	/// This implementation of SRP is based on the optimized message sequence put forth by Thomas Wu in the paper

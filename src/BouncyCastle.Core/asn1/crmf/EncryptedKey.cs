@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.asn1.crmf
-{
-	using EnvelopedData = org.bouncycastle.asn1.cms.EnvelopedData;
+﻿using org.bouncycastle.asn1.cms;
 
+namespace org.bouncycastle.asn1.crmf
+{
+	
 	public class EncryptedKey : ASN1Object, ASN1Choice
 	{
 		private EnvelopedData envelopedData;

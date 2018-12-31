@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.digests;
 using org.bouncycastle.Port;
 
 namespace org.bouncycastle.pqc.crypto.newhope
 {
 
-	using SHA3Digest = org.bouncycastle.crypto.digests.SHA3Digest;
-
+	
 	/// <summary>
 	/// This implementation is based heavily on the C reference implementation from https://cryptojedi.org/crypto/index.shtml.
 	/// </summary>

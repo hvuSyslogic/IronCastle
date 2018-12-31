@@ -1,10 +1,10 @@
-﻿using org.bouncycastle.Port.Extensions;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.engines
 {
-	using RC5Parameters = org.bouncycastle.crypto.@params.RC5Parameters;
-
+	
 	/// <summary>
 	/// The specification for RC5 came from the <code>RC5 Encryption Algorithm</code>
 	/// publication in RSA CryptoBytes, Spring of 1995. 

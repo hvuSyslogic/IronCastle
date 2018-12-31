@@ -1,10 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto;
 
 namespace org.bouncycastle.pqc.crypto.mceliece
 {
 
-	using KeyGenerationParameters = org.bouncycastle.crypto.KeyGenerationParameters;
-
+	
 	public class McElieceCCA2KeyGenerationParameters : KeyGenerationParameters
 	{
 		private McElieceCCA2Parameters @params;

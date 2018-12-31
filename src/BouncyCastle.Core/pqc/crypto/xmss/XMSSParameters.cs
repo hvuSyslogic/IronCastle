@@ -1,10 +1,10 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.pqc.crypto.xmss
 {
-	using Digest = org.bouncycastle.crypto.Digest;
-
+	
 	/// <summary>
 	/// XMSS Parameters.
 	/// </summary>

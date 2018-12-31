@@ -1,7 +1,6 @@
 ﻿using System;
 using BouncyCastle.Core.Port.java.text;
 using org.bouncycastle.Port.java.util;
-using DateTime = BouncyCastle.Core.Port.java.text.DateTime;
 
 namespace org.bouncycastle.asn1
 {

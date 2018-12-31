@@ -1,14 +1,13 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.macs;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.crypto.util;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.generators
 {
-	using HMac = org.bouncycastle.crypto.macs.HMac;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-	using DigestFactory = org.bouncycastle.crypto.util.DigestFactory;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+					
 	/// <summary>
 	/// Generator for PBE derived keys and ivs as defined by PKCS 5 V2.0 Scheme 2.
 	/// This generator uses a SHA-1 HMac as the calculation function.

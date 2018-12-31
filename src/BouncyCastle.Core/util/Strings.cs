@@ -4,12 +4,12 @@ using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util.encoders;
 
 namespace org.bouncycastle.util
 {
 
-	using UTF8 = org.bouncycastle.util.encoders.UTF8;
-
+	
 	/// <summary>
 	/// String utilities.
 	/// </summary>

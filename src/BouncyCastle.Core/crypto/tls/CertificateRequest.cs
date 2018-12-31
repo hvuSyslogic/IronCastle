@@ -1,15 +1,13 @@
 ﻿using System.IO;
 using org.bouncycastle.asn1;
+using org.bouncycastle.asn1.x500;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using ASN1Encoding = org.bouncycastle.asn1.ASN1Encoding;
-	using ASN1Primitive = org.bouncycastle.asn1.ASN1Primitive;
-	using X500Name = org.bouncycastle.asn1.x500.X500Name;
-
+			
 	/// <summary>
 	/// Parsing and encoding of a <i>CertificateRequest</i> struct from RFC 4346.
 	/// <pre>

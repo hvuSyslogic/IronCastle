@@ -1,10 +1,10 @@
 ﻿using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.x509
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// The DigestInfo object.
 	/// <pre>

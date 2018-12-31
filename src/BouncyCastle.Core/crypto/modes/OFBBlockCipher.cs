@@ -1,10 +1,10 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.modes
 {
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-
+	
 	/// <summary>
 	/// implements a Output-FeedBack (OFB) mode on top of a simple cipher.
 	/// </summary>

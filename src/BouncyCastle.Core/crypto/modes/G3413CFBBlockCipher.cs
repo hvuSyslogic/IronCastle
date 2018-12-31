@@ -1,11 +1,11 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.modes
 {
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+		
 	/// <summary>
 	/// An implementation of the CFB mode for GOST 3412 2015 cipher.
 	/// See  <a href="http://www.tc26.ru/standard/gost/GOST_R_3413-2015.pdf">GOST R 3413 2015</a>

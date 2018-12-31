@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.math.field
-{
-	using Arrays = org.bouncycastle.util.Arrays;
+﻿using org.bouncycastle.util;
 
+namespace org.bouncycastle.math.field
+{
+	
 	public class GF2Polynomial : Polynomial
 	{
 		protected internal readonly int[] exponents;

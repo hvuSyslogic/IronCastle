@@ -1,8 +1,9 @@
-﻿namespace org.bouncycastle.asn1.ocsp
-{
-	using X500Name = org.bouncycastle.asn1.x500.X500Name;
-	using AuthorityInformationAccess = org.bouncycastle.asn1.x509.AuthorityInformationAccess;
+﻿using org.bouncycastle.asn1.x500;
+using org.bouncycastle.asn1.x509;
 
+namespace org.bouncycastle.asn1.ocsp
+{
+		
 	public class ServiceLocator : ASN1Object
 	{
 		private readonly X500Name issuer;

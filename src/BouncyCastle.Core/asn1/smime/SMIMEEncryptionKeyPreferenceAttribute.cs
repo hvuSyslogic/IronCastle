@@ -1,9 +1,8 @@
-﻿namespace org.bouncycastle.asn1.smime
-{
-	using Attribute = org.bouncycastle.asn1.cms.Attribute;
-	using IssuerAndSerialNumber = org.bouncycastle.asn1.cms.IssuerAndSerialNumber;
-	using RecipientKeyIdentifier = org.bouncycastle.asn1.cms.RecipientKeyIdentifier;
+﻿using org.bouncycastle.asn1.cms;
 
+namespace org.bouncycastle.asn1.smime
+{
+			
 	/// <summary>
 	/// The SMIMEEncryptionKeyPreference object.
 	/// <pre>

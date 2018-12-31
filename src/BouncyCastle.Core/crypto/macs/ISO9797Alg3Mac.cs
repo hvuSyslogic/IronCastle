@@ -1,14 +1,13 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.engines;
+using org.bouncycastle.crypto.modes;
+using org.bouncycastle.crypto.paddings;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.macs
 {
-	using DESEngine = org.bouncycastle.crypto.engines.DESEngine;
-	using CBCBlockCipher = org.bouncycastle.crypto.modes.CBCBlockCipher;
-	using BlockCipherPadding = org.bouncycastle.crypto.paddings.BlockCipherPadding;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-
+					
 	/// <summary>
 	/// DES based CBC Block Cipher MAC according to ISO9797, algorithm 3 (ANSI X9.19 Retail MAC)
 	/// 

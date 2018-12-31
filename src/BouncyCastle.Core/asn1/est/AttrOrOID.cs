@@ -5,8 +5,7 @@ using org.bouncycastle.Port.java.lang;
 namespace org.bouncycastle.asn1.est
 {
 
-	using Attribute = org.bouncycastle.asn1.pkcs.Attribute;
-
+	
 	/// <summary>
 	/// <pre>
 	///    AttrOrOID ::= CHOICE (oid OBJECT IDENTIFIER, attribute Attribute }

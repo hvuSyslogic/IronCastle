@@ -1,12 +1,12 @@
-﻿using org.bouncycastle.Port.Extensions;
+﻿using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.asn1.isismtt.x509
 {
 
-	using GeneralName = org.bouncycastle.asn1.x509.GeneralName;
-
+	
 	/// <summary>
 	/// Attribute to indicate admissions to certain professions.
 	/// 

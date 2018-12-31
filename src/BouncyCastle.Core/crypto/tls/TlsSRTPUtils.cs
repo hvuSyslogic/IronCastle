@@ -1,12 +1,12 @@
 ﻿using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using Integers = org.bouncycastle.util.Integers;
-
+	
 	/// <summary>
 	/// RFC 5764 DTLS Extension to Establish Keys for SRTP.
 	/// </summary>

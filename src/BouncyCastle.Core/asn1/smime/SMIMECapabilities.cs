@@ -7,10 +7,7 @@ using org.bouncycastle.Port.java.util;
 namespace org.bouncycastle.asn1.smime
 {
 
-	using Attribute = org.bouncycastle.asn1.cms.Attribute;
-	using NISTObjectIdentifiers = org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-	using PKCSObjectIdentifiers = org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-
+			
 	/// <summary>
 	/// Handler class for dealing with S/MIME Capabilities
 	/// </summary>

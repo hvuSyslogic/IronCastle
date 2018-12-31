@@ -2,13 +2,13 @@
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 using Org.BouncyCastle.Math.Raw;
+using Arrays = org.bouncycastle.util.Arrays;
 
 namespace org.bouncycastle.math.ec
 {
-	using Arrays = org.bouncycastle.util.Arrays;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+		
 	public abstract class ECFieldElement : ECConstants
 	{
 		public abstract BigInteger toBigInteger();

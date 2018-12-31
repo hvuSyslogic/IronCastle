@@ -1,21 +1,20 @@
 ﻿using System;
+using org.bouncycastle.crypto.engines;
+using org.bouncycastle.crypto.macs;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
+using Arrays = org.bouncycastle.util.Arrays;
 
 namespace org.bouncycastle.crypto.digests
 {
 
-	using ThreefishEngine = org.bouncycastle.crypto.engines.ThreefishEngine;
-	using SkeinMac = org.bouncycastle.crypto.macs.SkeinMac;
-	using SkeinParameters = org.bouncycastle.crypto.@params.SkeinParameters;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Integers = org.bouncycastle.util.Integers;
-	using Memoable = org.bouncycastle.util.Memoable;
-
+						
 	/// <summary>
 	/// Implementation of the Skein family of parameterised hash functions in 256, 512 and 1024 bit block
-	/// sizes, based on the <seealso cref="ThreefishEngine Threefish"/> tweakable block cipher.
+	/// sizes, based on the <seealso cref="ThreefishEngine"/> tweakable block cipher.
 	/// <para>
 	/// This is the 1.3 version of Skein defined in the Skein hash function submission to the NIST SHA-3
 	/// competition in October 2010.

@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1.x509;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.cmc
 {
 
-	using GeneralName = org.bouncycastle.asn1.x509.GeneralName;
-
+	
 	/// <summary>
 	/// <pre>
 	///      id-cmc-getCert OBJECT IDENTIFIER ::= {id-cmc 15}

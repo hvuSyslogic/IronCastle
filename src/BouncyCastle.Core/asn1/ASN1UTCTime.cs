@@ -3,14 +3,12 @@ using BouncyCastle.Core.Port.java.text;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.text;
-using DateTime = BouncyCastle.Core.Port.java.text.DateTime;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Strings = org.bouncycastle.util.Strings;
-
+		
 	/// <summary>
 	/// - * UTC time object.
 	/// Internal facade of <seealso cref="ASN1UTCTime"/>.

@@ -1,10 +1,9 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.generators
 {
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-
+		
 	/// <summary>
 	/// Generator for PBE derived keys and ivs as defined by PKCS 5 V2.0 Scheme 1.
 	/// Note this generator is limited to the size of the hash produced by the

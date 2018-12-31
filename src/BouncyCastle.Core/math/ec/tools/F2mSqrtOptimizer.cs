@@ -1,4 +1,6 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1.x9;
+using org.bouncycastle.crypto.ec;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
@@ -6,10 +8,7 @@ using org.bouncycastle.Port.java.util;
 namespace org.bouncycastle.math.ec.tools
 {
 
-	using ECNamedCurveTable = org.bouncycastle.asn1.x9.ECNamedCurveTable;
-	using X9ECParameters = org.bouncycastle.asn1.x9.X9ECParameters;
-	using CustomNamedCurves = org.bouncycastle.crypto.ec.CustomNamedCurves;
-
+			
 	public class F2mSqrtOptimizer
 	{
 		public static void Main(string[] args)

@@ -1,9 +1,8 @@
-﻿namespace org.bouncycastle.asn1.ocsp
-{
-	using Extensions = org.bouncycastle.asn1.x509.Extensions;
-	using GeneralName = org.bouncycastle.asn1.x509.GeneralName;
-	using X509Extensions = org.bouncycastle.asn1.x509.X509Extensions;
+﻿using org.bouncycastle.asn1.x509;
 
+namespace org.bouncycastle.asn1.ocsp
+{
+			
 	public class TBSRequest : ASN1Object
 	{
 		private static readonly ASN1Integer V1 = new ASN1Integer(0);

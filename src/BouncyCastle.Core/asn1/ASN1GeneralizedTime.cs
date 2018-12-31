@@ -3,15 +3,12 @@ using BouncyCastle.Core.Port.java.text;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.text;
-using DateTime = BouncyCastle.Core.Port.java.text.DateTime;
-using TimeZone = BouncyCastle.Core.Port.java.util.TimeZone;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Strings = org.bouncycastle.util.Strings;
-
+		
 	/// <summary>
 	/// Base class representing the ASN.1 GeneralizedTime type.
 	/// <para>

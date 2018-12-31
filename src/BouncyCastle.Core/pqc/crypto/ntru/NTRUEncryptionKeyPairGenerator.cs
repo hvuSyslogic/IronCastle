@@ -1,14 +1,10 @@
-﻿namespace org.bouncycastle.pqc.crypto.ntru
-{
-	using AsymmetricCipherKeyPair = org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-	using AsymmetricCipherKeyPairGenerator = org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-	using KeyGenerationParameters = org.bouncycastle.crypto.KeyGenerationParameters;
-	using DenseTernaryPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.DenseTernaryPolynomial;
-	using IntegerPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.IntegerPolynomial;
-	using Polynomial = org.bouncycastle.pqc.math.ntru.polynomial.Polynomial;
-	using ProductFormPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.ProductFormPolynomial;
-	using Util = org.bouncycastle.pqc.math.ntru.util.Util;
+﻿using org.bouncycastle.crypto;
+using org.bouncycastle.pqc.math.ntru.polynomial;
+using org.bouncycastle.pqc.math.ntru.util;
 
+namespace org.bouncycastle.pqc.crypto.ntru
+{
+								
 	/// <summary>
 	/// Generates key pairs.<br>
 	/// The parameter p is hardcoded to 3.

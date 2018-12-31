@@ -1,8 +1,8 @@
-﻿namespace org.bouncycastle.pqc.crypto.qtesla
-{
-	using CSHAKEDigest = org.bouncycastle.crypto.digests.CSHAKEDigest;
-	using SHAKEDigest = org.bouncycastle.crypto.digests.SHAKEDigest;
+﻿using org.bouncycastle.crypto.digests;
 
+namespace org.bouncycastle.pqc.crypto.qtesla
+{
+		
 	public class HashUtils
 	{
 

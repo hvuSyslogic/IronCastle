@@ -1,22 +1,13 @@
 ﻿using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.math.ec;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.signers
 {
 
-	using ECDomainParameters = org.bouncycastle.crypto.@params.ECDomainParameters;
-	using ECKeyParameters = org.bouncycastle.crypto.@params.ECKeyParameters;
-	using ECPrivateKeyParameters = org.bouncycastle.crypto.@params.ECPrivateKeyParameters;
-	using ECPublicKeyParameters = org.bouncycastle.crypto.@params.ECPublicKeyParameters;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using ECAlgorithms = org.bouncycastle.math.ec.ECAlgorithms;
-	using ECConstants = org.bouncycastle.math.ec.ECConstants;
-	using ECMultiplier = org.bouncycastle.math.ec.ECMultiplier;
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
-	using FixedPointCombMultiplier = org.bouncycastle.math.ec.FixedPointCombMultiplier;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+											
 	/// <summary>
 	/// GOST R 34.10-2001 Signature Algorithm
 	/// </summary>

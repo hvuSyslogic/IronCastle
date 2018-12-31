@@ -1,15 +1,11 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.macs;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.engines
 {
-	using GOST28147Mac = org.bouncycastle.crypto.macs.GOST28147Mac;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using ParametersWithSBox = org.bouncycastle.crypto.@params.ParametersWithSBox;
-	using ParametersWithUKM = org.bouncycastle.crypto.@params.ParametersWithUKM;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+							
 	public class GOST28147WrapEngine : Wrapper
 	{
 		private GOST28147Engine cipher = new GOST28147Engine();

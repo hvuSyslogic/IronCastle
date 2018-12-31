@@ -1,12 +1,10 @@
 ﻿using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.digests
 {
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Memoable = org.bouncycastle.util.Memoable;
-	using Pack = org.bouncycastle.util.Pack;
-
+			
 	/// <summary>
 	/// Reference implementation of national ukrainian standard of hashing transformation DSTU7564.
 	/// Thanks to Roman Oliynykov' native C implementation:

@@ -3,13 +3,12 @@ using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.generators
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Strings = org.bouncycastle.util.Strings;
-
+		
 	/// <summary>
 	/// Password hashing scheme BCrypt,
 	/// designed by Niels Provos and David Mazières, using the

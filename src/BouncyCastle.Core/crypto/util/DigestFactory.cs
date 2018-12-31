@@ -1,14 +1,8 @@
-﻿namespace org.bouncycastle.crypto.util
-{
-	using MD5Digest = org.bouncycastle.crypto.digests.MD5Digest;
-	using SHA1Digest = org.bouncycastle.crypto.digests.SHA1Digest;
-	using SHA224Digest = org.bouncycastle.crypto.digests.SHA224Digest;
-	using SHA256Digest = org.bouncycastle.crypto.digests.SHA256Digest;
-	using SHA384Digest = org.bouncycastle.crypto.digests.SHA384Digest;
-	using SHA3Digest = org.bouncycastle.crypto.digests.SHA3Digest;
-	using SHA512Digest = org.bouncycastle.crypto.digests.SHA512Digest;
-	using SHA512tDigest = org.bouncycastle.crypto.digests.SHA512tDigest;
+﻿using org.bouncycastle.crypto.digests;
 
+namespace org.bouncycastle.crypto.util
+{
+								
 	/// <summary>
 	/// Basic factory class for message digests.
 	/// </summary>

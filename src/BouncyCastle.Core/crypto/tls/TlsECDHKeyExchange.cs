@@ -1,4 +1,6 @@
 ﻿using org.bouncycastle.asn1.x509;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.crypto.util;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
@@ -7,14 +9,7 @@ using org.bouncycastle.Port.java.util;
 namespace org.bouncycastle.crypto.tls
 {
 
-	using KeyUsage = org.bouncycastle.asn1.x509.KeyUsage;
-	using SubjectPublicKeyInfo = org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using ECDomainParameters = org.bouncycastle.crypto.@params.ECDomainParameters;
-	using ECPrivateKeyParameters = org.bouncycastle.crypto.@params.ECPrivateKeyParameters;
-	using ECPublicKeyParameters = org.bouncycastle.crypto.@params.ECPublicKeyParameters;
-	using PublicKeyFactory = org.bouncycastle.crypto.util.PublicKeyFactory;
-
+							
 	/// <summary>
 	/// (D)TLS ECDH key exchange (see RFC 4492).
 	/// </summary>

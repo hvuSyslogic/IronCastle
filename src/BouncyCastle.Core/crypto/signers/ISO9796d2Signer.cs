@@ -1,12 +1,12 @@
 ﻿using System;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.signers
 {
-	using RSAKeyParameters = org.bouncycastle.crypto.@params.RSAKeyParameters;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+		
 	/// <summary>
 	/// ISO9796-2 - mechanism using a hash function with recovery (scheme 1)
 	/// </summary>

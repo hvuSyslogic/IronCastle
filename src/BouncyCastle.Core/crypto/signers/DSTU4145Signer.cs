@@ -1,23 +1,13 @@
 ﻿using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.math.ec;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.signers
 {
 
-	using ECDomainParameters = org.bouncycastle.crypto.@params.ECDomainParameters;
-	using ECKeyParameters = org.bouncycastle.crypto.@params.ECKeyParameters;
-	using ECPrivateKeyParameters = org.bouncycastle.crypto.@params.ECPrivateKeyParameters;
-	using ECPublicKeyParameters = org.bouncycastle.crypto.@params.ECPublicKeyParameters;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using ECAlgorithms = org.bouncycastle.math.ec.ECAlgorithms;
-	using ECCurve = org.bouncycastle.math.ec.ECCurve;
-	using ECFieldElement = org.bouncycastle.math.ec.ECFieldElement;
-	using ECMultiplier = org.bouncycastle.math.ec.ECMultiplier;
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
-	using FixedPointCombMultiplier = org.bouncycastle.math.ec.FixedPointCombMultiplier;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+													
 	/// <summary>
 	/// DSTU 4145-2002
 	/// <para>

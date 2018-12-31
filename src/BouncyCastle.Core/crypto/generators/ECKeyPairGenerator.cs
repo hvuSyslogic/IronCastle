@@ -1,21 +1,13 @@
 ﻿using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.math.ec;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.generators
 {
 
-	using ECDomainParameters = org.bouncycastle.crypto.@params.ECDomainParameters;
-	using ECKeyGenerationParameters = org.bouncycastle.crypto.@params.ECKeyGenerationParameters;
-	using ECPrivateKeyParameters = org.bouncycastle.crypto.@params.ECPrivateKeyParameters;
-	using ECPublicKeyParameters = org.bouncycastle.crypto.@params.ECPublicKeyParameters;
-	using ECConstants = org.bouncycastle.math.ec.ECConstants;
-	using ECMultiplier = org.bouncycastle.math.ec.ECMultiplier;
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
-	using FixedPointCombMultiplier = org.bouncycastle.math.ec.FixedPointCombMultiplier;
-	using WNafUtil = org.bouncycastle.math.ec.WNafUtil;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+										
 	public class ECKeyPairGenerator : AsymmetricCipherKeyPairGenerator, ECConstants
 	{
 		internal ECDomainParameters @params;

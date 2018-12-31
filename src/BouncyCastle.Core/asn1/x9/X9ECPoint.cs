@@ -1,9 +1,9 @@
-﻿namespace org.bouncycastle.asn1.x9
-{
-	using ECCurve = org.bouncycastle.math.ec.ECCurve;
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
-	using Arrays = org.bouncycastle.util.Arrays;
+﻿using org.bouncycastle.math.ec;
+using org.bouncycastle.util;
 
+namespace org.bouncycastle.asn1.x9
+{
+			
 	/// <summary>
 	/// Class for describing an ECPoint as a DER object.
 	/// </summary>

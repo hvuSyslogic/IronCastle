@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.pqc.crypto
-{
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
+﻿using org.bouncycastle.crypto.@params;
 
+namespace org.bouncycastle.pqc.crypto
+{
+	
 	/// <summary>
 	/// Interface for NewHope style key material exchange generators.
 	/// </summary>

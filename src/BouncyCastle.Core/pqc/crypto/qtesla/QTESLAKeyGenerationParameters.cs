@@ -1,10 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto;
 
 namespace org.bouncycastle.pqc.crypto.qtesla
 {
 
-	using KeyGenerationParameters = org.bouncycastle.crypto.KeyGenerationParameters;
-
+	
 	/// <summary>
 	/// qTESLA key-pair generation parameters.
 	/// </summary>

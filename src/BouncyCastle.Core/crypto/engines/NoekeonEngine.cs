@@ -1,11 +1,11 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.engines
 {
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-
+	
 	/// <summary>
 	/// A Noekeon engine, using direct-key mode.
 	/// </summary>

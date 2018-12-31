@@ -1,5 +1,7 @@
 ﻿using System;
 using BouncyCastle.Core.Port.java.util;
+using org.bouncycastle.asn1;
+using org.bouncycastle.crypto;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
@@ -7,9 +9,7 @@ using org.bouncycastle.Port.java.util;
 namespace org.bouncycastle.pqc.crypto.xmss
 {
 
-	using ASN1ObjectIdentifier = org.bouncycastle.asn1.ASN1ObjectIdentifier;
-	using Digest = org.bouncycastle.crypto.Digest;
-
+		
     /// <summary>
     /// BDS.
     /// </summary>

@@ -1,13 +1,10 @@
-﻿namespace org.bouncycastle.crypto.util
+﻿using org.bouncycastle.asn1;
+using org.bouncycastle.asn1.x509;
+
+namespace org.bouncycastle.crypto.util
 {
 
-	using ASN1EncodableVector = org.bouncycastle.asn1.ASN1EncodableVector;
-	using ASN1OctetString = org.bouncycastle.asn1.ASN1OctetString;
-	using ASN1TaggedObject = org.bouncycastle.asn1.ASN1TaggedObject;
-	using DERSequence = org.bouncycastle.asn1.DERSequence;
-	using DERTaggedObject = org.bouncycastle.asn1.DERTaggedObject;
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-
+						
 	/// <summary>
 	/// Builder and holder class for preparing SP 800-56A compliant OtherInfo. The data is ultimately encoded as a DER SEQUENCE.
 	/// Empty octet strings are used to represent nulls in compulsory fields.

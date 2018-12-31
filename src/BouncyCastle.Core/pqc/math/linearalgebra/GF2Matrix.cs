@@ -1,12 +1,12 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.math.linearalgebra
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// This class describes some operations with matrices over finite field GF(2)
 	/// and is used in ecc and MQ-PKC (also has some specific methods and

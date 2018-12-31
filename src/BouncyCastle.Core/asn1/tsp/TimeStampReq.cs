@@ -1,7 +1,6 @@
 ﻿namespace org.bouncycastle.asn1.tsp
 {
-	using Extensions = org.bouncycastle.asn1.x509.Extensions;
-
+	
 	public class TimeStampReq : ASN1Object
 	{
 		internal ASN1Integer version;

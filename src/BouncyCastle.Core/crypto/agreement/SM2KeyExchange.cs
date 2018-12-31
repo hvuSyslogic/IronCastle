@@ -1,24 +1,16 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.digests;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.math.ec;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.agreement
 {
 
-	using SM3Digest = org.bouncycastle.crypto.digests.SM3Digest;
-	using ECDomainParameters = org.bouncycastle.crypto.@params.ECDomainParameters;
-	using ECPrivateKeyParameters = org.bouncycastle.crypto.@params.ECPrivateKeyParameters;
-	using ParametersWithID = org.bouncycastle.crypto.@params.ParametersWithID;
-	using SM2KeyExchangePrivateParameters = org.bouncycastle.crypto.@params.SM2KeyExchangePrivateParameters;
-	using SM2KeyExchangePublicParameters = org.bouncycastle.crypto.@params.SM2KeyExchangePublicParameters;
-	using ECAlgorithms = org.bouncycastle.math.ec.ECAlgorithms;
-	using ECFieldElement = org.bouncycastle.math.ec.ECFieldElement;
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Memoable = org.bouncycastle.util.Memoable;
-	using Pack = org.bouncycastle.util.Pack;
-
+												
 	/// <summary>
 	/// SM2 Key Exchange protocol - based on https://tools.ietf.org/html/draft-shen-sm2-ecdsa-02
 	/// </summary>

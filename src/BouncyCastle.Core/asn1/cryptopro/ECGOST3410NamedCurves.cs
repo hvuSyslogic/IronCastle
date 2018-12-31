@@ -1,16 +1,13 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.math.ec;
 using org.bouncycastle.asn1.rosstandart;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.asn1.cryptopro
 {
 
-	using RosstandartObjectIdentifiers = org.bouncycastle.asn1.rosstandart.RosstandartObjectIdentifiers;
-	using ECDomainParameters = org.bouncycastle.crypto.@params.ECDomainParameters;
-	using ECConstants = org.bouncycastle.math.ec.ECConstants;
-	using ECCurve = org.bouncycastle.math.ec.ECCurve;
-
+				
 	/// <summary>
 	/// table of the available named parameters for GOST 3410-2001 / 2012.
 	/// </summary>

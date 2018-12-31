@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.crypto.agreement.kdf
-{
-	using ASN1ObjectIdentifier = org.bouncycastle.asn1.ASN1ObjectIdentifier;
+﻿using org.bouncycastle.asn1;
 
+namespace org.bouncycastle.crypto.agreement.kdf
+{
+	
 	public class DHKDFParameters : DerivationParameters
 	{
 		private ASN1ObjectIdentifier algorithm;

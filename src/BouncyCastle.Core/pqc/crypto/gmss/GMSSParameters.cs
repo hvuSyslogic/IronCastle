@@ -1,9 +1,9 @@
 ﻿using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.crypto.gmss
 {
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// This class provides a specification for the GMSS parameters that are used by
 	/// the GMSSKeyPairGenerator and GMSSSignature classes.

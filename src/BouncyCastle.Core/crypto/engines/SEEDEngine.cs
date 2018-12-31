@@ -1,9 +1,9 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 
 namespace org.bouncycastle.crypto.engines
 {
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-
+	
 	/// <summary>
 	/// Implementation of the SEED algorithm as described in RFC 4009
 	/// </summary>

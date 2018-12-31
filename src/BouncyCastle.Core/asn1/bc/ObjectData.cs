@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
 using BouncyCastle.Core.Port.java.text;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.bc
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// <pre>
 	/// ObjectData ::= SEQUENCE {

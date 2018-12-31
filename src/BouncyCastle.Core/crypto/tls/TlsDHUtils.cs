@@ -1,21 +1,17 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.agreement;
+using org.bouncycastle.crypto.generators;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
+using org.bouncycastle.util.encoders;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using DHBasicAgreement = org.bouncycastle.crypto.agreement.DHBasicAgreement;
-	using DHBasicKeyPairGenerator = org.bouncycastle.crypto.generators.DHBasicKeyPairGenerator;
-	using DHKeyGenerationParameters = org.bouncycastle.crypto.@params.DHKeyGenerationParameters;
-	using DHParameters = org.bouncycastle.crypto.@params.DHParameters;
-	using DHPrivateKeyParameters = org.bouncycastle.crypto.@params.DHPrivateKeyParameters;
-	using DHPublicKeyParameters = org.bouncycastle.crypto.@params.DHPublicKeyParameters;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-	using Integers = org.bouncycastle.util.Integers;
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+									
 	public class TlsDHUtils
 	{
 		internal static readonly BigInteger TWO = BigInteger.valueOf(2);

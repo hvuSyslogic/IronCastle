@@ -1,8 +1,9 @@
-﻿namespace org.bouncycastle.pqc.crypto.ntru
+﻿using org.bouncycastle.crypto;
+
+namespace org.bouncycastle.pqc.crypto.ntru
 {
 
-	using Digest = org.bouncycastle.crypto.Digest;
-
+	
 	/// <summary>
 	/// An implementation of the deterministic pseudo-random generator in EESS section 3.7.3.1
 	/// </summary>

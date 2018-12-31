@@ -1,10 +1,10 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.modes
 {
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-
+	
 	/// <summary>
 	/// Implements OpenPGP's rather strange version of Cipher-FeedBack (CFB) mode on top of a simple cipher. For further info see <a href="http://www.ietf.org/rfc/rfc2440.html">RFC 2440</a>.
 	/// </summary>

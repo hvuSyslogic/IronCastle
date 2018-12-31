@@ -1,21 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1;
+using org.bouncycastle.asn1.x509;
+using org.bouncycastle.pqc.math.linearalgebra;
 
 namespace org.bouncycastle.pqc.asn1
 {
 
-	using ASN1EncodableVector = org.bouncycastle.asn1.ASN1EncodableVector;
-	using ASN1Integer = org.bouncycastle.asn1.ASN1Integer;
-	using ASN1Object = org.bouncycastle.asn1.ASN1Object;
-	using ASN1OctetString = org.bouncycastle.asn1.ASN1OctetString;
-	using ASN1Primitive = org.bouncycastle.asn1.ASN1Primitive;
-	using ASN1Sequence = org.bouncycastle.asn1.ASN1Sequence;
-	using DEROctetString = org.bouncycastle.asn1.DEROctetString;
-	using DERSequence = org.bouncycastle.asn1.DERSequence;
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-	using GF2mField = org.bouncycastle.pqc.math.linearalgebra.GF2mField;
-	using Permutation = org.bouncycastle.pqc.math.linearalgebra.Permutation;
-	using PolynomialGF2mSmallM = org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM;
-
+												
 	/// <summary>
 	/// Return the keyData to encode in the PrivateKeyInfo structure.
 	/// <para>

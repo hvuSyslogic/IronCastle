@@ -1,10 +1,10 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.agreement.kdf
 {
-	using KDFParameters = org.bouncycastle.crypto.@params.KDFParameters;
-
+	
 	/// <summary>
 	/// Generator for Concatenation Key Derivation Function defined in NIST SP 800-56A, Sect 5.8.1
 	/// </summary>

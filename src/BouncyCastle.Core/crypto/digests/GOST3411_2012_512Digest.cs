@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.crypto.digests
-{
-	using Memoable = org.bouncycastle.util.Memoable;
+﻿using org.bouncycastle.util;
 
+namespace org.bouncycastle.crypto.digests
+{
+	
 	/// <summary>
 	/// implementation of GOST R 34.11-2012 512-bit
 	/// </summary>

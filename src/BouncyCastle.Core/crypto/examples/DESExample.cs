@@ -3,21 +3,20 @@ using System.IO;
 using BouncyCastle.Core.Port;
 using BouncyCastle.Core.Port.java.io;
 using BouncyCastle.Core.Port.java.lang;
+using org.bouncycastle.crypto.engines;
+using org.bouncycastle.crypto.generators;
+using org.bouncycastle.crypto.modes;
+using org.bouncycastle.crypto.paddings;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.io;
+using org.bouncycastle.util.encoders;
 
 namespace org.bouncycastle.crypto.examples
 {
 
-	using DESedeEngine = org.bouncycastle.crypto.engines.DESedeEngine;
-	using DESedeKeyGenerator = org.bouncycastle.crypto.generators.DESedeKeyGenerator;
-	using CBCBlockCipher = org.bouncycastle.crypto.modes.CBCBlockCipher;
-	using PaddedBufferedBlockCipher = org.bouncycastle.crypto.paddings.PaddedBufferedBlockCipher;
-	using DESedeParameters = org.bouncycastle.crypto.@params.DESedeParameters;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+							
 	/// <summary>
 	/// DESExample is a simple DES based encryptor/decryptor.
 	/// <para>

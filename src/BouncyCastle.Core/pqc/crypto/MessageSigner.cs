@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.pqc.crypto
-{
-	using CipherParameters = org.bouncycastle.crypto.CipherParameters;
+﻿using org.bouncycastle.crypto;
 
+namespace org.bouncycastle.pqc.crypto
+{
+	
 	/// <summary>
 	/// Base interface for a PQC signing algorithm.
 	/// </summary>

@@ -1,9 +1,9 @@
 ﻿using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.x509
 {
-	using Strings = org.bouncycastle.util.Strings;
-
+	
 	public class CRLDistPoint : ASN1Object
 	{
 		internal ASN1Sequence seq = null;

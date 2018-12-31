@@ -1,14 +1,13 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.signers
 {
 
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-
+		
 	public class DSADigestSigner : Signer
 	{
 		private readonly DSA dsa;

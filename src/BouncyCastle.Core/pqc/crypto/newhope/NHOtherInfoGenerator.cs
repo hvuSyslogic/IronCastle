@@ -1,18 +1,15 @@
 ﻿using System.IO;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1.x509;
+using org.bouncycastle.crypto;
+using org.bouncycastle.crypto.util;
 using org.bouncycastle.pqc.asn1;
 using org.bouncycastle.Port;
 
 namespace org.bouncycastle.pqc.crypto.newhope
 {
 
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-	using SubjectPublicKeyInfo = org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-	using AsymmetricCipherKeyPair = org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-	using KeyGenerationParameters = org.bouncycastle.crypto.KeyGenerationParameters;
-	using DEROtherInfo = org.bouncycastle.crypto.util.DEROtherInfo;
-	using PQCObjectIdentifiers = org.bouncycastle.pqc.asn1.PQCObjectIdentifiers;
-
+						
 	/// <summary>
 	/// OtherInfo Generator for which can be used for populating the SuppPrivInfo field used to provide shared
 	/// secret data used with NIST SP 800-56A agreement algorithms.

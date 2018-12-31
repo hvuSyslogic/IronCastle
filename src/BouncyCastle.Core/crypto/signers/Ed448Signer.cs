@@ -1,14 +1,13 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.math.ec.rfc8032;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.signers
 {
 
-	using Ed448PrivateKeyParameters = org.bouncycastle.crypto.@params.Ed448PrivateKeyParameters;
-	using Ed448PublicKeyParameters = org.bouncycastle.crypto.@params.Ed448PublicKeyParameters;
-	using Ed448 = org.bouncycastle.math.ec.rfc8032.Ed448;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+				
 
 	public class Ed448Signer : Signer
 	{

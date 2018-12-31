@@ -1,13 +1,13 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.math.ec.rfc7748;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
+using org.bouncycastle.util;
+using org.bouncycastle.util.io;
 
 namespace org.bouncycastle.crypto.@params
 {
 
-	using X448 = org.bouncycastle.math.ec.rfc7748.X448;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Streams = org.bouncycastle.util.io.Streams;
-
+			
 	public sealed class X448PublicKeyParameters : AsymmetricKeyParameter
 	{
 		public const int KEY_SIZE = X448.POINT_SIZE;

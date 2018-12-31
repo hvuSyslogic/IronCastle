@@ -3,12 +3,12 @@ using System.IO;
 using BouncyCastle.Core.Port.java.io;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util.encoders;
 
 namespace org.bouncycastle.util.io.pem
 {
 
-	using Base64 = org.bouncycastle.util.encoders.Base64;
-
+	
 	/// <summary>
 	/// A generic PEM reader, based on the format outlined in RFC 1421
 	/// </summary>

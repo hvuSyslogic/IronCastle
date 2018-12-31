@@ -1,24 +1,18 @@
-﻿using org.bouncycastle.asn1.pkcs;
+﻿using org.bouncycastle.asn1;
+using org.bouncycastle.asn1.pkcs;
 using org.bouncycastle.asn1.nist;
 using org.bouncycastle.asn1.cryptopro;
 using org.bouncycastle.asn1.rosstandart;
 using org.bouncycastle.asn1.gm;
+using org.bouncycastle.asn1.x509;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.util
 {
 
-	using ASN1ObjectIdentifier = org.bouncycastle.asn1.ASN1ObjectIdentifier;
-	using DERNull = org.bouncycastle.asn1.DERNull;
-	using CryptoProObjectIdentifiers = org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-	using GMObjectIdentifiers = org.bouncycastle.asn1.gm.GMObjectIdentifiers;
-	using NISTObjectIdentifiers = org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-	using PKCSObjectIdentifiers = org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-	using RosstandartObjectIdentifiers = org.bouncycastle.asn1.rosstandart.RosstandartObjectIdentifiers;
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-	using Integers = org.bouncycastle.util.Integers;
-
+									
 	/// <summary>
 	/// Configuration class for a PBKDF using PKCS#5 Scheme 2.
 	/// </summary>

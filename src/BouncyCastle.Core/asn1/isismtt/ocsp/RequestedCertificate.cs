@@ -2,13 +2,12 @@
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.isismtt.ocsp
 {
 
-	using Certificate = org.bouncycastle.asn1.x509.Certificate;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+		
 	/// <summary>
 	/// ISIS-MTT-Optional: The certificate requested by the client by inserting the
 	/// RetrieveIfAllowed extension in the request, will be returned in this

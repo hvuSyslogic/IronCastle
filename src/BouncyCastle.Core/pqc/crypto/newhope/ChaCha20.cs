@@ -1,9 +1,9 @@
-﻿namespace org.bouncycastle.pqc.crypto.newhope
-{
-	using ChaChaEngine = org.bouncycastle.crypto.engines.ChaChaEngine;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
+﻿using org.bouncycastle.crypto.engines;
+using org.bouncycastle.crypto.@params;
 
+namespace org.bouncycastle.pqc.crypto.newhope
+{
+			
 	public class ChaCha20
 	{
 		internal static void process(byte[] key, byte[] nonce, byte[] buf, int off, int len)

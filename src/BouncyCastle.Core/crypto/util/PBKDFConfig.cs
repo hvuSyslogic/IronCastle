@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.crypto.util
-{
-	using ASN1ObjectIdentifier = org.bouncycastle.asn1.ASN1ObjectIdentifier;
+﻿using org.bouncycastle.asn1;
 
+namespace org.bouncycastle.crypto.util
+{
+	
 	/// <summary>
 	/// Base class for PBKDF configs.
 	/// </summary>

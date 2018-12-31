@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.x509
 {
 
-	using Integers = org.bouncycastle.util.Integers;
-
+	
 	/// <summary>
 	/// The CRLReason enumeration.
 	/// <pre>

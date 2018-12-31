@@ -1,10 +1,10 @@
-﻿using org.bouncycastle.Port.java.util;
+﻿using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.asn1.pkcs
 {
 
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-
+	
 	public class EncryptedPrivateKeyInfo : ASN1Object
 	{
 		private AlgorithmIdentifier algId;

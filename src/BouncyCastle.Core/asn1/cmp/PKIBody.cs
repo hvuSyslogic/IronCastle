@@ -1,11 +1,10 @@
-﻿using org.bouncycastle.Port.Extensions;
+﻿using org.bouncycastle.asn1.crmf;
+using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.cmp
 {
-	using CertReqMessages = org.bouncycastle.asn1.crmf.CertReqMessages;
-	using CertificationRequest = org.bouncycastle.asn1.pkcs.CertificationRequest;
-
+		
 	public class PKIBody : ASN1Object, ASN1Choice
 	{
 		public const int TYPE_INIT_REQ = 0;

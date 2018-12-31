@@ -1,13 +1,12 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.asn1.esf
 {
 
-	using Attribute = org.bouncycastle.asn1.x509.Attribute;
-	using AttributeCertificate = org.bouncycastle.asn1.x509.AttributeCertificate;
-
+		
 
 	public class SignerAttribute : ASN1Object
 	{

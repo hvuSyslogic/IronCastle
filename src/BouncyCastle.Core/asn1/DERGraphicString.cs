@@ -1,13 +1,12 @@
 ﻿using System;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Strings = org.bouncycastle.util.Strings;
-
+		
 	public class DERGraphicString : ASN1Primitive, ASN1String
 	{
 		private readonly byte[] @string;

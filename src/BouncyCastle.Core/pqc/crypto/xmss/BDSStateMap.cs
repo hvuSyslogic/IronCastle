@@ -1,13 +1,13 @@
 ﻿using System;
 using BouncyCastle.Core.Port.java.util;
+using org.bouncycastle.asn1;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.crypto.xmss
 {
 
-	using ASN1ObjectIdentifier = org.bouncycastle.asn1.ASN1ObjectIdentifier;
-	using Integers = org.bouncycastle.util.Integers;
-
+		
 	[Serializable]
 	public class BDSStateMap
 	{

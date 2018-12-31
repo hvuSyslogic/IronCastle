@@ -1,10 +1,10 @@
 ﻿using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	public class SRPTlsClient : AbstractTlsClient
 	{
 		protected internal TlsSRPGroupVerifier groupVerifier;

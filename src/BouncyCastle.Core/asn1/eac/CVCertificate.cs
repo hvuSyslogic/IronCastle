@@ -1,11 +1,11 @@
 ﻿using System.IO;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.eac
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 
 	/// <summary>
 	/// an iso7816Certificate structure.

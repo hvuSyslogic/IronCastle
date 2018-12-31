@@ -9,9 +9,7 @@ using org.bouncycastle.Port.java.util;
 namespace org.bouncycastle.crypto.tls
 {
 
-	using ASN1Encoding = org.bouncycastle.asn1.ASN1Encoding;
-	using ASN1Primitive = org.bouncycastle.asn1.ASN1Primitive;
-
+		
 	/// <summary>
 	/// Parsing and encoding of a <i>Certificate</i> struct from RFC 4346.
 	/// <pre>

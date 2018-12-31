@@ -1,13 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.digests;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.generators
 {
 
-	using SHA256Digest = org.bouncycastle.crypto.digests.SHA256Digest;
-	using CramerShoupParameters = org.bouncycastle.crypto.@params.CramerShoupParameters;
-	using DHParameters = org.bouncycastle.crypto.@params.DHParameters;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+				
 	public class CramerShoupParametersGenerator
 	{
 		private static readonly BigInteger ONE = BigInteger.valueOf(1);

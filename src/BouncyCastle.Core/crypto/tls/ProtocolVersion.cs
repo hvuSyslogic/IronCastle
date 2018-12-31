@@ -1,10 +1,10 @@
 ﻿using BouncyCastle.Core.Port.Extensions;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using Strings = org.bouncycastle.util.Strings;
-
+	
 	public sealed class ProtocolVersion
 	{
 		public static readonly ProtocolVersion SSLv3 = new ProtocolVersion(0x0300, "SSL 3.0");

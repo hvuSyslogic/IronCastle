@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1.x500;
+using org.bouncycastle.asn1.x509;
 
 namespace org.bouncycastle.asn1.pkcs
 {
 
-	using X500Name = org.bouncycastle.asn1.x500.X500Name;
-	using X509Name = org.bouncycastle.asn1.x509.X509Name;
-
+		
 	public class IssuerAndSerialNumber : ASN1Object
 	{
 		internal X500Name name;

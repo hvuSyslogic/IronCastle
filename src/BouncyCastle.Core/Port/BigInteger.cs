@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using org.bouncycastle.Port.java.util;
-using Random = System.Random;
 
 namespace BouncyCastle.Core.Port
 {
@@ -33,11 +32,6 @@ namespace BouncyCastle.Core.Port
 
         public BigInteger(int m, org.bouncycastle.Port.java.util.Random rand)
         {
-        }
-
-        public BigInteger(int bytes, Random rand)
-        {
-            throw new NotImplementedException();
         }
 
         public BigInteger(int bytes, SecureRandom rand)

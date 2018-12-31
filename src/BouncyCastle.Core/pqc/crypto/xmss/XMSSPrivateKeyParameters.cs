@@ -1,15 +1,14 @@
 ﻿using System.IO;
 using BouncyCastle.Core.Port.java.lang;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.crypto.xmss
 {
 
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Pack = org.bouncycastle.util.Pack;
-
+			
 	/// <summary>
 	/// XMSS Private Key.
 	/// </summary>

@@ -3,12 +3,12 @@ using BouncyCastle.Core.custom;
 using BouncyCastle.Core.Port;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// Class representing the ASN.1 INTEGER type.
 	/// </summary>

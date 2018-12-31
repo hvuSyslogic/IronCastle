@@ -1,12 +1,11 @@
 ﻿using System;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.digests
 {
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Pack = org.bouncycastle.util.Pack;
-
+		
 	/// <summary>
 	/// implementation of Keccak based on following KeccakNISTInterface.c from http://keccak.noekeon.org/
 	/// <para>

@@ -6,9 +6,7 @@ using org.bouncycastle.Port.java.util;
 namespace org.bouncycastle.asn1.x500.style
 {
 
-	using PKCSObjectIdentifiers = org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-	using X509ObjectIdentifiers = org.bouncycastle.asn1.x509.X509ObjectIdentifiers;
-
+		
 	public class BCStyle : AbstractX500NameStyle
 	{
 		/// <summary>

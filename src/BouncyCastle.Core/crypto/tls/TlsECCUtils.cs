@@ -1,30 +1,22 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1.x9;
+using org.bouncycastle.crypto.agreement;
+using org.bouncycastle.crypto.ec;
+using org.bouncycastle.crypto.generators;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.math.ec;
+using org.bouncycastle.math.field;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
+using Arrays = org.bouncycastle.util.Arrays;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using ECNamedCurveTable = org.bouncycastle.asn1.x9.ECNamedCurveTable;
-	using X9ECParameters = org.bouncycastle.asn1.x9.X9ECParameters;
-	using ECDHBasicAgreement = org.bouncycastle.crypto.agreement.ECDHBasicAgreement;
-	using CustomNamedCurves = org.bouncycastle.crypto.ec.CustomNamedCurves;
-	using ECKeyPairGenerator = org.bouncycastle.crypto.generators.ECKeyPairGenerator;
-	using ECDomainParameters = org.bouncycastle.crypto.@params.ECDomainParameters;
-	using ECKeyGenerationParameters = org.bouncycastle.crypto.@params.ECKeyGenerationParameters;
-	using ECPrivateKeyParameters = org.bouncycastle.crypto.@params.ECPrivateKeyParameters;
-	using ECPublicKeyParameters = org.bouncycastle.crypto.@params.ECPublicKeyParameters;
-	using ECAlgorithms = org.bouncycastle.math.ec.ECAlgorithms;
-	using ECCurve = org.bouncycastle.math.ec.ECCurve;
-	using ECFieldElement = org.bouncycastle.math.ec.ECFieldElement;
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
-	using PolynomialExtensionField = org.bouncycastle.math.field.PolynomialExtensionField;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-	using Integers = org.bouncycastle.util.Integers;
-
+																	
 	public class TlsECCUtils
 	{
 		public static readonly int? EXT_elliptic_curves = Integers.valueOf(ExtensionType.elliptic_curves);

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BouncyCastle.Core.Port;
 using BouncyCastle.Core.Port.java.lang;
 using org.bouncycastle.Port;
@@ -18,7 +19,18 @@ namespace org.bouncycastle.util
 			// static class, hide constructor
 		}
 
-		public static bool areAllZeroes(byte[] buf, int off, int len)
+        //NOTE: This is not correct, but it will do for this port
+        public static string asList<T>(T[] list)
+        {
+            return string.Join(",", list);
+        }
+
+        internal static string ToString(byte[] oid)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static bool areAllZeroes(byte[] buf, int off, int len)
 		{
 			int bits = 0;
 			for (int i = 0; i < len; ++i)
@@ -640,7 +652,29 @@ namespace org.bouncycastle.util
 			return hc;
 		}
 
-		public static int GetHashCode(long[] data, int off, int len)
+        public static int GetHashCode(ulong[] data)
+        {
+            if (data == null)
+            {
+                return 0;
+            }
+
+            int i = data.Length;
+            int hc = i + 1;
+
+            while (--i >= 0)
+            {
+               ulong di = data[i];
+                hc *= 257;
+                hc ^= (int)di;
+                hc *= 257;
+                hc ^= (int)(di >> 32);
+            }
+
+            return hc;
+        }
+
+        public static int GetHashCode(long[] data, int off, int len)
 		{
 			if (data == null)
 			{

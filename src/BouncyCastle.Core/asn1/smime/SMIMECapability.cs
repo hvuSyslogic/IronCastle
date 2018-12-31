@@ -4,9 +4,7 @@ using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.smime
 {
-	using NISTObjectIdentifiers = org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-	using PKCSObjectIdentifiers = org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-
+		
 	public class SMIMECapability : ASN1Object
 	{
 		/// <summary>

@@ -2,8 +2,7 @@
 
 namespace org.bouncycastle.crypto.util
 {
-	using MiscObjectIdentifiers = org.bouncycastle.asn1.misc.MiscObjectIdentifiers;
-
+	
 	/// <summary>
 	/// Configuration class for a PBKDF based around scrypt.
 	/// </summary>

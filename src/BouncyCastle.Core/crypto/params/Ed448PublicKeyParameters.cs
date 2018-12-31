@@ -1,13 +1,13 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.math.ec.rfc8032;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
+using org.bouncycastle.util;
+using org.bouncycastle.util.io;
 
 namespace org.bouncycastle.crypto.@params
 {
 
-	using Ed448 = org.bouncycastle.math.ec.rfc8032.Ed448;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Streams = org.bouncycastle.util.io.Streams;
-
+			
 	public sealed class Ed448PublicKeyParameters : AsymmetricKeyParameter
 	{
 		public const int KEY_SIZE = Ed448.PUBLIC_KEY_SIZE;

@@ -1,9 +1,10 @@
-﻿namespace org.bouncycastle.crypto.tls
+﻿using org.bouncycastle.crypto.agreement;
+using org.bouncycastle.crypto.@params;
+
+namespace org.bouncycastle.crypto.tls
 {
 
-	using DHStandardGroups = org.bouncycastle.crypto.agreement.DHStandardGroups;
-	using DHParameters = org.bouncycastle.crypto.@params.DHParameters;
-
+		
 	public abstract class DefaultTlsServer : AbstractTlsServer
 	{
 		public DefaultTlsServer() : base()

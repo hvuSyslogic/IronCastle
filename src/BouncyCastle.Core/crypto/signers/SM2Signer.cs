@@ -3,25 +3,14 @@
 using System;
 using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.digests;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.util.encoders;
 
 namespace org.bouncycastle.crypto.signers
 {
 
-	using SM3Digest = org.bouncycastle.crypto.digests.SM3Digest;
-	using ECDomainParameters = org.bouncycastle.crypto.@params.ECDomainParameters;
-	using ECKeyParameters = org.bouncycastle.crypto.@params.ECKeyParameters;
-	using ECPrivateKeyParameters = org.bouncycastle.crypto.@params.ECPrivateKeyParameters;
-	using ECPublicKeyParameters = org.bouncycastle.crypto.@params.ECPublicKeyParameters;
-	using ParametersWithID = org.bouncycastle.crypto.@params.ParametersWithID;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using ECAlgorithms = org.bouncycastle.math.ec.ECAlgorithms;
-	using ECConstants = org.bouncycastle.math.ec.ECConstants;
-	using ECFieldElement = org.bouncycastle.math.ec.ECFieldElement;
-	using ECMultiplier = org.bouncycastle.math.ec.ECMultiplier;
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
-	using FixedPointCombMultiplier = org.bouncycastle.math.ec.FixedPointCombMultiplier;
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+														
 	/// <summary>
 	/// The SM2 Digital Signature algorithm.
 	/// </summary>

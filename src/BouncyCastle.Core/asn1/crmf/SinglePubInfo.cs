@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.asn1.crmf
-{
-	using GeneralName = org.bouncycastle.asn1.x509.GeneralName;
+﻿using org.bouncycastle.asn1.x509;
 
+namespace org.bouncycastle.asn1.crmf
+{
+	
 	/// <summary>
 	/// <pre>
 	/// SinglePubInfo ::= SEQUENCE {

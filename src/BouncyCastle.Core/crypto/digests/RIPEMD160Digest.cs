@@ -1,10 +1,10 @@
 ﻿using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.digests
 {
 
-	using Memoable = org.bouncycastle.util.Memoable;
-
+	
 	/// <summary>
 	/// implementation of RIPEMD see,
 	/// http://www.esat.kuleuven.ac.be/~bosselae/ripemd160.html

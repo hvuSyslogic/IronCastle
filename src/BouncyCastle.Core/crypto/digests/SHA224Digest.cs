@@ -1,11 +1,10 @@
 ﻿using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.digests
 {
 
-	using Memoable = org.bouncycastle.util.Memoable;
-	using Pack = org.bouncycastle.util.Pack;
-
+		
 
 	/// <summary>
 	/// SHA-224 as described in RFC 3874

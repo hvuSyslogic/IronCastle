@@ -1,28 +1,16 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.digests;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.math.ec;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.engines
 {
 
-	using SM3Digest = org.bouncycastle.crypto.digests.SM3Digest;
-	using ECDomainParameters = org.bouncycastle.crypto.@params.ECDomainParameters;
-	using ECKeyParameters = org.bouncycastle.crypto.@params.ECKeyParameters;
-	using ECPrivateKeyParameters = org.bouncycastle.crypto.@params.ECPrivateKeyParameters;
-	using ECPublicKeyParameters = org.bouncycastle.crypto.@params.ECPublicKeyParameters;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using ECConstants = org.bouncycastle.math.ec.ECConstants;
-	using ECFieldElement = org.bouncycastle.math.ec.ECFieldElement;
-	using ECMultiplier = org.bouncycastle.math.ec.ECMultiplier;
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
-	using FixedPointCombMultiplier = org.bouncycastle.math.ec.FixedPointCombMultiplier;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-	using Memoable = org.bouncycastle.util.Memoable;
-	using Pack = org.bouncycastle.util.Pack;
-
+															
 	/// <summary>
 	/// SM2 public key encryption engine - based on https://tools.ietf.org/html/draft-shen-sm2-ecdsa-02.
 	/// </summary>

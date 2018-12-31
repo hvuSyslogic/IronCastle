@@ -1,11 +1,10 @@
 ﻿using System;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.digests
 {
-	using Memoable = org.bouncycastle.util.Memoable;
-	using Pack = org.bouncycastle.util.Pack;
-
+		
 	/// <summary>
 	/// base implementation of MD4 family style digest as outlined in
 	/// "Handbook of Applied Cryptography", pages 344 - 347.

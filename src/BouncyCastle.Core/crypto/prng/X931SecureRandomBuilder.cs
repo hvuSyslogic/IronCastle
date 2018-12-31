@@ -1,14 +1,13 @@
 ﻿using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.prng
 {
 
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Pack = org.bouncycastle.util.Pack;
-
+			
 	public class X931SecureRandomBuilder
 	{
 		private SecureRandom random; // JDK 1.1 complains on final.

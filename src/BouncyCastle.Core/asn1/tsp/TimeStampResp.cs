@@ -1,11 +1,10 @@
-﻿using org.bouncycastle.Port.java.util;
+﻿using org.bouncycastle.asn1.cmp;
+using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.asn1.tsp
 {
 
-	using PKIStatusInfo = org.bouncycastle.asn1.cmp.PKIStatusInfo;
-	using ContentInfo = org.bouncycastle.asn1.cms.ContentInfo;
-
+		
 
 	public class TimeStampResp : ASN1Object
 	{

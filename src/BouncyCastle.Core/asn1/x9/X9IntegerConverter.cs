@@ -1,12 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.math.ec;
 using org.bouncycastle.Port;
 
 namespace org.bouncycastle.asn1.x9
 {
 
-	using ECCurve = org.bouncycastle.math.ec.ECCurve;
-	using ECFieldElement = org.bouncycastle.math.ec.ECFieldElement;
-
+		
 	/// <summary>
 	/// A class which converts integers to byte arrays, allowing padding and calculations
 	/// to be done according the the filed size of the curve or field element involved.

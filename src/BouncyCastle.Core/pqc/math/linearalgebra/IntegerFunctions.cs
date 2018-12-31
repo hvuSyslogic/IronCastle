@@ -3,13 +3,12 @@ using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.math.linearalgebra
 {
 
-	using CryptoServicesRegistrar = CryptoServicesRegistrar;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+		
 	/// <summary>
 	/// Class of number-theory related functions for use with integers represented as
 	/// <tt>int</tt>'s or <tt>BigInteger</tt> objects.

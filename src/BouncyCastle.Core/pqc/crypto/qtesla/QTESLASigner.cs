@@ -1,14 +1,13 @@
 ﻿using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.pqc.crypto.qtesla
 {
 
-	using CipherParameters = org.bouncycastle.crypto.CipherParameters;
-	using CryptoServicesRegistrar = CryptoServicesRegistrar;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-
+			
 	/// <summary>
 	/// Signer for the qTESLA algorithm (https://qtesla.org/)
 	/// </summary>

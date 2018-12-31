@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.crypto.@params
-{
-	using Arrays = org.bouncycastle.util.Arrays;
+﻿using org.bouncycastle.util;
 
+namespace org.bouncycastle.crypto.@params
+{
+	
 	public class DHValidationParameters
 	{
 		private byte[] seed;

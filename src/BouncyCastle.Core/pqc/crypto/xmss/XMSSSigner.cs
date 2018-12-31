@@ -1,12 +1,12 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.crypto.xmss
 {
-	using CipherParameters = org.bouncycastle.crypto.CipherParameters;
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+			
 	public class XMSSSigner : StateAwareMessageSigner
 	{
 		private XMSSPrivateKeyParameters privateKey;

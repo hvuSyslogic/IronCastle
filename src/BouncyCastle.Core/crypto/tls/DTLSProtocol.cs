@@ -2,12 +2,12 @@
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	public abstract class DTLSProtocol
 	{
 		protected internal readonly SecureRandom secureRandom;

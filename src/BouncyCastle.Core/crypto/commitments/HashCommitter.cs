@@ -1,10 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.commitments
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// A basic hash-committer as described in "Making Mix Nets Robust for Electronic Voting by Randomized Partial Checking",
 	/// by Jakobsson, Juels, and Rivest (11th Usenix Security Symposium, 2002).

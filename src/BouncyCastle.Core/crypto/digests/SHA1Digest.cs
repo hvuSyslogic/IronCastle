@@ -1,10 +1,9 @@
 ﻿using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.digests
 {
-	using Memoable = org.bouncycastle.util.Memoable;
-	using Pack = org.bouncycastle.util.Pack;
-
+		
 	/// <summary>
 	/// implementation of SHA-1 as outlined in "Handbook of Applied Cryptography", pages 346 - 349.
 	/// 

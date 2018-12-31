@@ -1,21 +1,12 @@
 ﻿using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto;
+using org.bouncycastle.pqc.math.linearalgebra;
 
 namespace org.bouncycastle.pqc.crypto.mceliece
 {
 
-	using AsymmetricCipherKeyPair = org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-	using AsymmetricCipherKeyPairGenerator = org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-	using CryptoServicesRegistrar = CryptoServicesRegistrar;
-	using KeyGenerationParameters = org.bouncycastle.crypto.KeyGenerationParameters;
-	using GF2Matrix = org.bouncycastle.pqc.math.linearalgebra.GF2Matrix;
-	using GF2mField = org.bouncycastle.pqc.math.linearalgebra.GF2mField;
-	using GoppaCode = org.bouncycastle.pqc.math.linearalgebra.GoppaCode;
-	using MaMaPe = org.bouncycastle.pqc.math.linearalgebra.GoppaCode.MaMaPe;
-	using Permutation = org.bouncycastle.pqc.math.linearalgebra.Permutation;
-	using PolynomialGF2mSmallM = org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM;
-	using PolynomialRingGF2m = org.bouncycastle.pqc.math.linearalgebra.PolynomialRingGF2m;
-
+											
 
 	/// <summary>
 	/// This class implements key pair generation of the McEliece Public Key

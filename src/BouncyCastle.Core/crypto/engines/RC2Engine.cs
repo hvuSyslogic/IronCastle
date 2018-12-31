@@ -1,12 +1,11 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.engines
 {
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using RC2Parameters = org.bouncycastle.crypto.@params.RC2Parameters;
-
+		
 	/// <summary>
 	/// an implementation of RC2 as described in RFC 2268
 	///      "A Description of the RC2(r) Encryption Algorithm" R. Rivest.

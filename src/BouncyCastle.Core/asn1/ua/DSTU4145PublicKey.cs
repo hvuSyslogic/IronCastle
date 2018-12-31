@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.asn1.ua
-{
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
+﻿using org.bouncycastle.math.ec;
 
+namespace org.bouncycastle.asn1.ua
+{
+	
 	public class DSTU4145PublicKey : ASN1Object
 	{
 

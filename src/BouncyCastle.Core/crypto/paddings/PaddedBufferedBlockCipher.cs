@@ -1,11 +1,11 @@
 ﻿using System;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.paddings
 {
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-
+	
 	/// <summary>
 	/// A wrapper class that allows block ciphers to be used to process data in
 	/// a piecemeal fashion with padding. The PaddedBufferedBlockCipher

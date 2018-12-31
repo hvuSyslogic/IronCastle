@@ -1,14 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto;
 using org.bouncycastle.Port;
 
 namespace org.bouncycastle.pqc.crypto.sphincs
 {
 
-	using AsymmetricCipherKeyPair = org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-	using AsymmetricCipherKeyPairGenerator = org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-	using Digest = org.bouncycastle.crypto.Digest;
-	using KeyGenerationParameters = org.bouncycastle.crypto.KeyGenerationParameters;
-
+				
 	public class SPHINCS256KeyPairGenerator : AsymmetricCipherKeyPairGenerator
 	{
 		private SecureRandom random;

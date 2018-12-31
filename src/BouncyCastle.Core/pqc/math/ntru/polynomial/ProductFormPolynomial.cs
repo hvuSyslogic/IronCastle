@@ -1,12 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.math.ntru.polynomial
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// A polynomial of the form <code>f1*f2+f3</code>, where
 	/// <code>f1,f2,f3</code> are very sparsely populated ternary polynomials.

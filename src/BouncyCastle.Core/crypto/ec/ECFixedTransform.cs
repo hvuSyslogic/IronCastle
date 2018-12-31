@@ -1,17 +1,13 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.math.ec;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.ec
 {
 
-	using ECDomainParameters = org.bouncycastle.crypto.@params.ECDomainParameters;
-	using ECPublicKeyParameters = org.bouncycastle.crypto.@params.ECPublicKeyParameters;
-	using ECAlgorithms = org.bouncycastle.math.ec.ECAlgorithms;
-	using ECMultiplier = org.bouncycastle.math.ec.ECMultiplier;
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
-	using FixedPointCombMultiplier = org.bouncycastle.math.ec.FixedPointCombMultiplier;
-
+						
 	/// <summary>
 	/// this transforms the original randomness used for an ElGamal encryption by a fixed value.
 	/// </summary>

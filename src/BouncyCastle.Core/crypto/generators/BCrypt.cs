@@ -1,12 +1,10 @@
 ﻿using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.generators
 {
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Pack = org.bouncycastle.util.Pack;
-	using Strings = org.bouncycastle.util.Strings;
-
+			
 	/// <summary>
 	/// Core of password hashing scheme Bcrypt,
 	/// designed by Niels Provos and David Mazières,

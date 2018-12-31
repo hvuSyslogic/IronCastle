@@ -1,15 +1,14 @@
 ﻿using BouncyCastle.Core.Port.java.lang;
+using org.bouncycastle.crypto.digests;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
+using org.bouncycastle.util.encoders;
 
 namespace org.bouncycastle.crypto.generators
 {
-	using Blake2bDigest = org.bouncycastle.crypto.digests.Blake2bDigest;
-	using Argon2Parameters = org.bouncycastle.crypto.@params.Argon2Parameters;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Pack = org.bouncycastle.util.Pack;
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+					
 
 	/// <summary>
 	/// Argon2 PBKDF - Based on the results of https://password-hashing.net/ and https://www.ietf.org/archive/id/draft-irtf-cfrg-argon2-03.txt

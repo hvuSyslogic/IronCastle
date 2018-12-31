@@ -1,14 +1,11 @@
-﻿using org.bouncycastle.Port.Extensions;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using DSAPrivateKeyParameters = org.bouncycastle.crypto.@params.DSAPrivateKeyParameters;
-	using ECPrivateKeyParameters = org.bouncycastle.crypto.@params.ECPrivateKeyParameters;
-	using RSAKeyParameters = org.bouncycastle.crypto.@params.RSAKeyParameters;
-
+				
 	public class DefaultTlsSignerCredentials : AbstractTlsSignerCredentials
 	{
 		protected internal TlsContext context;

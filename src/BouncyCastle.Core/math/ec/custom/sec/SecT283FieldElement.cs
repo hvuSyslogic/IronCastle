@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	public class SecT283FieldElement : ECFieldElement.AbstractF2m
 	{
 		protected internal ulong[] x;

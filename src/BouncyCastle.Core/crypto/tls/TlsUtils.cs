@@ -5,43 +5,22 @@ using org.bouncycastle.asn1.nist;
 
 using System;
 using System.IO;
+using org.bouncycastle.crypto.digests;
+using org.bouncycastle.crypto.macs;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.crypto.util;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
+using org.bouncycastle.util.io;
+using Arrays = org.bouncycastle.util.Arrays;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using ASN1Encoding = org.bouncycastle.asn1.ASN1Encoding;
-	using ASN1InputStream = org.bouncycastle.asn1.ASN1InputStream;
-	using ASN1ObjectIdentifier = org.bouncycastle.asn1.ASN1ObjectIdentifier;
-	using ASN1Primitive = org.bouncycastle.asn1.ASN1Primitive;
-	using NISTObjectIdentifiers = org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-	using PKCSObjectIdentifiers = org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-	using Extensions = org.bouncycastle.asn1.x509.Extensions;
-	using KeyUsage = org.bouncycastle.asn1.x509.KeyUsage;
-	using SubjectPublicKeyInfo = org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-	using X509ObjectIdentifiers = org.bouncycastle.asn1.x509.X509ObjectIdentifiers;
-	using MD5Digest = org.bouncycastle.crypto.digests.MD5Digest;
-	using SHA1Digest = org.bouncycastle.crypto.digests.SHA1Digest;
-	using SHA224Digest = org.bouncycastle.crypto.digests.SHA224Digest;
-	using SHA256Digest = org.bouncycastle.crypto.digests.SHA256Digest;
-	using SHA384Digest = org.bouncycastle.crypto.digests.SHA384Digest;
-	using SHA512Digest = org.bouncycastle.crypto.digests.SHA512Digest;
-	using HMac = org.bouncycastle.crypto.macs.HMac;
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using DSAPublicKeyParameters = org.bouncycastle.crypto.@params.DSAPublicKeyParameters;
-	using ECPublicKeyParameters = org.bouncycastle.crypto.@params.ECPublicKeyParameters;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using RSAKeyParameters = org.bouncycastle.crypto.@params.RSAKeyParameters;
-	using PublicKeyFactory = org.bouncycastle.crypto.util.PublicKeyFactory;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Integers = org.bouncycastle.util.Integers;
-	using Shorts = org.bouncycastle.util.Shorts;
-	using Strings = org.bouncycastle.util.Strings;
-	using Streams = org.bouncycastle.util.io.Streams;
-
+																												
 	/// <summary>
 	/// Some helper functions for MicroTLS.
 	/// </summary>

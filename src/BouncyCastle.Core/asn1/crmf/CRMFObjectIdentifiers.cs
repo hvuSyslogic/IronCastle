@@ -2,8 +2,7 @@
 
 namespace org.bouncycastle.asn1.crmf
 {
-	using PKCSObjectIdentifiers = org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-
+	
 	public interface CRMFObjectIdentifiers
 	{
 		/// <summary>

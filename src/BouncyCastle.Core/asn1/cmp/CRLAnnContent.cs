@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.asn1.cmp
-{
-	using CertificateList = org.bouncycastle.asn1.x509.CertificateList;
+﻿using org.bouncycastle.asn1.x509;
 
+namespace org.bouncycastle.asn1.cmp
+{
+	
 	public class CRLAnnContent : ASN1Object
 	{
 		private ASN1Sequence content;

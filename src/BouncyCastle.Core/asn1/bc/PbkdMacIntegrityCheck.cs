@@ -1,9 +1,10 @@
-﻿namespace org.bouncycastle.asn1.bc
-{
-	using KeyDerivationFunc = org.bouncycastle.asn1.pkcs.KeyDerivationFunc;
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-	using Arrays = org.bouncycastle.util.Arrays;
+﻿using org.bouncycastle.asn1.pkcs;
+using org.bouncycastle.asn1.x509;
+using org.bouncycastle.util;
 
+namespace org.bouncycastle.asn1.bc
+{
+			
 	/// <summary>
 	/// <pre>
 	/// PbkdMacIntegrityCheck ::= SEQUENCE {

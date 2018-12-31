@@ -1,11 +1,11 @@
 ﻿using System.IO;
 using org.bouncycastle.Port.java.io;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1
 {
 
-	using Encodable = org.bouncycastle.util.Encodable;
-
+	
 	/// <summary>
 	/// Base class for defining an ASN.1 object.
 	/// </summary>

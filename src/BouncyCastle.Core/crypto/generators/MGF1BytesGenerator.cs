@@ -1,10 +1,10 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.generators
 {
-	using MGFParameters = org.bouncycastle.crypto.@params.MGFParameters;
-
+	
 	/// <summary>
 	/// Generator for MGF1 as defined in PKCS 1v2
 	/// </summary>

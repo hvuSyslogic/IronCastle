@@ -1,12 +1,12 @@
 ﻿using System;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.prng.drbg
 {
 
-	using Integers = org.bouncycastle.util.Integers;
-
+	
 	public class Utils
 	{
 		internal static readonly Hashtable maxSecurityStrengths = new Hashtable();

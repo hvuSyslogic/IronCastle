@@ -1,12 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.gm
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	public class SM2P256V1FieldElement : ECFieldElement.AbstractFp
 	{
 		public static readonly BigInteger Q = SM2P256V1Curve.q;

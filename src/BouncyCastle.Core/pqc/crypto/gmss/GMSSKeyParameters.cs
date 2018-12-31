@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.pqc.crypto.gmss
-{
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
+﻿using org.bouncycastle.crypto.@params;
 
+namespace org.bouncycastle.pqc.crypto.gmss
+{
+	
 	public class GMSSKeyParameters : AsymmetricKeyParameter
 	{
 		private GMSSParameters @params;

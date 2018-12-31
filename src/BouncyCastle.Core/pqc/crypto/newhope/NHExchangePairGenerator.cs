@@ -1,10 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 
 namespace org.bouncycastle.pqc.crypto.newhope
 {
 
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-
+	
 	public class NHExchangePairGenerator : ExchangePairGenerator
 	{
 		private readonly SecureRandom random;

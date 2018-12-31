@@ -1,12 +1,12 @@
 ﻿using System;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// DER BMPString object encodes BMP (<i>Basic Multilingual Plane</i>) subset
 	/// (aka UCS-2) of UNICODE (ISO 10646) characters in codepoints 0 to 65535.

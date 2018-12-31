@@ -1,11 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.prng;
 
 namespace org.bouncycastle.util.test
 {
 
-	using EntropySource = org.bouncycastle.crypto.prng.EntropySource;
-	using EntropySourceProvider = org.bouncycastle.crypto.prng.EntropySourceProvider;
-
+		
 	/// <summary>
 	/// A class for returning "quick entropy" for testing purposes.
 	/// </summary>

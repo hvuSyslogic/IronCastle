@@ -1,13 +1,11 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.macs
 {
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-	using ParametersWithSBox = org.bouncycastle.crypto.@params.ParametersWithSBox;
-
+			
 	/// <summary>
 	/// implementation of GOST 28147-89 MAC
 	/// </summary>

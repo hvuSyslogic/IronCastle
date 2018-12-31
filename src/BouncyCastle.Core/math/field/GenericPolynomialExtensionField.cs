@@ -1,10 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.math.field
 {
 
-	using Integers = org.bouncycastle.util.Integers;
-
+	
 	public class GenericPolynomialExtensionField : PolynomialExtensionField
 	{
 		protected internal readonly FiniteField subfield;

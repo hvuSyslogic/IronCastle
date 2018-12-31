@@ -1,13 +1,12 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.math.ec;
 
 namespace org.bouncycastle.asn1.ua
 {
 
-	using ECDomainParameters = org.bouncycastle.crypto.@params.ECDomainParameters;
-	using ECCurve = org.bouncycastle.math.ec.ECCurve;
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
-
+			
 	public class DSTU4145NamedCurves
 	{
 		private static readonly BigInteger ZERO = BigInteger.valueOf(0);

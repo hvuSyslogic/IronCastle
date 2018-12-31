@@ -1,13 +1,10 @@
 ﻿using org.bouncycastle.asn1.oiw;
+using org.bouncycastle.asn1.x509;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.ess
 {
-	using OIWObjectIdentifiers = org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-	using DigestInfo = org.bouncycastle.asn1.x509.DigestInfo;
-	using IssuerSerial = org.bouncycastle.asn1.x509.IssuerSerial;
-
+				
 	public class OtherCertID : ASN1Object
 	{
 		private ASN1Encodable otherCertHash;

@@ -1,16 +1,15 @@
 ﻿using System.IO;
 using org.bouncycastle.asn1;
+using org.bouncycastle.asn1.ocsp;
+using org.bouncycastle.asn1.x509;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util.io;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using ASN1Encoding = org.bouncycastle.asn1.ASN1Encoding;
-	using ResponderID = org.bouncycastle.asn1.ocsp.ResponderID;
-	using Extensions = org.bouncycastle.asn1.x509.Extensions;
-	using Streams = org.bouncycastle.util.io.Streams;
-
+				
 	/// <summary>
 	/// RFC 3546 3.6
 	/// </summary>

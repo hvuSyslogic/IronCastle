@@ -1,11 +1,9 @@
-﻿namespace org.bouncycastle.asn1.crmf
-{
-	using X500Name = org.bouncycastle.asn1.x500.X500Name;
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-	using Extensions = org.bouncycastle.asn1.x509.Extensions;
-	using SubjectPublicKeyInfo = org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-	using X509Extensions = org.bouncycastle.asn1.x509.X509Extensions;
+﻿using org.bouncycastle.asn1.x500;
+using org.bouncycastle.asn1.x509;
 
+namespace org.bouncycastle.asn1.crmf
+{
+					
 	public class CertTemplateBuilder
 	{
 		private ASN1Integer version;

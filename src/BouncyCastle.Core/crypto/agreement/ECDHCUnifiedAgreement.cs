@@ -1,13 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.agreement
 {
 
-	using ECDHUPrivateParameters = org.bouncycastle.crypto.@params.ECDHUPrivateParameters;
-	using ECDHUPublicParameters = org.bouncycastle.crypto.@params.ECDHUPublicParameters;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+				
 	/// <summary>
 	/// EC Unified static/ephemeral agreement as described in NIST SP 800-56A using EC co-factor Diffie-Hellman.
 	/// </summary>

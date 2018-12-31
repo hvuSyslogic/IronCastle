@@ -1,16 +1,14 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.math;
+using org.bouncycastle.math.ec;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.generators
 {
 
-	using RSAKeyGenerationParameters = org.bouncycastle.crypto.@params.RSAKeyGenerationParameters;
-	using RSAKeyParameters = org.bouncycastle.crypto.@params.RSAKeyParameters;
-	using RSAPrivateCrtKeyParameters = org.bouncycastle.crypto.@params.RSAPrivateCrtKeyParameters;
-	using Primes = org.bouncycastle.math.Primes;
-	using WNafUtil = org.bouncycastle.math.ec.WNafUtil;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+						
 	/// <summary>
 	/// an RSA key pair generator.
 	/// </summary>

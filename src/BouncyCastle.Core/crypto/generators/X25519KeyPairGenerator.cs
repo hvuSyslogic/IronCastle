@@ -1,11 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 
 namespace org.bouncycastle.crypto.generators
 {
 
-	using X25519PrivateKeyParameters = org.bouncycastle.crypto.@params.X25519PrivateKeyParameters;
-	using X25519PublicKeyParameters = org.bouncycastle.crypto.@params.X25519PublicKeyParameters;
-
+		
 	public class X25519KeyPairGenerator : AsymmetricCipherKeyPairGenerator
 	{
 		private SecureRandom random;

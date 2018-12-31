@@ -1,17 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.math.ec;
 using org.bouncycastle.Port;
 
 namespace org.bouncycastle.crypto.agreement
 {
 
-	using ECDomainParameters = org.bouncycastle.crypto.@params.ECDomainParameters;
-	using ECPrivateKeyParameters = org.bouncycastle.crypto.@params.ECPrivateKeyParameters;
-	using ECPublicKeyParameters = org.bouncycastle.crypto.@params.ECPublicKeyParameters;
-	using ECAlgorithms = org.bouncycastle.math.ec.ECAlgorithms;
-	using ECConstants = org.bouncycastle.math.ec.ECConstants;
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
-
+						
 	/// <summary>
 	/// P1363 7.2.1 ECSVDP-DH
 	/// 

@@ -1,16 +1,15 @@
 ﻿using System.IO;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.pqc.math.ntru.util;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.math.ntru.polynomial
 {
 
-	using ArrayEncoder = org.bouncycastle.pqc.math.ntru.util.ArrayEncoder;
-	using Util = org.bouncycastle.pqc.math.ntru.util.Util;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+			
 	/// <summary>
 	/// A <code>TernaryPolynomial</code> with a "low" number of nonzero coefficients.
 	/// </summary>

@@ -1,10 +1,9 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.crmf
 {
-	using GeneralName = org.bouncycastle.asn1.x509.GeneralName;
-	using SubjectPublicKeyInfo = org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-
+		
 	public class POPOSigningKeyInput : ASN1Object
 	{
 		private GeneralName sender;

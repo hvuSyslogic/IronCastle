@@ -1,13 +1,12 @@
 ﻿using System;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Strings = org.bouncycastle.util.Strings;
-
+		
 	/// <summary>
 	/// DER NumericString object - this is an ascii string of characters {0,1,2,3,4,5,6,7,8,9, }.
 	/// ASN.1 NUMERIC-STRING object.

@@ -1,16 +1,16 @@
-﻿using org.bouncycastle.Port.java.util;
+﻿using org.bouncycastle.asn1.anssi;
+using org.bouncycastle.asn1.cryptopro;
+using org.bouncycastle.asn1.gm;
+using org.bouncycastle.asn1.nist;
+using org.bouncycastle.asn1.sec;
+using org.bouncycastle.asn1.teletrust;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.asn1.x9
 {
 
-	using ANSSINamedCurves = org.bouncycastle.asn1.anssi.ANSSINamedCurves;
-	using ECGOST3410NamedCurves = org.bouncycastle.asn1.cryptopro.ECGOST3410NamedCurves;
-	using GMNamedCurves = org.bouncycastle.asn1.gm.GMNamedCurves;
-	using NISTNamedCurves = org.bouncycastle.asn1.nist.NISTNamedCurves;
-	using SECNamedCurves = org.bouncycastle.asn1.sec.SECNamedCurves;
-	using TeleTrusTNamedCurves = org.bouncycastle.asn1.teletrust.TeleTrusTNamedCurves;
-	using ECDomainParameters = org.bouncycastle.crypto.@params.ECDomainParameters;
-
+							
 	/// <summary>
 	/// A general class that reads all X9.62 style EC curve tables.
 	/// </summary>

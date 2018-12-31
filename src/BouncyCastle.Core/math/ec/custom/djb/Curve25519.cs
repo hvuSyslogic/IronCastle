@@ -1,10 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.util.encoders;
 using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.djb
 {
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+	
 	public class Curve25519 : ECCurve.AbstractFp
 	{
 		public static readonly BigInteger q = Nat256.toBigInteger(Curve25519Field.P);

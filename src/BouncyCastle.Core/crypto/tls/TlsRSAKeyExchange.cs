@@ -1,18 +1,15 @@
 ﻿using org.bouncycastle.asn1.x509;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.crypto.util;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util.io;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using KeyUsage = org.bouncycastle.asn1.x509.KeyUsage;
-	using SubjectPublicKeyInfo = org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using RSAKeyParameters = org.bouncycastle.crypto.@params.RSAKeyParameters;
-	using PublicKeyFactory = org.bouncycastle.crypto.util.PublicKeyFactory;
-	using Streams = org.bouncycastle.util.io.Streams;
-
+						
 	/// <summary>
 	/// (D)TLS and SSLv3 RSA key exchange.
 	/// </summary>

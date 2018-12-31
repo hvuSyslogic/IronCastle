@@ -1,14 +1,14 @@
 ﻿using System.IO;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1.x509;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.pkcs
 {
 
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+		
 	/// <summary>
 	/// RFC 5958
 	/// 

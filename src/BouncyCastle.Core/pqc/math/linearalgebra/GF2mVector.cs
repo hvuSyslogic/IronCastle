@@ -1,12 +1,12 @@
 ﻿using System;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.math.linearalgebra
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// This class implements vectors over the finite field
 	/// <tt>GF(2<sup>m</sup>)</tt> for small <tt>m</tt> (i.e.,

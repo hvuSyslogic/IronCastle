@@ -2,13 +2,12 @@
 using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.signers
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+		
 	public class PlainDSAEncoding : DSAEncoding
 	{
 		public static readonly PlainDSAEncoding INSTANCE = new PlainDSAEncoding();

@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.crypto.engines
-{
-	using Pack = org.bouncycastle.util.Pack;
+﻿using org.bouncycastle.util;
 
+namespace org.bouncycastle.crypto.engines
+{
+	
 	/// <summary>
 	/// Support class for constructing integrated encryption ciphers
 	/// for doing basic message exchanges on top of key agreement ciphers.

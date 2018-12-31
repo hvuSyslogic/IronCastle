@@ -1,9 +1,9 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.math.ec;
+using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.prng.drbg
 {
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
-
+	
 	/// <summary>
 	/// General class for providing point pairs for use with DualEC DRBG. See NIST SP 800-90A for further details.
 	/// </summary>

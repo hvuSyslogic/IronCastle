@@ -1,17 +1,14 @@
 ﻿using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.engines
 {
 
-	using ElGamalKeyParameters = org.bouncycastle.crypto.@params.ElGamalKeyParameters;
-	using ElGamalPrivateKeyParameters = org.bouncycastle.crypto.@params.ElGamalPrivateKeyParameters;
-	using ElGamalPublicKeyParameters = org.bouncycastle.crypto.@params.ElGamalPublicKeyParameters;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+					
 	/// <summary>
 	/// this does your basic ElGamal algorithm.
 	/// </summary>

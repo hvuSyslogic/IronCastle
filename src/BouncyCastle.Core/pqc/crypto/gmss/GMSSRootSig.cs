@@ -1,12 +1,12 @@
 ﻿using System;
+using org.bouncycastle.crypto;
+using org.bouncycastle.pqc.crypto.gmss.util;
 using org.bouncycastle.Port;
+using org.bouncycastle.util.encoders;
 
 namespace org.bouncycastle.pqc.crypto.gmss
 {
-	using Digest = org.bouncycastle.crypto.Digest;
-	using GMSSRandom = org.bouncycastle.pqc.crypto.gmss.util.GMSSRandom;
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+			
 
 	/// <summary>
 	/// This class implements the distributed signature generation of the Winternitz

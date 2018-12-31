@@ -4,8 +4,7 @@ using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
-	using AbstractF2m = org.bouncycastle.math.ec.ECPoint.AbstractF2m;
-	
+		
 
 	public class SecT571K1Point : ECPoint.AbstractF2m
 	{

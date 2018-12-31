@@ -4,7 +4,6 @@ using Byte = BouncyCastle.Core.Port.java.lang.Byte;
 
 namespace org.bouncycastle.pqc.crypto.qtesla
 {
-
 	public class Sample
 	{
 

@@ -1,9 +1,9 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.crmf;
+using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.cmp
 {
-	using EncryptedValue = org.bouncycastle.asn1.crmf.EncryptedValue;
-
+	
 	public class CertOrEncCert : ASN1Object, ASN1Choice
 	{
 		private CMPCertificate certificate;

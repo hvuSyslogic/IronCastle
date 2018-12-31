@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.crypto.tls
-{
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
+﻿using org.bouncycastle.crypto.@params;
 
+namespace org.bouncycastle.crypto.tls
+{
+	
 	public abstract class AbstractTlsSigner : TlsSigner
 	{
 		public abstract bool isValidPublicKey(AsymmetricKeyParameter publicKey);

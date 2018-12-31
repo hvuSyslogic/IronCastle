@@ -1,14 +1,13 @@
 ﻿using System;
+using org.bouncycastle.crypto.generators;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.macs
 {
-	using Poly1305KeyGenerator = org.bouncycastle.crypto.generators.Poly1305KeyGenerator;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-	using Pack = org.bouncycastle.util.Pack;
-
+				
 	/// <summary>
 	/// Poly1305 message authentication code, designed by D. J. Bernstein.
 	/// <para>
@@ -85,7 +84,7 @@ namespace org.bouncycastle.crypto.macs
 		/// </summary>
 		/// <param name="params"> if used with a block cipher, then a <seealso cref="ParametersWithIV"/> containing a 128 bit
 		///        nonce and a <seealso cref="KeyParameter"/> with a 256 bit key complying to the
-		///        <seealso cref="Poly1305KeyGenerator Poly1305 key format"/>, otherwise just the
+		///        <seealso cref="Poly1305KeyGenerator"/>, otherwise just the
 		///        <seealso cref="KeyParameter"/>. </param>
 		public virtual void init(CipherParameters @params)
 		{

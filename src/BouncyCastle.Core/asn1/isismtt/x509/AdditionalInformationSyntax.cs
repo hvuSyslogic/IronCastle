@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.asn1.isismtt.x509
-{
-	using DirectoryString = org.bouncycastle.asn1.x500.DirectoryString;
+﻿using org.bouncycastle.asn1.x500;
 
+namespace org.bouncycastle.asn1.isismtt.x509
+{
+	
 	/// <summary>
 	/// Some other information of non-restrictive nature regarding the usage of this
 	/// certificate.

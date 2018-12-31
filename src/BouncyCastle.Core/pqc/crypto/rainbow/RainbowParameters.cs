@@ -1,9 +1,9 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.crypto;
+using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.pqc.crypto.rainbow
 {
-	using CipherParameters = org.bouncycastle.crypto.CipherParameters;
-
+	
 	public class RainbowParameters : CipherParameters
 	{
 

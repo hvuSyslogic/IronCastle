@@ -1,7 +1,6 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
-using Random = org.bouncycastle.Port.java.util.Random;
 
 namespace org.bouncycastle.pqc.math.linearalgebra
 {

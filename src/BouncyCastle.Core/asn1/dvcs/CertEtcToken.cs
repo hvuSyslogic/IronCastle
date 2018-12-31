@@ -1,18 +1,14 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.cmp;
+using org.bouncycastle.asn1.ess;
+using org.bouncycastle.asn1.ocsp;
+using org.bouncycastle.asn1.smime;
+using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port.java.lang;
+using CertStatus = org.bouncycastle.asn1.cmp.CertStatus;
 
 namespace org.bouncycastle.asn1.dvcs
 {
-	using PKIStatusInfo = org.bouncycastle.asn1.cmp.PKIStatusInfo;
-	using ContentInfo = org.bouncycastle.asn1.cms.ContentInfo;
-	using ESSCertID = org.bouncycastle.asn1.ess.ESSCertID;
-	using CertID = org.bouncycastle.asn1.ocsp.CertID;
-	using CertStatus = org.bouncycastle.asn1.ocsp.CertStatus;
-	using OCSPResponse = org.bouncycastle.asn1.ocsp.OCSPResponse;
-	using SMIMECapabilities = org.bouncycastle.asn1.smime.SMIMECapabilities;
-	using Certificate = org.bouncycastle.asn1.x509.Certificate;
-	using CertificateList = org.bouncycastle.asn1.x509.CertificateList;
-	using Extension = org.bouncycastle.asn1.x509.Extension;
-
+										
 	/// <summary>
 	/// <pre>
 	/// CertEtcToken ::= CHOICE {

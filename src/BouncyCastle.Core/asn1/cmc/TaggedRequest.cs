@@ -1,12 +1,12 @@
 ﻿using System.IO;
+using org.bouncycastle.asn1.crmf;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.cmc
 {
 
-	using CertReqMsg = org.bouncycastle.asn1.crmf.CertReqMsg;
-
+	
 	/// <summary>
 	/// <pre>
 	///       TaggedRequest ::= CHOICE {

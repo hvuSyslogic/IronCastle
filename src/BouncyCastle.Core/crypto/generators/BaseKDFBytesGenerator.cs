@@ -1,12 +1,11 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.generators
 {
-	using ISO18033KDFParameters = org.bouncycastle.crypto.@params.ISO18033KDFParameters;
-	using KDFParameters = org.bouncycastle.crypto.@params.KDFParameters;
-	using Pack = org.bouncycastle.util.Pack;
-
+			
 	/// <summary>
 	/// Basic KDF generator for derived keys and ivs as defined by IEEE P1363a/ISO
 	/// 18033 <br>

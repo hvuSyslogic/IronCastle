@@ -1,9 +1,9 @@
 ﻿using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.cms
 {
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// <a href="http://tools.ietf.org/html/rfc5084">RFC 5084</a>: GCMParameters object.
 	/// <para>

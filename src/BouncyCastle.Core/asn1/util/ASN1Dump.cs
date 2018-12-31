@@ -4,13 +4,13 @@ using System;
 using System.IO;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
+using org.bouncycastle.util.encoders;
 
 namespace org.bouncycastle.asn1.util
 {
 
-	using Strings = org.bouncycastle.util.Strings;
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+		
 	/// <summary>
 	/// Utility class for dumping ASN.1 objects as (hopefully) human friendly strings.
 	/// </summary>

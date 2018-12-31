@@ -1,12 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.math.ec;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.ec
 {
 
-	using ECConstants = org.bouncycastle.math.ec.ECConstants;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+		
 	public class ECUtil
 	{
 		internal static BigInteger generateK(BigInteger n, SecureRandom random)

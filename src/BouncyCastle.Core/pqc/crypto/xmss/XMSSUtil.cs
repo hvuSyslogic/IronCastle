@@ -2,19 +2,19 @@
 using System.IO;
 using BouncyCastle.Core.Port.java.io;
 using BouncyCastle.Core.Port.java.text;
+using org.bouncycastle.crypto;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
+using org.bouncycastle.util.encoders;
 
 namespace org.bouncycastle.pqc.crypto.xmss
 {
 
-	using Digest = org.bouncycastle.crypto.Digest;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+			
 	/// <summary>
 	/// Utils for XMSS implementation.
 	/// </summary>

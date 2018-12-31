@@ -1,22 +1,15 @@
 ﻿using System.IO;
 using org.bouncycastle.asn1;
+using org.bouncycastle.asn1.x509;
+using org.bouncycastle.crypto.generators;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.agreement.kdf
 {
 
-	using ASN1EncodableVector = org.bouncycastle.asn1.ASN1EncodableVector;
-	using ASN1Encoding = org.bouncycastle.asn1.ASN1Encoding;
-	using ASN1ObjectIdentifier = org.bouncycastle.asn1.ASN1ObjectIdentifier;
-	using DERNull = org.bouncycastle.asn1.DERNull;
-	using DEROctetString = org.bouncycastle.asn1.DEROctetString;
-	using DERSequence = org.bouncycastle.asn1.DERSequence;
-	using DERTaggedObject = org.bouncycastle.asn1.DERTaggedObject;
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-	using KDF2BytesGenerator = org.bouncycastle.crypto.generators.KDF2BytesGenerator;
-	using KDFParameters = org.bouncycastle.crypto.@params.KDFParameters;
-	using Pack = org.bouncycastle.util.Pack;
-
+											
 	/// <summary>
 	/// X9.63 based key derivation function for ECDH CMS.
 	/// </summary>

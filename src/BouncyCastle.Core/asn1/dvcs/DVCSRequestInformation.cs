@@ -1,14 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1.x509;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.dvcs
 {
 
-	using Extensions = org.bouncycastle.asn1.x509.Extensions;
-	using GeneralNames = org.bouncycastle.asn1.x509.GeneralNames;
-	using PolicyInformation = org.bouncycastle.asn1.x509.PolicyInformation;
-
+			
 	/// <summary>
 	/// <pre>
 	///     DVCSRequestInformation ::= SEQUENCE  {

@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.math.ec;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.generators
 {
 
-	using WNafUtil = org.bouncycastle.math.ec.WNafUtil;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+		
 	public class DHParametersHelper
 	{
 		private static readonly BigInteger ONE = BigInteger.valueOf(1);

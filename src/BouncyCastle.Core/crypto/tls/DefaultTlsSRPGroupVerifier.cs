@@ -1,12 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.agreement.srp;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using SRP6StandardGroups = org.bouncycastle.crypto.agreement.srp.SRP6StandardGroups;
-	using SRP6GroupParameters = org.bouncycastle.crypto.@params.SRP6GroupParameters;
-
+		
 	public class DefaultTlsSRPGroupVerifier : TlsSRPGroupVerifier
 	{
 		protected internal static readonly Vector DEFAULT_GROUPS = new Vector();

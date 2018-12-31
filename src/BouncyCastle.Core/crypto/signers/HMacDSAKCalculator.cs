@@ -1,15 +1,14 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.macs;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.signers
 {
 
-	using HMac = org.bouncycastle.crypto.macs.HMac;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+				
 	/// <summary>
 	/// A deterministic K calculator based on the algorithm in section 3.2 of RFC 6979.
 	/// </summary>

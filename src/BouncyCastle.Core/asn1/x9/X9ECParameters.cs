@@ -1,15 +1,13 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.math.ec;
+using org.bouncycastle.math.field;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.x9
 {
 
-	using ECAlgorithms = org.bouncycastle.math.ec.ECAlgorithms;
-	using ECCurve = org.bouncycastle.math.ec.ECCurve;
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
-	using PolynomialExtensionField = org.bouncycastle.math.field.PolynomialExtensionField;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+					
 	/// <summary>
 	/// ASN.1 def for Elliptic-Curve ECParameters structure. See
 	/// X9.62, for further details.

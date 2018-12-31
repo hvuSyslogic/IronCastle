@@ -3,13 +3,13 @@ using System.IO;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
+using org.bouncycastle.util.encoders;
 
 namespace org.bouncycastle.asn1
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+		
 	/// <summary>
 	/// Base class for an ASN.1 ApplicationSpecific object
 	/// </summary>

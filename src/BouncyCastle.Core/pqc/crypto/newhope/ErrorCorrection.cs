@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.pqc.crypto.newhope
-{
-	using Arrays = org.bouncycastle.util.Arrays;
+﻿using org.bouncycastle.util;
 
+namespace org.bouncycastle.pqc.crypto.newhope
+{
+	
 	public class ErrorCorrection
 	{
 		internal static int abs(int v)

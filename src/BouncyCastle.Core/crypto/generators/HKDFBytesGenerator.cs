@@ -1,13 +1,12 @@
 ﻿using System;
+using org.bouncycastle.crypto.macs;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.generators
 {
-	using HMac = org.bouncycastle.crypto.macs.HMac;
-	using HKDFParameters = org.bouncycastle.crypto.@params.HKDFParameters;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-
+			
 	/// <summary>
 	/// HMAC-based Extract-and-Expand Key Derivation Function (HKDF) implemented
 	/// according to IETF RFC 5869, May 2010 as specified by H. Krawczyk, IBM

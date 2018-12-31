@@ -1,16 +1,9 @@
-﻿namespace org.bouncycastle.pqc.asn1
-{
-	using ASN1EncodableVector = org.bouncycastle.asn1.ASN1EncodableVector;
-	using ASN1Integer = org.bouncycastle.asn1.ASN1Integer;
-	using ASN1Object = org.bouncycastle.asn1.ASN1Object;
-	using ASN1ObjectIdentifier = org.bouncycastle.asn1.ASN1ObjectIdentifier;
-	using ASN1OctetString = org.bouncycastle.asn1.ASN1OctetString;
-	using ASN1Primitive = org.bouncycastle.asn1.ASN1Primitive;
-	using ASN1Sequence = org.bouncycastle.asn1.ASN1Sequence;
-	using DEROctetString = org.bouncycastle.asn1.DEROctetString;
-	using DERSequence = org.bouncycastle.asn1.DERSequence;
-	using RainbowUtil = org.bouncycastle.pqc.crypto.rainbow.util.RainbowUtil;
+﻿using org.bouncycastle.asn1;
+using org.bouncycastle.pqc.crypto.rainbow.util;
 
+namespace org.bouncycastle.pqc.asn1
+{
+										
 	/// <summary>
 	/// This class implements an ASN.1 encoded Rainbow public key. The ASN.1 definition
 	/// of this structure is:

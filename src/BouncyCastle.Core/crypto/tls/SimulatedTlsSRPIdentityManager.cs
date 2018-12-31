@@ -1,14 +1,13 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.agreement.srp;
+using org.bouncycastle.crypto.macs;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using SRP6VerifierGenerator = org.bouncycastle.crypto.agreement.srp.SRP6VerifierGenerator;
-	using HMac = org.bouncycastle.crypto.macs.HMac;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using SRP6GroupParameters = org.bouncycastle.crypto.@params.SRP6GroupParameters;
-	using Strings = org.bouncycastle.util.Strings;
-
+					
 	/// <summary>
 	/// An implementation of <seealso cref="TlsSRPIdentityManager"/> that simulates the existence of "unknown" identities
 	/// to obscure the fact that there is no verifier for them. 

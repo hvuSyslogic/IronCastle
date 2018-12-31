@@ -1,12 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.agreement;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using DHStandardGroups = org.bouncycastle.crypto.agreement.DHStandardGroups;
-	using DHParameters = org.bouncycastle.crypto.@params.DHParameters;
-
+		
 	public class DefaultTlsDHVerifier : TlsDHVerifier
 	{
 		public const int DEFAULT_MINIMUM_PRIME_BITS = 2048;

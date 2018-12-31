@@ -1,12 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto;
 
 namespace org.bouncycastle.pqc.crypto.newhope
 {
 
-	using AsymmetricCipherKeyPair = org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-	using AsymmetricCipherKeyPairGenerator = org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-	using KeyGenerationParameters = org.bouncycastle.crypto.KeyGenerationParameters;
-
+			
 	public class NHKeyPairGenerator : AsymmetricCipherKeyPairGenerator
 	{
 		private SecureRandom random;

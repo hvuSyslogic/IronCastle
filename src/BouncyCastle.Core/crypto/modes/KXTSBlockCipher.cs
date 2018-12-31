@@ -1,11 +1,11 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.modes
 {
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-	using Pack = org.bouncycastle.util.Pack;
-
+		
 	/// <summary>
 	/// Implementation of DSTU7624 XTS mode
 	/// </summary>

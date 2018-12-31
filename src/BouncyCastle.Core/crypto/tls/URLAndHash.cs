@@ -1,12 +1,12 @@
 ﻿using System.IO;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using Strings = org.bouncycastle.util.Strings;
-
+	
 	/// <summary>
 	/// RFC 6066 5.
 	/// </summary>

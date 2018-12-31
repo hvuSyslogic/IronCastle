@@ -1,12 +1,12 @@
-﻿using org.bouncycastle.Port.java.io;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util.io;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using ECDomainParameters = org.bouncycastle.crypto.@params.ECDomainParameters;
-	using TeeInputStream = org.bouncycastle.util.io.TeeInputStream;
-
+		
 	/// <summary>
 	/// (D)TLS ECDHE key exchange (see RFC 4492).
 	/// </summary>

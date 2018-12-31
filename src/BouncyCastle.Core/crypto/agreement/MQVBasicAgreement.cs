@@ -1,15 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 
 namespace org.bouncycastle.crypto.agreement
 {
 
-	using DHMQVPrivateParameters = org.bouncycastle.crypto.@params.DHMQVPrivateParameters;
-	using DHMQVPublicParameters = org.bouncycastle.crypto.@params.DHMQVPublicParameters;
-	using DHParameters = org.bouncycastle.crypto.@params.DHParameters;
-	using DHPrivateKeyParameters = org.bouncycastle.crypto.@params.DHPrivateKeyParameters;
-	using DHPublicKeyParameters = org.bouncycastle.crypto.@params.DHPublicKeyParameters;
-
+					
 	public class MQVBasicAgreement : BasicAgreement
 	{
 		private static readonly BigInteger ONE = BigInteger.valueOf(1);

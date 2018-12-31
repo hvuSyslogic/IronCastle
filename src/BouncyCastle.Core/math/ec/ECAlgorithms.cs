@@ -1,16 +1,14 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.math.ec.endo;
+using org.bouncycastle.math.field;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.math.ec
 {
 
-	using ECEndomorphism = org.bouncycastle.math.ec.endo.ECEndomorphism;
-	using GLVEndomorphism = org.bouncycastle.math.ec.endo.GLVEndomorphism;
-	using FiniteField = org.bouncycastle.math.field.FiniteField;
-	using PolynomialExtensionField = org.bouncycastle.math.field.PolynomialExtensionField;
-
+				
 	public class ECAlgorithms
 	{
 		public static bool isF2mCurve(ECCurve c)

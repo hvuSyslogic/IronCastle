@@ -1,17 +1,14 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.agreement;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using DHBasicAgreement = org.bouncycastle.crypto.agreement.DHBasicAgreement;
-	using ECDHBasicAgreement = org.bouncycastle.crypto.agreement.ECDHBasicAgreement;
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using DHPrivateKeyParameters = org.bouncycastle.crypto.@params.DHPrivateKeyParameters;
-	using ECPrivateKeyParameters = org.bouncycastle.crypto.@params.ECPrivateKeyParameters;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+						
 	public class DefaultTlsAgreementCredentials : AbstractTlsAgreementCredentials
 	{
 		protected internal Certificate certificate;

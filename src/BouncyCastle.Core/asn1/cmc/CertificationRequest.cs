@@ -1,13 +1,13 @@
 ﻿using System.IO;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1.x500;
+using org.bouncycastle.asn1.x509;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.cmc
 {
 
-	using X500Name = org.bouncycastle.asn1.x500.X500Name;
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-
+		
 	/// <summary>
 	/// <pre>
 	///   CertificationRequest ::= SEQUENCE {

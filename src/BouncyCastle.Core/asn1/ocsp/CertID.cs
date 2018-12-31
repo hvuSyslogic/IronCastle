@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.asn1.ocsp
-{
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+﻿using org.bouncycastle.asn1.x509;
 
+namespace org.bouncycastle.asn1.ocsp
+{
+	
 	public class CertID : ASN1Object
 	{
 		internal AlgorithmIdentifier hashAlgorithm;

@@ -1,13 +1,9 @@
-﻿namespace org.bouncycastle.pqc.crypto.mceliece
+﻿using org.bouncycastle.pqc.math.linearalgebra;
+
+namespace org.bouncycastle.pqc.crypto.mceliece
 {
 
-	using GF2Matrix = org.bouncycastle.pqc.math.linearalgebra.GF2Matrix;
-	using GF2mField = org.bouncycastle.pqc.math.linearalgebra.GF2mField;
-	using GoppaCode = org.bouncycastle.pqc.math.linearalgebra.GoppaCode;
-	using Permutation = org.bouncycastle.pqc.math.linearalgebra.Permutation;
-	using PolynomialGF2mSmallM = org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM;
-	using PolynomialRingGF2m = org.bouncycastle.pqc.math.linearalgebra.PolynomialRingGF2m;
-
+						
 	/// 
 	/// 
 	/// 

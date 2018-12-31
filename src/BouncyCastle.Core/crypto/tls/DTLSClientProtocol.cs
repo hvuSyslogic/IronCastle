@@ -4,12 +4,12 @@ using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	public class DTLSClientProtocol : DTLSProtocol
 	{
 		public DTLSClientProtocol(SecureRandom secureRandom) : base(secureRandom)

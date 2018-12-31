@@ -2,16 +2,15 @@
 using BouncyCastle.Core.Port.java.io;
 using BouncyCastle.Core.Port.java.lang;
 using BouncyCastle.Core.Port.java.text;
+using org.bouncycastle.crypto;
+using org.bouncycastle.crypto.digests;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 
 namespace org.bouncycastle.pqc.crypto.ntru
 {
 
-	using Digest = org.bouncycastle.crypto.Digest;
-	using SHA256Digest = org.bouncycastle.crypto.digests.SHA256Digest;
-	using SHA512Digest = org.bouncycastle.crypto.digests.SHA512Digest;
-
+			
 	/// <summary>
 	/// A set of parameters for NtruSign. Several predefined parameter sets are available and new ones can be created as well.
 	/// </summary>

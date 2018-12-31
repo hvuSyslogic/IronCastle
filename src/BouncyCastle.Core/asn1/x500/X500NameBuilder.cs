@@ -1,10 +1,10 @@
-﻿using org.bouncycastle.Port.java.util;
+﻿using org.bouncycastle.asn1.x500.style;
+using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.asn1.x500
 {
 
-	using BCStyle = org.bouncycastle.asn1.x500.style.BCStyle;
-
+	
 	/// <summary>
 	/// A builder class for making X.500 Name objects.
 	/// </summary>

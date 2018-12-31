@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.math.ec.rfc8032;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.math.ec.rfc7748
 {
 
-	using Ed25519 = org.bouncycastle.math.ec.rfc8032.Ed25519;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+		
 	public abstract class X25519
 	{
 		public class Friend

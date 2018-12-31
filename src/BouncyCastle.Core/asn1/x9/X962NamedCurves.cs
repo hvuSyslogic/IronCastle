@@ -1,13 +1,13 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.math.ec;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
+using org.bouncycastle.util.encoders;
 
 namespace org.bouncycastle.asn1.x9
 {
 
-	using ECCurve = org.bouncycastle.math.ec.ECCurve;
-	using Strings = org.bouncycastle.util.Strings;
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+			
 
 	/// <summary>
 	/// Table of the current named curves defined in X.962 EC-DSA.

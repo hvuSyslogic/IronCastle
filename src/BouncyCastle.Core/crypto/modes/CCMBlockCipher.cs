@@ -1,16 +1,15 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.macs;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.modes
 {
 
-	using CBCBlockCipherMac = org.bouncycastle.crypto.macs.CBCBlockCipherMac;
-	using AEADParameters = org.bouncycastle.crypto.@params.AEADParameters;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+				
 	/// <summary>
 	/// Implements the Counter with Cipher Block Chaining mode (CCM) detailed in
 	/// NIST Special Publication 800-38C.

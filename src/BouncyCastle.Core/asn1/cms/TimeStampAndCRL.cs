@@ -1,9 +1,9 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.cms
 {
-	using CertificateList = org.bouncycastle.asn1.x509.CertificateList;
-
+	
 	/// <summary>
 	/// <a href="http://tools.ietf.org/html/rfc5544">RFC 5544</a>
 	/// Binding Documents with Time-Stamps; TimeStampAndCRL object.

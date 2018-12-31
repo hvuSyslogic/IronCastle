@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.pqc.crypto.xmss
-{
-	using Pack = org.bouncycastle.util.Pack;
+﻿using org.bouncycastle.util;
 
+namespace org.bouncycastle.pqc.crypto.xmss
+{
+	
 	/// <summary>
 	/// OTS hash address.
 	/// </summary>

@@ -1,12 +1,12 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.ocsp;
+using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.asn1.esf
 {
 
-	using BasicOCSPResponse = org.bouncycastle.asn1.ocsp.BasicOCSPResponse;
-	using CertificateList = org.bouncycastle.asn1.x509.CertificateList;
-
+		
 	/// <summary>
 	/// <pre>
 	/// RevocationValues ::= SEQUENCE {

@@ -1,9 +1,9 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port;
 
 namespace org.bouncycastle.asn1.cmc
 {
-	using Extension = org.bouncycastle.asn1.x509.Extension;
-
+	
 	public class Utils
 	{
 		internal static BodyPartID[] toBodyPartIDArray(ASN1Sequence bodyPartIDs)

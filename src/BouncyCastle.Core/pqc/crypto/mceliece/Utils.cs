@@ -1,14 +1,10 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.crypto;
+using org.bouncycastle.crypto.digests;
+using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.pqc.crypto.mceliece
 {
-	using Digest = org.bouncycastle.crypto.Digest;
-	using SHA1Digest = org.bouncycastle.crypto.digests.SHA1Digest;
-	using SHA224Digest = org.bouncycastle.crypto.digests.SHA224Digest;
-	using SHA256Digest = org.bouncycastle.crypto.digests.SHA256Digest;
-	using SHA384Digest = org.bouncycastle.crypto.digests.SHA384Digest;
-	using SHA512Digest = org.bouncycastle.crypto.digests.SHA512Digest;
-
+						
 	public class Utils
 	{
 		internal static Digest getDigest(string digestName)

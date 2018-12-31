@@ -2,18 +2,12 @@
 using org.bouncycastle.asn1;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.agreement.kdf
 {
 
-	using ASN1EncodableVector = org.bouncycastle.asn1.ASN1EncodableVector;
-	using ASN1Encoding = org.bouncycastle.asn1.ASN1Encoding;
-	using ASN1ObjectIdentifier = org.bouncycastle.asn1.ASN1ObjectIdentifier;
-	using DEROctetString = org.bouncycastle.asn1.DEROctetString;
-	using DERSequence = org.bouncycastle.asn1.DERSequence;
-	using DERTaggedObject = org.bouncycastle.asn1.DERTaggedObject;
-	using Pack = org.bouncycastle.util.Pack;
-
+							
 	/// <summary>
 	/// RFC 2631 Diffie-hellman KEK derivation function.
 	/// </summary>

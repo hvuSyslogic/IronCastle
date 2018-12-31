@@ -2,12 +2,12 @@
 using org.bouncycastle.notexisting;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util.io;
 
 namespace org.bouncycastle.asn1
 {
 
-	using Streams = org.bouncycastle.util.io.Streams;
-
+	
 	/// <summary>
 	/// A general purpose ASN.1 decoder - note: this class differs from the
 	/// others in that it returns null after it has read the last object in

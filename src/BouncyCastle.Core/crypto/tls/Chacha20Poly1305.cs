@@ -1,15 +1,13 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.engines;
+using org.bouncycastle.crypto.macs;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using ChaCha7539Engine = org.bouncycastle.crypto.engines.ChaCha7539Engine;
-	using Poly1305 = org.bouncycastle.crypto.macs.Poly1305;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Pack = org.bouncycastle.util.Pack;
-
+						
 	/// <summary>
 	/// draft-ietf-tls-chacha20-poly1305-04
 	/// </summary>

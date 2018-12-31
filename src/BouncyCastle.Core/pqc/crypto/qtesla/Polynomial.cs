@@ -1,10 +1,10 @@
 ﻿
 using BouncyCastle.Core.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.crypto.qtesla
 {
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	public class Polynomial
 	{
 

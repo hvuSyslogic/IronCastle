@@ -1,10 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 
 namespace org.bouncycastle.crypto.generators
 {
 
-	using ElGamalParameters = org.bouncycastle.crypto.@params.ElGamalParameters;
-
+	
 	public class ElGamalParametersGenerator
 	{
 		private int size;

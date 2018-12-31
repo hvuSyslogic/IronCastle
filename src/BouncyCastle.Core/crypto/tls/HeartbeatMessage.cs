@@ -1,13 +1,13 @@
 ﻿using System.IO;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
+using org.bouncycastle.util.io;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Streams = org.bouncycastle.util.io.Streams;
-
+		
 	public class HeartbeatMessage
 	{
 		protected internal short type;

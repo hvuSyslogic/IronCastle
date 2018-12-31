@@ -2,8 +2,7 @@
 
 namespace org.bouncycastle.asn1.smime
 {
-	using PKCSObjectIdentifiers = org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-
+	
 	public interface SMIMEAttributes
 	{
 	}

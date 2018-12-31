@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.sec
 {
 
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+	
 	/// <summary>
 	/// the elliptic curve private key object from SEC 1 </summary>
 	/// @deprecated use ECPrivateKey 

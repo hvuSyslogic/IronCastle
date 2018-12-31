@@ -1,10 +1,10 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.cryptopro
 {
-	using SubjectPublicKeyInfo = org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+		
 	/// <summary>
 	///  <pre>
 	/// GostR3410-TransportParameters ::= SEQUENCE {

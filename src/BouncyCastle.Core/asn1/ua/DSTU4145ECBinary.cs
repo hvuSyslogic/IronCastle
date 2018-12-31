@@ -1,15 +1,14 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.math.ec;
+using org.bouncycastle.math.field;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.ua
 {
 
-	using ECDomainParameters = org.bouncycastle.crypto.@params.ECDomainParameters;
-	using ECAlgorithms = org.bouncycastle.math.ec.ECAlgorithms;
-	using ECCurve = org.bouncycastle.math.ec.ECCurve;
-	using PolynomialExtensionField = org.bouncycastle.math.field.PolynomialExtensionField;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+					
 	public class DSTU4145ECBinary : ASN1Object
 	{
 		internal BigInteger version = BigInteger.valueOf(0);

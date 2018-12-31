@@ -1,11 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 
 namespace org.bouncycastle.crypto.generators
 {
 
-	using X448PrivateKeyParameters = org.bouncycastle.crypto.@params.X448PrivateKeyParameters;
-	using X448PublicKeyParameters = org.bouncycastle.crypto.@params.X448PublicKeyParameters;
-
+		
 	public class X448KeyPairGenerator : AsymmetricCipherKeyPairGenerator
 	{
 		private SecureRandom random;

@@ -1,26 +1,16 @@
 ﻿using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.pqc.math.ntru.polynomial;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.crypto.ntru
 {
 
-	using AsymmetricBlockCipher = org.bouncycastle.crypto.AsymmetricBlockCipher;
-	using CipherParameters = org.bouncycastle.crypto.CipherParameters;
-	using CryptoServicesRegistrar = CryptoServicesRegistrar;
-	using DataLengthException = org.bouncycastle.crypto.DataLengthException;
-	using Digest = org.bouncycastle.crypto.Digest;
-	using InvalidCipherTextException = org.bouncycastle.crypto.InvalidCipherTextException;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using DenseTernaryPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.DenseTernaryPolynomial;
-	using IntegerPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.IntegerPolynomial;
-	using Polynomial = org.bouncycastle.pqc.math.ntru.polynomial.Polynomial;
-	using ProductFormPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.ProductFormPolynomial;
-	using SparseTernaryPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.SparseTernaryPolynomial;
-	using TernaryPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.TernaryPolynomial;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+														
 	/// <summary>
 	/// Encrypts, decrypts data and generates key pairs.<br>
 	/// The parameter p is hardcoded to 3.

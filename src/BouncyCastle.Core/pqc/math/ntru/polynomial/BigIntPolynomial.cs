@@ -5,13 +5,12 @@ using BouncyCastle.Core.Port.java.lang;
 using BouncyCastle.Core.Port.java.util;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.math.ntru.polynomial
 {
 
-	using CryptoServicesRegistrar = CryptoServicesRegistrar;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+		
 	/// <summary>
 	/// A polynomial with <seealso cref="BigInteger"/> coefficients.<br>
 	/// Some methods (like <code>add</code>) change the polynomial, others (like <code>mult</code>) do

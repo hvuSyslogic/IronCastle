@@ -1,8 +1,8 @@
-﻿namespace org.bouncycastle.asn1.cmp
-{
-	using CertId = org.bouncycastle.asn1.crmf.CertId;
-	using Extensions = org.bouncycastle.asn1.x509.Extensions;
+﻿using org.bouncycastle.asn1.crmf;
 
+namespace org.bouncycastle.asn1.cmp
+{
+		
 	public class RevAnnContent : ASN1Object
 	{
 		private PKIStatus status;

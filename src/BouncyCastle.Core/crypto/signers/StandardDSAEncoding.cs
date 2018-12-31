@@ -1,18 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.asn1;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.signers
 {
 
-	using ASN1EncodableVector = org.bouncycastle.asn1.ASN1EncodableVector;
-	using ASN1Encoding = org.bouncycastle.asn1.ASN1Encoding;
-	using ASN1Integer = org.bouncycastle.asn1.ASN1Integer;
-	using ASN1Primitive = org.bouncycastle.asn1.ASN1Primitive;
-	using ASN1Sequence = org.bouncycastle.asn1.ASN1Sequence;
-	using DERSequence = org.bouncycastle.asn1.DERSequence;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+							
 	public class StandardDSAEncoding : DSAEncoding
 	{
 		public static readonly StandardDSAEncoding INSTANCE = new StandardDSAEncoding();

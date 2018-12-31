@@ -1,8 +1,9 @@
-﻿namespace org.bouncycastle.asn1.x509
-{
-	using PKCSObjectIdentifiers = org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-	using X500Name = org.bouncycastle.asn1.x500.X500Name;
+﻿using org.bouncycastle.asn1.pkcs;
+using org.bouncycastle.asn1.x500;
 
+namespace org.bouncycastle.asn1.x509
+{
+		
 	/// <summary>
 	/// The TBSCertificate object.
 	/// <pre>

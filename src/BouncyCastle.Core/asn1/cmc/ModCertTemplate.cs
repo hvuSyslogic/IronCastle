@@ -1,9 +1,9 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.crmf;
+using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.cmc
 {
-	using CertTemplate = org.bouncycastle.asn1.crmf.CertTemplate;
-
+	
 	/// <summary>
 	/// <pre>
 	/// id-cmc-modCertTemplate OBJECT IDENTIFIER ::= {id-cmc 31}

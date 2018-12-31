@@ -1,10 +1,9 @@
-﻿namespace org.bouncycastle.crypto.tls
-{
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using ECPublicKeyParameters = org.bouncycastle.crypto.@params.ECPublicKeyParameters;
-	using ECDSASigner = org.bouncycastle.crypto.signers.ECDSASigner;
-	using HMacDSAKCalculator = org.bouncycastle.crypto.signers.HMacDSAKCalculator;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.crypto.signers;
 
+namespace org.bouncycastle.crypto.tls
+{
+				
 	public class TlsECDSASigner : TlsDSASigner
 	{
 		public override bool isValidPublicKey(AsymmetricKeyParameter publicKey)

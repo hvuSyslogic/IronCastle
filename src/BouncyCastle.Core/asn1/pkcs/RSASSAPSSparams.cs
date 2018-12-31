@@ -1,13 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.asn1.oiw;
+using org.bouncycastle.asn1.x509;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.pkcs
 {
 
-	using OIWObjectIdentifiers = org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-
+		
 	public class RSASSAPSSparams : ASN1Object
 	{
 		private AlgorithmIdentifier hashAlgorithm;

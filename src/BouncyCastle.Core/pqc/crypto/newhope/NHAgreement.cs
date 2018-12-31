@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.pqc.crypto.newhope
-{
-	using CipherParameters = org.bouncycastle.crypto.CipherParameters;
+﻿using org.bouncycastle.crypto;
 
+namespace org.bouncycastle.pqc.crypto.newhope
+{
+	
 	public class NHAgreement
 	{
 		private NHPrivateKeyParameters privKey;

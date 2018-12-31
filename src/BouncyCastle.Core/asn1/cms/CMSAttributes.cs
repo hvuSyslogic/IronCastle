@@ -2,8 +2,7 @@
 
 namespace org.bouncycastle.asn1.cms
 {
-	using PKCSObjectIdentifiers = org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-
+	
 
 	/// <summary>
 	/// <a href="http://tools.ietf.org/html/rfc5652">RFC 5652</a> CMS attribute OID constants.

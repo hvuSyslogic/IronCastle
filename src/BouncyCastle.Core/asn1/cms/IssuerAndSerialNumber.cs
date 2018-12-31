@@ -1,14 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1.x500;
+using org.bouncycastle.asn1.x509;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.cms
 {
 
-	using X500Name = org.bouncycastle.asn1.x500.X500Name;
-	using Certificate = org.bouncycastle.asn1.x509.Certificate;
-	using X509CertificateStructure = org.bouncycastle.asn1.x509.X509CertificateStructure;
-	using X509Name = org.bouncycastle.asn1.x509.X509Name;
-
+				
 	/// <summary>
 	/// <a href="http://tools.ietf.org/html/rfc5652#section-10.2.4">RFC 5652</a>: IssuerAndSerialNumber object.
 	/// <para>

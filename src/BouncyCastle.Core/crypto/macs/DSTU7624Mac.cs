@@ -1,12 +1,12 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.engines;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.macs
 {
-	using DSTU7624Engine = org.bouncycastle.crypto.engines.DSTU7624Engine;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+			
 	/// <summary>
 	/// Implementation of DSTU7624 MAC mode
 	/// </summary>

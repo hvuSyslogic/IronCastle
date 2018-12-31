@@ -1,12 +1,12 @@
 ﻿using System;
+using org.bouncycastle.crypto.digests;
+using org.bouncycastle.crypto.macs;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
-	using LongDigest = org.bouncycastle.crypto.digests.LongDigest;
-	using HMac = org.bouncycastle.crypto.macs.HMac;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+				
 	/// <summary>
 	/// A generic TLS MAC implementation, acting as an HMAC based on some underlying Digest.
 	/// </summary>

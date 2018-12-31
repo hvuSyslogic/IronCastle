@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.asn1.x509
-{
-	using Arrays = org.bouncycastle.util.Arrays;
+﻿using org.bouncycastle.util;
 
+namespace org.bouncycastle.asn1.x509
+{
+	
 	/// <summary>
 	/// The SubjectKeyIdentifier object.
 	/// <pre>

@@ -1,10 +1,10 @@
 ﻿using System;
+using org.bouncycastle.crypto;
 using org.bouncycastle.Port;
 
 namespace org.bouncycastle.pqc.crypto.gmss.util
 {
-	using Digest = org.bouncycastle.crypto.Digest;
-
+	
 	/// <summary>
 	/// This class implements key pair generation and signature generation of the
 	/// Winternitz one-time signature scheme (OTSS), described in C.Dods, N.P. Smart,

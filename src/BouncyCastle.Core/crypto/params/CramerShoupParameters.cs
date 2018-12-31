@@ -1,10 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.@params
 {
 
-	using Memoable = org.bouncycastle.util.Memoable;
-
+	
 	public class CramerShoupParameters : CipherParameters
 	{
 

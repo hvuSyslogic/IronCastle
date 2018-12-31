@@ -1,8 +1,8 @@
-﻿namespace org.bouncycastle.asn1.ocsp
-{
-	using Extensions = org.bouncycastle.asn1.x509.Extensions;
-	using X509Extensions = org.bouncycastle.asn1.x509.X509Extensions;
+﻿using org.bouncycastle.asn1.x509;
 
+namespace org.bouncycastle.asn1.ocsp
+{
+		
 	public class SingleResponse : ASN1Object
 	{
 		private CertID certID;

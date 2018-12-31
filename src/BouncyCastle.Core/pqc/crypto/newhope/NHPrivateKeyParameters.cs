@@ -1,8 +1,9 @@
-﻿namespace org.bouncycastle.pqc.crypto.newhope
-{
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using Arrays = org.bouncycastle.util.Arrays;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.util;
 
+namespace org.bouncycastle.pqc.crypto.newhope
+{
+		
 	public class NHPrivateKeyParameters : AsymmetricKeyParameter
 	{
 		internal readonly short[] secData;

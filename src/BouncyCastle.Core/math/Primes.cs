@@ -1,15 +1,14 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.math
 {
 
-	using Digest = org.bouncycastle.crypto.Digest;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+			
 	/// <summary>
 	/// Utility methods for generating primes and testing for primality.
 	/// </summary>

@@ -1,11 +1,11 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.x500;
+using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.asn1.x509
 {
 
-	using X500Name = org.bouncycastle.asn1.x500.X500Name;
-
+	
 	/// <summary>
 	/// PKIX RFC-2459 - TBSCertList object.
 	/// <pre>

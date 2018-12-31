@@ -1,9 +1,9 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 
 namespace org.bouncycastle.crypto.macs
 {
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-
+	
 	/// <summary>
 	/// HMAC implementation based on RFC2104
 	/// 

@@ -1,14 +1,14 @@
 ﻿using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.digests;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.agreement.jpake
 {
 
-	using SHA256Digest = org.bouncycastle.crypto.digests.SHA256Digest;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+		
 	/// <summary>
 	/// A participant in a Password Authenticated Key Exchange by Juggling (J-PAKE) exchange.
 	/// <para>

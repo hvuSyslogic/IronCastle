@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.util.test
-{
-	using Hex = org.bouncycastle.util.encoders.Hex;
+﻿using org.bouncycastle.util.encoders;
 
+namespace org.bouncycastle.util.test
+{
+	
 	/// <summary>
 	/// A fixed secure random designed to return data for someone needing random bytes.
 	/// </summary>

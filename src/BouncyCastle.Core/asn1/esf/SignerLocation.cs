@@ -1,11 +1,11 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.x500;
+using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.asn1.esf
 {
 
-	using DirectoryString = org.bouncycastle.asn1.x500.DirectoryString;
-
+	
 	/// <summary>
 	/// Signer-Location attribute (RFC3126).
 	/// 

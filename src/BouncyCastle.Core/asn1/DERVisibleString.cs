@@ -1,13 +1,12 @@
 ﻿using System;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Strings = org.bouncycastle.util.Strings;
-
+		
 	/// <summary>
 	/// DER VisibleString object encoding ISO 646 (ASCII) character code points 32 to 126.
 	/// <para>

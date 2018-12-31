@@ -1,10 +1,10 @@
 ﻿using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.x509
 {
-	using Strings = org.bouncycastle.util.Strings;
-
+	
 	/// <summary>
 	/// <pre>
 	/// IssuingDistributionPoint ::= SEQUENCE { 

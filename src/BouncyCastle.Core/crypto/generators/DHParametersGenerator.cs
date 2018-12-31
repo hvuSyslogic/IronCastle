@@ -1,10 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 
 namespace org.bouncycastle.crypto.generators
 {
 
-	using DHParameters = org.bouncycastle.crypto.@params.DHParameters;
-
+	
 	public class DHParametersGenerator
 	{
 		private int size;

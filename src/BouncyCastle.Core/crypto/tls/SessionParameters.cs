@@ -1,12 +1,12 @@
 ﻿using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	public sealed class SessionParameters
 	{
 		public sealed class Builder

@@ -1,16 +1,14 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1.x9;
+using org.bouncycastle.math.ec;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
+using org.bouncycastle.util.encoders;
 
 namespace org.bouncycastle.asn1.teletrust
 {
 
-	using X9ECParameters = org.bouncycastle.asn1.x9.X9ECParameters;
-	using X9ECParametersHolder = org.bouncycastle.asn1.x9.X9ECParametersHolder;
-	using X9ECPoint = org.bouncycastle.asn1.x9.X9ECPoint;
-	using ECCurve = org.bouncycastle.math.ec.ECCurve;
-	using Strings = org.bouncycastle.util.Strings;
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+						
 	/// <summary>
 	/// Elliptic curves defined in "ECC Brainpool Standard Curves and Curve Generation"
 	/// http://www.ecc-brainpool.org/download/draft_pkix_additional_ecc_dp.txt

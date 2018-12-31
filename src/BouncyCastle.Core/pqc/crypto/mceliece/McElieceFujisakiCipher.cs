@@ -1,21 +1,17 @@
 ﻿using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto;
+using org.bouncycastle.crypto.digests;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.crypto.prng;
+using org.bouncycastle.pqc.math.linearalgebra;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.pqc.crypto.mceliece
 {
 
-	using CipherParameters = org.bouncycastle.crypto.CipherParameters;
-	using CryptoServicesRegistrar = CryptoServicesRegistrar;
-	using Digest = org.bouncycastle.crypto.Digest;
-	using InvalidCipherTextException = org.bouncycastle.crypto.InvalidCipherTextException;
-	using SHA1Digest = org.bouncycastle.crypto.digests.SHA1Digest;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using DigestRandomGenerator = org.bouncycastle.crypto.prng.DigestRandomGenerator;
-	using ByteUtils = org.bouncycastle.pqc.math.linearalgebra.ByteUtils;
-	using GF2Vector = org.bouncycastle.pqc.math.linearalgebra.GF2Vector;
-
+									
 	/// <summary>
 	/// This class implements the Fujisaki/Okamoto conversion of the McEliecePKCS.
 	/// Fujisaki and Okamoto propose hybrid encryption that merges a symmetric

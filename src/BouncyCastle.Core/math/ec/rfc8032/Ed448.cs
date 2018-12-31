@@ -1,18 +1,17 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto;
+using org.bouncycastle.crypto.digests;
+using org.bouncycastle.math.ec.rfc7748;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 using Org.BouncyCastle.Math.Raw;
+using Strings = org.bouncycastle.util.Strings;
 
 namespace org.bouncycastle.math.ec.rfc8032
 {
 
-	using Xof = org.bouncycastle.crypto.Xof;
-	using SHAKEDigest = org.bouncycastle.crypto.digests.SHAKEDigest;
-	using X448 = org.bouncycastle.math.ec.rfc7748.X448;
-	using X448Field = org.bouncycastle.math.ec.rfc7748.X448Field;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Strings = org.bouncycastle.util.Strings;
-
+						
 	public abstract class Ed448
 	{
 		public sealed class Algorithm

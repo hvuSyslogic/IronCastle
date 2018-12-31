@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.crypto.tls
-{
-	using Arrays = org.bouncycastle.util.Arrays;
+﻿using org.bouncycastle.util;
 
+namespace org.bouncycastle.crypto.tls
+{
+	
 	public class SecurityParameters
 	{
 		internal int entity = -1;

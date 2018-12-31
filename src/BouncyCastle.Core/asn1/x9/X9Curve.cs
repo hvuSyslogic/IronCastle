@@ -1,13 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.math.ec;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.x9
 {
 
-	using ECAlgorithms = org.bouncycastle.math.ec.ECAlgorithms;
-	using ECCurve = org.bouncycastle.math.ec.ECCurve;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+			
 	/// <summary>
 	/// ASN.1 def for Elliptic-Curve Curve structure. See
 	/// X9.62, for further details.

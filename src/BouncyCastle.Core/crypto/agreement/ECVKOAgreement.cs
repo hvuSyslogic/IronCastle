@@ -1,17 +1,13 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.math.ec;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.agreement
 {
 
-	using ECDomainParameters = org.bouncycastle.crypto.@params.ECDomainParameters;
-	using ECPrivateKeyParameters = org.bouncycastle.crypto.@params.ECPrivateKeyParameters;
-	using ECPublicKeyParameters = org.bouncycastle.crypto.@params.ECPublicKeyParameters;
-	using ParametersWithUKM = org.bouncycastle.crypto.@params.ParametersWithUKM;
-	using ECAlgorithms = org.bouncycastle.math.ec.ECAlgorithms;
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+							
 	/// <summary>
 	/// GOST VKO key agreement class - RFC 7836 Section 4.3
 	/// </summary>

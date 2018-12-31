@@ -1,8 +1,8 @@
-﻿namespace org.bouncycastle.crypto.agreement
-{
-	using X25519PrivateKeyParameters = org.bouncycastle.crypto.@params.X25519PrivateKeyParameters;
-	using X25519PublicKeyParameters = org.bouncycastle.crypto.@params.X25519PublicKeyParameters;
+﻿using org.bouncycastle.crypto.@params;
 
+namespace org.bouncycastle.crypto.agreement
+{
+		
 	public sealed class X25519Agreement : RawAgreement
 	{
 		private X25519PrivateKeyParameters privateKey;

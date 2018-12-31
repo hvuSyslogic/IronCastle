@@ -1,13 +1,12 @@
 ﻿using System.IO;
+using org.bouncycastle.asn1.x509;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.cmp
 {
 
-	using AttributeCertificate = org.bouncycastle.asn1.x509.AttributeCertificate;
-	using Certificate = org.bouncycastle.asn1.x509.Certificate;
-
+		
 	public class CMPCertificate : ASN1Object, ASN1Choice
 	{
 		private Certificate x509v3PKCert;

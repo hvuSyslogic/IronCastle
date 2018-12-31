@@ -1,56 +1,22 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1;
 using org.bouncycastle.asn1.sec;
 using org.bouncycastle.asn1.gm;
+using org.bouncycastle.asn1.x9;
+using org.bouncycastle.math.ec;
+using org.bouncycastle.math.ec.custom.djb;
+using org.bouncycastle.math.ec.custom.gm;
+using org.bouncycastle.math.ec.custom.sec;
+using org.bouncycastle.math.ec.endo;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
+using org.bouncycastle.util.encoders;
 
 namespace org.bouncycastle.crypto.ec
 {
 
-	using ASN1ObjectIdentifier = org.bouncycastle.asn1.ASN1ObjectIdentifier;
-	using GMObjectIdentifiers = org.bouncycastle.asn1.gm.GMObjectIdentifiers;
-	using SECObjectIdentifiers = org.bouncycastle.asn1.sec.SECObjectIdentifiers;
-	using X9ECParameters = org.bouncycastle.asn1.x9.X9ECParameters;
-	using X9ECParametersHolder = org.bouncycastle.asn1.x9.X9ECParametersHolder;
-	using X9ECPoint = org.bouncycastle.asn1.x9.X9ECPoint;
-	using ECCurve = org.bouncycastle.math.ec.ECCurve;
-	using Curve25519 = org.bouncycastle.math.ec.custom.djb.Curve25519;
-	using SM2P256V1Curve = org.bouncycastle.math.ec.custom.gm.SM2P256V1Curve;
-	using SecP128R1Curve = org.bouncycastle.math.ec.custom.sec.SecP128R1Curve;
-	using SecP160K1Curve = org.bouncycastle.math.ec.custom.sec.SecP160K1Curve;
-	using SecP160R1Curve = org.bouncycastle.math.ec.custom.sec.SecP160R1Curve;
-	using SecP160R2Curve = org.bouncycastle.math.ec.custom.sec.SecP160R2Curve;
-	using SecP192K1Curve = org.bouncycastle.math.ec.custom.sec.SecP192K1Curve;
-	using SecP192R1Curve = org.bouncycastle.math.ec.custom.sec.SecP192R1Curve;
-	using SecP224K1Curve = org.bouncycastle.math.ec.custom.sec.SecP224K1Curve;
-	using SecP224R1Curve = org.bouncycastle.math.ec.custom.sec.SecP224R1Curve;
-	using SecP256K1Curve = org.bouncycastle.math.ec.custom.sec.SecP256K1Curve;
-	using SecP256R1Curve = org.bouncycastle.math.ec.custom.sec.SecP256R1Curve;
-	using SecP384R1Curve = org.bouncycastle.math.ec.custom.sec.SecP384R1Curve;
-	using SecP521R1Curve = org.bouncycastle.math.ec.custom.sec.SecP521R1Curve;
-	using SecT113R1Curve = org.bouncycastle.math.ec.custom.sec.SecT113R1Curve;
-	using SecT113R2Curve = org.bouncycastle.math.ec.custom.sec.SecT113R2Curve;
-	using SecT131R1Curve = org.bouncycastle.math.ec.custom.sec.SecT131R1Curve;
-	using SecT131R2Curve = org.bouncycastle.math.ec.custom.sec.SecT131R2Curve;
-	using SecT163K1Curve = org.bouncycastle.math.ec.custom.sec.SecT163K1Curve;
-	using SecT163R1Curve = org.bouncycastle.math.ec.custom.sec.SecT163R1Curve;
-	using SecT163R2Curve = org.bouncycastle.math.ec.custom.sec.SecT163R2Curve;
-	using SecT193R1Curve = org.bouncycastle.math.ec.custom.sec.SecT193R1Curve;
-	using SecT193R2Curve = org.bouncycastle.math.ec.custom.sec.SecT193R2Curve;
-	using SecT233K1Curve = org.bouncycastle.math.ec.custom.sec.SecT233K1Curve;
-	using SecT233R1Curve = org.bouncycastle.math.ec.custom.sec.SecT233R1Curve;
-	using SecT239K1Curve = org.bouncycastle.math.ec.custom.sec.SecT239K1Curve;
-	using SecT283K1Curve = org.bouncycastle.math.ec.custom.sec.SecT283K1Curve;
-	using SecT283R1Curve = org.bouncycastle.math.ec.custom.sec.SecT283R1Curve;
-	using SecT409K1Curve = org.bouncycastle.math.ec.custom.sec.SecT409K1Curve;
-	using SecT409R1Curve = org.bouncycastle.math.ec.custom.sec.SecT409R1Curve;
-	using SecT571K1Curve = org.bouncycastle.math.ec.custom.sec.SecT571K1Curve;
-	using SecT571R1Curve = org.bouncycastle.math.ec.custom.sec.SecT571R1Curve;
-	using GLVTypeBEndomorphism = org.bouncycastle.math.ec.endo.GLVTypeBEndomorphism;
-	using GLVTypeBParameters = org.bouncycastle.math.ec.endo.GLVTypeBParameters;
-	using Strings = org.bouncycastle.util.Strings;
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+																																											
 	public class CustomNamedCurves
 	{
 		private static ECCurve configureCurve(ECCurve curve)

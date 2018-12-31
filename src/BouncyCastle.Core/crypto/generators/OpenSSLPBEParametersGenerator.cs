@@ -1,12 +1,11 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.crypto.util;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.generators
 {
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-	using DigestFactory = org.bouncycastle.crypto.util.DigestFactory;
-
+			
 	/// <summary>
 	/// Generator for PBE derived keys and ivs as usd by OpenSSL.
 	/// <para>

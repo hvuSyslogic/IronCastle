@@ -1,9 +1,9 @@
-﻿namespace org.bouncycastle.asn1.cmp
-{
-	using CertTemplate = org.bouncycastle.asn1.crmf.CertTemplate;
-	using Extensions = org.bouncycastle.asn1.x509.Extensions;
-	using X509Extensions = org.bouncycastle.asn1.x509.X509Extensions;
+﻿using org.bouncycastle.asn1.crmf;
+using org.bouncycastle.asn1.x509;
 
+namespace org.bouncycastle.asn1.cmp
+{
+			
 	public class RevDetails : ASN1Object
 	{
 		private CertTemplate certDetails;

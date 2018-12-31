@@ -4,8 +4,7 @@ using org.bouncycastle.Port.java.util;
 namespace org.bouncycastle.asn1.crmf
 {
 
-	using Time = org.bouncycastle.asn1.x509.Time;
-
+	
 	public class OptionalValidity : ASN1Object
 	{
 		private Time notBefore;

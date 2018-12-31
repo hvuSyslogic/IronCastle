@@ -1,9 +1,9 @@
-﻿namespace org.bouncycastle.asn1.crmf
-{
-	using CMPObjectIdentifiers = org.bouncycastle.asn1.cmp.CMPObjectIdentifiers;
-	using PBMParameter = org.bouncycastle.asn1.cmp.PBMParameter;
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+﻿using org.bouncycastle.asn1.cmp;
+using org.bouncycastle.asn1.x509;
 
+namespace org.bouncycastle.asn1.crmf
+{
+			
 	/// <summary>
 	/// Password-based MAC value for use with POPOSigningKeyInput.
 	/// </summary>

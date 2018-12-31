@@ -1,15 +1,14 @@
 ﻿using System;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.modes
 {
 
-	using AEADParameters = org.bouncycastle.crypto.@params.AEADParameters;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+			
 	/// <summary>
 	/// Implementation of DSTU7624 CCM mode
 	/// </summary>

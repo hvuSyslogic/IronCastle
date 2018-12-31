@@ -1,15 +1,13 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.kems
 {
 
-	using KDFParameters = org.bouncycastle.crypto.@params.KDFParameters;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using RSAKeyParameters = org.bouncycastle.crypto.@params.RSAKeyParameters;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+				
 	/// <summary>
 	/// The RSA Key Encapsulation Mechanism (RSA-KEM) from ISO 18033-2.
 	/// </summary>

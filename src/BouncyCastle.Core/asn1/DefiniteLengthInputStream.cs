@@ -1,12 +1,12 @@
 ﻿using System;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util.io;
 
 namespace org.bouncycastle.asn1
 {
 
-	using Streams = org.bouncycastle.util.io.Streams;
-
+	
 	/// <summary>
 	/// Parse data stream of expected ASN.1 data expecting definite-length encoding..
 	/// </summary>

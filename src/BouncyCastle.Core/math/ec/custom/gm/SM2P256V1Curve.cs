@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.util.encoders;
 using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.gm
 {
 
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+	
 	public class SM2P256V1Curve : ECCurve.AbstractFp
 	{
 		public static readonly BigInteger q = new BigInteger(1, Hex.decode("FFFFFFFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000000FFFFFFFFFFFFFFFF"));

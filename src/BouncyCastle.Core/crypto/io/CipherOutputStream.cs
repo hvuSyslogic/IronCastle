@@ -1,12 +1,12 @@
 ﻿using System;
 using System.IO;
+using org.bouncycastle.crypto.modes;
 using org.bouncycastle.Port.java.io;
 
 namespace org.bouncycastle.crypto.io
 {
 
-	using AEADBlockCipher = org.bouncycastle.crypto.modes.AEADBlockCipher;
-
+	
 	/// <summary>
 	/// A CipherOutputStream is composed of an OutputStream and a cipher so that write() methods process
 	/// the written data with the cipher, and the output of the cipher is in turn written to the

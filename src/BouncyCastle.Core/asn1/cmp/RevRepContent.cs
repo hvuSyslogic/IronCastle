@@ -1,11 +1,11 @@
-﻿using org.bouncycastle.Port.java.util;
+﻿using org.bouncycastle.asn1.crmf;
+using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.asn1.cmp
 {
 
-	using CertId = org.bouncycastle.asn1.crmf.CertId;
-	using CertificateList = org.bouncycastle.asn1.x509.CertificateList;
-
+		
 	public class RevRepContent : ASN1Object
 	{
 		private ASN1Sequence status;

@@ -1,15 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1.x509;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.dvcs
 {
 
-	using Extensions = org.bouncycastle.asn1.x509.Extensions;
-	using GeneralName = org.bouncycastle.asn1.x509.GeneralName;
-	using GeneralNames = org.bouncycastle.asn1.x509.GeneralNames;
-	using PolicyInformation = org.bouncycastle.asn1.x509.PolicyInformation;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+					
 	/// <summary>
 	/// <pre>
 	///     DVCSRequestInformation ::= SEQUENCE  {

@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.asn1.cmc
-{
-	using Extension = org.bouncycastle.asn1.x509.Extension;
+﻿using org.bouncycastle.asn1.x509;
 
+namespace org.bouncycastle.asn1.cmc
+{
+	
 	/// <summary>
 	/// <pre>
 	///   ExtensionReq ::= SEQUENCE SIZE (1..MAX) OF Extension

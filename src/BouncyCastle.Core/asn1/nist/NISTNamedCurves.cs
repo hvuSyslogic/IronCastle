@@ -1,14 +1,12 @@
 ﻿using org.bouncycastle.asn1.sec;
+using org.bouncycastle.asn1.x9;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.nist
 {
 
-	using SECNamedCurves = org.bouncycastle.asn1.sec.SECNamedCurves;
-	using SECObjectIdentifiers = org.bouncycastle.asn1.sec.SECObjectIdentifiers;
-	using X9ECParameters = org.bouncycastle.asn1.x9.X9ECParameters;
-	using Strings = org.bouncycastle.util.Strings;
-
+				
 	/// <summary>
 	/// Utility class for fetching curves using their NIST names as published in FIPS-PUB 186-3
 	/// </summary>

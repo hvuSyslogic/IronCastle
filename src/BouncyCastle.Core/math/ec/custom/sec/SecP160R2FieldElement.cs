@@ -1,12 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	public class SecP160R2FieldElement : ECFieldElement.AbstractFp
 	{
 		public static readonly BigInteger Q = SecP160R2Curve.q;

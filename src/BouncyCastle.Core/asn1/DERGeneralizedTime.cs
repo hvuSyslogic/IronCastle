@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port.java.text;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1
 {
 
-	using Strings = org.bouncycastle.util.Strings;
-
+	
 	/// <summary>
 	/// DER Generalized time object.
 	/// <h3>11: Restrictions on BER employed by both CER and DER</h3>

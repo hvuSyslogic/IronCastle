@@ -1,20 +1,17 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.digests;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.crypto.util;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
+using org.bouncycastle.util.encoders;
 
 namespace org.bouncycastle.crypto.generators
 {
 
-	using SHA1Digest = org.bouncycastle.crypto.digests.SHA1Digest;
-	using DSAParameterGenerationParameters = org.bouncycastle.crypto.@params.DSAParameterGenerationParameters;
-	using DSAParameters = org.bouncycastle.crypto.@params.DSAParameters;
-	using DSAValidationParameters = org.bouncycastle.crypto.@params.DSAValidationParameters;
-	using DigestFactory = org.bouncycastle.crypto.util.DigestFactory;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+								
 	/// <summary>
 	/// Generate suitable parameters for DSA, in line with FIPS 186-2, or FIPS 186-3.
 	/// </summary>

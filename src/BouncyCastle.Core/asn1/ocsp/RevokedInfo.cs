@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.asn1.ocsp
-{
-	using CRLReason = org.bouncycastle.asn1.x509.CRLReason;
+﻿using org.bouncycastle.asn1.x509;
 
+namespace org.bouncycastle.asn1.ocsp
+{
+	
 	public class RevokedInfo : ASN1Object
 	{
 		private ASN1GeneralizedTime revocationTime;

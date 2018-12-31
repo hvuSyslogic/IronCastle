@@ -1,12 +1,12 @@
 ﻿using System.IO;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
+using org.bouncycastle.util.io;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using SimpleOutputStream = org.bouncycastle.util.io.SimpleOutputStream;
-
+	
 	/// <summary>
 	/// An implementation of the TLS 1.0/1.1/1.2 record layer, allowing downgrade to SSLv3.
 	/// </summary>

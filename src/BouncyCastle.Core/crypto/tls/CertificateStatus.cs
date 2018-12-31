@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using org.bouncycastle.asn1;
+using org.bouncycastle.asn1.ocsp;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
@@ -7,9 +8,7 @@ using org.bouncycastle.Port.java.lang;
 namespace org.bouncycastle.crypto.tls
 {
 
-	using ASN1Encoding = org.bouncycastle.asn1.ASN1Encoding;
-	using OCSPResponse = org.bouncycastle.asn1.ocsp.OCSPResponse;
-
+		
 	public class CertificateStatus
 	{
 		protected internal short statusType;

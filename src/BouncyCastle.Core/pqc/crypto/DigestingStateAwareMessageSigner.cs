@@ -1,8 +1,9 @@
-﻿namespace org.bouncycastle.pqc.crypto
-{
-	using Digest = org.bouncycastle.crypto.Digest;
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
+﻿using org.bouncycastle.crypto;
+using org.bouncycastle.crypto.@params;
 
+namespace org.bouncycastle.pqc.crypto
+{
+		
 
 	/// <summary>
 	/// Implements the sign and verify functions for a Signature Scheme using a hash function to allow processing of large messages.

@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port.java.io;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util.encoders;
 
 namespace org.bouncycastle.util.io.pem
 {
     using System;
-    using Base64 = org.bouncycastle.util.encoders.Base64;
-
+    
     /// <summary>
     /// A generic PEM writer, based on RFC 1421
     /// </summary>

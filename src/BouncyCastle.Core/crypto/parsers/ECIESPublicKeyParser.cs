@@ -1,15 +1,13 @@
 ﻿using System;
 using System.IO;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port.java.io;
+using org.bouncycastle.util.io;
 
 namespace org.bouncycastle.crypto.parsers
 {
 
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using ECDomainParameters = org.bouncycastle.crypto.@params.ECDomainParameters;
-	using ECPublicKeyParameters = org.bouncycastle.crypto.@params.ECPublicKeyParameters;
-	using Streams = org.bouncycastle.util.io.Streams;
-
+				
 	public class ECIESPublicKeyParser : KeyParser
 	{
 		private ECDomainParameters ecParams;

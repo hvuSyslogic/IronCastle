@@ -1,10 +1,9 @@
-﻿using org.bouncycastle.asn1.bc;
+﻿using org.bouncycastle.asn1;
+using org.bouncycastle.asn1.bc;
 
 namespace org.bouncycastle.pqc.asn1
 {
-	using ASN1ObjectIdentifier = org.bouncycastle.asn1.ASN1ObjectIdentifier;
-	using BCObjectIdentifiers = org.bouncycastle.asn1.bc.BCObjectIdentifiers;
-
+		
 	/// <summary>
 	/// PQC:
 	/// <para>

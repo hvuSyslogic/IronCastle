@@ -1,13 +1,9 @@
-﻿namespace org.bouncycastle.pqc.asn1
-{
-	using ASN1EncodableVector = org.bouncycastle.asn1.ASN1EncodableVector;
-	using ASN1Integer = org.bouncycastle.asn1.ASN1Integer;
-	using ASN1Object = org.bouncycastle.asn1.ASN1Object;
-	using ASN1Primitive = org.bouncycastle.asn1.ASN1Primitive;
-	using ASN1Sequence = org.bouncycastle.asn1.ASN1Sequence;
-	using DERSequence = org.bouncycastle.asn1.DERSequence;
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+﻿using org.bouncycastle.asn1;
+using org.bouncycastle.asn1.x509;
 
+namespace org.bouncycastle.pqc.asn1
+{
+							
 	/// <summary>
 	/// XMSSKeyParams
 	/// <pre>

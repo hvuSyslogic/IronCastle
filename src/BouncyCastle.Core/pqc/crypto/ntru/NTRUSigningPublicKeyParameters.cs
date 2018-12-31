@@ -1,12 +1,12 @@
 ﻿using System.IO;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.pqc.math.ntru.polynomial;
 using org.bouncycastle.Port.java.io;
 
 namespace org.bouncycastle.pqc.crypto.ntru
 {
 
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using IntegerPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.IntegerPolynomial;
-
+		
 	/// <summary>
 	/// A NtruSign public key is essentially a polynomial named <code>h</code>.
 	/// </summary>

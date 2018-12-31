@@ -1,13 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.encodings
 {
 
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using RSAKeyParameters = org.bouncycastle.crypto.@params.RSAKeyParameters;
-
+		
 	/// <summary>
 	/// ISO 9796-1 padding. Note in the light of recent results you should
 	/// only use this with RSA (rather than the "simpler" Rabin keys) and you

@@ -1,10 +1,9 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.asn1.pkcs;
+using org.bouncycastle.Port;
 
 namespace org.bouncycastle.asn1.bc
 {
-	using EncryptedPrivateKeyInfo = org.bouncycastle.asn1.pkcs.EncryptedPrivateKeyInfo;
-	using Certificate = org.bouncycastle.asn1.x509.Certificate;
-
+		
 	/// <summary>
 	/// <pre>
 	///     EncryptedPrivateKeyObjectData ::= SEQUENCE {

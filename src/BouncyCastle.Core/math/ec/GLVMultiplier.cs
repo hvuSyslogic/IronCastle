@@ -1,12 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.math.ec.endo;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.math.ec
 {
 
-	using GLVEndomorphism = org.bouncycastle.math.ec.endo.GLVEndomorphism;
-
+	
 	public class GLVMultiplier : AbstractECMultiplier
 	{
 		protected internal readonly ECCurve curve;

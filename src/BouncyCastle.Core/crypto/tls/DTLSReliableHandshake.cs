@@ -2,12 +2,12 @@
 using System.IO;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using Integers = org.bouncycastle.util.Integers;
-
+	
 	public class DTLSReliableHandshake
 	{
 		private const int MAX_RECEIVE_AHEAD = 16;

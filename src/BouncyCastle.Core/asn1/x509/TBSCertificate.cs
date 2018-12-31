@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1.x500;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.x509
 {
 
-	using X500Name = org.bouncycastle.asn1.x500.X500Name;
-
+	
 	/// <summary>
 	/// The TBSCertificate object.
 	/// <pre>

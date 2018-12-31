@@ -1,8 +1,9 @@
-﻿namespace org.bouncycastle.asn1.bc
-{
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-	using Arrays = org.bouncycastle.util.Arrays;
+﻿using org.bouncycastle.asn1.x509;
+using org.bouncycastle.util;
 
+namespace org.bouncycastle.asn1.bc
+{
+		
 	/// <summary>
 	/// <pre>
 	///     EncryptedSecretKeyData ::= SEQUENCE {

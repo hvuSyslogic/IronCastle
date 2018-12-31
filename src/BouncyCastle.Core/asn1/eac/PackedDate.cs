@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port.java.text;
 using org.bouncycastle.Port.java.text;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.eac
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// EAC encoding date object
 	/// </summary>

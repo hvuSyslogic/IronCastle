@@ -1,10 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto;
 
 namespace org.bouncycastle.pqc.crypto.xmss
 {
 
-	using KeyGenerationParameters = org.bouncycastle.crypto.KeyGenerationParameters;
-
+	
 	/// <summary>
 	/// XMSS key-pair generation parameters.
 	/// </summary>

@@ -1,54 +1,21 @@
 ﻿using System.IO;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1;
 using org.bouncycastle.asn1.pkcs;
 using org.bouncycastle.asn1.x509;
 using org.bouncycastle.asn1.oiw;
 using org.bouncycastle.asn1.x9;
 using org.bouncycastle.asn1.edec;
+using org.bouncycastle.asn1.sec;
+using org.bouncycastle.crypto.ec;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 
 namespace org.bouncycastle.crypto.util
 {
 
-	using ASN1Encodable = org.bouncycastle.asn1.ASN1Encodable;
-	using ASN1InputStream = org.bouncycastle.asn1.ASN1InputStream;
-	using ASN1Integer = org.bouncycastle.asn1.ASN1Integer;
-	using ASN1ObjectIdentifier = org.bouncycastle.asn1.ASN1ObjectIdentifier;
-	using ASN1OctetString = org.bouncycastle.asn1.ASN1OctetString;
-	using ASN1Primitive = org.bouncycastle.asn1.ASN1Primitive;
-	using EdECObjectIdentifiers = org.bouncycastle.asn1.edec.EdECObjectIdentifiers;
-	using ElGamalParameter = org.bouncycastle.asn1.oiw.ElGamalParameter;
-	using OIWObjectIdentifiers = org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-	using DHParameter = org.bouncycastle.asn1.pkcs.DHParameter;
-	using PKCSObjectIdentifiers = org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-	using PrivateKeyInfo = org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-	using RSAPrivateKey = org.bouncycastle.asn1.pkcs.RSAPrivateKey;
-	using ECPrivateKey = org.bouncycastle.asn1.sec.ECPrivateKey;
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-	using DSAParameter = org.bouncycastle.asn1.x509.DSAParameter;
-	using X509ObjectIdentifiers = org.bouncycastle.asn1.x509.X509ObjectIdentifiers;
-	using ECNamedCurveTable = org.bouncycastle.asn1.x9.ECNamedCurveTable;
-	using X962Parameters = org.bouncycastle.asn1.x9.X962Parameters;
-	using X9ECParameters = org.bouncycastle.asn1.x9.X9ECParameters;
-	using X9ObjectIdentifiers = org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
-	using CustomNamedCurves = org.bouncycastle.crypto.ec.CustomNamedCurves;
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using DHParameters = org.bouncycastle.crypto.@params.DHParameters;
-	using DHPrivateKeyParameters = org.bouncycastle.crypto.@params.DHPrivateKeyParameters;
-	using DSAParameters = org.bouncycastle.crypto.@params.DSAParameters;
-	using DSAPrivateKeyParameters = org.bouncycastle.crypto.@params.DSAPrivateKeyParameters;
-	using ECDomainParameters = org.bouncycastle.crypto.@params.ECDomainParameters;
-	using ECNamedDomainParameters = org.bouncycastle.crypto.@params.ECNamedDomainParameters;
-	using ECPrivateKeyParameters = org.bouncycastle.crypto.@params.ECPrivateKeyParameters;
-	using Ed25519PrivateKeyParameters = org.bouncycastle.crypto.@params.Ed25519PrivateKeyParameters;
-	using Ed448PrivateKeyParameters = org.bouncycastle.crypto.@params.Ed448PrivateKeyParameters;
-	using ElGamalParameters = org.bouncycastle.crypto.@params.ElGamalParameters;
-	using ElGamalPrivateKeyParameters = org.bouncycastle.crypto.@params.ElGamalPrivateKeyParameters;
-	using RSAPrivateCrtKeyParameters = org.bouncycastle.crypto.@params.RSAPrivateCrtKeyParameters;
-	using X25519PrivateKeyParameters = org.bouncycastle.crypto.@params.X25519PrivateKeyParameters;
-	using X448PrivateKeyParameters = org.bouncycastle.crypto.@params.X448PrivateKeyParameters;
-
+																																					
 	/// <summary>
 	/// Factory for creating private key objects from PKCS8 PrivateKeyInfo objects.
 	/// </summary>

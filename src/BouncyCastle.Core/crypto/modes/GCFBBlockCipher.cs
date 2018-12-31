@@ -1,10 +1,8 @@
-﻿namespace org.bouncycastle.crypto.modes
-{
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using ParametersWithSBox = org.bouncycastle.crypto.@params.ParametersWithSBox;
+﻿using org.bouncycastle.crypto.@params;
 
+namespace org.bouncycastle.crypto.modes
+{
+				
 	/// <summary>
 	/// An implementation of the GOST CFB mode with CryptoPro key meshing as described in RFC 4357.
 	/// </summary>

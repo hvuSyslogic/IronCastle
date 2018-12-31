@@ -2,12 +2,12 @@
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
 using org.bouncycastle.util;
+using Arrays = org.bouncycastle.util.Arrays;
 
 namespace org.bouncycastle.asn1.bc
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// <pre>
 	/// ObjectDataSequence ::= SEQUENCE OF ObjectData

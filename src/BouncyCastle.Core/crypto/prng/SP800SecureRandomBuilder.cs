@@ -1,15 +1,12 @@
 ﻿using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.prng.drbg;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.prng
 {
 
-	using CTRSP800DRBG = org.bouncycastle.crypto.prng.drbg.CTRSP800DRBG;
-	using HMacSP800DRBG = org.bouncycastle.crypto.prng.drbg.HMacSP800DRBG;
-	using HashSP800DRBG = org.bouncycastle.crypto.prng.drbg.HashSP800DRBG;
-	using SP80090DRBG = org.bouncycastle.crypto.prng.drbg.SP80090DRBG;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+					
 	/// <summary>
 	/// Builder class for making SecureRandom objects based on SP 800-90A Deterministic Random Bit Generators (DRBG).
 	/// </summary>

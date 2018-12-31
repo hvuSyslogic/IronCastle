@@ -1,14 +1,12 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.x500;
+using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.asn1.crmf
 {
 
-	using X500Name = org.bouncycastle.asn1.x500.X500Name;
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-	using Extensions = org.bouncycastle.asn1.x509.Extensions;
-	using SubjectPublicKeyInfo = org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-
+				
 	public class CertTemplate : ASN1Object
 	{
 		private ASN1Sequence seq;

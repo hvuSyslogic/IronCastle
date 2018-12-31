@@ -1,8 +1,8 @@
-﻿namespace org.bouncycastle.crypto.tls
-{
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Strings = org.bouncycastle.util.Strings;
+﻿using org.bouncycastle.util;
 
+namespace org.bouncycastle.crypto.tls
+{
+		
 	public class BasicTlsPSKIdentity : TlsPSKIdentity
 	{
 		protected internal byte[] identity;

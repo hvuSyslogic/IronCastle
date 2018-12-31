@@ -3,14 +3,13 @@ using org.bouncycastle.Port;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
+using org.bouncycastle.util.encoders;
 
 namespace org.bouncycastle.asn1
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Strings = org.bouncycastle.util.Strings;
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+			
 	/// <summary>
 	/// Abstract base for the ASN.1 OCTET STRING data type
 	/// <para>

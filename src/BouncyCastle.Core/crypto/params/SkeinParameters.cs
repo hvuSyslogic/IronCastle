@@ -5,15 +5,12 @@ using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.@params
 {
 
-	using SkeinDigest = org.bouncycastle.crypto.digests.SkeinDigest;
-	using SkeinEngine = org.bouncycastle.crypto.digests.SkeinEngine;
-	using SkeinMac = org.bouncycastle.crypto.macs.SkeinMac;
-	using Integers = org.bouncycastle.util.Integers;
-
+				
 	/// <summary>
 	/// Parameters for the Skein hash function - a series of byte[] strings identified by integer tags.
 	/// <para>

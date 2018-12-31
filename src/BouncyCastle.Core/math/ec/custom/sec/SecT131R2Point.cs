@@ -3,8 +3,7 @@ using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
-	using AbstractF2m = org.bouncycastle.math.ec.ECPoint.AbstractF2m;
-
+	
 	public class SecT131R2Point : ECPoint.AbstractF2m
 	{
 		/// @deprecated Use ECCurve.createPoint to construct points 

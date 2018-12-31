@@ -1,14 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port.java.io;
+using org.bouncycastle.util.io;
 
 namespace org.bouncycastle.crypto.parsers
 {
 
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using DHParameters = org.bouncycastle.crypto.@params.DHParameters;
-	using DHPublicKeyParameters = org.bouncycastle.crypto.@params.DHPublicKeyParameters;
-	using Streams = org.bouncycastle.util.io.Streams;
-
+				
 	public class DHIESPublicKeyParser : KeyParser
 	{
 		private DHParameters dhParams;

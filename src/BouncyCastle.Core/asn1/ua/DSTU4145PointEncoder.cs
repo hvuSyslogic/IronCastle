@@ -6,11 +6,7 @@ using org.bouncycastle.Port.java.util;
 namespace org.bouncycastle.asn1.ua
 {
 
-	using ECConstants = org.bouncycastle.math.ec.ECConstants;
-	using ECCurve = org.bouncycastle.math.ec.ECCurve;
-	using ECFieldElement = org.bouncycastle.math.ec.ECFieldElement;
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
-
+				
 	/// <summary>
 	/// DSTU4145 encodes points somewhat differently than X9.62
 	/// It compresses the point to the size of the field element

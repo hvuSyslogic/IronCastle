@@ -1,11 +1,11 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.modes;
+using org.bouncycastle.crypto.paddings;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.macs
 {
-	using CBCBlockCipher = org.bouncycastle.crypto.modes.CBCBlockCipher;
-	using BlockCipherPadding = org.bouncycastle.crypto.paddings.BlockCipherPadding;
-
+		
 	/// <summary>
 	/// standard CBC Block Cipher MAC - if no padding is specified the default of
 	/// pad of zeroes is used.

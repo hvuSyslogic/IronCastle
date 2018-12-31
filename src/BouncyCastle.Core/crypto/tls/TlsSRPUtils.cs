@@ -2,13 +2,12 @@
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-	using Integers = org.bouncycastle.util.Integers;
-
+		
 	public class TlsSRPUtils
 	{
 		public static readonly int? EXT_SRP = Integers.valueOf(ExtensionType.srp);

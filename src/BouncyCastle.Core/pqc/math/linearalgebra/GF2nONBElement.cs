@@ -1,13 +1,13 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.math.linearalgebra
 {
 
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// This class implements an element of the finite field <i>GF(2<sup>n </sup>)</i>.
 	/// It is represented in an optimal normal basis representation and holds the

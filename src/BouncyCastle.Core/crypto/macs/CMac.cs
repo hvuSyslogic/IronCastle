@@ -1,13 +1,13 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.modes;
+using org.bouncycastle.crypto.paddings;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.macs
 {
-	using CBCBlockCipher = org.bouncycastle.crypto.modes.CBCBlockCipher;
-	using ISO7816d4Padding = org.bouncycastle.crypto.paddings.ISO7816d4Padding;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using Pack = org.bouncycastle.util.Pack;
-
+				
 	/// <summary>
 	/// CMAC - as specified at www.nuee.nagoya-u.ac.jp/labs/tiwata/omac/omac.html
 	/// <para>

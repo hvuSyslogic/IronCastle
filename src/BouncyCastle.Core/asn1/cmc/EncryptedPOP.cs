@@ -1,11 +1,10 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.cmc
 {
-	using ContentInfo = org.bouncycastle.asn1.cms.ContentInfo;
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+			
 	/// <summary>
 	/// <pre>
 	///      id-cmc-encryptedPOP OBJECT IDENTIFIER ::= {id-cmc 9}

@@ -1,9 +1,9 @@
 ﻿using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.crypto.sphincs
 {
-	using Pack = org.bouncycastle.util.Pack;
-
+	
 	public class Permute
 	{
 		private const int CHACHA_ROUNDS = 12;

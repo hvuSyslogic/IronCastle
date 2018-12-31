@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1.x509;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.pkcs
 {
 
-	using DigestInfo = org.bouncycastle.asn1.x509.DigestInfo;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+		
 	public class MacData : ASN1Object
 	{
 		private static readonly BigInteger ONE = BigInteger.valueOf(1);

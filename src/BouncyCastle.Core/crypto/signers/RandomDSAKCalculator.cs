@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.signers
 {
 
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+	
 	public class RandomDSAKCalculator : DSAKCalculator
 	{
 		private static readonly BigInteger ZERO = BigInteger.valueOf(0);

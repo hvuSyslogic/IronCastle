@@ -1,11 +1,11 @@
 ﻿using System.IO;
+using org.bouncycastle.pqc.math.ntru.polynomial;
 using org.bouncycastle.Port.java.io;
 
 namespace org.bouncycastle.pqc.crypto.ntru
 {
 
-	using IntegerPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.IntegerPolynomial;
-
+	
 	/// <summary>
 	/// A NtruEncrypt public key is essentially a polynomial named <code>h</code>.
 	/// </summary>

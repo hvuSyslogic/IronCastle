@@ -1,11 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto;
 
 namespace org.bouncycastle.pqc.crypto.sphincs
 {
 
-	using Digest = org.bouncycastle.crypto.Digest;
-	using KeyGenerationParameters = org.bouncycastle.crypto.KeyGenerationParameters;
-
+		
 	public class SPHINCS256KeyGenerationParameters : KeyGenerationParameters
 	{
 		private readonly Digest treeDigest;

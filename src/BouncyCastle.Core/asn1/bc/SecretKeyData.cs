@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.asn1.bc
-{
-	using Arrays = org.bouncycastle.util.Arrays;
+﻿using org.bouncycastle.util;
 
+namespace org.bouncycastle.asn1.bc
+{
+	
 	/// <summary>
 	/// <pre>
 	///     SecretKeyData ::= SEQUENCE {

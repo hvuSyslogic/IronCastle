@@ -1,18 +1,14 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1.nist;
+using org.bouncycastle.math.ec;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.prng.drbg
 {
 
-	using NISTNamedCurves = org.bouncycastle.asn1.nist.NISTNamedCurves;
-	using ECCurve = org.bouncycastle.math.ec.ECCurve;
-	using ECMultiplier = org.bouncycastle.math.ec.ECMultiplier;
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
-	using FixedPointCombMultiplier = org.bouncycastle.math.ec.FixedPointCombMultiplier;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+							
 	/// <summary>
 	/// A SP800-90A Dual EC DRBG.
 	/// </summary>

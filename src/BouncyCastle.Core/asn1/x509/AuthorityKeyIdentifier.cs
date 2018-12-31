@@ -1,14 +1,14 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto;
+using org.bouncycastle.crypto.digests;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util.encoders;
 
 namespace org.bouncycastle.asn1.x509
 {
 
-	using Digest = org.bouncycastle.crypto.Digest;
-	using SHA1Digest = org.bouncycastle.crypto.digests.SHA1Digest;
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+			
 	/// <summary>
 	/// The AuthorityKeyIdentifier object.
 	/// <pre>

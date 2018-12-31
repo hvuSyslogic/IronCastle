@@ -2,12 +2,12 @@
 using BouncyCastle.Core.Port;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.math.ntru.util
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// Converts a coefficient array to a compact byte array and vice versa.
 	/// </summary>

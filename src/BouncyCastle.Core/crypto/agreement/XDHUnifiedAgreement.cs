@@ -1,8 +1,8 @@
-﻿namespace org.bouncycastle.crypto.agreement
-{
-	using XDHUPrivateParameters = org.bouncycastle.crypto.@params.XDHUPrivateParameters;
-	using XDHUPublicParameters = org.bouncycastle.crypto.@params.XDHUPublicParameters;
+﻿using org.bouncycastle.crypto.@params;
 
+namespace org.bouncycastle.crypto.agreement
+{
+		
 	public class XDHUnifiedAgreement : RawAgreement
 	{
 		private readonly RawAgreement xAgreement;

@@ -1,17 +1,13 @@
 ﻿using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.signers
 {
 
-	using DSAKeyParameters = org.bouncycastle.crypto.@params.DSAKeyParameters;
-	using DSAParameters = org.bouncycastle.crypto.@params.DSAParameters;
-	using DSAPrivateKeyParameters = org.bouncycastle.crypto.@params.DSAPrivateKeyParameters;
-	using DSAPublicKeyParameters = org.bouncycastle.crypto.@params.DSAPublicKeyParameters;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+						
 	/// <summary>
 	/// The Digital Signature Algorithm - as described in "Handbook of Applied
 	/// Cryptography", pages 452 - 453.

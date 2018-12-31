@@ -1,15 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.math.ec;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.generators
 {
 
-	using DSAKeyGenerationParameters = org.bouncycastle.crypto.@params.DSAKeyGenerationParameters;
-	using DSAParameters = org.bouncycastle.crypto.@params.DSAParameters;
-	using DSAPrivateKeyParameters = org.bouncycastle.crypto.@params.DSAPrivateKeyParameters;
-	using DSAPublicKeyParameters = org.bouncycastle.crypto.@params.DSAPublicKeyParameters;
-	using WNafUtil = org.bouncycastle.math.ec.WNafUtil;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+						
 	/// <summary>
 	/// a DSA key pair generator.
 	/// 

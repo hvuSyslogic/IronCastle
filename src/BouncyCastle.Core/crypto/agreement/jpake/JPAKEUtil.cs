@@ -1,15 +1,14 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.macs;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
+using Strings = org.bouncycastle.util.Strings;
 
 namespace org.bouncycastle.crypto.agreement.jpake
 {
 
-	using HMac = org.bouncycastle.crypto.macs.HMac;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-	using Strings = org.bouncycastle.util.Strings;
-
+					
 	/// <summary>
 	/// Primitives needed for a J-PAKE exchange.
 	/// <para>

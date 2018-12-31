@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.crypto.tls
-{
-	using DHParameters = org.bouncycastle.crypto.@params.DHParameters;
+﻿using org.bouncycastle.crypto.@params;
 
+namespace org.bouncycastle.crypto.tls
+{
+	
 	/// <summary>
 	/// Interface a class for verifying Diffie-Hellman parameters needs to conform to.
 	/// </summary>

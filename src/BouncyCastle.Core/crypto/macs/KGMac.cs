@@ -1,13 +1,11 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.modes;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.macs
 {
-	using KGCMBlockCipher = org.bouncycastle.crypto.modes.KGCMBlockCipher;
-	using AEADParameters = org.bouncycastle.crypto.@params.AEADParameters;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-
+				
 	/// <summary>
 	/// The GMAC specialisation of Galois/Counter mode (GCM) detailed in NIST Special Publication
 	/// 800-38D as adapted for the Kalyna version of GCM.

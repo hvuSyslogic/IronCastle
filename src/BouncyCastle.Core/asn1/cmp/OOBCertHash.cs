@@ -1,8 +1,9 @@
-﻿namespace org.bouncycastle.asn1.cmp
-{
-	using CertId = org.bouncycastle.asn1.crmf.CertId;
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+﻿using org.bouncycastle.asn1.crmf;
+using org.bouncycastle.asn1.x509;
 
+namespace org.bouncycastle.asn1.cmp
+{
+		
 	public class OOBCertHash : ASN1Object
 	{
 		private AlgorithmIdentifier hashAlg;

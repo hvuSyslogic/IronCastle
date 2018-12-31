@@ -1,8 +1,9 @@
-﻿namespace org.bouncycastle.asn1.crmf
-{
-	using PrivateKeyInfo = org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-	using GeneralName = org.bouncycastle.asn1.x509.GeneralName;
+﻿using org.bouncycastle.asn1.pkcs;
+using org.bouncycastle.asn1.x509;
 
+namespace org.bouncycastle.asn1.crmf
+{
+		
 	public class EncKeyWithID : ASN1Object
 	{
 		private readonly PrivateKeyInfo privKeyInfo;

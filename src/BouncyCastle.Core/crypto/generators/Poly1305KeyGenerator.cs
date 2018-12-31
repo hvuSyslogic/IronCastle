@@ -2,8 +2,7 @@
 
 namespace org.bouncycastle.crypto.generators
 {
-	using Poly1305 = org.bouncycastle.crypto.macs.Poly1305;
-
+	
 	/// <summary>
 	/// Generates keys for the Poly1305 MAC.
 	/// <para>

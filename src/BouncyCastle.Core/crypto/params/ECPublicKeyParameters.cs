@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.crypto.@params
-{
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
+﻿using org.bouncycastle.math.ec;
 
+namespace org.bouncycastle.crypto.@params
+{
+	
 	public class ECPublicKeyParameters : ECKeyParameters
 	{
 		private readonly ECPoint Q;

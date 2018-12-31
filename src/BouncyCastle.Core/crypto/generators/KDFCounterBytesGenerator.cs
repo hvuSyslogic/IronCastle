@@ -1,14 +1,13 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.generators
 {
 
-	using KDFCounterParameters = org.bouncycastle.crypto.@params.KDFCounterParameters;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-
+		
 	/// <summary>
 	/// This KDF has been defined by the publicly available NIST SP 800-108 specification.
 	/// NIST SP800-108 allows for alternative orderings of the input fields, meaning that the input can be formated in multiple ways.

@@ -1,9 +1,9 @@
-﻿using org.bouncycastle.Port.java.lang;
+﻿using org.bouncycastle.asn1.ocsp;
+using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.esf
 {
-	using ResponderID = org.bouncycastle.asn1.ocsp.ResponderID;
-
+	
 	/// <summary>
 	/// <pre>
 	/// OcspIdentifier ::= SEQUENCE {

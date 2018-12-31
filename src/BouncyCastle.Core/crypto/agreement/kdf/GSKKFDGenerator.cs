@@ -1,11 +1,10 @@
 ﻿using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.agreement.kdf
 {
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Pack = org.bouncycastle.util.Pack;
-
+		
 	/// <summary>
 	/// BSI Key Derivation Function for Session Keys (see BSI-TR-03111 Section 4.3.3)
 	/// </summary>

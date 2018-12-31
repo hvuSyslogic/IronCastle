@@ -2,18 +2,17 @@
 using System.IO;
 using BouncyCastle.Core.Port.java.lang;
 using BouncyCastle.Core.Port.java.util;
+using org.bouncycastle.asn1.x500;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
+using org.bouncycastle.util.encoders;
+using Arrays = org.bouncycastle.util.Arrays;
 
 namespace org.bouncycastle.asn1.x509
 {
 
-	using X500Name = org.bouncycastle.asn1.x500.X500Name;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Integers = org.bouncycastle.util.Integers;
-	using Strings = org.bouncycastle.util.Strings;
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+					
 	public class PKIXNameConstraintValidator : NameConstraintValidator
 	{
 		private Set excludedSubtreesDN = new HashSet();

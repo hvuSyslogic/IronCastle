@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.asn1.ocsp
-{
-	using X500Name = org.bouncycastle.asn1.x500.X500Name;
+﻿using org.bouncycastle.asn1.x500;
 
+namespace org.bouncycastle.asn1.ocsp
+{
+	
 	public class ResponderID : ASN1Object, ASN1Choice
 	{
 		private ASN1Encodable value;

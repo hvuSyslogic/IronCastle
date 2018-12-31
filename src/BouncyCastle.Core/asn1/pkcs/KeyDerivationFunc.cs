@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.asn1.pkcs
-{
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+﻿using org.bouncycastle.asn1.x509;
 
+namespace org.bouncycastle.asn1.pkcs
+{
+	
 	public class KeyDerivationFunc : ASN1Object
 	{
 		private AlgorithmIdentifier algId;

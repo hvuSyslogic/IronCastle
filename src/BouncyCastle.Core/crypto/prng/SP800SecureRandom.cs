@@ -1,10 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.prng.drbg;
 
 namespace org.bouncycastle.crypto.prng
 {
 
-	using SP80090DRBG = org.bouncycastle.crypto.prng.drbg.SP80090DRBG;
-
+	
 	public class SP800SecureRandom : SecureRandom
 	{
 		private readonly DRBGProvider drbgProvider;

@@ -1,12 +1,12 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.isismtt.ocsp
 {
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+		
 	/// <summary>
 	/// ISIS-MTT PROFILE: The responder may include this extension in a response to
 	/// send the hash of the requested certificate to the responder. This hash is

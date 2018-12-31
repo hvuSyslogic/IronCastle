@@ -1,12 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.util.encoders;
 using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec.custom.sec
 {
 
-	using AbstractF2m = org.bouncycastle.math.ec.ECCurve.AbstractF2m;
-	using Hex = org.bouncycastle.util.encoders.Hex;
-
+		
 	public class SecT409R1Curve : ECCurve.AbstractF2m
 	{
 		private const int SecT409R1_DEFAULT_COORDS = COORD_LAMBDA_PROJECTIVE;

@@ -1,13 +1,12 @@
-﻿using org.bouncycastle.Port.java.io;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util.io;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using DHParameters = org.bouncycastle.crypto.@params.DHParameters;
-	using DHPublicKeyParameters = org.bouncycastle.crypto.@params.DHPublicKeyParameters;
-	using TeeInputStream = org.bouncycastle.util.io.TeeInputStream;
-
+			
 	public class TlsDHEKeyExchange : TlsDHKeyExchange
 	{
 		protected internal TlsSignerCredentials serverCredentials = null;

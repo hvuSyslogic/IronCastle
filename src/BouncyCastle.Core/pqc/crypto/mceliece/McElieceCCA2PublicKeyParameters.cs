@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.pqc.crypto.mceliece
-{
-	using GF2Matrix = org.bouncycastle.pqc.math.linearalgebra.GF2Matrix;
+﻿using org.bouncycastle.pqc.math.linearalgebra;
 
+namespace org.bouncycastle.pqc.crypto.mceliece
+{
+	
 	/// 
 	/// 
 	/// 

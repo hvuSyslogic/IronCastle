@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.crypto.tls
-{
-	using SRP6GroupParameters = org.bouncycastle.crypto.@params.SRP6GroupParameters;
+﻿using org.bouncycastle.crypto.@params;
 
+namespace org.bouncycastle.crypto.tls
+{
+	
 	public interface TlsSRPGroupVerifier
 	{
 		/// <summary>

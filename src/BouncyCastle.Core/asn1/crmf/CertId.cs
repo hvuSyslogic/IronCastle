@@ -1,10 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1.x509;
 
 namespace org.bouncycastle.asn1.crmf
 {
 
-	using GeneralName = org.bouncycastle.asn1.x509.GeneralName;
-
+	
 	public class CertId : ASN1Object
 	{
 		private GeneralName issuer;

@@ -1,18 +1,14 @@
-﻿using org.bouncycastle.asn1.nist;
+﻿using org.bouncycastle.asn1;
+using org.bouncycastle.asn1.nist;
+using org.bouncycastle.crypto;
+using org.bouncycastle.crypto.digests;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
 
 namespace org.bouncycastle.pqc.crypto.xmss
 {
 
-	using ASN1ObjectIdentifier = org.bouncycastle.asn1.ASN1ObjectIdentifier;
-	using NISTObjectIdentifiers = org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-	using Digest = org.bouncycastle.crypto.Digest;
-	using Xof = org.bouncycastle.crypto.Xof;
-	using SHA256Digest = org.bouncycastle.crypto.digests.SHA256Digest;
-	using SHA512Digest = org.bouncycastle.crypto.digests.SHA512Digest;
-	using SHAKEDigest = org.bouncycastle.crypto.digests.SHAKEDigest;
-
+							
 	public class DigestUtil
 	{
 		private static Map<string, ASN1ObjectIdentifier> nameToOid = new HashMap<string, ASN1ObjectIdentifier>();

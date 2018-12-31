@@ -1,8 +1,9 @@
-﻿namespace org.bouncycastle.crypto.tls
-{
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using Arrays = org.bouncycastle.util.Arrays;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.util;
 
+namespace org.bouncycastle.crypto.tls
+{
+		
 	/// <summary>
 	/// HMAC implementation based on original internet draft for HMAC (RFC 2104)
 	/// <para>

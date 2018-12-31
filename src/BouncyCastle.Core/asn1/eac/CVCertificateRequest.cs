@@ -2,12 +2,12 @@
 using org.bouncycastle.asn1;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.eac
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	public class CVCertificateRequest : ASN1Object
 	{
 		private readonly ASN1ApplicationSpecific original;

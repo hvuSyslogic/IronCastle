@@ -6,28 +6,18 @@ using org.bouncycastle.asn1;
 
 using System;
 using System.IO;
+using org.bouncycastle.crypto.encodings;
+using org.bouncycastle.crypto.engines;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.signers
 {
 
-	using ASN1Encoding = org.bouncycastle.asn1.ASN1Encoding;
-	using ASN1ObjectIdentifier = org.bouncycastle.asn1.ASN1ObjectIdentifier;
-	using DERNull = org.bouncycastle.asn1.DERNull;
-	using NISTObjectIdentifiers = org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-	using PKCSObjectIdentifiers = org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-	using TeleTrusTObjectIdentifiers = org.bouncycastle.asn1.teletrust.TeleTrusTObjectIdentifiers;
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-	using DigestInfo = org.bouncycastle.asn1.x509.DigestInfo;
-	using X509ObjectIdentifiers = org.bouncycastle.asn1.x509.X509ObjectIdentifiers;
-	using PKCS1Encoding = org.bouncycastle.crypto.encodings.PKCS1Encoding;
-	using RSABlindedEngine = org.bouncycastle.crypto.engines.RSABlindedEngine;
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+														
 	public class RSADigestSigner : Signer
 	{
 		private readonly AsymmetricBlockCipher rsaEngine = new PKCS1Encoding(new RSABlindedEngine());

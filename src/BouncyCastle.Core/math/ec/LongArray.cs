@@ -3,11 +3,11 @@ using BouncyCastle.Core.Port;
 using BouncyCastle.Core.Port.java.lang;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.math.ec
 {
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	public class LongArray : Cloneable
 	{
 	//    private static long DEINTERLEAVE_MASK = 0x5555555555555555L;

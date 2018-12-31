@@ -2,18 +2,16 @@
 using System.IO;
 using BouncyCastle.Core.Port;
 using BouncyCastle.Core.Port.java.util;
+using org.bouncycastle.pqc.math.ntru.euclid;
+using org.bouncycastle.pqc.math.ntru.polynomial;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.math.ntru.util
 {
 
-	using IntEuclidean = org.bouncycastle.pqc.math.ntru.euclid.IntEuclidean;
-	using DenseTernaryPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.DenseTernaryPolynomial;
-	using SparseTernaryPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.SparseTernaryPolynomial;
-	using TernaryPolynomial = org.bouncycastle.pqc.math.ntru.polynomial.TernaryPolynomial;
-	using Integers = org.bouncycastle.util.Integers;
-
+					
 	public class Util
 	{
 		private static volatile bool IS_64_BITNESS_KNOWN;

@@ -1,10 +1,10 @@
-﻿using org.bouncycastle.Port.Extensions;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.engines
 {
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-
+	
 	public class RC4Engine : StreamCipher
 	{
 		private const int STATE_LENGTH = 256;

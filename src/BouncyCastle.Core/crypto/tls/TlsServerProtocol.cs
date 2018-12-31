@@ -3,19 +3,18 @@
 using System;
 using System.IO;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.crypto.util;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using SubjectPublicKeyInfo = org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using PublicKeyFactory = org.bouncycastle.crypto.util.PublicKeyFactory;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+				
 	public class TlsServerProtocol : TlsProtocol
 	{
 		protected internal TlsServer tlsServer = null;

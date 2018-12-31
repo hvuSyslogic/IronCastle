@@ -1,13 +1,12 @@
-﻿using org.bouncycastle.pqc.crypto.sphincs;
+﻿using org.bouncycastle.crypto;
+using org.bouncycastle.pqc.crypto.sphincs;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.crypto.sphincs
 {
-	using CipherParameters = org.bouncycastle.crypto.CipherParameters;
-	using Digest = org.bouncycastle.crypto.Digest;
-	using Pack = org.bouncycastle.util.Pack;
-
+			
 	/// <summary>
 	/// SPHINCS-256 signer.
 	/// <para>

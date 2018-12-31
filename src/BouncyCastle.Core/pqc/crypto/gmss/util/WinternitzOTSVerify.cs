@@ -1,9 +1,9 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto;
+using org.bouncycastle.Port;
 
 namespace org.bouncycastle.pqc.crypto.gmss.util
 {
-	using Digest = org.bouncycastle.crypto.Digest;
-
+	
 	/// <summary>
 	/// This class implements signature verification of the Winternitz one-time
 	/// signature scheme (OTSS), described in C.Dods, N.P. Smart, and M. Stam, "Hash

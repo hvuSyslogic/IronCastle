@@ -1,11 +1,11 @@
 ﻿using BouncyCastle.Core.Port;
 using BouncyCastle.Core.Port.java.text;
+using org.bouncycastle.asn1.x509;
 
 namespace org.bouncycastle.asn1.bc
 {
 
-	using AlgorithmIdentifier = org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-
+	
 	/// <summary>
 	/// <pre>
 	/// ObjectStoreData ::= SEQUENCE {

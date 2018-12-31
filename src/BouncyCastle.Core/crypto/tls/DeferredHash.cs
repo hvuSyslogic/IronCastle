@@ -1,11 +1,11 @@
 ﻿using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using Shorts = org.bouncycastle.util.Shorts;
-
+	
 	/// <summary>
 	/// Buffers input until the hash algorithm is determined.
 	/// </summary>

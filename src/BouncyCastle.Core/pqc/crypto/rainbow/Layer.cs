@@ -1,13 +1,9 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.pqc.crypto.rainbow.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.crypto.rainbow
 {
-
-	using GF2Field = org.bouncycastle.pqc.crypto.rainbow.util.GF2Field;
-	using RainbowUtil = org.bouncycastle.pqc.crypto.rainbow.util.RainbowUtil;
-	using Arrays = org.bouncycastle.util.Arrays;
-
-
 	/// <summary>
 	/// This class represents a layer of the Rainbow Oil- and Vinegar Map. Each Layer
 	/// consists of oi polynomials with their coefficients, generated at random.

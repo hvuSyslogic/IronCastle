@@ -1,14 +1,11 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.engines;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.digests
 {
-	using GOST28147Engine = org.bouncycastle.crypto.engines.GOST28147Engine;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using ParametersWithSBox = org.bouncycastle.crypto.@params.ParametersWithSBox;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Memoable = org.bouncycastle.util.Memoable;
-	using Pack = org.bouncycastle.util.Pack;
-
+						
 	/// <summary>
 	/// implementation of GOST R 34.11-94
 	/// </summary>

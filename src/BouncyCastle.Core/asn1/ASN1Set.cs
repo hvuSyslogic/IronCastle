@@ -4,12 +4,12 @@ using org.bouncycastle.asn1;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// ASN.1 <code>SET</code> and <code>SET OF</code> constructs.
 	/// <para>

@@ -1,16 +1,13 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.digests;
+using org.bouncycastle.crypto.encodings;
+using org.bouncycastle.crypto.engines;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.crypto.signers;
+using org.bouncycastle.Port;
 
 namespace org.bouncycastle.crypto.tls
 {
-	using NullDigest = org.bouncycastle.crypto.digests.NullDigest;
-	using PKCS1Encoding = org.bouncycastle.crypto.encodings.PKCS1Encoding;
-	using RSABlindedEngine = org.bouncycastle.crypto.engines.RSABlindedEngine;
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using RSAKeyParameters = org.bouncycastle.crypto.@params.RSAKeyParameters;
-	using GenericSigner = org.bouncycastle.crypto.signers.GenericSigner;
-	using RSADigestSigner = org.bouncycastle.crypto.signers.RSADigestSigner;
-
+								
 	public class TlsRSASigner : AbstractTlsSigner
 	{
 		public override byte[] generateRawSignature(SignatureAndHashAlgorithm algorithm, AsymmetricKeyParameter privateKey, byte[] hash)

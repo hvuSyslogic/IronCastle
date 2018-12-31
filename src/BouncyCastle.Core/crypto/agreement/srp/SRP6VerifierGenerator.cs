@@ -1,10 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 
 namespace org.bouncycastle.crypto.agreement.srp
 {
 
-	using SRP6GroupParameters = org.bouncycastle.crypto.@params.SRP6GroupParameters;
-
+	
 	/// <summary>
 	/// Generates new SRP verifier for user
 	/// </summary>

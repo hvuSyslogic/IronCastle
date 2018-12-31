@@ -1,10 +1,10 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.pqc.math.ntru.euclid;
 
 namespace org.bouncycastle.pqc.math.ntru.polynomial
 {
 
-	using BigIntEuclidean = org.bouncycastle.pqc.math.ntru.euclid.BigIntEuclidean;
-
+	
 	/// <summary>
 	/// A resultant modulo a <code>BigInteger</code>
 	/// </summary>

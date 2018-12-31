@@ -1,9 +1,9 @@
 ﻿using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.cryptopro
 {
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	public class Gost2814789KeyWrapParameters : ASN1Object
 	{
 		private readonly ASN1ObjectIdentifier encryptionParamSet;

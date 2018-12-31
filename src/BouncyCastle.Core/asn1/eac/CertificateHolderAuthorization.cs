@@ -1,12 +1,12 @@
 ﻿using System.IO;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.asn1.eac
 {
 
-	using Integers = org.bouncycastle.util.Integers;
-
+	
 	/// <summary>
 	/// an Iso7816CertificateHolderAuthorization structure.
 	/// <pre>

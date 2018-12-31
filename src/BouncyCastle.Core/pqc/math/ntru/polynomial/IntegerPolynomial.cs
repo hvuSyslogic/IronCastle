@@ -1,18 +1,17 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.pqc.math.ntru.euclid;
+using org.bouncycastle.pqc.math.ntru.util;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.math.ntru.polynomial
 {
 
-	using BigIntEuclidean = org.bouncycastle.pqc.math.ntru.euclid.BigIntEuclidean;
-	using ArrayEncoder = org.bouncycastle.pqc.math.ntru.util.ArrayEncoder;
-	using Util = org.bouncycastle.pqc.math.ntru.util.Util;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+				
 	/// <summary>
 	/// A polynomial with <code>int</code> coefficients.<br>
 	/// Some methods (like <code>add</code>) change the polynomial, others (like <code>mult</code>) do

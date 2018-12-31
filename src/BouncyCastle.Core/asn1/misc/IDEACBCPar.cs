@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.asn1.misc
-{
-	using Arrays = org.bouncycastle.util.Arrays;
+﻿using org.bouncycastle.util;
 
+namespace org.bouncycastle.asn1.misc
+{
+	
 	public class IDEACBCPar : ASN1Object
 	{
 		internal ASN1OctetString iv;

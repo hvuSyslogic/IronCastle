@@ -1,10 +1,10 @@
-﻿namespace org.bouncycastle.crypto.tls
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.util;
+
+namespace org.bouncycastle.crypto.tls
 {
 
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+			
 	public class TlsStreamCipher : TlsCipher
 	{
 		protected internal TlsContext context;

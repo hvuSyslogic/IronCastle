@@ -1,18 +1,15 @@
 ﻿using System;
 using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
+using Strings = org.bouncycastle.util.Strings;
 
 namespace org.bouncycastle.crypto.engines
 {
 
-	using CramerShoupKeyParameters = org.bouncycastle.crypto.@params.CramerShoupKeyParameters;
-	using CramerShoupPrivateKeyParameters = org.bouncycastle.crypto.@params.CramerShoupPrivateKeyParameters;
-	using CramerShoupPublicKeyParameters = org.bouncycastle.crypto.@params.CramerShoupPublicKeyParameters;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-	using Strings = org.bouncycastle.util.Strings;
-
+						
 	/// <summary>
 	/// Essentially the Cramer-Shoup encryption / decryption algorithms according to
 	/// "A practical public key cryptosystem provably secure against adaptive chosen ciphertext attack." (Crypto 1998)

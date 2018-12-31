@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.crypto
-{
-	using Strings = org.bouncycastle.util.Strings;
+﻿using org.bouncycastle.util;
 
+namespace org.bouncycastle.crypto
+{
+	
 	/// <summary>
 	/// super class for all Password Based Encryption (PBE) parameter generator classes.
 	/// </summary>

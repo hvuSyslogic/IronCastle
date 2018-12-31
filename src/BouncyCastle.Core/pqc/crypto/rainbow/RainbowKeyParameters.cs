@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.pqc.crypto.rainbow
-{
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
+﻿using org.bouncycastle.crypto.@params;
 
+namespace org.bouncycastle.pqc.crypto.rainbow
+{
+	
 	public class RainbowKeyParameters : AsymmetricKeyParameter
 	{
 		private int docLength;

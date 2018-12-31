@@ -1,15 +1,14 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.generators
 {
 
-	using GOST3410Parameters = org.bouncycastle.crypto.@params.GOST3410Parameters;
-	using GOST3410ValidationParameters = org.bouncycastle.crypto.@params.GOST3410ValidationParameters;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+			
 	/// <summary>
 	/// generate suitable parameters for GOST3410.
 	/// </summary>

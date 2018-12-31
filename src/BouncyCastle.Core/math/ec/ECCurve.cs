@@ -1,21 +1,18 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.math.ec.endo;
+using org.bouncycastle.math.field;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 using Org.BouncyCastle.Math.Raw;
-using Random = System.Random;
+using Random = org.bouncycastle.Port.java.util.Random;
 
 namespace org.bouncycastle.math.ec
 {
 
-	using ECEndomorphism = org.bouncycastle.math.ec.endo.ECEndomorphism;
-	using GLVEndomorphism = org.bouncycastle.math.ec.endo.GLVEndomorphism;
-	using FiniteField = org.bouncycastle.math.field.FiniteField;
-	using FiniteFields = org.bouncycastle.math.field.FiniteFields;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-	using Integers = org.bouncycastle.util.Integers;
-
+						
 	/// <summary>
 	/// base class for an elliptic curve
 	/// </summary>

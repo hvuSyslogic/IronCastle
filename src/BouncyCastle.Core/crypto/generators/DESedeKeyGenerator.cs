@@ -1,10 +1,10 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.crypto.generators
 {
-	using DESedeParameters = org.bouncycastle.crypto.@params.DESedeParameters;
-
+	
 	public class DESedeKeyGenerator : DESKeyGenerator
 	{
 		private const int MAX_IT = 20;

@@ -1,8 +1,9 @@
-﻿namespace org.bouncycastle.pqc.crypto
+﻿using org.bouncycastle.crypto.@params;
+
+namespace org.bouncycastle.pqc.crypto
 {
 
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-
+	
 	/// <summary>
 	/// Base interface for a PQC stateful signature algorithm.
 	/// </summary>

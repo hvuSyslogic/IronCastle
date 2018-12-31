@@ -1,34 +1,20 @@
 ﻿using System;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1;
+using org.bouncycastle.asn1.pkcs;
+using org.bouncycastle.asn1.sec;
+using org.bouncycastle.asn1.x9;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.Extensions;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
+using Strings = org.bouncycastle.util.Strings;
 
 namespace org.bouncycastle.crypto.util
 {
 
-	using ASN1EncodableVector = org.bouncycastle.asn1.ASN1EncodableVector;
-	using ASN1Integer = org.bouncycastle.asn1.ASN1Integer;
-	using ASN1ObjectIdentifier = org.bouncycastle.asn1.ASN1ObjectIdentifier;
-	using ASN1Sequence = org.bouncycastle.asn1.ASN1Sequence;
-	using DERSequence = org.bouncycastle.asn1.DERSequence;
-	using DERTaggedObject = org.bouncycastle.asn1.DERTaggedObject;
-	using PrivateKeyInfo = org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-	using RSAPrivateKey = org.bouncycastle.asn1.pkcs.RSAPrivateKey;
-	using ECPrivateKey = org.bouncycastle.asn1.sec.ECPrivateKey;
-	using ECNamedCurveTable = org.bouncycastle.asn1.x9.ECNamedCurveTable;
-	using X9ECParameters = org.bouncycastle.asn1.x9.X9ECParameters;
-	using AsymmetricKeyParameter = org.bouncycastle.crypto.@params.AsymmetricKeyParameter;
-	using DSAParameters = org.bouncycastle.crypto.@params.DSAParameters;
-	using DSAPrivateKeyParameters = org.bouncycastle.crypto.@params.DSAPrivateKeyParameters;
-	using ECNamedDomainParameters = org.bouncycastle.crypto.@params.ECNamedDomainParameters;
-	using ECPrivateKeyParameters = org.bouncycastle.crypto.@params.ECPrivateKeyParameters;
-	using Ed25519PrivateKeyParameters = org.bouncycastle.crypto.@params.Ed25519PrivateKeyParameters;
-	using Ed25519PublicKeyParameters = org.bouncycastle.crypto.@params.Ed25519PublicKeyParameters;
-	using RSAPrivateCrtKeyParameters = org.bouncycastle.crypto.@params.RSAPrivateCrtKeyParameters;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Strings = org.bouncycastle.util.Strings;
-
+																					
 
 	/// <summary>
 	/// A collection of utility methods for parsing OpenSSH private keys.

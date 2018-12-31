@@ -1,4 +1,6 @@
-﻿namespace org.bouncycastle.crypto.@params
+﻿using org.bouncycastle.util;
+
+namespace org.bouncycastle.crypto.@params
 {
 	
 

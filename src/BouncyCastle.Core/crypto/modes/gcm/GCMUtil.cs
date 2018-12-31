@@ -1,9 +1,9 @@
-﻿using Org.BouncyCastle.Math.Raw;
+﻿using org.bouncycastle.util;
+using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.crypto.modes.gcm
 {
-	using Pack = org.bouncycastle.util.Pack;
-
+	
 	public abstract class GCMUtil
 	{
         private const uint E1 = 0xe1000000;

@@ -1,13 +1,11 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.asn1.cmp;
+using org.bouncycastle.asn1.x509;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 
 namespace org.bouncycastle.asn1.dvcs
 {
-	using PKIStatusInfo = org.bouncycastle.asn1.cmp.PKIStatusInfo;
-	using DigestInfo = org.bouncycastle.asn1.x509.DigestInfo;
-	using Extensions = org.bouncycastle.asn1.x509.Extensions;
-	using PolicyInformation = org.bouncycastle.asn1.x509.PolicyInformation;
-
+				
 	/// <summary>
 	/// <pre>
 	///     DVCSCertInfo::= SEQUENCE  {

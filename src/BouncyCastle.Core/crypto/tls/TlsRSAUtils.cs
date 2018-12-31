@@ -1,15 +1,14 @@
 ﻿using System;
+using org.bouncycastle.crypto.encodings;
+using org.bouncycastle.crypto.engines;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port.java.io;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using PKCS1Encoding = org.bouncycastle.crypto.encodings.PKCS1Encoding;
-	using RSABlindedEngine = org.bouncycastle.crypto.engines.RSABlindedEngine;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using RSAKeyParameters = org.bouncycastle.crypto.@params.RSAKeyParameters;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+					
 	public class TlsRSAUtils
 	{
 		public static byte[] generateEncryptedPreMasterSecret(TlsContext context, RSAKeyParameters rsaServerPublicKey, OutputStream output)

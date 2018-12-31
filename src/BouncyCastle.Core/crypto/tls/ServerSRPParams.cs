@@ -1,12 +1,12 @@
 ﻿using System.IO;
 using BouncyCastle.Core.Port;
 using org.bouncycastle.Port.java.io;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.tls
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	public class ServerSRPParams
 	{
 		protected internal BigInteger N, g, B;

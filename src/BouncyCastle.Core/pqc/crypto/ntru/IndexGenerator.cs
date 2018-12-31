@@ -1,10 +1,10 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto;
+using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.crypto.ntru
 {
-	using Digest = org.bouncycastle.crypto.Digest;
-	using Arrays = org.bouncycastle.util.Arrays;
-
+		
 	/// <summary>
 	/// An implementation of the Index Generation Function in IEEE P1363.1.
 	/// </summary>

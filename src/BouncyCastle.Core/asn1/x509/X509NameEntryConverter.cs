@@ -1,8 +1,9 @@
-﻿namespace org.bouncycastle.asn1.x509
+﻿using org.bouncycastle.util;
+
+namespace org.bouncycastle.asn1.x509
 {
 
-	using Strings = org.bouncycastle.util.Strings;
-
+	
 	/// <summary>
 	/// It turns out that the number of standard ways the fields in a DN should be 
 	/// encoded into their ASN.1 counterparts is rapidly approaching the

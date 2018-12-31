@@ -1,7 +1,8 @@
-﻿namespace org.bouncycastle.pqc.crypto.gmss
-{
-	using Digest = org.bouncycastle.crypto.Digest;
+﻿using org.bouncycastle.crypto;
 
+namespace org.bouncycastle.pqc.crypto.gmss
+{
+	
 	public interface GMSSDigestProvider
 	{
 		Digest get();

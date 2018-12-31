@@ -1,21 +1,14 @@
 ﻿using BouncyCastle.Core;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.generators;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.math.ec;
 using org.bouncycastle.Port;
 
 namespace org.bouncycastle.crypto.signers
 {
 
-	using ECKeyPairGenerator = org.bouncycastle.crypto.generators.ECKeyPairGenerator;
-	using ECKeyGenerationParameters = org.bouncycastle.crypto.@params.ECKeyGenerationParameters;
-	using ECKeyParameters = org.bouncycastle.crypto.@params.ECKeyParameters;
-	using ECPrivateKeyParameters = org.bouncycastle.crypto.@params.ECPrivateKeyParameters;
-	using ECPublicKeyParameters = org.bouncycastle.crypto.@params.ECPublicKeyParameters;
-	using ParametersWithRandom = org.bouncycastle.crypto.@params.ParametersWithRandom;
-	using ECAlgorithms = org.bouncycastle.math.ec.ECAlgorithms;
-	using ECConstants = org.bouncycastle.math.ec.ECConstants;
-	using ECPoint = org.bouncycastle.math.ec.ECPoint;
-
+									
 	/// <summary>
 	/// EC-NR as described in IEEE 1363-2000
 	/// </summary>

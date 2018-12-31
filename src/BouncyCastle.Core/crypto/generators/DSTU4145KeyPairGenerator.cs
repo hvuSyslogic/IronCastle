@@ -1,8 +1,8 @@
-﻿namespace org.bouncycastle.crypto.generators
-{
-	using ECPrivateKeyParameters = org.bouncycastle.crypto.@params.ECPrivateKeyParameters;
-	using ECPublicKeyParameters = org.bouncycastle.crypto.@params.ECPublicKeyParameters;
+﻿using org.bouncycastle.crypto.@params;
 
+namespace org.bouncycastle.crypto.generators
+{
+		
 	public class DSTU4145KeyPairGenerator : ECKeyPairGenerator
 	{
 		public override AsymmetricCipherKeyPair generateKeyPair()

@@ -1,13 +1,13 @@
 ﻿using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.lang;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
+using Arrays = org.bouncycastle.util.Arrays;
 
 namespace org.bouncycastle.crypto.prng.drbg
 {
 
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Integers = org.bouncycastle.util.Integers;
-
+		
 	/// <summary>
 	/// A SP800-90A Hash DRBG.
 	/// </summary>

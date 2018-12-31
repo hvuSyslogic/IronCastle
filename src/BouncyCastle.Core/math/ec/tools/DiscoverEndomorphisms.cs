@@ -2,15 +2,14 @@
 
 using System;
 using BouncyCastle.Core.Port;
+using org.bouncycastle.asn1.x9;
 using org.bouncycastle.Port;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.math.ec.tools
 {
 
-	using ECNamedCurveTable = org.bouncycastle.asn1.x9.ECNamedCurveTable;
-	using X9ECParameters = org.bouncycastle.asn1.x9.X9ECParameters;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+			
 	public class DiscoverEndomorphisms
 	{
 		private const int radix = 16;

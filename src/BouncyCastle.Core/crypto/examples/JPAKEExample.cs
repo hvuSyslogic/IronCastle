@@ -1,17 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.agreement.jpake;
+using org.bouncycastle.crypto.digests;
 using org.bouncycastle.Port;
 
 namespace org.bouncycastle.crypto.examples
 {
 
-	using JPAKEPrimeOrderGroup = org.bouncycastle.crypto.agreement.jpake.JPAKEPrimeOrderGroup;
-	using JPAKEPrimeOrderGroups = org.bouncycastle.crypto.agreement.jpake.JPAKEPrimeOrderGroups;
-	using JPAKEParticipant = org.bouncycastle.crypto.agreement.jpake.JPAKEParticipant;
-	using JPAKERound1Payload = org.bouncycastle.crypto.agreement.jpake.JPAKERound1Payload;
-	using JPAKERound2Payload = org.bouncycastle.crypto.agreement.jpake.JPAKERound2Payload;
-	using JPAKERound3Payload = org.bouncycastle.crypto.agreement.jpake.JPAKERound3Payload;
-	using SHA256Digest = org.bouncycastle.crypto.digests.SHA256Digest;
-
+							
 	/// <summary>
 	/// An example of a J-PAKE exchange.
 	/// <para>

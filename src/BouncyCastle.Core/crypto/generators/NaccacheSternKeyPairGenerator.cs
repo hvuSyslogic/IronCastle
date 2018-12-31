@@ -1,15 +1,13 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
 using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.util;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.generators
 {
 
-	using NaccacheSternKeyGenerationParameters = org.bouncycastle.crypto.@params.NaccacheSternKeyGenerationParameters;
-	using NaccacheSternKeyParameters = org.bouncycastle.crypto.@params.NaccacheSternKeyParameters;
-	using NaccacheSternPrivateKeyParameters = org.bouncycastle.crypto.@params.NaccacheSternPrivateKeyParameters;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+				
 	/// <summary>
 	/// Key generation parameters for NaccacheStern cipher. For details on this cipher, please see
 	/// 

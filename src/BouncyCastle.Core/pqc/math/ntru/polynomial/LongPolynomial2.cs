@@ -1,10 +1,10 @@
 ﻿using System;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.pqc.math.ntru.polynomial
 {
-	using Arrays = org.bouncycastle.util.Arrays;
-
+	
 	/// <summary>
 	/// A polynomial class that combines two coefficients into one <code>long</code> value for
 	/// faster multiplication in 64 bit environments.<br>

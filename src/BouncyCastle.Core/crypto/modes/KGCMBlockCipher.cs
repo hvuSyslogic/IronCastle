@@ -1,20 +1,14 @@
-﻿using org.bouncycastle.Port;
+﻿using org.bouncycastle.crypto.modes.kgcm;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.Port;
 using org.bouncycastle.Port.java.io;
 using org.bouncycastle.Port.java.lang;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.modes
 {
 
-	using KGCMMultiplier = org.bouncycastle.crypto.modes.kgcm.KGCMMultiplier;
-	using Tables16kKGCMMultiplier_512 = org.bouncycastle.crypto.modes.kgcm.Tables16kKGCMMultiplier_512;
-	using Tables4kKGCMMultiplier_128 = org.bouncycastle.crypto.modes.kgcm.Tables4kKGCMMultiplier_128;
-	using Tables8kKGCMMultiplier_256 = org.bouncycastle.crypto.modes.kgcm.Tables8kKGCMMultiplier_256;
-	using AEADParameters = org.bouncycastle.crypto.@params.AEADParameters;
-	using KeyParameter = org.bouncycastle.crypto.@params.KeyParameter;
-	using ParametersWithIV = org.bouncycastle.crypto.@params.ParametersWithIV;
-	using Arrays = org.bouncycastle.util.Arrays;
-	using Pack = org.bouncycastle.util.Pack;
-
+									
 	/// <summary>
 	/// Implementation of DSTU7624 GCM mode
 	/// </summary>

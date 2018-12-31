@@ -1,12 +1,12 @@
 ﻿using BouncyCastle.Core.Port;
+using org.bouncycastle.crypto.@params;
+using org.bouncycastle.math.ec;
+using org.bouncycastle.util;
 
 namespace org.bouncycastle.crypto.generators
 {
 
-	using DHParameters = org.bouncycastle.crypto.@params.DHParameters;
-	using WNafUtil = org.bouncycastle.math.ec.WNafUtil;
-	using BigIntegers = org.bouncycastle.util.BigIntegers;
-
+			
 	public class DHKeyGeneratorHelper
 	{
 		internal static readonly DHKeyGeneratorHelper INSTANCE = new DHKeyGeneratorHelper();
