@@ -394,7 +394,7 @@ namespace org.bouncycastle.crypto.engines
 			if (V.Length != 0)
 			{
 				byte[] VZ = Arrays.concatenate(V, Z);
-				Arrays.fill(Z, (byte)0);
+				Arrays.fill(Z, 0);
 				Z = VZ;
 			}
 
@@ -408,7 +408,7 @@ namespace org.bouncycastle.crypto.engines
 			}
 			finally
 			{
-				Arrays.fill(Z, (byte)0);
+				Arrays.fill(Z, 0);
 			}
 		}
 

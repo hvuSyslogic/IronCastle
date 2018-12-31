@@ -229,7 +229,7 @@ namespace org.bouncycastle.crypto.tls
 		{
 			if (this.expected_verify_data != null)
 			{
-				Arrays.fill(this.expected_verify_data, (byte)0);
+				Arrays.fill(this.expected_verify_data, 0);
 				this.expected_verify_data = null;
 			}
 
@@ -1153,7 +1153,7 @@ namespace org.bouncycastle.crypto.tls
 				 */
 				if (pre_master_secret != null)
 				{
-					Arrays.fill(pre_master_secret, (byte)0);
+					Arrays.fill(pre_master_secret, 0);
 				}
 			}
 		}

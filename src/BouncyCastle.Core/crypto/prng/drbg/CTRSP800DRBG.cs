@@ -228,7 +228,7 @@ namespace org.bouncycastle.crypto.prng.drbg
 			copyIntToByteArray(S, L, 0);
 			copyIntToByteArray(S, N, 4);
 			JavaSystem.arraycopy(inputString, 0, S, 8, L);
-			S[8 + L] = unchecked((byte)0x80);
+			S[8 + L] = unchecked(0x80);
 			// S already padded with zeros
 
 			byte[] temp = new byte[_keySizeInBits / 8 + outLen];

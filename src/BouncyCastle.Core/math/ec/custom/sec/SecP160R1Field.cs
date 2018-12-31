@@ -108,19 +108,19 @@ namespace org.bouncycastle.math.ec.custom.sec
 			ulong c = 0;
 			c += (xx[0]) + x5 + (x5 << 31);
 			z[0] = (uint)c;
-			c = ((ulong)c >> 32);
+			c = (c >> 32);
 			c += (xx[1]) + x6 + (x6 << 31);
 			z[1] = (uint)c;
-			c = ((ulong)c >> 32);
+			c = (c >> 32);
 			c += (xx[2]) + x7 + (x7 << 31);
 			z[2] = (uint)c;
-			c = ((ulong)c >> 32);
+			c = (c >> 32);
 			c += (xx[3] ) + x8 + (x8 << 31);
 			z[3] = (uint)c;
-			c = ((ulong)c >> 32);
+			c = (c >> 32);
 			c += (xx[4]) + x9 + (x9 << 31);
 			z[4] = (uint)c;
-			c = ((ulong)c >> 32);
+			c = (c >> 32);
 
 	//        assert c >>> 32 == 0;
 

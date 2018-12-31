@@ -476,7 +476,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 
 				}
 
-				summation += (int)list[limit - 1];
+				summation += list[limit - 1];
 				limit--;
 
 			}

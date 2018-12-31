@@ -136,7 +136,7 @@ namespace org.bouncycastle.asn1
 				{
 					return true;
 				}
-				if (bytes[0] == unchecked((byte)0xff) && (bytes[1] & 0x80) != 0)
+				if (bytes[0] == unchecked(0xff) && (bytes[1] & 0x80) != 0)
 				{
 					return true;
 				}

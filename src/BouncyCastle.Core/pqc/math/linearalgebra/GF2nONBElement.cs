@@ -22,9 +22,9 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		// member variables
 		// /////////////////////////////////////////////////////////////////////
 
-		private static readonly long[] mBitmask = new long[]{0x0000000000000001L, 0x0000000000000002L, 0x0000000000000004L, 0x0000000000000008L, 0x0000000000000010L, 0x0000000000000020L, 0x0000000000000040L, 0x0000000000000080L, 0x0000000000000100L, 0x0000000000000200L, 0x0000000000000400L, 0x0000000000000800L, 0x0000000000001000L, 0x0000000000002000L, 0x0000000000004000L, 0x0000000000008000L, 0x0000000000010000L, 0x0000000000020000L, 0x0000000000040000L, 0x0000000000080000L, 0x0000000000100000L, 0x0000000000200000L, 0x0000000000400000L, 0x0000000000800000L, 0x0000000001000000L, 0x0000000002000000L, 0x0000000004000000L, 0x0000000008000000L, 0x0000000010000000L, 0x0000000020000000L, 0x0000000040000000L, 0x0000000080000000L, 0x0000000100000000L, 0x0000000200000000L, 0x0000000400000000L, 0x0000000800000000L, 0x0000001000000000L, 0x0000002000000000L, 0x0000004000000000L, 0x0000008000000000L, 0x0000010000000000L, 0x0000020000000000L, 0x0000040000000000L, 0x0000080000000000L, 0x0000100000000000L, 0x0000200000000000L, 0x0000400000000000L, 0x0000800000000000L, 0x0001000000000000L, 0x0002000000000000L, 0x0004000000000000L, 0x0008000000000000L, 0x0010000000000000L, 0x0020000000000000L, 0x0040000000000000L, 0x0080000000000000L, 0x0100000000000000L, 0x0200000000000000L, 0x0400000000000000L, 0x0800000000000000L, 0x1000000000000000L, 0x2000000000000000L, 0x4000000000000000L, unchecked((long)0x8000000000000000L)};
+		private static readonly ulong[] mBitmask = new ulong[]{0x0000000000000001L, 0x0000000000000002L, 0x0000000000000004L, 0x0000000000000008L, 0x0000000000000010L, 0x0000000000000020L, 0x0000000000000040L, 0x0000000000000080L, 0x0000000000000100L, 0x0000000000000200L, 0x0000000000000400L, 0x0000000000000800L, 0x0000000000001000L, 0x0000000000002000L, 0x0000000000004000L, 0x0000000000008000L, 0x0000000000010000L, 0x0000000000020000L, 0x0000000000040000L, 0x0000000000080000L, 0x0000000000100000L, 0x0000000000200000L, 0x0000000000400000L, 0x0000000000800000L, 0x0000000001000000L, 0x0000000002000000L, 0x0000000004000000L, 0x0000000008000000L, 0x0000000010000000L, 0x0000000020000000L, 0x0000000040000000L, 0x0000000080000000L, 0x0000000100000000L, 0x0000000200000000L, 0x0000000400000000L, 0x0000000800000000L, 0x0000001000000000L, 0x0000002000000000L, 0x0000004000000000L, 0x0000008000000000L, 0x0000010000000000L, 0x0000020000000000L, 0x0000040000000000L, 0x0000080000000000L, 0x0000100000000000L, 0x0000200000000000L, 0x0000400000000000L, 0x0000800000000000L, 0x0001000000000000L, 0x0002000000000000L, 0x0004000000000000L, 0x0008000000000000L, 0x0010000000000000L, 0x0020000000000000L, 0x0040000000000000L, 0x0080000000000000L, 0x0100000000000000L, 0x0200000000000000L, 0x0400000000000000L, 0x0800000000000000L, 0x1000000000000000L, 0x2000000000000000L, 0x4000000000000000L, unchecked(0x8000000000000000L)};
 
-		private static readonly long[] mMaxmask = new long[]{0x0000000000000001L, 0x0000000000000003L, 0x0000000000000007L, 0x000000000000000FL, 0x000000000000001FL, 0x000000000000003FL, 0x000000000000007FL, 0x00000000000000FFL, 0x00000000000001FFL, 0x00000000000003FFL, 0x00000000000007FFL, 0x0000000000000FFFL, 0x0000000000001FFFL, 0x0000000000003FFFL, 0x0000000000007FFFL, 0x000000000000FFFFL, 0x000000000001FFFFL, 0x000000000003FFFFL, 0x000000000007FFFFL, 0x00000000000FFFFFL, 0x00000000001FFFFFL, 0x00000000003FFFFFL, 0x00000000007FFFFFL, 0x0000000000FFFFFFL, 0x0000000001FFFFFFL, 0x0000000003FFFFFFL, 0x0000000007FFFFFFL, 0x000000000FFFFFFFL, 0x000000001FFFFFFFL, 0x000000003FFFFFFFL, 0x000000007FFFFFFFL, 0x00000000FFFFFFFFL, 0x00000001FFFFFFFFL, 0x00000003FFFFFFFFL, 0x00000007FFFFFFFFL, 0x0000000FFFFFFFFFL, 0x0000001FFFFFFFFFL, 0x0000003FFFFFFFFFL, 0x0000007FFFFFFFFFL, 0x000000FFFFFFFFFFL, 0x000001FFFFFFFFFFL, 0x000003FFFFFFFFFFL, 0x000007FFFFFFFFFFL, 0x00000FFFFFFFFFFFL, 0x00001FFFFFFFFFFFL, 0x00003FFFFFFFFFFFL, 0x00007FFFFFFFFFFFL, 0x0000FFFFFFFFFFFFL, 0x0001FFFFFFFFFFFFL, 0x0003FFFFFFFFFFFFL, 0x0007FFFFFFFFFFFFL, 0x000FFFFFFFFFFFFFL, 0x001FFFFFFFFFFFFFL, 0x003FFFFFFFFFFFFFL, 0x007FFFFFFFFFFFFFL, 0x00FFFFFFFFFFFFFFL, 0x01FFFFFFFFFFFFFFL, 0x03FFFFFFFFFFFFFFL, 0x07FFFFFFFFFFFFFFL, 0x0FFFFFFFFFFFFFFFL, 0x1FFFFFFFFFFFFFFFL, 0x3FFFFFFFFFFFFFFFL, 0x7FFFFFFFFFFFFFFFL, unchecked((long)0xFFFFFFFFFFFFFFFFL)};
+		private static readonly ulong[] mMaxmask = new ulong[]{0x0000000000000001L, 0x0000000000000003L, 0x0000000000000007L, 0x000000000000000FL, 0x000000000000001FL, 0x000000000000003FL, 0x000000000000007FL, 0x00000000000000FFL, 0x00000000000001FFL, 0x00000000000003FFL, 0x00000000000007FFL, 0x0000000000000FFFL, 0x0000000000001FFFL, 0x0000000000003FFFL, 0x0000000000007FFFL, 0x000000000000FFFFL, 0x000000000001FFFFL, 0x000000000003FFFFL, 0x000000000007FFFFL, 0x00000000000FFFFFL, 0x00000000001FFFFFL, 0x00000000003FFFFFL, 0x00000000007FFFFFL, 0x0000000000FFFFFFL, 0x0000000001FFFFFFL, 0x0000000003FFFFFFL, 0x0000000007FFFFFFL, 0x000000000FFFFFFFL, 0x000000001FFFFFFFL, 0x000000003FFFFFFFL, 0x000000007FFFFFFFL, 0x00000000FFFFFFFFL, 0x00000001FFFFFFFFL, 0x00000003FFFFFFFFL, 0x00000007FFFFFFFFL, 0x0000000FFFFFFFFFL, 0x0000001FFFFFFFFFL, 0x0000003FFFFFFFFFL, 0x0000007FFFFFFFFFL, 0x000000FFFFFFFFFFL, 0x000001FFFFFFFFFFL, 0x000003FFFFFFFFFFL, 0x000007FFFFFFFFFFL, 0x00000FFFFFFFFFFFL, 0x00001FFFFFFFFFFFL, 0x00003FFFFFFFFFFFL, 0x00007FFFFFFFFFFFL, 0x0000FFFFFFFFFFFFL, 0x0001FFFFFFFFFFFFL, 0x0003FFFFFFFFFFFFL, 0x0007FFFFFFFFFFFFL, 0x000FFFFFFFFFFFFFL, 0x001FFFFFFFFFFFFFL, 0x003FFFFFFFFFFFFFL, 0x007FFFFFFFFFFFFFL, 0x00FFFFFFFFFFFFFFL, 0x01FFFFFFFFFFFFFFL, 0x03FFFFFFFFFFFFFFL, 0x07FFFFFFFFFFFFFFL, 0x0FFFFFFFFFFFFFFFL, 0x1FFFFFFFFFFFFFFFL, 0x3FFFFFFFFFFFFFFFL, 0x7FFFFFFFFFFFFFFFL, unchecked(0xFFFFFFFFFFFFFFFFL)};
 
 		// mIBy64[j * 16 + i] = (j * 16 + i)/64
 		// i =
@@ -47,7 +47,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		/// <summary>
 		/// holds this element in ONB representation.
 		/// </summary>
-		private long[] mPol;
+		private ulong[] mPol;
 
 		// /////////////////////////////////////////////////////////////////////
 		// constructors
@@ -65,20 +65,20 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			mDegree = mField.getDegree();
 			mLength = gf2n.getONBLength();
 			mBit = gf2n.getONBBit();
-			mPol = new long[mLength];
+			mPol = new ulong[mLength];
 			if (mLength > 1)
 			{
 				for (int j = 0; j < mLength - 1; j++)
 				{
 					mPol[j] = rand.nextLong();
 				}
-				long last = rand.nextLong();
-				mPol[mLength - 1] = (long)((ulong)last >> (MAXLONG - mBit));
+				ulong last = rand.nextLong();
+				mPol[mLength - 1] = last >> (MAXLONG - mBit);
 			}
 			else
 			{
 				mPol[0] = rand.nextLong();
-				mPol[0] = (long)((ulong)mPol[0] >> (MAXLONG - mBit));
+				mPol[0] = mPol[0] >> (MAXLONG - mBit);
 			}
 		}
 
@@ -93,7 +93,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			mDegree = mField.getDegree();
 			mLength = gf2n.getONBLength();
 			mBit = gf2n.getONBBit();
-			mPol = new long[mLength];
+			mPol = new ulong[mLength];
 			assign(e);
 		}
 
@@ -109,7 +109,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			mDegree = mField.getDegree();
 			mLength = gf2n.getONBLength();
 			mBit = gf2n.getONBBit();
-			mPol = new long[mLength];
+			mPol = new ulong[mLength];
 			assign(val);
 		}
 
@@ -119,7 +119,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		/// </summary>
 		/// <param name="gf2n"> the field </param>
 		/// <param name="val">  the value in ONB representation </param>
-		private GF2nONBElement(GF2nONBField gf2n, long[] val)
+		private GF2nONBElement(GF2nONBField gf2n, ulong[] val)
 		{
 			mField = gf2n;
 			mDegree = mField.getDegree();
@@ -143,7 +143,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			mDegree = mField.getDegree();
 			mLength = ((GF2nONBField)mField).getONBLength();
 			mBit = ((GF2nONBField)mField).getONBBit();
-			mPol = new long[mLength];
+			mPol = new ulong[mLength];
 			assign(gf2n.getElement());
 		}
 
@@ -175,12 +175,12 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		public static GF2nONBElement ONE(GF2nONBField gf2n)
 		{
 			int mLength = gf2n.getONBLength();
-			long[] polynomial = new long[mLength];
+			ulong[] polynomial = new ulong[mLength];
 
 			// fill mDegree coefficients with one's
 			for (int i = 0; i < mLength - 1; i++)
 			{
-				polynomial[i] = unchecked((long)0xffffffffffffffffL);
+				polynomial[i] = unchecked(0xffffffffffffffffL);
 			}
 			polynomial[mLength - 1] = mMaxmask[gf2n.getONBBit() - 1];
 
@@ -196,7 +196,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		/// </summary>
 		public override void assignZero()
 		{
-			mPol = new long[mLength];
+			mPol = new ulong[mLength];
 		}
 
 		/// <summary>
@@ -207,7 +207,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			// fill mDegree coefficients with one's
 			for (int i = 0; i < mLength - 1; i++)
 			{
-				mPol[i] = unchecked((long)0xffffffffffffffffL);
+				mPol[i] = unchecked(0xffffffffffffffffUL);
 			}
 			mPol[mLength - 1] = mMaxmask[mBit - 1];
 		}
@@ -225,7 +225,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		/// assigns to this element the value <tt>val</tt>.
 		/// </summary>
 		/// <param name="val"> the value in ONB representation </param>
-		private void assign(long[] val)
+		private void assign(ulong[] val)
 		{
 			JavaSystem.arraycopy(val, 0, mPol, 0, mLength);
 		}
@@ -240,10 +240,10 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		private void assign(byte[] val)
 		{
 			int j;
-			mPol = new long[mLength];
+			mPol = new ulong[mLength];
 			for (j = 0; j < val.Length; j++)
 			{
-				mPol[(int)((uint)j >> 3)] |= (val[val.Length - 1 - j] & 0x00000000000000ffL) << ((j & 0x07) << 3);
+				mPol[(uint)j >> 3] |= (val[val.Length - 1 - j] & 0x00000000000000ffL) << ((j & 0x07) << 3);
 			}
 		}
 
@@ -257,7 +257,6 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		/// <returns> <tt>true</tt> if <tt>this</tt> is the zero element </returns>
 		public override bool isZero()
 		{
-
 			bool result = true;
 
 			for (int i = 0; i < mLength && result; i++)
@@ -351,15 +350,15 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 			{
 				return false;
 			}
-			long test = mPol[(int)((uint)index >> 6)] & mBitmask[index & 0x3f];
+			ulong test = mPol[(uint)index >> 6] & mBitmask[index & 0x3f];
 			return test != 0x0L;
 		}
 
 		/// <returns> this element in its ONB representation </returns>
-		private long[] getElement()
+		private ulong[] getElement()
 		{
 
-			long[] result = new long[mPol.Length];
+			ulong[] result = new ulong[mPol.Length];
 			JavaSystem.arraycopy(mPol, 0, result, 0, mPol.Length);
 
 			return result;
@@ -370,14 +369,14 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		/// exchanged (according to 1363)!
 		/// </summary>
 		/// <returns> this element in its representation and reverse bit-order </returns>
-		private long[] getElementReverseOrder()
+		private ulong[] getElementReverseOrder()
 		{
-			long[] result = new long[mPol.Length];
+			ulong[] result = new ulong[mPol.Length];
 			for (int i = 0; i < mDegree; i++)
 			{
 				if (testBit(mDegree - i - 1))
 				{
-					result[(int)((uint)i >> 6)] |= mBitmask[i & 0x3f];
+					result[(uint)i >> 6] |= mBitmask[i & 0x3f];
 				}
 			}
 			return result;

@@ -180,7 +180,7 @@ namespace org.bouncycastle.crypto.generators
 		{
 			if (array != null)
 			{
-				Arrays.fill(array, (byte)0);
+				Arrays.fill(array, 0);
 			}
 		}
 

@@ -86,7 +86,7 @@ namespace org.bouncycastle.asn1.sec
 					ASN1TaggedObject tag = (ASN1TaggedObject)obj;
 					if (tag.getTagNo() == tagNo)
 					{
-						return (ASN1Primitive)((ASN1Encodable)tag.getObject()).toASN1Primitive();
+						return ((ASN1Encodable)tag.getObject()).toASN1Primitive();
 					}
 				}
 			}

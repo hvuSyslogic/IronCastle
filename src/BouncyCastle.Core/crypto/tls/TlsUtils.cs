@@ -500,14 +500,14 @@ namespace org.bouncycastle.crypto.tls
 		{
 			int hi = readUint24(input);
 			int lo = readUint24(input);
-			return ((long)(hi & 0xffffffffL) << 24) | (long)(lo & 0xffffffffL);
+			return ((hi & 0xffffffffL) << 24) | lo & 0xffffffffL;
 		}
 
 		public static long readUint48(byte[] buf, int offset)
 		{
 			int hi = readUint24(buf, offset);
 			int lo = readUint24(buf, offset + 3);
-			return ((long)(hi & 0xffffffffL) << 24) | (long)(lo & 0xffffffffL);
+			return ((hi & 0xffffffffL) << 24) | lo & 0xffffffffL;
 		}
 
 		public static byte[] readAllOrNothing(int length, InputStream input)

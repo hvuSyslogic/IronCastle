@@ -35,12 +35,12 @@ namespace org.bouncycastle.crypto.paddings
 		{
 			int added = (@in.Length - inOff);
 
-			@in [inOff] = unchecked((byte) 0x80);
+			@in [inOff] = unchecked(0x80);
 			inOff++;
 
 			while (inOff < @in.Length)
 			{
-				@in[inOff] = (byte) 0;
+				@in[inOff] = 0;
 				inOff++;
 			}
 
@@ -59,7 +59,7 @@ namespace org.bouncycastle.crypto.paddings
 				count--;
 			}
 
-			if (@in[count] != unchecked((byte)0x80))
+			if (@in[count] != unchecked(0x80))
 			{
 				throw new InvalidCipherTextException("pad block corrupted");
 			}

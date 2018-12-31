@@ -214,8 +214,8 @@ namespace org.bouncycastle.pqc.crypto.rainbow
 
 			for (int i = 0; i < signature.Length; i++)
 			{
-				tmp = (short)signature[i];
-				tmp &= (short)0xff;
+				tmp = signature[i];
+				tmp &= 0xff;
 				sigInt[i] = tmp;
 			}
 
@@ -297,8 +297,8 @@ namespace org.bouncycastle.pqc.crypto.rainbow
 				{
 					break;
 				}
-				output[i] = (short)message[h];
-				output[i] &= (short)0xff;
+				output[i] = message[h];
+				output[i] &= 0xff;
 				h++;
 				i++;
 			} while (i < output.Length);

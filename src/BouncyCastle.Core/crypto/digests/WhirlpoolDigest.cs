@@ -139,8 +139,8 @@ namespace org.bouncycastle.crypto.digests
 		{
 			// set variables to null, blank, whatever
 			_bufferPos = 0;
-			Arrays.fill(_bitCount, (short)0);
-			Arrays.fill(_buffer, (byte)0);
+			Arrays.fill(_bitCount, 0);
+			Arrays.fill(_buffer, 0);
 			Arrays.fill(_hash, 0);
 			Arrays.fill(_K, 0);
 			Arrays.fill(_L, 0);
@@ -158,7 +158,7 @@ namespace org.bouncycastle.crypto.digests
 			}
 			processBlock();
 			_bufferPos = 0;
-			Arrays.fill(_buffer, (byte)0);
+			Arrays.fill(_buffer, 0);
 		}
 
 		private long bytesToLongFromBuffer(byte[] buffer, int startPos)
@@ -296,7 +296,7 @@ namespace org.bouncycastle.crypto.digests
 			 */
 			byte[] bitLength = copyBitLength();
 
-			_buffer[_bufferPos++] |= unchecked((byte)0x80);
+			_buffer[_bufferPos++] |= unchecked(0x80);
 
 			if (_bufferPos == _buffer.Length)
 			{
@@ -313,13 +313,13 @@ namespace org.bouncycastle.crypto.digests
 			{
 				while (_bufferPos != 0)
 				{
-					update((byte)0);
+					update(0);
 				}
 			}
 
 			while (_bufferPos <= 32)
 			{
-				update((byte)0);
+				update(0);
 			}
 
 			// copy the length information to the final 32 bytes of the

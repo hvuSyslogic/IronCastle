@@ -153,7 +153,7 @@ namespace org.bouncycastle.crypto.engines
 					JavaSystem.arraycopy(output, 0, rv, 0, rv.Length);
 				}
 
-				Arrays.fill(output, (byte)0);
+				Arrays.fill(output, 0);
 
 				return rv;
 			}

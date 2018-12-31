@@ -419,7 +419,7 @@ namespace org.bouncycastle.crypto.signers
 
 			if (trailer == ISOTrailers.TRAILER_IMPLICIT)
 			{
-				block[block.Length - 1] = (byte)ISOTrailers.TRAILER_IMPLICIT;
+				block[block.Length - 1] = ISOTrailers.TRAILER_IMPLICIT;
 			}
 			else
 			{

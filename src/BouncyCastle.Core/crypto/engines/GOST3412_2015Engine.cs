@@ -75,7 +75,7 @@ namespace org.bouncycastle.crypto.engines
 				a <<= 1;
 				if (hi_bit_set != 0)
 				{
-					a ^= unchecked((byte)0xc3); // x^8 + x^7 + x^6 + x + 1
+					a ^= unchecked(0xc3); // x^8 + x^7 + x^6 + x + 1
 				}
 				b >>= 1;
 			}

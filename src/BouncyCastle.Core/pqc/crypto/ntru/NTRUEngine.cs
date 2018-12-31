@@ -285,7 +285,7 @@ namespace org.bouncycastle.pqc.crypto.ntru
 				int cur = 0;
 				for (int index = 0; index != buf.Length; index++)
 				{
-					int O = (int)buf[index] & 0xFF;
+					int O = buf[index] & 0xFF;
 					if (O >= 243) // 243 = 3^5
 					{
 						continue;

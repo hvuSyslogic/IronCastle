@@ -2,13 +2,13 @@
 {
 	public class Tables16kKGCMMultiplier_512 : KGCMMultiplier
 	{
-		private long[][] T;
+		private ulong[][] T;
 
-		public virtual void init(long[] H)
+		public virtual void init(ulong[] H)
 		{
 			if (T == null)
 			{
-				T = RectangularArrays.ReturnRectangularLongArray(256, KGCMUtil_512.SIZE);
+				T = RectangularArrays.ReturnRectangularULongArray(256, KGCMUtil_512.SIZE);
 			}
 			else if (KGCMUtil_512.equal(H, T[1]))
 			{
@@ -30,14 +30,14 @@
 			}
 		}
 
-		public virtual void multiplyH(long[] z)
+		public virtual void multiplyH(ulong[] z)
 		{
-			long[] r = new long[KGCMUtil_512.SIZE];
-			KGCMUtil_512.copy(T[(int)((long)((ulong)z[KGCMUtil_512.SIZE - 1] >> 56)) & 0xFF], r);
+			ulong[] r = new ulong[KGCMUtil_512.SIZE];
+			KGCMUtil_512.copy(T[(int)((z[KGCMUtil_512.SIZE - 1] >> 56)) & 0xFF], r);
 			for (int i = (KGCMUtil_512.SIZE << 3) - 2; i >= 0; --i)
 			{
 				KGCMUtil_512.multiplyX8(r, r);
-				KGCMUtil_512.add(T[(int)((long)((ulong)z[(int)((uint)i >> 3)] >> ((i & 7) << 3))) & 0xFF], r, r);
+				KGCMUtil_512.add(T[(int)((z[(i >> 3)] >> ((i & 7) << 3))) & 0xFF], r, r);
 			}
 			KGCMUtil_512.copy(r, z);
 		}

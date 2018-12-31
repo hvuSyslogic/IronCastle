@@ -123,13 +123,13 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 		public static void subtract(uint[] x, uint[] y, uint[] z)
 		{
-			uint c = Nat.sub(16, x, y, z) + x[16] - y[16];
+			int c = Nat.sub(16, x, y, z) + (int)(x[16] - y[16]);
 			if (c < 0)
 			{
 				c += Nat.dec(16, z);
 				c &= P16;
 			}
-			z[16] = c;
+			z[16] = (uint)c;
 		}
 
 		public static void twice(uint[] x, uint[] z)

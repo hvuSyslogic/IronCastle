@@ -6,9 +6,6 @@ using Org.BouncyCastle.Math.Raw;
 
 namespace org.bouncycastle.math.ec
 {
-
-	
-	using Nat = org.bouncycastle.math.raw.Nat;
 	using Arrays = org.bouncycastle.util.Arrays;
 	using BigIntegers = org.bouncycastle.util.BigIntegers;
 
@@ -407,9 +404,9 @@ namespace org.bouncycastle.math.ec
 			{
 				int bits = getFieldSize();
 				int len = (bits + 31) >> 5;
-				int[] p = Nat.fromBigInteger(bits, q);
-				int[] n = Nat.fromBigInteger(bits, x);
-				int[] z = Nat.create(len);
+				uint[] p = Nat.fromBigInteger(bits, q);
+				uint[] n = Nat.fromBigInteger(bits, x);
+				uint[] z = Nat.create(len);
 				Mod.invert(p, n, z);
 				return Nat.toBigInteger(len, z);
 			}
@@ -509,7 +506,7 @@ namespace org.bouncycastle.math.ec
 				return ht;
 			}
 
-			public virtual int trace()
+			public virtual uint trace()
 			{
 				int m = getFieldSize();
 				ECFieldElement fe = this;

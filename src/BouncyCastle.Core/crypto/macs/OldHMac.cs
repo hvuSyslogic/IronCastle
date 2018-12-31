@@ -13,8 +13,8 @@ namespace org.bouncycastle.crypto.macs
 	{
 		private const int BLOCK_LENGTH = 64;
 
-		private static readonly byte IPAD = (byte)0x36;
-		private static readonly byte OPAD = (byte)0x5C;
+		private static readonly byte IPAD = 0x36;
+		private static readonly byte OPAD = 0x5C;
 
 		private Digest digest;
 		private int digestSize;

@@ -300,7 +300,7 @@ namespace org.bouncycastle.crypto.tls
 			TlsUtils.writeOpaque16(other_secret, buf);
 			TlsUtils.writeOpaque16(psk, buf);
 
-			Arrays.fill(psk, (byte)0);
+			Arrays.fill(psk, 0);
 			this.psk = null;
 
 			return buf.toByteArray();

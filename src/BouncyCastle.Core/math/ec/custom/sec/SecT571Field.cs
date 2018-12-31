@@ -23,7 +23,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		private static void add(long[] x, int xOff, long[] y, int yOff, long[] z, int zOff)
+		private static void add(ulong[] x, int xOff, ulong[] y, int yOff, ulong[] z, int zOff)
 		{
 			for (int i = 0; i < 9; ++i)
 			{
@@ -31,7 +31,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		public static void addBothTo(long[] x, long[] y, long[] z)
+		public static void addBothTo(ulong[] x, ulong[] y, ulong[] z)
 		{
 			for (int i = 0; i < 9; ++i)
 			{
@@ -39,7 +39,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		private static void addBothTo(long[] x, int xOff, long[] y, int yOff, long[] z, int zOff)
+		private static void addBothTo(ulong[] x, int xOff, ulong[] y, int yOff, ulong[] z, int zOff)
 		{
 			for (int i = 0; i < 9; ++i)
 			{
@@ -64,9 +64,9 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		public static long[] fromBigInteger(BigInteger x)
+		public static ulong[] fromBigInteger(BigInteger x)
 		{
-			long[] z = Nat576.fromBigInteger64(x);
+			ulong[] z = Nat576.fromBigInteger64(x);
 			reduce5(z, 0);
 			return z;
 		}
@@ -80,9 +80,9 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 			// Itoh-Tsujii inversion with bases { 2, 3, 5 }
 
-			long[] t0 = Nat576.create64();
-			long[] t1 = Nat576.create64();
-			long[] t2 = Nat576.create64();
+			ulong[] t0 = Nat576.create64();
+			ulong[] t1 = Nat576.create64();
+			ulong[] t2 = Nat576.create64();
 
 			square(x, t2);
 
@@ -126,39 +126,39 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 		public static void multiply(ulong[] x, ulong[] y, ulong[] z)
 		{
-			long[] tt = Nat576.createExt64();
+			ulong[] tt = Nat576.createExt64();
 			implMultiply(x, y, tt);
 			reduce(tt, z);
 		}
 
 		public static void multiplyAddToExt(ulong[] x, ulong[] y, ulong[] zz)
 		{
-			long[] tt = Nat576.createExt64();
+			ulong[] tt = Nat576.createExt64();
 			implMultiply(x, y, tt);
 			addExt(zz, tt, zz);
 		}
 
-		public static void multiplyPrecomp(long[] x, long[] precomp, long[] z)
+		public static void multiplyPrecomp(ulong[] x, ulong[] precomp, ulong[] z)
 		{
-			long[] tt = Nat576.createExt64();
+			ulong[] tt = Nat576.createExt64();
 			implMultiplyPrecomp(x, precomp, tt);
 			reduce(tt, z);
 		}
 
-		public static void multiplyPrecompAddToExt(long[] x, long[] precomp, long[] zz)
+		public static void multiplyPrecompAddToExt(ulong[] x, ulong[] precomp, ulong[] zz)
 		{
-			long[] tt = Nat576.createExt64();
+			ulong[] tt = Nat576.createExt64();
 			implMultiplyPrecomp(x, precomp, tt);
 			addExt(zz, tt, zz);
 		}
 
-		public static long[] precompMultiplicand(long[] x)
+		public static ulong[] precompMultiplicand(ulong[] x)
 		{
 			/*
 			 * Precompute table of all 4-bit products of x (first section)
 			 */
 			int len = 9 << 4;
-			long[] t = new long[len << 1];
+			ulong[] t = new ulong[len << 1];
 			JavaSystem.arraycopy(x, 0, t, 9, 9);
 	//        reduce5(T0, 9);
 			int tOff = 0;
@@ -180,52 +180,52 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 		public static void reduce(ulong[] xx, ulong[] z)
 		{
-			long xx09 = xx[9];
-			long u = xx[17], v = xx09;
+			ulong xx09 = xx[9];
+			ulong u = xx[17], v = xx09;
 
-			xx09 = v ^ ((long)((ulong)u >> 59)) ^ ((long)((ulong)u >> 57)) ^ ((long)((ulong)u >> 54)) ^ ((long)((ulong)u >> 49));
+			xx09 = v ^ u >> 59 ^ u >> 57 ^ u >> 54 ^ u >> 49;
 			v = xx[8] ^ (u << 5) ^ (u << 7) ^ (u << 10) ^ (u << 15);
 
 			for (int i = 16; i >= 10; --i)
 			{
 				u = xx[i];
-				z[i - 8] = v ^ ((long)((ulong)u >> 59)) ^ ((long)((ulong)u >> 57)) ^ ((long)((ulong)u >> 54)) ^ ((long)((ulong)u >> 49));
+				z[i - 8] = v ^ u >> 59 ^ u >> 57 ^ u >> 54 ^ u >> 49;
 				v = xx[i - 9] ^ (u << 5) ^ (u << 7) ^ (u << 10) ^ (u << 15);
 			}
 
 			u = xx09;
-			z[1] = v ^ ((long)((ulong)u >> 59)) ^ ((long)((ulong)u >> 57)) ^ ((long)((ulong)u >> 54)) ^ ((long)((ulong)u >> 49));
+			z[1] = v ^ u >> 59 ^ u >> 57 ^ u >> 54 ^ u >> 49;
 			v = xx[0] ^ (u << 5) ^ (u << 7) ^ (u << 10) ^ (u << 15);
 
-			long x08 = z[8];
-			long t = (long)((ulong)x08 >> 59);
+			ulong x08 = z[8];
+			ulong t = x08 >> 59;
 			z[0] = v ^ t ^ (t << 2) ^ (t << 5) ^ (t << 10);
 			z[8] = x08 & M59;
 		}
 
-		public static void reduce5(long[] z, int zOff)
+		public static void reduce5(ulong[] z, int zOff)
 		{
-			long z8 = z[zOff + 8], t = (long)((ulong)z8 >> 59);
+			ulong z8 = z[zOff + 8], t = z8 >> 59;
 			z[zOff] ^= t ^ (t << 2) ^ (t << 5) ^ (t << 10);
 			z[zOff + 8] = z8 & M59;
 		}
 
 		public static void sqrt(ulong[] x, ulong[] z)
 		{
-			long[] evn = Nat576.create64(), odd = Nat576.create64();
+			ulong[] evn = Nat576.create64(), odd = Nat576.create64();
 
 			int pos = 0;
 			for (int i = 0; i < 4; ++i)
 			{
-				long u0 = Interleave.unshuffle(x[pos++]);
-				long u1 = Interleave.unshuffle(x[pos++]);
+				ulong u0 = Interleave.unshuffle(x[pos++]);
+				ulong u1 = Interleave.unshuffle(x[pos++]);
 				evn[i] = (u0 & 0x00000000FFFFFFFFL) | (u1 << 32);
-				odd[i] = ((long)((ulong)u0 >> 32)) | (u1 & unchecked((long)0xFFFFFFFF00000000L));
+				odd[i] = u0 >> 32 | (u1 & unchecked(0xFFFFFFFF00000000L));
 			}
 			{
-				long u0 = Interleave.unshuffle(x[pos]);
+				ulong u0 = Interleave.unshuffle(x[pos]);
 				evn[4] = (u0 & 0x00000000FFFFFFFFL);
-				odd[4] = ((long)((ulong)u0 >> 32));
+				odd[4] = u0 >> 32;
 			}
 
 			multiply(odd, ROOT_Z, z);
@@ -234,14 +234,14 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 		public static void square(ulong[] x, ulong[] z)
 		{
-			long[] tt = Nat576.createExt64();
+			ulong[] tt = Nat576.createExt64();
 			implSquare(x, tt);
 			reduce(tt, z);
 		}
 
 		public static void squareAddToExt(ulong[] x, ulong[] zz)
 		{
-			long[] tt = Nat576.createExt64();
+			ulong[] tt = Nat576.createExt64();
 			implSquare(x, tt);
 			addExt(zz, tt, zz);
 		}
@@ -250,7 +250,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 		{
 	//        assert n > 0;
 
-			long[] tt = Nat576.createExt64();
+			ulong[] tt = Nat576.createExt64();
 			implSquare(x, tt);
 			reduce(tt, z);
 
@@ -261,10 +261,10 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		public static int trace(long[] x)
+		public static uint trace(ulong[] x)
 		{
 			// Non-zero-trace bits: 0, 561, 569
-			return (int)(x[0] ^ ((long)((ulong)x[8] >> 49)) ^ ((long)((ulong)x[8] >> 57))) & 1;
+			return (uint)(x[0] ^ x[8] >> 49 ^ x[8] >> 57) & 1;
 		}
 
 		protected internal static void implMultiply(ulong[] x, ulong[] y, ulong[] zz)
@@ -274,12 +274,12 @@ namespace org.bouncycastle.math.ec.custom.sec
 	//            implMulwAcc(x, y[i], zz, i);
 	//        }
 
-			long[] precomp = precompMultiplicand(y);
+			ulong[] precomp = precompMultiplicand(y);
 
 			implMultiplyPrecomp(x, precomp, zz);
 		}
 
-		protected internal static void implMultiplyPrecomp(long[] x, long[] precomp, long[] zz)
+		protected internal static void implMultiplyPrecomp(ulong[] x, ulong[] precomp, ulong[] zz)
 		{
 			int MASK = 0xF;
 
@@ -291,7 +291,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			{
 				for (int j = 1; j < 9; j += 2)
 				{
-					int aVal = (int)((long)((ulong)x[j] >> k));
+					int aVal = (int)(x[j] >> k);
 					int u = aVal & MASK;
 					int v = ((int)((uint)aVal >> 4)) & MASK;
 					addBothTo(precomp, 9 * u, precomp, 9 * (v + 16), zz, j - 1);
@@ -303,7 +303,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			{
 				for (int j = 0; j < 9; j += 2)
 				{
-					int aVal = (int)((long)((ulong)x[j] >> k));
+					int aVal = (int)(x[j] >> k);
 					int u = aVal & MASK;
 					int v = ((int)((uint)aVal >> 4)) & MASK;
 					addBothTo(precomp, 9 * u, precomp, 9 * (v + 16), zz, j);
@@ -315,9 +315,9 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		protected internal static void implMulwAcc(long[] xs, long y, long[] z, int zOff)
+		protected internal static void implMulwAcc(ulong[] xs, ulong y, ulong[] z, int zOff)
 		{
-			long[] u = new long[32];
+			ulong[] u = new ulong[32];
 	//      u[0] = 0;
 			u[1] = y;
 			for (int i = 2; i < 32; i += 2)
@@ -326,28 +326,28 @@ namespace org.bouncycastle.math.ec.custom.sec
 				u[i + 1] = u[i] ^ y;
 			}
 
-			long l = 0;
+			ulong l = 0;
 			for (int i = 0; i < 9; ++i)
 			{
-				long x = xs[i];
+				ulong x = xs[i];
 
 				int j = (int)x;
 
 				l ^= u[j & 31];
 
-				long g, h = 0;
+				ulong g, h = 0;
 				int k = 60;
 				do
 				{
-					j = (int)((long)((ulong)x >> k));
+					j = (int)(x >> k);
 					g = u[j & 31];
 					l ^= (g << k);
-					h ^= ((long)((ulong)g >> -k));
+					h ^= g >> -k;
 				} while ((k -= 5) > 0);
 
 				for (int p = 0; p < 4; ++p)
 				{
-					x = (long)((ulong)(x & RM) >> 1);
+					x = (x & RM) >> 1;
 					h ^= x & ((y << p) >> 63);
 				}
 

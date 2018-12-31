@@ -149,7 +149,7 @@ namespace org.bouncycastle.crypto.tls
 			cipher.processBytes(firstBlock, 0, firstBlock.Length, firstBlock, 0);
 
 			KeyParameter macKey = new KeyParameter(firstBlock, 0, 32);
-			Arrays.fill(firstBlock, (byte)0);
+			Arrays.fill(firstBlock, 0);
 			return macKey;
 		}
 

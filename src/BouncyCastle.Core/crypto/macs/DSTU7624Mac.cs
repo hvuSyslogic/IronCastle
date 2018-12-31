@@ -133,10 +133,10 @@ namespace org.bouncycastle.crypto.macs
 
 		public virtual void reset()
 		{
-			Arrays.fill(c, (byte)0x00);
-			Arrays.fill(cTemp, (byte)0x00);
-			Arrays.fill(kDelta, (byte)0x00);
-			Arrays.fill(buf, (byte)0x00);
+			Arrays.fill(c, 0x00);
+			Arrays.fill(cTemp, 0x00);
+			Arrays.fill(kDelta, 0x00);
+			Arrays.fill(buf, 0x00);
 			engine.reset();
 			engine.processBlock(kDelta, 0, kDelta, 0);
 			bufOff = 0;

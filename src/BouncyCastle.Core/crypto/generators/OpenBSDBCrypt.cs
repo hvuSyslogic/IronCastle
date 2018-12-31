@@ -35,7 +35,7 @@ namespace org.bouncycastle.crypto.generators
 
 			for (int i = 0; i < decodingTable.Length; i++)
 			{
-				decodingTable[i] = unchecked((byte)0xff);
+				decodingTable[i] = unchecked(0xff);
 			}
 
 			for (int i = 0; i < encodingTable.Length; i++)
@@ -143,11 +143,11 @@ namespace org.bouncycastle.crypto.generators
 				JavaSystem.arraycopy(psw, 0, tmp, 0, tmp.Length);
 			}
 
-			Arrays.fill(psw, (byte)0);
+			Arrays.fill(psw, 0);
 
 			string rv = createBcryptString(version, tmp, salt, cost);
 
-			Arrays.fill(tmp, (byte)0);
+			Arrays.fill(tmp, 0);
 
 			return rv;
 		}
@@ -230,7 +230,7 @@ namespace org.bouncycastle.crypto.generators
 			}
 			else // key
 			{
-				data[data.Length - 1] = (byte)0;
+				data[data.Length - 1] = 0;
 			}
 
 			ByteArrayOutputStream @out = new ByteArrayOutputStream();

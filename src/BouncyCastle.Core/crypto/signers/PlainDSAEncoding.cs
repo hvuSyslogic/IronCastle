@@ -56,7 +56,7 @@ namespace org.bouncycastle.crypto.signers
 			int bsLen = bs.Length - bsOff;
 
 			int pos = len - bsLen;
-			Arrays.fill(buf, off, off + pos, (byte)0);
+			Arrays.fill(buf, off, off + pos, 0);
 			JavaSystem.arraycopy(bs, bsOff, buf, off + pos, bsLen);
 		}
 	}

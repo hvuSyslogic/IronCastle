@@ -5,8 +5,6 @@ using Org.BouncyCastle.Math.Raw;
 namespace org.bouncycastle.math.ec
 {
 
-	using Nat = org.bouncycastle.math.raw.Nat;
-
 	public class FixedPointCombMultiplier : AbstractECMultiplier
 	{
 		public override ECPoint multiplyPositive(ECPoint p, BigInteger k)
@@ -34,7 +32,7 @@ namespace org.bouncycastle.math.ec
 			ECPoint R = c.getInfinity();
 
 			int fullComb = d * width;
-			int[] K = Nat.fromBigInteger(fullComb, k);
+			uint[] K = Nat.fromBigInteger(fullComb, k);
 
 			int top = fullComb - 1;
 			for (int i = 0; i < d; ++i)
@@ -43,7 +41,7 @@ namespace org.bouncycastle.math.ec
 
 				for (int j = top - i; j >= 0; j -= d)
 				{
-					int secretBit = (int)((uint)K[(int)((uint)j >> 5)] >> (j & 0x1F));
+					int secretBit = (int)(K[(int)((uint)j >> 5)] >> (j & 0x1F));
 					secretIndex ^= (int)((uint)secretBit >> 1);
 					secretIndex <<= 1;
 					secretIndex ^= secretBit;

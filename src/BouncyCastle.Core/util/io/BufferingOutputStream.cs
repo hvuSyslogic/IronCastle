@@ -89,7 +89,7 @@ namespace org.bouncycastle.util.io
 		{
 			other.write(buf, 0, bufOff);
 			bufOff = 0;
-			Arrays.fill(buf, (byte)0);
+			Arrays.fill(buf, 0);
 		}
 
 		public override void close()

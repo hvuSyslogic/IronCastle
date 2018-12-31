@@ -468,29 +468,29 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 			for (int i = 0; i < n * qLogarithm / (sizeof(int) * 8); i += qLogarithm)
 			{
 
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 0), (int)(T[j + 0] | (T[j + 1] << 23)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 1), (int)((T[j + 1] >> 9) | (T[j + 2] << 14)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 2), (int)((T[j + 2] >> 18) | (T[j + 3] << 5) | (T[j + 4] << 28)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 3), (int)((T[j + 4] >> 4) | (T[j + 5] << 19)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 4), (int)((T[j + 5] >> 13) | (T[j + 6] << 10)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 5), (int)((T[j + 6] >> 22) | (T[j + 7] << 1) | (T[j + 8] << 24)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 6), (int)((T[j + 8] >> 8) | (T[j + 9] << 15)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 7), (int)((T[j + 9] >> 17) | (T[j + 10] << 6) | (T[j + 11] << 29)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 8), (int)((T[j + 11] >> 3) | (T[j + 12] << 20)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 9), (int)((T[j + 12] >> 12) | (T[j + 13] << 11)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 10), (int)((T[j + 13] >> 21) | (T[j + 14] << 2) | (T[j + 15] << 25)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 11), (int)((T[j + 15] >> 7) | (T[j + 16] << 16)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 12), (int)((T[j + 16] >> 16) | (T[j + 17] << 7) | (T[j + 18] << 30)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 13), (int)((T[j + 18] >> 2) | (T[j + 19] << 21)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 14), (int)((T[j + 19] >> 11) | (T[j + 20] << 12)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 15), (int)((T[j + 20] >> 20) | (T[j + 21] << 3) | (T[j + 22] << 26)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 16), (int)((T[j + 22] >> 6) | (T[j + 23] << 17)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 17), (int)((T[j + 23] >> 15) | (T[j + 24] << 8) | (T[j + 25] << 31)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 18), (int)((T[j + 25] >> 1) | (T[j + 26] << 22)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 19), (int)((T[j + 26] >> 10) | (T[j + 27] << 13)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 20), (int)((T[j + 27] >> 19) | (T[j + 28] << 4) | (T[j + 29] << 27)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 21), (int)((T[j + 29] >> 5) | (T[j + 30] << 18)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 22), (int)((T[j + 30] >> 14) | (T[j + 31] << 9)));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 0), T[j + 0] | (T[j + 1] << 23));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 1), (T[j + 1] >> 9) | (T[j + 2] << 14));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 2), (T[j + 2] >> 18) | (T[j + 3] << 5) | (T[j + 4] << 28));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 3), (T[j + 4] >> 4) | (T[j + 5] << 19));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 4), (T[j + 5] >> 13) | (T[j + 6] << 10));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 5), (T[j + 6] >> 22) | (T[j + 7] << 1) | (T[j + 8] << 24));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 6), (T[j + 8] >> 8) | (T[j + 9] << 15));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 7), (T[j + 9] >> 17) | (T[j + 10] << 6) | (T[j + 11] << 29));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 8), (T[j + 11] >> 3) | (T[j + 12] << 20));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 9), (T[j + 12] >> 12) | (T[j + 13] << 11));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 10), (T[j + 13] >> 21) | (T[j + 14] << 2) | (T[j + 15] << 25));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 11), (T[j + 15] >> 7) | (T[j + 16] << 16));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 12), (T[j + 16] >> 16) | (T[j + 17] << 7) | (T[j + 18] << 30));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 13), (T[j + 18] >> 2) | (T[j + 19] << 21));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 14), (T[j + 19] >> 11) | (T[j + 20] << 12));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 15), (T[j + 20] >> 20) | (T[j + 21] << 3) | (T[j + 22] << 26));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 16), (T[j + 22] >> 6) | (T[j + 23] << 17));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 17), (T[j + 23] >> 15) | (T[j + 24] << 8) | (T[j + 25] << 31));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 18), (T[j + 25] >> 1) | (T[j + 26] << 22));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 19), (T[j + 26] >> 10) | (T[j + 27] << 13));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 20), (T[j + 27] >> 19) | (T[j + 28] << 4) | (T[j + 29] << 27));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 21), (T[j + 29] >> 5) | (T[j + 30] << 18));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 22), (T[j + 30] >> 14) | (T[j + 31] << 9));
 
 				j += (sizeof(int) * 8);
 
@@ -519,9 +519,9 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 			for (int i = 0; i < Parameter.N_III_SPEED * Parameter.Q_LOGARITHM_III_SPEED / (sizeof(int) * 8); i += (Parameter.Q_LOGARITHM_III_SPEED / Byte.SIZE))
 			{
 
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 0), (int)(T[j + 0] | (T[j + 1] << 24)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 1), (int)((T[j + 1] >> 8) | (T[j + 2] << 16)));
-				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 2), (int)((T[j + 2] >> 16) | (T[j + 3] << 8)));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 0), T[j + 0] | (T[j + 1] << 24));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 1), (T[j + 1] >> 8) | (T[j + 2] << 16));
+				CommonFunction.store32(publicKey, (sizeof(int) * 8) / Byte.SIZE * (i + 2), (T[j + 2] >> 16) | (T[j + 3] << 8));
 
 				j += (sizeof(int) * 8) / Byte.SIZE;
 
@@ -910,27 +910,27 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 			for (int i = 0; i < (n * d / (sizeof(int) * 8)); i += d)
 			{
 
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 0), (int)(((Z[j + 0] & ((1 << 21) - 1))) | (Z[j + 1] << 21)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 1), (int)((((int)((uint)Z[j + 1] >> 11)) & ((1 << 10) - 1)) | ((Z[j + 2] & ((1 << 21) - 1)) << 10) | (Z[j + 3] << 31)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 2), (int)(((((int)((uint)Z[j + 3] >> 1)) & ((1 << 20) - 1))) | (Z[j + 4] << 20)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 3), (int)((((int)((uint)Z[j + 4] >> 12)) & ((1 << 9) - 1)) | ((Z[j + 5] & ((1 << 21) - 1)) << 9) | (Z[j + 6] << 30)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 4), (int)(((((int)((uint)Z[j + 6] >> 2)) & ((1 << 19) - 1))) | (Z[j + 7] << 19)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 5), (int)((((int)((uint)Z[j + 7] >> 13)) & ((1 << 8) - 1)) | ((Z[j + 8] & ((1 << 21) - 1)) << 8) | (Z[j + 9] << 29)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 6), (int)(((((int)((uint)Z[j + 9] >> 3)) & ((1 << 18) - 1))) | (Z[j + 10] << 18)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 7), (int)((((int)((uint)Z[j + 10] >> 14)) & ((1 << 7) - 1)) | ((Z[j + 11] & ((1 << 21) - 1)) << 7) | (Z[j + 12] << 28)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 8), (int)(((((int)((uint)Z[j + 12] >> 4)) & ((1 << 17) - 1))) | (Z[j + 13] << 17)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 9), (int)((((int)((uint)Z[j + 13] >> 15)) & ((1 << 6) - 1)) | ((Z[j + 14] & ((1 << 21) - 1)) << 6) | (Z[j + 15] << 27)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 10), (int)(((((int)((uint)Z[j + 15] >> 5)) & ((1 << 16) - 1))) | (Z[j + 16] << 16)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 11), (int)((((int)((uint)Z[j + 16] >> 16)) & ((1 << 5) - 1)) | ((Z[j + 17] & ((1 << 21) - 1)) << 5) | (Z[j + 18] << 26)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 12), (int)(((((int)((uint)Z[j + 18] >> 6)) & ((1 << 15) - 1))) | (Z[j + 19] << 15)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 13), (int)((((int)((uint)Z[j + 19] >> 17)) & ((1 << 4) - 1)) | ((Z[j + 20] & ((1 << 21) - 1)) << 4) | (Z[j + 21] << 25)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 14), (int)(((((int)((uint)Z[j + 21] >> 7)) & ((1 << 14) - 1))) | (Z[j + 22] << 14)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 15), (int)((((int)((uint)Z[j + 22] >> 18)) & ((1 << 3) - 1)) | ((Z[j + 23] & ((1 << 21) - 1)) << 3) | (Z[j + 24] << 24)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 16), (int)(((((int)((uint)Z[j + 24] >> 8)) & ((1 << 13) - 1))) | (Z[j + 25] << 13)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 17), (int)((((int)((uint)Z[j + 25] >> 19)) & ((1 << 2) - 1)) | ((Z[j + 26] & ((1 << 21) - 1)) << 2) | (Z[j + 27] << 23)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 18), (int)(((((int)((uint)Z[j + 27] >> 9)) & ((1 << 12) - 1))) | (Z[j + 28] << 12)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 19), (int)((((int)((uint)Z[j + 28] >> 20)) & ((1 << 1) - 1)) | ((Z[j + 29] & ((1 << 21) - 1)) << 1) | (Z[j + 30] << 22)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 20), (int)(((((int)((uint)Z[j + 30] >> 10)) & ((1 << 11) - 1))) | (Z[j + 31] << 11)));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 0), ((Z[j + 0] & ((1 << 21) - 1))) | (Z[j + 1] << 21));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 1), (((int)((uint)Z[j + 1] >> 11)) & ((1 << 10) - 1)) | ((Z[j + 2] & ((1 << 21) - 1)) << 10) | (Z[j + 3] << 31));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 2), ((((int)((uint)Z[j + 3] >> 1)) & ((1 << 20) - 1))) | (Z[j + 4] << 20));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 3), (((int)((uint)Z[j + 4] >> 12)) & ((1 << 9) - 1)) | ((Z[j + 5] & ((1 << 21) - 1)) << 9) | (Z[j + 6] << 30));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 4), ((((int)((uint)Z[j + 6] >> 2)) & ((1 << 19) - 1))) | (Z[j + 7] << 19));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 5), (((int)((uint)Z[j + 7] >> 13)) & ((1 << 8) - 1)) | ((Z[j + 8] & ((1 << 21) - 1)) << 8) | (Z[j + 9] << 29));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 6), ((((int)((uint)Z[j + 9] >> 3)) & ((1 << 18) - 1))) | (Z[j + 10] << 18));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 7), (((int)((uint)Z[j + 10] >> 14)) & ((1 << 7) - 1)) | ((Z[j + 11] & ((1 << 21) - 1)) << 7) | (Z[j + 12] << 28));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 8), ((((int)((uint)Z[j + 12] >> 4)) & ((1 << 17) - 1))) | (Z[j + 13] << 17));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 9), (((int)((uint)Z[j + 13] >> 15)) & ((1 << 6) - 1)) | ((Z[j + 14] & ((1 << 21) - 1)) << 6) | (Z[j + 15] << 27));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 10), ((((int)((uint)Z[j + 15] >> 5)) & ((1 << 16) - 1))) | (Z[j + 16] << 16));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 11), (((int)((uint)Z[j + 16] >> 16)) & ((1 << 5) - 1)) | ((Z[j + 17] & ((1 << 21) - 1)) << 5) | (Z[j + 18] << 26));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 12), ((((int)((uint)Z[j + 18] >> 6)) & ((1 << 15) - 1))) | (Z[j + 19] << 15));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 13), (((int)((uint)Z[j + 19] >> 17)) & ((1 << 4) - 1)) | ((Z[j + 20] & ((1 << 21) - 1)) << 4) | (Z[j + 21] << 25));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 14), ((((int)((uint)Z[j + 21] >> 7)) & ((1 << 14) - 1))) | (Z[j + 22] << 14));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 15), (((int)((uint)Z[j + 22] >> 18)) & ((1 << 3) - 1)) | ((Z[j + 23] & ((1 << 21) - 1)) << 3) | (Z[j + 24] << 24));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 16), ((((int)((uint)Z[j + 24] >> 8)) & ((1 << 13) - 1))) | (Z[j + 25] << 13));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 17), (((int)((uint)Z[j + 25] >> 19)) & ((1 << 2) - 1)) | ((Z[j + 26] & ((1 << 21) - 1)) << 2) | (Z[j + 27] << 23));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 18), ((((int)((uint)Z[j + 27] >> 9)) & ((1 << 12) - 1))) | (Z[j + 28] << 12));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 19), (((int)((uint)Z[j + 28] >> 20)) & ((1 << 1) - 1)) | ((Z[j + 29] & ((1 << 21) - 1)) << 1) | (Z[j + 30] << 22));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 20), ((((int)((uint)Z[j + 30] >> 10)) & ((1 << 11) - 1))) | (Z[j + 31] << 11));
 
 				j += (sizeof(int) * 8);
 
@@ -960,17 +960,17 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 			for (int i = 0; i < (Parameter.N_III_SPEED * Parameter.D_III_SPEED / (sizeof(int) * 8)); i += Parameter.D_III_SPEED / 2)
 			{
 
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 0), (int)(((Z[j + 0] & ((1 << 22) - 1))) | (Z[j + 1] << 22)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 1), (int)(((((int)((uint)Z[j + 1] >> 10)) & ((1 << 12) - 1))) | (Z[j + 2] << 12)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 2), (int)((((int)((uint)Z[j + 2] >> 20)) & ((1 << 2) - 1)) | ((Z[j + 3] & ((1 << 22) - 1)) << 2) | (Z[j + 4] << 24)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 3), (int)(((((int)((uint)Z[j + 4] >> 8)) & ((1 << 14) - 1))) | (Z[j + 5] << 14)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 4), (int)((((int)((uint)Z[j + 5] >> 18)) & ((1 << 4) - 1)) | ((Z[j + 6] & ((1 << 22) - 1)) << 4) | (Z[j + 7] << 26)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 5), (int)(((((int)((uint)Z[j + 7] >> 6)) & ((1 << 16) - 1))) | (Z[j + 8] << 16)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 6), (int)((((int)((uint)Z[j + 8] >> 16)) & ((1 << 6) - 1)) | ((Z[j + 9] & ((1 << 22) - 1)) << 6) | (Z[j + 10] << 28)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 7), (int)(((((int)((uint)Z[j + 10] >> 4)) & ((1 << 18) - 1))) | (Z[j + 11] << 18)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 8), (int)((((int)((uint)Z[j + 11] >> 14)) & ((1 << 8) - 1)) | ((Z[j + 12] & ((1 << 22) - 1)) << 8) | (Z[j + 13] << 30)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 9), (int)(((((int)((uint)Z[j + 13] >> 2)) & ((1 << 20) - 1))) | (Z[j + 14] << 20)));
-				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 10), (int)(((((int)((uint)Z[j + 14] >> 12)) & ((1 << 10) - 1))) | (Z[j + 15] << 10)));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 0), ((Z[j + 0] & ((1 << 22) - 1))) | (Z[j + 1] << 22));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 1), ((((int)((uint)Z[j + 1] >> 10)) & ((1 << 12) - 1))) | (Z[j + 2] << 12));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 2), (((int)((uint)Z[j + 2] >> 20)) & ((1 << 2) - 1)) | ((Z[j + 3] & ((1 << 22) - 1)) << 2) | (Z[j + 4] << 24));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 3), ((((int)((uint)Z[j + 4] >> 8)) & ((1 << 14) - 1))) | (Z[j + 5] << 14));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 4), (((int)((uint)Z[j + 5] >> 18)) & ((1 << 4) - 1)) | ((Z[j + 6] & ((1 << 22) - 1)) << 4) | (Z[j + 7] << 26));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 5), ((((int)((uint)Z[j + 7] >> 6)) & ((1 << 16) - 1))) | (Z[j + 8] << 16));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 6), (((int)((uint)Z[j + 8] >> 16)) & ((1 << 6) - 1)) | ((Z[j + 9] & ((1 << 22) - 1)) << 6) | (Z[j + 10] << 28));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 7), ((((int)((uint)Z[j + 10] >> 4)) & ((1 << 18) - 1))) | (Z[j + 11] << 18));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 8), (((int)((uint)Z[j + 11] >> 14)) & ((1 << 8) - 1)) | ((Z[j + 12] & ((1 << 22) - 1)) << 8) | (Z[j + 13] << 30));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 9), ((((int)((uint)Z[j + 13] >> 2)) & ((1 << 20) - 1))) | (Z[j + 14] << 20));
+				CommonFunction.store32(signature, signatureOffset + (sizeof(int) * 8) / Byte.SIZE * (i + 10), ((((int)((uint)Z[j + 14] >> 12)) & ((1 << 10) - 1))) | (Z[j + 15] << 10));
 
 				j += (sizeof(int) * 8) / 2;
 

@@ -52,7 +52,7 @@ namespace org.bouncycastle.crypto.prng.drbg
 
 			_K = new byte[hMac.getMacSize()];
 			_V = new byte[_K.Length];
-			Arrays.fill(_V, (byte)1);
+			Arrays.fill(_V, 1);
 
 			hmac_DRBG_Update(seedMaterial);
 
@@ -61,10 +61,10 @@ namespace org.bouncycastle.crypto.prng.drbg
 
 		private void hmac_DRBG_Update(byte[] seedMaterial)
 		{
-			hmac_DRBG_Update_Func(seedMaterial, (byte)0x00);
+			hmac_DRBG_Update_Func(seedMaterial, 0x00);
 			if (seedMaterial != null)
 			{
-				hmac_DRBG_Update_Func(seedMaterial, (byte)0x01);
+				hmac_DRBG_Update_Func(seedMaterial, 0x01);
 			}
 		}
 

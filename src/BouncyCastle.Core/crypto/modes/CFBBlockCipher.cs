@@ -229,7 +229,7 @@ namespace org.bouncycastle.crypto.modes
 		public override void reset()
 		{
 			JavaSystem.arraycopy(IV, 0, cfbV, 0, IV.Length);
-			Arrays.fill(inBuf, (byte)0);
+			Arrays.fill(inBuf, 0);
 			byteCount = 0;
 
 			cipher.reset();

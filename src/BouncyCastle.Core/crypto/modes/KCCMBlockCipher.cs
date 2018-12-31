@@ -435,10 +435,10 @@ namespace org.bouncycastle.crypto.modes
 
 		public virtual void reset()
 		{
-			Arrays.fill(G1, (byte)0);
-			Arrays.fill(buffer, (byte)0);
-			Arrays.fill(counter, (byte)0);
-			Arrays.fill(macBlock, (byte)0);
+			Arrays.fill(G1, 0);
+			Arrays.fill(buffer, 0);
+			Arrays.fill(counter, 0);
+			Arrays.fill(macBlock, 0);
 			counter[0] = 0x01;
 			data.reset();
 			associatedText.reset();

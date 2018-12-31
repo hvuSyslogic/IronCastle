@@ -45,7 +45,7 @@ namespace org.bouncycastle.crypto.macs
 
 				for (int byteIndex = 0; byteIndex < invertedKey.Length; byteIndex++)
 				{
-					invertedKey[byteIndex] = (byte)(key[byteIndex] ^ unchecked((byte)0xFF));
+					invertedKey[byteIndex] = (byte)(key[byteIndex] ^ unchecked(0xFF));
 				}
 			}
 			else
@@ -128,7 +128,7 @@ namespace org.bouncycastle.crypto.macs
 
 			byte[] padded = new byte[extra];
 
-			padded[0] = unchecked((byte)0x80); // Defined in standard;
+			padded[0] = unchecked(0x80); // Defined in standard;
 
 			// Defined in standard;
 			Pack.longToLittleEndian(inputLength * BITS_IN_BYTE, padded, padded.Length - 12);
@@ -140,7 +140,7 @@ namespace org.bouncycastle.crypto.macs
 		{
 			int paddedLen = ((@in.Length + engine.getByteLength() - 1) / engine.getByteLength()) * engine.getByteLength();
 
-			int extra = engine.getByteLength() - (int)(@in.Length % engine.getByteLength());
+			int extra = engine.getByteLength() - @in.Length % engine.getByteLength();
 			if (extra < 13) // terminator byte + 96 bits of length
 			{
 				paddedLen += engine.getByteLength();
@@ -150,7 +150,7 @@ namespace org.bouncycastle.crypto.macs
 
 			JavaSystem.arraycopy(@in, 0, padded, 0, @in.Length);
 
-			padded[@in.Length] = unchecked((byte)0x80); // Defined in standard;
+			padded[@in.Length] = unchecked(0x80); // Defined in standard;
 			Pack.intToLittleEndian(@in.Length * BITS_IN_BYTE, padded, padded.Length - 12); // Defined in standard;
 
 			return padded;

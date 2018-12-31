@@ -23,7 +23,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 		public static void addExt(uint[] xx, uint[] yy, uint[] zz)
 		{
 			uint c = Nat.add(16, xx, yy, zz);
-			if (c != 0 || (((int)((uint)zz[15] >> 1)) >= PExt15s1 && Nat.gte(16, zz, PExt)))
+			if (c != 0 || (((int)(zz[15] >> 1)) >= PExt15s1 && Nat.gte(16, zz, PExt)))
 			{
 				Nat.subFrom(16, PExt, zz);
 			}
@@ -71,7 +71,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 		public static void multiplyAddToExt(uint[] x, uint[] y, uint[] zz)
 		{
 			uint c = Nat256.mulAddTo(x, y, zz);
-			if (c != 0 || (((int)((uint)zz[15] >> 1)) >= PExt15s1 && Nat.gte(16, zz, PExt)))
+			if (c != 0 || (((int)(zz[15] >> 1)) >= PExt15s1 && Nat.gte(16, zz, PExt)))
 			{
 				Nat.subFrom(16, PExt, zz);
 			}

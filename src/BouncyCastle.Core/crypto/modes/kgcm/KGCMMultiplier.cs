@@ -2,8 +2,8 @@
 {
 	public interface KGCMMultiplier
 	{
-		void init(long[] H);
-		void multiplyH(long[] z);
+		void init(ulong[] H);
+		void multiplyH(ulong[] z);
 	}
 
 }

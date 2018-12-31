@@ -41,7 +41,7 @@ namespace org.bouncycastle.crypto.engines
 
 	   /// <summary>
 	   /// Field IV2 </summary>
-	   private static readonly byte[] IV2 = new byte[] {(byte) 0x4a, unchecked((byte) 0xdd), unchecked((byte) 0xa2), (byte) 0x2c, (byte) 0x79, unchecked((byte) 0xe8), (byte) 0x21, (byte) 0x05};
+	   private static readonly byte[] IV2 = new byte[] {0x4a, unchecked(0xdd), unchecked(0xa2), 0x2c, 0x79, unchecked(0xe8), 0x21, 0x05};
 
 		//
 		// checksum digest

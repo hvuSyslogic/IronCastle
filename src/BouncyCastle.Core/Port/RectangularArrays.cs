@@ -40,6 +40,17 @@ internal static class RectangularArrays
         return newArray;
     }
 
+    public static ulong[][] ReturnRectangularULongArray(int size1, int size2)
+    {
+        ulong[][] newArray = new ulong[size1][];
+        for (int array1 = 0; array1 < size1; array1++)
+        {
+            newArray[array1] = new ulong[size2];
+        }
+
+        return newArray;
+    }
+
     public static long[][][] ReturnRectangularLongArray(int size1, int size2, int size3)
     {
         long[][][] newArray = new long[size1][][];
@@ -51,6 +62,24 @@ internal static class RectangularArrays
                 for (int array2 = 0; array2 < size2; array2++)
                 {
                     newArray[array1][array2] = new long[size3];
+                }
+            }
+        }
+
+        return newArray;
+    }
+
+    public static ulong[][][] ReturnRectangularULongArray(int size1, int size2, int size3)
+    {
+        ulong[][][] newArray = new ulong[size1][][];
+        for (int array1 = 0; array1 < size1; array1++)
+        {
+            newArray[array1] = new ulong[size2][];
+            if (size3 > -1)
+            {
+                for (int array2 = 0; array2 < size2; array2++)
+                {
+                    newArray[array1][array2] = new ulong[size3];
                 }
             }
         }

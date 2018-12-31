@@ -13,8 +13,8 @@ namespace org.bouncycastle.crypto.modes.gcm
 
 		public virtual void init(byte[] x)
 		{
-			long[] y = GCMUtil.asLongs(x);
-			if (lookupPowX2 != null && Arrays.areEqual(y, (long[])lookupPowX2.elementAt(0)))
+			ulong[] y = GCMUtil.asLongs(x);
+			if (lookupPowX2 != null && Arrays.areEqual(y, (ulong[])lookupPowX2.elementAt(0)))
 			{
 				return;
 			}
@@ -25,14 +25,14 @@ namespace org.bouncycastle.crypto.modes.gcm
 
 		public virtual void exponentiateX(long pow, byte[] output)
 		{
-			long[] y = GCMUtil.oneAsLongs();
+			ulong[] y = GCMUtil.oneAsLongs();
 			int bit = 0;
 			while (pow > 0)
 			{
 				if ((pow & 1L) != 0)
 				{
 					ensureAvailable(bit);
-					GCMUtil.multiply(y, (long[])lookupPowX2.elementAt(bit));
+					GCMUtil.multiply(y, (ulong[])lookupPowX2.elementAt(bit));
 				}
 				++bit;
 				pow = (long)((ulong)pow >> 1);
@@ -46,7 +46,7 @@ namespace org.bouncycastle.crypto.modes.gcm
 			int count = lookupPowX2.size();
 			if (count <= bit)
 			{
-				long[] tmp = (long[])lookupPowX2.elementAt(count - 1);
+				ulong[] tmp = (ulong[])lookupPowX2.elementAt(count - 1);
 				do
 				{
 					tmp = Arrays.clone(tmp);

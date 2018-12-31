@@ -31,7 +31,7 @@ namespace org.bouncycastle.crypto.engines
 		private bool forWrapping;
 
 		// The AIV as defined in the RFC
-		private byte[] highOrderIV = new byte[] {unchecked((byte)0xa6), (byte)0x59, (byte)0x59, unchecked((byte)0xa6)};
+		private byte[] highOrderIV = new byte[] {unchecked(0xa6), 0x59, 0x59, unchecked(0xa6)};
 		private byte[] preIV;
 
 		private byte[] extractedAIV = null;

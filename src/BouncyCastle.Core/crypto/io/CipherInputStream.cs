@@ -357,15 +357,15 @@ namespace org.bouncycastle.crypto.io
 			markPosition = 0;
 			if (markBuf != null)
 			{
-				Arrays.fill(markBuf, (byte)0);
+				Arrays.fill(markBuf, 0);
 				markBuf = null;
 			}
 			if (buf != null)
 			{
-				Arrays.fill(buf, (byte)0);
+				Arrays.fill(buf, 0);
 				buf = null;
 			}
-			Arrays.fill(inBuf, (byte)0);
+			Arrays.fill(inBuf, 0);
 		}
 
 		/// <summary>

@@ -5,12 +5,12 @@ using Org.BouncyCastle.Math.Raw;
 namespace org.bouncycastle.math.ec.custom.sec
 {
 
-	using Nat192 = org.bouncycastle.math.raw.Nat192;
+	
 	using Arrays = org.bouncycastle.util.Arrays;
 
 	public class SecT163FieldElement : ECFieldElement.AbstractF2m
 	{
-		protected internal long[] x;
+		protected internal ulong[] x;
 
 		public SecT163FieldElement(BigInteger x)
 		{
@@ -27,7 +27,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			this.x = Nat192.create64();
 		}
 
-		public SecT163FieldElement(long[] x)
+		public SecT163FieldElement(ulong[] x)
 		{
 			this.x = x;
 		}
@@ -69,14 +69,14 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 		public override ECFieldElement add(ECFieldElement b)
 		{
-			long[] z = Nat192.create64();
+			ulong[] z = Nat192.create64();
 			SecT163Field.add(x, ((SecT163FieldElement)b).x, z);
 			return new SecT163FieldElement(z);
 		}
 
 		public override ECFieldElement addOne()
 		{
-			long[] z = Nat192.create64();
+			ulong[] z = Nat192.create64();
 			SecT163Field.addOne(x, z);
 			return new SecT163FieldElement(z);
 		}
@@ -89,7 +89,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 		public override ECFieldElement multiply(ECFieldElement b)
 		{
-			long[] z = Nat192.create64();
+			ulong[] z = Nat192.create64();
 			SecT163Field.multiply(x, ((SecT163FieldElement)b).x, z);
 			return new SecT163FieldElement(z);
 		}
@@ -101,14 +101,14 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 		public override ECFieldElement multiplyPlusProduct(ECFieldElement b, ECFieldElement x, ECFieldElement y)
 		{
-			long[] ax = this.x, bx = ((SecT163FieldElement)b).x;
-			long[] xx = ((SecT163FieldElement)x).x, yx = ((SecT163FieldElement)y).x;
+			ulong[] ax = this.x, bx = ((SecT163FieldElement)b).x;
+			ulong[] xx = ((SecT163FieldElement)x).x, yx = ((SecT163FieldElement)y).x;
 
-			long[] tt = Nat192.createExt64();
+			ulong[] tt = Nat192.createExt64();
 			SecT163Field.multiplyAddToExt(ax, bx, tt);
 			SecT163Field.multiplyAddToExt(xx, yx, tt);
 
-			long[] z = Nat192.create64();
+			ulong[] z = Nat192.create64();
 			SecT163Field.reduce(tt, z);
 			return new SecT163FieldElement(z);
 		}
@@ -125,7 +125,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 		public override ECFieldElement square()
 		{
-			long[] z = Nat192.create64();
+			ulong[] z = Nat192.create64();
 			SecT163Field.square(x, z);
 			return new SecT163FieldElement(z);
 		}
@@ -137,14 +137,14 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 		public override ECFieldElement squarePlusProduct(ECFieldElement x, ECFieldElement y)
 		{
-			long[] ax = this.x;
-			long[] xx = ((SecT163FieldElement)x).x, yx = ((SecT163FieldElement)y).x;
+			ulong[] ax = this.x;
+			ulong[] xx = ((SecT163FieldElement)x).x, yx = ((SecT163FieldElement)y).x;
 
-			long[] tt = Nat192.createExt64();
+			ulong[] tt = Nat192.createExt64();
 			SecT163Field.squareAddToExt(ax, tt);
 			SecT163Field.multiplyAddToExt(xx, yx, tt);
 
-			long[] z = Nat192.create64();
+			ulong[] z = Nat192.create64();
 			SecT163Field.reduce(tt, z);
 			return new SecT163FieldElement(z);
 		}
@@ -156,26 +156,26 @@ namespace org.bouncycastle.math.ec.custom.sec
 				return this;
 			}
 
-			long[] z = Nat192.create64();
+			ulong[] z = Nat192.create64();
 			SecT163Field.squareN(x, pow, z);
 			return new SecT163FieldElement(z);
 		}
 
-		public override int trace()
+		public override uint trace()
 		{
 			return SecT163Field.trace(x);
 		}
 
 		public override ECFieldElement invert()
 		{
-			long[] z = Nat192.create64();
+			ulong[] z = Nat192.create64();
 			SecT163Field.invert(x, z);
 			return new SecT163FieldElement(z);
 		}
 
 		public override ECFieldElement sqrt()
 		{
-			long[] z = Nat192.create64();
+			ulong[] z = Nat192.create64();
 			SecT163Field.sqrt(x, z);
 			return new SecT163FieldElement(z);
 		}

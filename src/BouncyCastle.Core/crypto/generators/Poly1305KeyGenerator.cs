@@ -19,8 +19,8 @@ namespace org.bouncycastle.crypto.generators
 	/// <seealso cref= Poly1305 </seealso>
 	public class Poly1305KeyGenerator : CipherKeyGenerator
 	{
-		private static readonly byte R_MASK_LOW_2 = unchecked((byte)0xFC);
-		private static readonly byte R_MASK_HIGH_4 = (byte)0x0F;
+		private static readonly byte R_MASK_LOW_2 = unchecked(0xFC);
+		private static readonly byte R_MASK_HIGH_4 = 0x0F;
 
 		/// <summary>
 		/// Initialises the key generator.<br>

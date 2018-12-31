@@ -31,11 +31,11 @@ namespace org.bouncycastle.pqc.crypto.newhope
 			byte[] noiseSeed = new byte[32];
 			rand.nextBytes(noiseSeed);
 
-			Poly.getNoise(sk, noiseSeed, (byte)0);
+			Poly.getNoise(sk, noiseSeed, 0);
 			Poly.toNTT(sk);
 
 			short[] e = new short[Params.N];
-			Poly.getNoise(e, noiseSeed, (byte)1);
+			Poly.getNoise(e, noiseSeed, 1);
 			Poly.toNTT(e);
 
 			short[] r = new short[Params.N];
@@ -60,11 +60,11 @@ namespace org.bouncycastle.pqc.crypto.newhope
 			rand.nextBytes(noiseSeed);
 
 			short[] sp = new short[Params.N];
-			Poly.getNoise(sp, noiseSeed, (byte)0);
+			Poly.getNoise(sp, noiseSeed, 0);
 			Poly.toNTT(sp);
 
 			short[] ep = new short[Params.N];
-			Poly.getNoise(ep, noiseSeed, (byte)1);
+			Poly.getNoise(ep, noiseSeed, 1);
 			Poly.toNTT(ep);
 
 			short[] bp = new short[Params.N];
@@ -76,11 +76,11 @@ namespace org.bouncycastle.pqc.crypto.newhope
 			Poly.fromNTT(v);
 
 			short[] epp = new short[Params.N];
-			Poly.getNoise(epp, noiseSeed, (byte)2);
+			Poly.getNoise(epp, noiseSeed, 2);
 			Poly.add(v, epp, v);
 
 			short[] c = new short[Params.N];
-			ErrorCorrection.helpRec(c, v, noiseSeed, (byte)3);
+			ErrorCorrection.helpRec(c, v, noiseSeed, 3);
 
 			encodeB(send, bp, c);
 

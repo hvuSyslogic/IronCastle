@@ -83,8 +83,8 @@ namespace org.bouncycastle.crypto.encodings
 		private bool useStrict()
 		{
 			// required if security manager has been installed.
-			string strict = (string)AccessController.doPrivileged(new PrivilegedActionAnonymousInnerClass(this));
-			string notStrict = (string)AccessController.doPrivileged(new PrivilegedActionAnonymousInnerClass2(this));
+			string strict = AccessController.doPrivileged(new PrivilegedActionAnonymousInnerClass(this));
+			string notStrict = AccessController.doPrivileged(new PrivilegedActionAnonymousInnerClass2(this));
 
 			if (!string.ReferenceEquals(notStrict, null))
 			{
@@ -216,7 +216,7 @@ namespace org.bouncycastle.crypto.encodings
 
 				for (int i = 1; i != block.Length - inLen - 1; i++)
 				{
-					block[i] = unchecked((byte)0xFF);
+					block[i] = unchecked(0xFF);
 				}
 			}
 			else
@@ -333,7 +333,7 @@ namespace org.bouncycastle.crypto.encodings
 				result[i] = (byte)((data[i + (data.Length - pLen)] & (~correct)) | (random[i] & correct));
 			}
 
-			Arrays.fill(data, (byte)0);
+			Arrays.fill(data, 0);
 
 			return result;
 		}
@@ -384,14 +384,14 @@ namespace org.bouncycastle.crypto.encodings
 
 			if (badType | start < HEADER_LENGTH)
 			{
-				Arrays.fill(data, (byte)0);
+				Arrays.fill(data, 0);
 				throw new InvalidCipherTextException("block incorrect");
 			}
 
 			// if we get this far, it's likely to be a genuine encoding error
 			if (incorrectLength)
 			{
-				Arrays.fill(data, (byte)0);
+				Arrays.fill(data, 0);
 				throw new InvalidCipherTextException("block incorrect size");
 			}
 
@@ -415,7 +415,7 @@ namespace org.bouncycastle.crypto.encodings
 				{
 					start = i;
 				}
-				padErr |= (type == 1 & start < 0 & pad != unchecked((byte)0xff));
+				padErr |= (type == 1 & start < 0 & pad != unchecked(0xff));
 			}
 
 			if (padErr)

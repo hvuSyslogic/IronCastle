@@ -56,7 +56,7 @@ namespace org.bouncycastle.math.ec.rfc7748
 		{
 			random.nextBytes(k);
 
-			k[0] &= unchecked((byte)0xF8);
+			k[0] &= unchecked(0xF8);
 			k[SCALAR_SIZE - 1] &= 0x7F;
 			k[SCALAR_SIZE - 1] |= 0x40;
 		}

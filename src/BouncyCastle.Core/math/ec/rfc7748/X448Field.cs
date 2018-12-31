@@ -2,8 +2,6 @@
 
 namespace org.bouncycastle.math.ec.rfc7748
 {
-	using Nat = org.bouncycastle.math.raw.Nat;
-
 	public abstract class X448Field
 	{
 		public const int SIZE = 16;
@@ -111,7 +109,7 @@ namespace org.bouncycastle.math.ec.rfc7748
 			int[] t = create();
 			sub(t, z, t);
 
-			Nat.cmov(SIZE, negate, t, 0, z, 0);
+			Nat.cMov(SIZE, negate, t, 0, z, 0);
 		}
 
 		public static void copy(int[] x, int xOff, int[] z, int zOff)
@@ -506,7 +504,7 @@ namespace org.bouncycastle.math.ec.rfc7748
 			z[15] = z15;
 		}
 
-		public static void negate(uint[] x, uint[] z)
+		public static void negate(int[] x, int[] z)
 		{
 			int[] zero = create();
 			sub(zero, x, z);

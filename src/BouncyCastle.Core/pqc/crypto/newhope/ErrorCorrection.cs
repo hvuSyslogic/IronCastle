@@ -105,15 +105,15 @@
 
 		internal static void rec(byte[] key, short[] v, short[] c)
 		{
-			Arrays.fill(key, (byte)0);
+			Arrays.fill(key, 0);
 
 			int[] tmp = new int[4];
 			for (int i = 0; i < 256; ++i)
 			{
-				tmp[0] = 16 * Params.Q + 8 * (int)v[0 + i] - Params.Q * (2 * c[0 + i] + c[768 + i]);
-				tmp[1] = 16 * Params.Q + 8 * (int)v[256 + i] - Params.Q * (2 * c[256 + i] + c[768 + i]);
-				tmp[2] = 16 * Params.Q + 8 * (int)v[512 + i] - Params.Q * (2 * c[512 + i] + c[768 + i]);
-				tmp[3] = 16 * Params.Q + 8 * (int)v[768 + i] - Params.Q * (c[768 + i]);
+				tmp[0] = 16 * Params.Q + 8 * v[0 + i] - Params.Q * (2 * c[0 + i] + c[768 + i]);
+				tmp[1] = 16 * Params.Q + 8 * v[256 + i] - Params.Q * (2 * c[256 + i] + c[768 + i]);
+				tmp[2] = 16 * Params.Q + 8 * v[512 + i] - Params.Q * (2 * c[512 + i] + c[768 + i]);
+				tmp[3] = 16 * Params.Q + 8 * v[768 + i] - Params.Q * (c[768 + i]);
 
 				key[(int)((uint)i >> 3)] |= (byte)(LDDecode(tmp[0], tmp[1], tmp[2], tmp[3]) << (i & 7));
 			}

@@ -301,7 +301,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 			}
 
 			/* Sample from Bernoulli of bernoulliParameter */
-			return (int)((int)((uint)((result & 0x3FFFFFFFFFFFFFFFL) - Math.Round(bernoulliParameter)) >> 63));
+			return (int)((uint)((result & 0x3FFFFFFFFFFFFFFFL) - Math.Round(bernoulliParameter)) >> 63);
 
 		}
 

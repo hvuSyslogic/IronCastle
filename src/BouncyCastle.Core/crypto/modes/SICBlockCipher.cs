@@ -223,7 +223,7 @@ namespace org.bouncycastle.crypto.modes
 
 		public override void reset()
 		{
-			Arrays.fill(counter, (byte)0);
+			Arrays.fill(counter, 0);
 			JavaSystem.arraycopy(IV, 0, counter, 0, IV.Length);
 			cipher.reset();
 			this.byteCount = 0;

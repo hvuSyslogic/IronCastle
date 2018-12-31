@@ -28,7 +28,7 @@ namespace org.bouncycastle.crypto.engines
 		* S-box data
 		*
 		*/
-		private static readonly byte[] SBOX1 = new byte[] {(byte)112, unchecked((byte)130), (byte)44, unchecked((byte)236), unchecked((byte)179), (byte)39, unchecked((byte)192), unchecked((byte)229), unchecked((byte)228), unchecked((byte)133), (byte)87, (byte)53, unchecked((byte)234), (byte)12, unchecked((byte)174), (byte)65, (byte)35, unchecked((byte)239), (byte)107, unchecked((byte)147), (byte)69, (byte)25, unchecked((byte)165), (byte)33, unchecked((byte)237), (byte)14, (byte)79, (byte)78, (byte)29, (byte)101, unchecked((byte)146), unchecked((byte)189), unchecked((byte)134), unchecked((byte)184), unchecked((byte)175), unchecked((byte)143), (byte)124, unchecked((byte)235), (byte)31, unchecked((byte)206), (byte)62, (byte)48, unchecked((byte)220), (byte)95, (byte)94, unchecked((byte)197), (byte)11, (byte)26, unchecked((byte)166), unchecked((byte)225), (byte)57, unchecked((byte)202), unchecked((byte)213), (byte)71, (byte)93, (byte)61, unchecked((byte)217), (byte)1, (byte)90, unchecked((byte)214), (byte)81, (byte)86, (byte)108, (byte)77, unchecked((byte)139), (byte)13, unchecked((byte)154), (byte)102, unchecked((byte)251), unchecked((byte)204), unchecked((byte)176), (byte)45, (byte)116, (byte)18, (byte)43, (byte)32, unchecked((byte)240), unchecked((byte)177), unchecked((byte)132), unchecked((byte)153), unchecked((byte)223), (byte)76, unchecked((byte)203), unchecked((byte)194), (byte)52, (byte)126, (byte)118, (byte)5, (byte)109, unchecked((byte)183), unchecked((byte)169), (byte)49, unchecked((byte)209), (byte)23, (byte)4, unchecked((byte)215), (byte)20, (byte)88, (byte)58, (byte)97, unchecked((byte)222), (byte)27, (byte)17, (byte)28, (byte)50, (byte)15, unchecked((byte)156), (byte)22, (byte)83, (byte)24, unchecked((byte)242), (byte)34, unchecked((byte)254), (byte)68, unchecked((byte)207), unchecked((byte)178), unchecked((byte)195), unchecked((byte)181), (byte)122, unchecked((byte)145), (byte)36, (byte)8, unchecked((byte)232), unchecked((byte)168), (byte)96, unchecked((byte)252), (byte)105, (byte)80, unchecked((byte)170), unchecked((byte)208), unchecked((byte)160), (byte)125, unchecked((byte)161), unchecked((byte)137), (byte)98, unchecked((byte)151), (byte)84, (byte)91, (byte)30, unchecked((byte)149), unchecked((byte)224), unchecked((byte)255), (byte)100, unchecked((byte)210), (byte)16, unchecked((byte)196), (byte)0, (byte)72, unchecked((byte)163), unchecked((byte)247), (byte)117, unchecked((byte)219), unchecked((byte)138), (byte)3, unchecked((byte)230), unchecked((byte)218), (byte)9, (byte)63, unchecked((byte)221), unchecked((byte)148), unchecked((byte)135), (byte)92, unchecked((byte)131), (byte)2, unchecked((byte)205), (byte)74, unchecked((byte)144), (byte)51, (byte)115, (byte)103, unchecked((byte)246), unchecked((byte)243), unchecked((byte)157), (byte)127, unchecked((byte)191), unchecked((byte)226), (byte)82, unchecked((byte)155), unchecked((byte)216), (byte)38, unchecked((byte)200), (byte)55, unchecked((byte)198), (byte)59, unchecked((byte)129), unchecked((byte)150), (byte)111, (byte)75, (byte)19, unchecked((byte)190), (byte)99, (byte)46, unchecked((byte)233), (byte)121, unchecked((byte)167), unchecked((byte)140), unchecked((byte)159), (byte)110, unchecked((byte)188), unchecked((byte)142), (byte)41, unchecked((byte)245), unchecked((byte)249), unchecked((byte)182), (byte)47, unchecked((byte)253), unchecked((byte)180), (byte)89, (byte)120, unchecked((byte)152), (byte)6, (byte)106, unchecked((byte)231), (byte)70, (byte)113, unchecked((byte)186), unchecked((byte)212), (byte)37, unchecked((byte)171), (byte)66, unchecked((byte)136), unchecked((byte)162), unchecked((byte)141), unchecked((byte)250), (byte)114, (byte)7, unchecked((byte)185), (byte)85, unchecked((byte)248), unchecked((byte)238), unchecked((byte)172), (byte)10, (byte)54, (byte)73, (byte)42, (byte)104, (byte)60, (byte)56, unchecked((byte)241), unchecked((byte)164), (byte)64, (byte)40, unchecked((byte)211), (byte)123, unchecked((byte)187), unchecked((byte)201), (byte)67, unchecked((byte)193), (byte)21, unchecked((byte)227), unchecked((byte)173), unchecked((byte)244), (byte)119, unchecked((byte)199), unchecked((byte)128), unchecked((byte)158)};
+		private static readonly byte[] SBOX1 = new byte[] {112, unchecked(130), 44, unchecked(236), unchecked(179), 39, unchecked(192), unchecked(229), unchecked(228), unchecked(133), 87, 53, unchecked(234), 12, unchecked(174), 65, 35, unchecked(239), 107, unchecked(147), 69, 25, unchecked(165), 33, unchecked(237), 14, 79, 78, 29, 101, unchecked(146), unchecked(189), unchecked(134), unchecked(184), unchecked(175), unchecked(143), 124, unchecked(235), 31, unchecked(206), 62, 48, unchecked(220), 95, 94, unchecked(197), 11, 26, unchecked(166), unchecked(225), 57, unchecked(202), unchecked(213), 71, 93, 61, unchecked(217), 1, 90, unchecked(214), 81, 86, 108, 77, unchecked(139), 13, unchecked(154), 102, unchecked(251), unchecked(204), unchecked(176), 45, 116, 18, 43, 32, unchecked(240), unchecked(177), unchecked(132), unchecked(153), unchecked(223), 76, unchecked(203), unchecked(194), 52, 126, 118, 5, 109, unchecked(183), unchecked(169), 49, unchecked(209), 23, 4, unchecked(215), 20, 88, 58, 97, unchecked(222), 27, 17, 28, 50, 15, unchecked(156), 22, 83, 24, unchecked(242), 34, unchecked(254), 68, unchecked(207), unchecked(178), unchecked(195), unchecked(181), 122, unchecked(145), 36, 8, unchecked(232), unchecked(168), 96, unchecked(252), 105, 80, unchecked(170), unchecked(208), unchecked(160), 125, unchecked(161), unchecked(137), 98, unchecked(151), 84, 91, 30, unchecked(149), unchecked(224), unchecked(255), 100, unchecked(210), 16, unchecked(196), 0, 72, unchecked(163), unchecked(247), 117, unchecked(219), unchecked(138), 3, unchecked(230), unchecked(218), 9, 63, unchecked(221), unchecked(148), unchecked(135), 92, unchecked(131), 2, unchecked(205), 74, unchecked(144), 51, 115, 103, unchecked(246), unchecked(243), unchecked(157), 127, unchecked(191), unchecked(226), 82, unchecked(155), unchecked(216), 38, unchecked(200), 55, unchecked(198), 59, unchecked(129), unchecked(150), 111, 75, 19, unchecked(190), 99, 46, unchecked(233), 121, unchecked(167), unchecked(140), unchecked(159), 110, unchecked(188), unchecked(142), 41, unchecked(245), unchecked(249), unchecked(182), 47, unchecked(253), unchecked(180), 89, 120, unchecked(152), 6, 106, unchecked(231), 70, 113, unchecked(186), unchecked(212), 37, unchecked(171), 66, unchecked(136), unchecked(162), unchecked(141), unchecked(250), 114, 7, unchecked(185), 85, unchecked(248), unchecked(238), unchecked(172), 10, 54, 73, 42, 104, 60, 56, unchecked(241), unchecked(164), 64, 40, unchecked(211), 123, unchecked(187), unchecked(201), 67, unchecked(193), 21, unchecked(227), unchecked(173), unchecked(244), 119, unchecked(199), unchecked(128), unchecked(158)};
 
 		private static int rightRotate(int x, int s)
 		{
@@ -125,7 +125,7 @@ namespace org.bouncycastle.crypto.engines
 
 		private int sbox4(int x)
 		{
-			return (SBOX1[((int)lRot8((byte)x, 1) & MASK8)] & MASK8);
+			return (SBOX1[(lRot8((byte)x, 1) & MASK8)] & MASK8);
 		}
 
 		private void camelliaF2(int[] s, int[] skey, int keyoff)
@@ -136,10 +136,10 @@ namespace org.bouncycastle.crypto.engines
 			u = sbox4((t1 & MASK8));
 			u |= (sbox3((((int)((uint)t1 >> 8)) & MASK8)) << 8);
 			u |= (sbox2((((int)((uint)t1 >> 16)) & MASK8)) << 16);
-			u |= ((int)(SBOX1[(((int)((uint)t1 >> 24)) & MASK8)] & MASK8) << 24);
+			u |= ((SBOX1[(((int)((uint)t1 >> 24)) & MASK8)] & MASK8) << 24);
 
 			t2 = s[1] ^ skey[1 + keyoff];
-			v = (int)SBOX1[(t2 & MASK8)] & MASK8;
+			v = SBOX1[(t2 & MASK8)] & MASK8;
 			v |= (sbox4((((int)((uint)t2 >> 8)) & MASK8)) << 8);
 			v |= (sbox3((((int)((uint)t2 >> 16)) & MASK8)) << 16);
 			v |= (sbox2((((int)((uint)t2 >> 24)) & MASK8)) << 24);
@@ -155,10 +155,10 @@ namespace org.bouncycastle.crypto.engines
 			u = sbox4((t1 & MASK8));
 			u |= sbox3((((int)((uint)t1 >> 8)) & MASK8)) << 8;
 			u |= sbox2((((int)((uint)t1 >> 16)) & MASK8)) << 16;
-			u |= ((int)SBOX1[(((int)((uint)t1 >> 24)) & MASK8)] & MASK8) << 24;
+			u |= (SBOX1[(((int)((uint)t1 >> 24)) & MASK8)] & MASK8) << 24;
 
 			t2 = s[3] ^ skey[3 + keyoff];
-			v = ((int)SBOX1[(t2 & MASK8)] & MASK8);
+			v = (SBOX1[(t2 & MASK8)] & MASK8);
 			v |= sbox4((((int)((uint)t2 >> 8)) & MASK8)) << 8;
 			v |= sbox3((((int)((uint)t2 >> 16)) & MASK8)) << 16;
 			v |= sbox2((((int)((uint)t2 >> 24)) & MASK8)) << 24;

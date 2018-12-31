@@ -48,8 +48,8 @@ namespace org.bouncycastle.crypto.signers
 		{
 			this.n = n;
 
-			Arrays.fill(V, (byte)0x01);
-			Arrays.fill(K, (byte)0);
+			Arrays.fill(V, 0x01);
+			Arrays.fill(K, 0);
 
 			int size = BigIntegers.getUnsignedByteLength(n);
 			byte[] x = new byte[size];
@@ -73,7 +73,7 @@ namespace org.bouncycastle.crypto.signers
 			hMac.init(new KeyParameter(K));
 
 			hMac.update(V, 0, V.Length);
-			hMac.update((byte)0x00);
+			hMac.update(0x00);
 			hMac.update(x, 0, x.Length);
 			hMac.update(m, 0, m.Length);
 
@@ -86,7 +86,7 @@ namespace org.bouncycastle.crypto.signers
 			hMac.doFinal(V, 0);
 
 			hMac.update(V, 0, V.Length);
-			hMac.update((byte)0x01);
+			hMac.update(0x01);
 			hMac.update(x, 0, x.Length);
 			hMac.update(m, 0, m.Length);
 
@@ -126,7 +126,7 @@ namespace org.bouncycastle.crypto.signers
 				}
 
 				hMac.update(V, 0, V.Length);
-				hMac.update((byte)0x00);
+				hMac.update(0x00);
 
 				hMac.doFinal(K, 0);
 

@@ -163,11 +163,11 @@ namespace org.bouncycastle.crypto.modes
 			mac.reset();
 
 			bufOff = 0;
-			Arrays.fill(bufBlock, (byte)0);
+			Arrays.fill(bufBlock, 0);
 
 			if (clearMac)
 			{
-				Arrays.fill(macBlock, (byte)0);
+				Arrays.fill(macBlock, 0);
 			}
 
 			byte[] tag = new byte[blockSize];

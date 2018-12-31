@@ -227,7 +227,7 @@ namespace org.bouncycastle.crypto.agreement
 
 		private byte[] S1(Digest digest, ECPoint u, byte[] inner)
 		{
-			digest.update((byte)0x02);
+			digest.update(0x02);
 			addFieldElement(digest, u.getAffineYCoord());
 			digest.update(inner, 0, inner.Length);
 
@@ -249,7 +249,7 @@ namespace org.bouncycastle.crypto.agreement
 
 		private byte[] S2(Digest digest, ECPoint u, byte[] inner)
 		{
-			digest.update((byte)0x03);
+			digest.update(0x03);
 			addFieldElement(digest, u.getAffineYCoord());
 			digest.update(inner, 0, inner.Length);
 

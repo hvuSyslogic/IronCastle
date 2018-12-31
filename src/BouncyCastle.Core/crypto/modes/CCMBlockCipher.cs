@@ -397,8 +397,8 @@ namespace org.bouncycastle.crypto.modes
 				}
 				else // can't go any higher than 2^32
 				{
-					cMac.update(unchecked((byte)0xff));
-					cMac.update(unchecked((byte)0xfe));
+					cMac.update(unchecked(0xff));
+					cMac.update(unchecked(0xfe));
 					cMac.update((byte)(textLength >> 24));
 					cMac.update((byte)(textLength >> 16));
 					cMac.update((byte)(textLength >> 8));
@@ -421,7 +421,7 @@ namespace org.bouncycastle.crypto.modes
 				{
 					for (int i = extra; i != 16; i++)
 					{
-						cMac.update((byte)0x00);
+						cMac.update(0x00);
 					}
 				}
 			}

@@ -139,7 +139,7 @@ namespace org.bouncycastle.crypto.modes
 		public virtual void reset()
 		{
 			JavaSystem.arraycopy(IV, 0, cbcV, 0, IV.Length);
-			Arrays.fill(cbcNextV, (byte)0);
+			Arrays.fill(cbcNextV, 0);
 
 			cipher.reset();
 		}

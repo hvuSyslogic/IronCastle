@@ -98,7 +98,7 @@ namespace org.bouncycastle.asn1.ua
 				}
 				else
 				{
-					bytes[bytes.Length - 1] &= unchecked((byte)0xFE);
+					bytes[bytes.Length - 1] &= unchecked(0xFE);
 				}
 			}
 

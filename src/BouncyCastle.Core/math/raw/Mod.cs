@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using BouncyCastle.Core.Port;
-using Org.BouncyCastle.Crypto.Utilities;
-using Org.BouncyCastle.Security;
-using Org.BouncyCastle.Utilities;
+using org.bouncycastle.util;
 
 namespace Org.BouncyCastle.Math.Raw
 {
@@ -93,7 +91,7 @@ namespace Org.BouncyCastle.Math.Raw
             {
                 byte[] bytes = new byte[len << 2];
                 RandomSource.NextBytes(bytes);
-                Pack.BE_To_UInt32(bytes, 0, s);
+                Pack.bigEndianToUInt(bytes, 0, s);
                 s[len - 1] &= m;
             }
             while (Nat.gte(len, s, p));

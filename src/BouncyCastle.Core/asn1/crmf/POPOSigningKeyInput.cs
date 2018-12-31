@@ -13,7 +13,7 @@ namespace org.bouncycastle.asn1.crmf
 
 		private POPOSigningKeyInput(ASN1Sequence seq)
 		{
-			ASN1Encodable authInfo = (ASN1Encodable)seq.getObjectAt(0);
+			ASN1Encodable authInfo = seq.getObjectAt(0);
 
 			if (authInfo is ASN1TaggedObject)
 			{

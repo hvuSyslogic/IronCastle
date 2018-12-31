@@ -1,6 +1,6 @@
 ﻿namespace org.bouncycastle.crypto.@params
 {
-	using Arrays = org.bouncycastle.util.Arrays;
+	
 
 	public class DSTU4145Parameters : ECDomainParameters
 	{

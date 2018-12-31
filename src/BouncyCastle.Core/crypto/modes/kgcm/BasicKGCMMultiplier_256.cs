@@ -2,14 +2,14 @@
 {
 	public class BasicKGCMMultiplier_256 : KGCMMultiplier
 	{
-		private readonly long[] H = new long[KGCMUtil_256.SIZE];
-
-		public virtual void init(long[] H)
+		private readonly ulong[] H = new ulong[KGCMUtil_256.SIZE];
+        
+		public virtual void init(ulong[] H)
 		{
 			KGCMUtil_256.copy(H, this.H);
 		}
 
-		public virtual void multiplyH(long[] z)
+		public virtual void multiplyH(ulong[] z)
 		{
 			KGCMUtil_256.multiply(z, H, z);
 		}

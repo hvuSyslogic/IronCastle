@@ -160,12 +160,12 @@ namespace org.bouncycastle.crypto.engines
 				check |= c3[i] ^ @in[inOff + c1.Length + c2.Length + i];
 			}
 
-			Arrays.fill(c1, (byte)0);
-			Arrays.fill(c3, (byte)0);
+			Arrays.fill(c1, 0);
+			Arrays.fill(c3, 0);
 
 			if (check != 0)
 			{
-				Arrays.fill(c2, (byte)0);
+				Arrays.fill(c2, 0);
 				throw new InvalidCipherTextException("invalid cipher text");
 			}
 

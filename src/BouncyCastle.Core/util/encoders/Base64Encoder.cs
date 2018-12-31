@@ -22,7 +22,7 @@ namespace org.bouncycastle.util.encoders
 		{
 			for (int i = 0; i < decodingTable.Length; i++)
 			{
-				decodingTable[i] = unchecked((byte)0xff);
+				decodingTable[i] = unchecked(0xff);
 			}
 
 			for (int i = 0; i < encodingTable.Length; i++)

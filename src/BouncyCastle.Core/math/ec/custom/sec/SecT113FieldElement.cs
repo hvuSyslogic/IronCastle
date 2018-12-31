@@ -161,7 +161,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			return new SecT113FieldElement(z);
 		}
 
-		public override int trace()
+		public override uint trace()
 		{
 			return SecT113Field.trace(x);
 		}

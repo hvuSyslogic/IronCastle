@@ -94,9 +94,9 @@ namespace org.bouncycastle.pqc.crypto.gmss
 			// calulate keysize for private key and the help array
 			mdsize = messDigestOTS.getDigestSize();
 			int mdsizeBit = mdsize << 3;
-			int messagesize = (int)Math.Ceiling((double)(mdsizeBit) / (double)w);
+			int messagesize = (int)Math.Ceiling(mdsizeBit / (double)w);
 			int checksumsize = getLog((messagesize << w) + 1);
-			this.keysize = messagesize + (int)Math.Ceiling((double)checksumsize / (double)w);
+			this.keysize = messagesize + (int)Math.Ceiling(checksumsize / (double)w);
 			this.two_power_w = 1 << w;
 
 			// calculate steps
@@ -131,14 +131,14 @@ namespace org.bouncycastle.pqc.crypto.gmss
 			// calulate keysize for private key and the help array
 			mdsize = messDigestOTS.getDigestSize();
 			int mdsizeBit = mdsize << 3;
-			int messagesize = (int)Math.Ceiling((double)(mdsizeBit) / (double)w);
+			int messagesize = (int)Math.Ceiling(mdsizeBit / (double)w);
 			int checksumsize = getLog((messagesize << w) + 1);
-			this.keysize = messagesize + (int)Math.Ceiling((double)checksumsize / (double)w);
+			this.keysize = messagesize + (int)Math.Ceiling(checksumsize / (double)w);
 			this.two_power_w = 1 << w;
 
 			// calculate steps
 			// ((2^w)-1)*keysize + keysize + 1 / (2^h -1)
-			this.steps = (int)Math.Ceiling((double)(((1 << w) - 1) * keysize + 1 + keysize) / (double)(numLeafs));
+			this.steps = (int)Math.Ceiling((((1 << w) - 1) * keysize + 1 + keysize) / (double)(numLeafs));
 
 			// initialize arrays
 			this.seed = new byte[mdsize];
@@ -158,14 +158,14 @@ namespace org.bouncycastle.pqc.crypto.gmss
 			// calulate keysize for private key and the help array
 			mdsize = messDigestOTS.getDigestSize();
 			int mdsizeBit = mdsize << 3;
-			int messagesize = (int)Math.Ceiling((double)(mdsizeBit) / (double)w);
+			int messagesize = (int)Math.Ceiling(mdsizeBit / (double)w);
 			int checksumsize = getLog((messagesize << w) + 1);
-			this.keysize = messagesize + (int)Math.Ceiling((double)checksumsize / (double)w);
+			this.keysize = messagesize + (int)Math.Ceiling(checksumsize / (double)w);
 			this.two_power_w = 1 << w;
 
 			// calculate steps
 			// ((2^w)-1)*keysize + keysize + 1 / (2^h -1)
-			this.steps = (int)Math.Ceiling((double)(((1 << w) - 1) * keysize + 1 + keysize) / (double)(numLeafs));
+			this.steps = (int)Math.Ceiling((((1 << w) - 1) * keysize + 1 + keysize) / (double)(numLeafs));
 
 			// initialize arrays
 			this.seed = new byte[mdsize];

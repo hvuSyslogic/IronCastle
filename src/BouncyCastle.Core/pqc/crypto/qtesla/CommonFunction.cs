@@ -112,7 +112,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 				for (int i = 0; i < (sizeof(int) * 8) / Byte.SIZE; i++)
 				{
 
-					number ^= (int)(load[loadOffset + i] & 0xFF) << (Byte.SIZE * i);
+					number ^= (load[loadOffset + i] & 0xFF) << (Byte.SIZE * i);
 
 				}
 
@@ -124,7 +124,7 @@ namespace org.bouncycastle.pqc.crypto.qtesla
 				for (int i = 0; i < load.Length - loadOffset; i++)
 				{
 
-					number ^= (int)(load[loadOffset + i] & 0xFF) << (Byte.SIZE * i);
+					number ^= (load[loadOffset + i] & 0xFF) << (Byte.SIZE * i);
 
 				}
 

@@ -197,7 +197,7 @@ namespace org.bouncycastle.crypto.prng.drbg
 			}
 
 			// make sure we start with a clean output array.
-			Arrays.fill(output, (byte)0);
+			Arrays.fill(output, 0);
 
 			int outOffset = 0;
 

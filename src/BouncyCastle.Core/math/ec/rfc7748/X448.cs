@@ -56,8 +56,8 @@ namespace org.bouncycastle.math.ec.rfc7748
 		{
 			random.nextBytes(k);
 
-			k[0] &= unchecked((byte)0xFC);
-			k[SCALAR_SIZE - 1] |= unchecked((byte)0x80);
+			k[0] &= unchecked(0xFC);
+			k[SCALAR_SIZE - 1] |= unchecked(0x80);
 		}
 
 		public static void generatePublicKey(byte[] k, int kOff, byte[] r, int rOff)

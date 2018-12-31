@@ -10,7 +10,6 @@ namespace org.bouncycastle.math.ec.rfc8032
 	using SHAKEDigest = org.bouncycastle.crypto.digests.SHAKEDigest;
 	using X448 = org.bouncycastle.math.ec.rfc7748.X448;
 	using X448Field = org.bouncycastle.math.ec.rfc7748.X448Field;
-	using Nat = org.bouncycastle.math.raw.Nat;
 	using Arrays = org.bouncycastle.util.Arrays;
 	using Strings = org.bouncycastle.util.Strings;
 
@@ -44,8 +43,8 @@ namespace org.bouncycastle.math.ec.rfc8032
 
 		private static readonly byte[] DOM4_PREFIX = Strings.toByteArray("SigEd448");
 
-		private static readonly int[] P = new int[] {unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFE), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF)};
-		private static readonly int[] L = new int[] {unchecked((int)0xAB5844F3), 0x2378C292, unchecked((int)0x8DC58F55), 0x216CC272, unchecked((int)0xAED63690), unchecked((int)0xC44EDB49), 0x7CCA23E9, unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), 0x3FFFFFFF};
+		private static readonly uint[] P = new uint[] {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFE, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF};
+		private static readonly uint[] L = new uint[] {0xAB5844F3, 0x2378C292, 0x8DC58F55, 0x216CC272, 0xAED63690, 0xC44EDB49, 0x7CCA23E9, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0x3FFFFFFF};
 
 		private const int L_0 = 0x04A7BB0D; // L_0:26/24
 		private const int L_1 = 0x0873D6D5; // L_1:27/23
@@ -97,11 +96,11 @@ namespace org.bouncycastle.math.ec.rfc8032
 
 		private static byte[] calculateS(byte[] r, byte[] k, byte[] s)
 		{
-			int[] t = new int[SCALAR_INTS * 2];
+			uint[] t = new uint[SCALAR_INTS * 2];
 			decodeScalar(r, 0, t);
-			int[] u = new int[SCALAR_INTS];
+			uint[] u = new uint[SCALAR_INTS];
 			decodeScalar(k, 0, u);
-			int[] v = new int[SCALAR_INTS];
+			uint[] v = new uint[SCALAR_INTS];
 			decodeScalar(s, 0, v);
 
 			Nat.mulAddTo(14, u, v, t);
@@ -126,7 +125,7 @@ namespace org.bouncycastle.math.ec.rfc8032
 				return false;
 			}
 
-			int[] t = new int[14];
+			uint[] t = new uint[14];
 			decode32(p, 0, t, 0, 14);
 			return !Nat.gte(14, t, P);
 		}
@@ -138,7 +137,7 @@ namespace org.bouncycastle.math.ec.rfc8032
 				return false;
 			}
 
-			int[] n = new int[SCALAR_INTS];
+			uint[] n = new uint[SCALAR_INTS];
 			decodeScalar(s, 0, n);
 			return !Nat.gte(SCALAR_INTS, n, L);
 		}
@@ -153,31 +152,31 @@ namespace org.bouncycastle.math.ec.rfc8032
 			return new SHAKEDigest(256);
 		}
 
-		private static int decode16(byte[] bs, int off)
+		private static uint decode16(byte[] bs, int off)
 		{
-			int n = bs[off] & 0xFF;
-			n |= (bs[++off] & 0xFF) << 8;
+			uint n = bs[off];
+			n |= (uint)(bs[++off]) << 8;
 			return n;
 		}
 
-		private static int decode24(byte[] bs, int off)
+		private static uint decode24(byte[] bs, int off)
 		{
-			int n = bs[off] & 0xFF;
-			n |= (bs[++off] & 0xFF) << 8;
-			n |= (bs[++off] & 0xFF) << 16;
+			uint n = bs[off];
+			n |= (uint)(bs[++off] ) << 8;
+			n |= (uint)(bs[++off]) << 16;
 			return n;
 		}
 
-		private static int decode32(byte[] bs, int off)
+		private static uint decode32(byte[] bs, int off)
 		{
-			int n = bs[off] & 0xFF;
-			n |= (bs[++off] & 0xFF) << 8;
-			n |= (bs[++off] & 0xFF) << 16;
-			n |= bs[++off] << 24;
+			uint n = bs[off] ;
+			n |= (uint)(bs[++off]) << 8;
+			n |= (uint)(bs[++off]) << 16;
+			n |= (uint)bs[++off] << 24;
 			return n;
 		}
 
-		private static void decode32(byte[] bs, int bsOff, int[] n, int nOff, int nLen)
+		private static void decode32(byte[] bs, int bsOff, uint[] n, int nOff, int nLen)
 		{
 			for (int i = 0; i < nLen; ++i)
 			{
@@ -227,7 +226,7 @@ namespace org.bouncycastle.math.ec.rfc8032
 			return true;
 		}
 
-		private static void decodeScalar(byte[] k, int kOff, int[] n)
+		private static void decodeScalar(byte[] k, int kOff, uint[] n)
 		{
 	//        assert k[kOff + SCALAR_BYTES - 1] == 0x00;
 
@@ -242,25 +241,25 @@ namespace org.bouncycastle.math.ec.rfc8032
 			d.update(y, 0, y.Length);
 		}
 
-		private static void encode24(int n, byte[] bs, int off)
+		private static void encode24(uint n, byte[] bs, int off)
 		{
 			bs[off] = (byte)(n);
-			bs[++off] = (byte)((int)((uint)n >> 8));
-			bs[++off] = (byte)((int)((uint)n >> 16));
+			bs[++off] = (byte)(n >> 8);
+			bs[++off] = (byte)(n >> 16);
 		}
 
-		private static void encode32(int n, byte[] bs, int off)
+		private static void encode32(uint n, byte[] bs, int off)
 		{
 			bs[off] = (byte)(n);
-			bs[++off] = (byte)((int)((uint)n >> 8));
-			bs[++off] = (byte)((int)((uint)n >> 16));
-			bs[++off] = (byte)((int)((uint)n >> 24));
+			bs[++off] = (byte)((n >> 8));
+			bs[++off] = (byte)((n >> 16));
+			bs[++off] = (byte)((n >> 24));
 		}
 
-		private static void encode56(long n, byte[] bs, int off)
+		private static void encode56(ulong n, byte[] bs, int off)
 		{
-			encode32((int)n, bs, off);
-			encode24((int)((long)((ulong)n >> 32)), bs, off + 4);
+			encode32((uint)n, bs, off);
+			encode24((uint)((n >> 32)), bs, off + 4);
 		}
 
 		private static void encodePoint(PointExt p, byte[] r, int rOff)
@@ -297,18 +296,19 @@ namespace org.bouncycastle.math.ec.rfc8032
 			scalarMultBaseEncoded(s, pk, pkOff);
 		}
 
-		private static byte[] getWNAF(int[] n, int width)
+		private static byte[] getWNAF(uint[] n, int width)
 		{
 	//        assert n[SCALAR_INTS - 1] >>> 31 == 0;
 
-			int[] t = new int[SCALAR_INTS * 2];
-			{
-				int tPos = t.Length, c = 0;
+			uint[] t = new uint[SCALAR_INTS * 2];
+            {
+                uint c = 0;
+				int tPos = t.Length;
 				int i = SCALAR_INTS;
 				while (--i >= 0)
 				{
-					int next = n[i];
-					t[--tPos] = ((int)((uint)next >> 16)) | (c << 16);
+					uint next = n[i];
+					t[--tPos] = ((next >> 16)) | (c << 16);
 					t[--tPos] = c = next;
 				}
 			}
@@ -325,10 +325,10 @@ namespace org.bouncycastle.math.ec.rfc8032
 			int j = 0, carry = 0;
 			for (int i = 0; i < t.Length; ++i, j -= 16)
 			{
-				int word = t[i];
+				uint word = t[i];
 				while (j < 16)
 				{
-					int word16 = (int)((uint)word >> j);
+					int word16 = (int)(word >> j);
 					int bit = word16 & 1;
 
 					if (bit == carry)
@@ -454,10 +454,10 @@ namespace org.bouncycastle.math.ec.rfc8032
 
 			byte[] k = reduceScalar(h);
 
-			int[] nS = new int[SCALAR_INTS];
+			uint[] nS = new uint[SCALAR_INTS];
 			decodeScalar(S, 0, nS);
 
-			int[] nA = new int[SCALAR_INTS];
+			uint[] nA = new uint[SCALAR_INTS];
 			decodeScalar(k, 0, nA);
 
 			PointExt pR = new PointExt();
@@ -604,9 +604,9 @@ namespace org.bouncycastle.math.ec.rfc8032
 			for (int i = 0; i < PRECOMP_POINTS; ++i)
 			{
 				int mask = ((i ^ index) - 1) >> 31;
-				Nat.cmov(X448Field.SIZE, mask, precompBase, off, p.x, 0);
+				Nat.cMov(X448Field.SIZE, mask, precompBase, off, p.x, 0);
 				off += X448Field.SIZE;
-				Nat.cmov(X448Field.SIZE, mask, precompBase, off, p.y, 0);
+				Nat.cMov(X448Field.SIZE, mask, precompBase, off, p.y, 0);
 				off += X448Field.SIZE;
 			}
 		}
@@ -719,46 +719,46 @@ namespace org.bouncycastle.math.ec.rfc8032
 		{
 			JavaSystem.arraycopy(n, nOff, r, 0, SCALAR_BYTES - 1);
 
-			r[0] &= unchecked((byte)0xFC);
-			r[SCALAR_BYTES - 2] |= unchecked((byte)0x80);
+			r[0] &= 0xFC;
+			r[SCALAR_BYTES - 2] |= 0x80;
 			r[SCALAR_BYTES - 1] = 0x00;
 		}
 
 		private static byte[] reduceScalar(byte[] n)
 		{
-			long x00 = decode32(n, 0) & M32L; // x00:32/--
-			long x01 = (decode24(n, 4) << 4) & M32L; // x01:28/--
-			long x02 = decode32(n, 7) & M32L; // x02:32/--
-			long x03 = (decode24(n, 11) << 4) & M32L; // x03:28/--
-			long x04 = decode32(n, 14) & M32L; // x04:32/--
-			long x05 = (decode24(n, 18) << 4) & M32L; // x05:28/--
-			long x06 = decode32(n, 21) & M32L; // x06:32/--
-			long x07 = (decode24(n, 25) << 4) & M32L; // x07:28/--
-			long x08 = decode32(n, 28) & M32L; // x08:32/--
-			long x09 = (decode24(n, 32) << 4) & M32L; // x09:28/--
-			long x10 = decode32(n, 35) & M32L; // x10:32/--
-			long x11 = (decode24(n, 39) << 4) & M32L; // x11:28/--
-			long x12 = decode32(n, 42) & M32L; // x12:32/--
-			long x13 = (decode24(n, 46) << 4) & M32L; // x13:28/--
-			long x14 = decode32(n, 49) & M32L; // x14:32/--
-			long x15 = (decode24(n, 53) << 4) & M32L; // x15:28/--
-			long x16 = decode32(n, 56) & M32L; // x16:32/--
-			long x17 = (decode24(n, 60) << 4) & M32L; // x17:28/--
-			long x18 = decode32(n, 63) & M32L; // x18:32/--
-			long x19 = (decode24(n, 67) << 4) & M32L; // x19:28/--
-			long x20 = decode32(n, 70) & M32L; // x20:32/--
-			long x21 = (decode24(n, 74) << 4) & M32L; // x21:28/--
-			long x22 = decode32(n, 77) & M32L; // x22:32/--
-			long x23 = (decode24(n, 81) << 4) & M32L; // x23:28/--
-			long x24 = decode32(n, 84) & M32L; // x24:32/--
-			long x25 = (decode24(n, 88) << 4) & M32L; // x25:28/--
-			long x26 = decode32(n, 91) & M32L; // x26:32/--
-			long x27 = (decode24(n, 95) << 4) & M32L; // x27:28/--
-			long x28 = decode32(n, 98) & M32L; // x28:32/--
-			long x29 = (decode24(n, 102) << 4) & M32L; // x29:28/--
-			long x30 = decode32(n, 105) & M32L; // x30:32/--
-			long x31 = (decode24(n, 109) << 4) & M32L; // x31:28/--
-			long x32 = decode16(n, 112) & M32L; // x32:16/--
+			ulong x00 = decode32(n, 0) ; // x00:32/--
+			ulong x01 = (decode24(n, 4) << 4) ; // x01:28/--
+			ulong x02 = decode32(n, 7) ; // x02:32/--
+			ulong x03 = (decode24(n, 11) << 4) ; // x03:28/--
+			ulong x04 = decode32(n, 14) ; // x04:32/--
+			ulong x05 = (decode24(n, 18) << 4) ; // x05:28/--
+			ulong x06 = decode32(n, 21) ; // x06:32/--
+			ulong x07 = (decode24(n, 25) << 4) ; // x07:28/--
+			ulong x08 = decode32(n, 28) ; // x08:32/--
+			ulong x09 = (decode24(n, 32) << 4) ; // x09:28/--
+			ulong x10 = decode32(n, 35) ; // x10:32/--
+			ulong x11 = (decode24(n, 39) << 4) ; // x11:28/--
+			ulong x12 = decode32(n, 42) ; // x12:32/--
+			ulong x13 = (decode24(n, 46) << 4) ; // x13:28/--
+			ulong x14 = decode32(n, 49) ; // x14:32/--
+			ulong x15 = (decode24(n, 53) << 4) ; // x15:28/--
+			ulong x16 = decode32(n, 56) ; // x16:32/--
+			ulong x17 = (decode24(n, 60) << 4) ; // x17:28/--
+			ulong x18 = decode32(n, 63) ; // x18:32/--
+			ulong x19 = (decode24(n, 67) << 4) ; // x19:28/--
+			ulong x20 = decode32(n, 70) ; // x20:32/--
+			ulong x21 = (decode24(n, 74) << 4) ; // x21:28/--
+			ulong x22 = decode32(n, 77) ; // x22:32/--
+			ulong x23 = (decode24(n, 81) << 4) ; // x23:28/--
+			ulong x24 = decode32(n, 84) ; // x24:32/--
+			ulong x25 = (decode24(n, 88) << 4) ; // x25:28/--
+			ulong x26 = decode32(n, 91) ; // x26:32/--
+			ulong x27 = (decode24(n, 95) << 4) ; // x27:28/--
+			ulong x28 = decode32(n, 98) ; // x28:32/--
+			ulong x29 = (decode24(n, 102) << 4) ; // x29:28/--
+			ulong x30 = decode32(n, 105) ; // x30:32/--
+			ulong x31 = (decode24(n, 109) << 4) ; // x31:28/--
+			ulong x32 = decode16(n, 112) ; // x32:16/--
 
 	//        x32 += (x31 >>> 28); x31 &= M28L;
 			x16 += x32 * L4_0; // x16:42/--
@@ -770,7 +770,7 @@ namespace org.bouncycastle.math.ec.rfc8032
 			x22 += x32 * L4_6; // x22:43/41
 			x23 += x32 * L4_7; // x23:45/41
 
-			x31 += ((long)((ulong)x30 >> 28));
+			x31 += x30 >> 28;
 			x30 &= M28L; // x31:28/--, x30:28/--
 			x15 += x31 * L4_0; // x15:54/--
 			x16 += x31 * L4_1; // x16:53/42
@@ -791,7 +791,7 @@ namespace org.bouncycastle.math.ec.rfc8032
 			x20 += x30 * L4_6; // x20:57/--
 			x21 += x30 * L4_7; // x21:57/56
 
-			x29 += ((long)((ulong)x28 >> 28));
+			x29 += x28 >> 28;
 			x28 &= M28L; // x29:28/--, x28:28/--
 			x13 += x29 * L4_0; // x13:54/--
 			x14 += x29 * L4_1; // x14:54/53
@@ -812,7 +812,7 @@ namespace org.bouncycastle.math.ec.rfc8032
 			x18 += x28 * L4_6; // x18:58/--
 			x19 += x28 * L4_7; // x19:58/53
 
-			x27 += ((long)((ulong)x26 >> 28));
+			x27 += x26 >> 28;
 			x26 &= M28L; // x27:28/--, x26:28/--
 			x11 += x27 * L4_0; // x11:54/--
 			x12 += x27 * L4_1; // x12:54/53
@@ -833,7 +833,7 @@ namespace org.bouncycastle.math.ec.rfc8032
 			x16 += x26 * L4_6; // x16:58/56
 			x17 += x26 * L4_7; // x17:59/--
 
-			x25 += ((long)((ulong)x24 >> 28));
+			x25 += x24 >> 28;
 			x24 &= M28L; // x25:28/--, x24:28/--
 			x09 += x25 * L4_0; // x09:54/--
 			x10 += x25 * L4_1; // x10:54/53
@@ -844,13 +844,13 @@ namespace org.bouncycastle.math.ec.rfc8032
 			x15 += x25 * L4_6; // x15:58/56
 			x16 += x25 * L4_7; // x16:59/--
 
-			x21 += ((long)((ulong)x20 >> 28));
+			x21 += x20 >> 28;
 			x20 &= M28L; // x21:58/--, x20:28/--
-			x22 += ((long)((ulong)x21 >> 28));
+			x22 += x21 >> 28;
 			x21 &= M28L; // x22:57/54, x21:28/--
-			x23 += ((long)((ulong)x22 >> 28));
+			x23 += x22 >> 28;
 			x22 &= M28L; // x23:45/42, x22:28/--
-			x24 += ((long)((ulong)x23 >> 28));
+			x24 += x23 >> 28;
 			x23 &= M28L; // x24:28/18, x23:28/--
 
 			x08 += x24 * L4_0; // x08:54/--
@@ -879,14 +879,14 @@ namespace org.bouncycastle.math.ec.rfc8032
 			x11 += x22 * L4_5; // x11:58/--
 			x12 += x22 * L4_6; // x12:58/56
 			x13 += x22 * L4_7; // x13:59/--
-
-			x18 += ((long)((ulong)x17 >> 28));
+            
+			x18 += x17 >> 28;
 			x17 &= M28L; // x18:59/31, x17:28/--
-			x19 += ((long)((ulong)x18 >> 28));
+			x19 += x18 >> 28;
 			x18 &= M28L; // x19:58/54, x18:28/--
-			x20 += ((long)((ulong)x19 >> 28));
+			x20 += x19 >> 28;
 			x19 &= M28L; // x20:30/29, x19:28/--
-			x21 += ((long)((ulong)x20 >> 28));
+			x21 += x20 >> 28;
 			x20 &= M28L; // x21:28/03, x20:28/--
 
 			x05 += x21 * L4_0; // x05:54/--
@@ -916,13 +916,13 @@ namespace org.bouncycastle.math.ec.rfc8032
 			x09 += x19 * L4_6; // x09:58/56
 			x10 += x19 * L4_7; // x10:59/--
 
-			x15 += ((long)((ulong)x14 >> 28));
+			x15 += x14 >> 28;
 			x14 &= M28L; // x15:59/31, x14:28/--
-			x16 += ((long)((ulong)x15 >> 28));
+			x16 += x15 >> 28;
 			x15 &= M28L; // x16:59/32, x15:28/--
-			x17 += ((long)((ulong)x16 >> 28));
+			x17 += x16 >> 28;
 			x16 &= M28L; // x17:31/29, x16:28/--
-			x18 += ((long)((ulong)x17 >> 28));
+			x18 += x17 >> 28;
 			x17 &= M28L; // x18:28/04, x17:28/--
 
 			x02 += x18 * L4_0; // x02:54/--
@@ -944,7 +944,7 @@ namespace org.bouncycastle.math.ec.rfc8032
 			x08 += x17 * L4_7; // x08:59/--
 
 			x16 *= 4;
-			x16 += ((long)((ulong)x15 >> 26));
+			x16 += x15 >> 26;
 			x15 &= M26L;
 			x16 += 1; // x16:30/01
 
@@ -957,37 +957,37 @@ namespace org.bouncycastle.math.ec.rfc8032
 			x06 += x16 * L_6;
 			x07 += x16 * L_7;
 
-			x01 += ((long)((ulong)x00 >> 28));
+			x01 += x00 >> 28;
 			x00 &= M28L;
-			x02 += ((long)((ulong)x01 >> 28));
+			x02 += x01 >> 28;
 			x01 &= M28L;
-			x03 += ((long)((ulong)x02 >> 28));
+			x03 += x02 >> 28;
 			x02 &= M28L;
-			x04 += ((long)((ulong)x03 >> 28));
+			x04 += x03 >> 28;
 			x03 &= M28L;
-			x05 += ((long)((ulong)x04 >> 28));
+			x05 += x04 >> 28;
 			x04 &= M28L;
-			x06 += ((long)((ulong)x05 >> 28));
+			x06 += x05 >> 28;
 			x05 &= M28L;
-			x07 += ((long)((ulong)x06 >> 28));
+			x07 += x06 >> 28;
 			x06 &= M28L;
-			x08 += ((long)((ulong)x07 >> 28));
+			x08 += x07 >> 28;
 			x07 &= M28L;
-			x09 += ((long)((ulong)x08 >> 28));
+			x09 += x08 >> 28;
 			x08 &= M28L;
-			x10 += ((long)((ulong)x09 >> 28));
+			x10 += x09 >> 28;
 			x09 &= M28L;
-			x11 += ((long)((ulong)x10 >> 28));
+			x11 += x10 >> 28;
 			x10 &= M28L;
-			x12 += ((long)((ulong)x11 >> 28));
+			x12 += x11 >> 28;
 			x11 &= M28L;
-			x13 += ((long)((ulong)x12 >> 28));
+			x13 += x12 >> 28;
 			x12 &= M28L;
-			x14 += ((long)((ulong)x13 >> 28));
+			x14 += x13 >> 28;
 			x13 &= M28L;
-			x15 += ((long)((ulong)x14 >> 28));
+			x15 += x14 >> 28;
 			x14 &= M28L;
-			x16 = ((long)((ulong)x15 >> 26));
+			x16 = x15 >> 26;
 			x15 &= M26L;
 
 			x16 -= 1;
@@ -1055,12 +1055,12 @@ namespace org.bouncycastle.math.ec.rfc8032
 
 			pointSetNeutral(r);
 
-			int[] n = new int[SCALAR_INTS + 1];
+			uint[] n = new uint[SCALAR_INTS + 1];
 			decodeScalar(k, 0, n);
 
 			{
 			// Recode the scalar into signed-digit form
-				n[SCALAR_INTS] = 4 + Nat.cadd(SCALAR_INTS, ~n[0] & 1, n, L, n);
+				n[SCALAR_INTS] = 4 + Nat.cAdd(SCALAR_INTS, ~(int)n[0] & 1, n, L, n);
 	//            int c = Nat.shiftDownBit(n.length, n, 0);                           assert c == (1 << 31);
 				Nat.shiftDownBit(n.Length, n, 0);
 			}
@@ -1074,17 +1074,17 @@ namespace org.bouncycastle.math.ec.rfc8032
 
 				for (int b = 0; b < PRECOMP_BLOCKS; ++b)
 				{
-					int w = 0;
+					uint w = 0;
 					for (int t = 0; t < PRECOMP_TEETH; ++t)
 					{
-						int tBit = (int)((uint)n[(int)((uint)tPos >> 5)] >> (tPos & 0x1F));
-						w &= ~(1 << t);
+						uint tBit = n[tPos >> 5] >> (tPos & 0x1F);
+						w &= ~(1U << t);
 						w ^= (tBit << t);
 						tPos += PRECOMP_SPACING;
 					}
 
-					int sign = ((int)((uint)w >> (PRECOMP_TEETH - 1))) & 1;
-					int abs = (w ^ -sign) & PRECOMP_MASK;
+					int sign = ((int)(w >> (PRECOMP_TEETH - 1))) & 1;
+					int abs = ((int)w ^ -sign) & PRECOMP_MASK;
 
 	//                assert sign == 0 || sign == 1;
 	//                assert 0 <= abs && abs < PRECOMP_POINTS;
@@ -1131,7 +1131,7 @@ namespace org.bouncycastle.math.ec.rfc8032
 			X448Field.copy(p.y, 0, y, 0);
 		}
 
-		private static void scalarMultStraussVar(int[] nb, int[] np, PointExt p, PointExt r)
+		private static void scalarMultStraussVar(uint[] nb, uint[] np, PointExt p, PointExt r)
 		{
 			precompute();
 

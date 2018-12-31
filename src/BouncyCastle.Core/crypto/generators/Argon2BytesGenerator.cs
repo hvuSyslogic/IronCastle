@@ -124,7 +124,7 @@ namespace org.bouncycastle.crypto.generators
 				b.clear();
 			}
 			memory = null;
-			Arrays.fill(result, (byte)0);
+			Arrays.fill(result, 0);
 			doInit(parameters);
 		}
 
@@ -600,7 +600,7 @@ namespace org.bouncycastle.crypto.generators
 
 		private long intToLong(int x)
 		{
-			return (long)(x & 0xffffffffL);
+			return x & 0xffffffffL;
 		}
 
 		public class Block

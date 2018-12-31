@@ -5,7 +5,6 @@ namespace org.bouncycastle.math.ec.custom.sec
 {
 
 	using AbstractF2m = org.bouncycastle.math.ec.ECCurve.AbstractF2m;
-	using Nat448 = org.bouncycastle.math.raw.Nat448;
 	using Hex = org.bouncycastle.util.encoders.Hex;
 
 	public class SecT409R1Curve : ECCurve.AbstractF2m
@@ -104,7 +103,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			const int FE_LONGS = 7;
 
 
-			long[] table = new long[len * FE_LONGS * 2];
+			ulong[] table = new ulong[len * FE_LONGS * 2];
 			{
 				int pos = 0;
 				for (int i = 0; i < len; ++i)
@@ -117,18 +116,18 @@ namespace org.bouncycastle.math.ec.custom.sec
 				}
 			}
 
-			return new ECLookupTableAnonymousInnerClass(this, len, FE_LONGS, table);
+			return new SecT409R1CurveLookupTable(this, len, FE_LONGS, table);
 		}
 
-		public class ECLookupTableAnonymousInnerClass : ECLookupTable
+		public class SecT409R1CurveLookupTable : ECLookupTable
 		{
 			private readonly SecT409R1Curve outerInstance;
 
 			private int len;
 			private int FE_LONGS;
-			private long[] table;
+			private ulong[] table;
 
-			public ECLookupTableAnonymousInnerClass(SecT409R1Curve outerInstance, int len, int FE_LONGS, long[] table)
+			public SecT409R1CurveLookupTable(SecT409R1Curve outerInstance, int len, int FE_LONGS, ulong[] table)
 			{
 				this.outerInstance = outerInstance;
 				this.len = len;
@@ -143,12 +142,12 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 			public ECPoint lookup(int index)
 			{
-				long[] x = Nat448.create64(), y = Nat448.create64();
+				ulong[] x = Nat448.create64(), y = Nat448.create64();
 				int pos = 0;
 
 				for (int i = 0; i < len; ++i)
 				{
-					long MASK = ((i ^ index) - 1) >> 31;
+					ulong MASK = (ulong)(((i ^ index) - 1) >> 31);
 
 					for (int j = 0; j < FE_LONGS; ++j)
 					{

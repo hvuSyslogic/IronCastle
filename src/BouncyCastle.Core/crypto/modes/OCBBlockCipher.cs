@@ -227,7 +227,7 @@ namespace org.bouncycastle.crypto.modes
 			nonce[15 - N.Length] |= 1;
 
 			int bottom = nonce[15] & 0x3F;
-			nonce[15] &= unchecked((byte)0xC0);
+			nonce[15] &= unchecked(0xC0);
 
 			/*
 			 * When used with incrementing nonces, the cipher is only applied once every 64 inits.
@@ -439,7 +439,7 @@ namespace org.bouncycastle.crypto.modes
 		{
 			if (bs != null)
 			{
-				Arrays.fill(bs, (byte)0);
+				Arrays.fill(bs, 0);
 			}
 		}
 
@@ -547,7 +547,7 @@ namespace org.bouncycastle.crypto.modes
 
 		protected internal static void OCB_extend(byte[] block, int pos)
 		{
-			block[pos] = unchecked((byte)0x80);
+			block[pos] = unchecked(0x80);
 			while (++pos < 16)
 			{
 				block[pos] = 0;

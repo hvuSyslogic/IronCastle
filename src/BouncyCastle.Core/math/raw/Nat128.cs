@@ -609,7 +609,7 @@ namespace Org.BouncyCastle.Math.Raw
 
                 {
                     ulong p = x0 * x0;
-                    zz1 = (ulong)(c << 31) | (p >> 33);
+                    zz1 = c << 31 | (p >> 33);
                     zz[0] = (uint)p;
                     c = (uint)(p >> 32) & 1;
                 }
@@ -685,7 +685,7 @@ namespace Org.BouncyCastle.Math.Raw
 
                 {
                     ulong p = x0 * x0;
-                    zz1 = (ulong)(c << 31) | (p >> 33);
+                    zz1 = c << 31 | (p >> 33);
                     zz[zzOff + 0] = (uint)p;
                     c = (uint)(p >> 32) & 1;
                 }

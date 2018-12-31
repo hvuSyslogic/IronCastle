@@ -73,11 +73,11 @@ namespace org.bouncycastle.pqc.crypto.gmss.util
 
 			mdsize = messDigestOTS.getDigestSize();
 			int mdsizeBit = mdsize << 3;
-			messagesize = (int)Math.Ceiling((double)(mdsizeBit) / (double)w);
+			messagesize = (int)Math.Ceiling(mdsizeBit / (double)w);
 
 			checksumsize = getLog((messagesize << w) + 1);
 
-			keysize = messagesize + (int)Math.Ceiling((double)checksumsize / (double)w);
+			keysize = messagesize + (int)Math.Ceiling(checksumsize / (double)w);
 
 			/*
 			   * mdsize = messDigestOTS.getDigestLength(); messagesize =

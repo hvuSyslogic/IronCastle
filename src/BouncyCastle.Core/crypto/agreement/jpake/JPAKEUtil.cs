@@ -288,7 +288,7 @@ namespace org.bouncycastle.crypto.agreement.jpake
 
 			mac.doFinal(macOutput, 0);
 
-			Arrays.fill(macKey, (byte)0);
+			Arrays.fill(macKey, 0);
 
 			return new BigInteger(macOutput);
 
@@ -344,7 +344,7 @@ namespace org.bouncycastle.crypto.agreement.jpake
 		{
 			byte[] byteArray = BigIntegers.asUnsignedByteArray(bigInteger);
 			digest.update(byteArray, 0, byteArray.Length);
-			Arrays.fill(byteArray, (byte)0);
+			Arrays.fill(byteArray, 0);
 		}
 
 		private static void updateDigestIncludingSize(Digest digest, BigInteger bigInteger)
@@ -352,14 +352,14 @@ namespace org.bouncycastle.crypto.agreement.jpake
 			byte[] byteArray = BigIntegers.asUnsignedByteArray(bigInteger);
 			digest.update(intToByteArray(byteArray.Length), 0, 4);
 			digest.update(byteArray, 0, byteArray.Length);
-			Arrays.fill(byteArray, (byte)0);
+			Arrays.fill(byteArray, 0);
 		}
 
 		private static void updateDigest(Digest digest, string @string)
 		{
 			byte[] byteArray = Strings.toUTF8ByteArray(@string);
 			digest.update(byteArray, 0, byteArray.Length);
-			Arrays.fill(byteArray, (byte)0);
+			Arrays.fill(byteArray, 0);
 		}
 
 		private static void updateDigestIncludingSize(Digest digest, string @string)
@@ -367,21 +367,21 @@ namespace org.bouncycastle.crypto.agreement.jpake
 			byte[] byteArray = Strings.toUTF8ByteArray(@string);
 			digest.update(intToByteArray(byteArray.Length), 0, 4);
 			digest.update(byteArray, 0, byteArray.Length);
-			Arrays.fill(byteArray, (byte)0);
+			Arrays.fill(byteArray, 0);
 		}
 
 		private static void updateMac(Mac mac, BigInteger bigInteger)
 		{
 			byte[] byteArray = BigIntegers.asUnsignedByteArray(bigInteger);
 			mac.update(byteArray, 0, byteArray.Length);
-			Arrays.fill(byteArray, (byte)0);
+			Arrays.fill(byteArray, 0);
 		}
 
 		private static void updateMac(Mac mac, string @string)
 		{
 			byte[] byteArray = Strings.toUTF8ByteArray(@string);
 			mac.update(byteArray, 0, byteArray.Length);
-			Arrays.fill(byteArray, (byte)0);
+			Arrays.fill(byteArray, 0);
 		}
 
 		private static byte[] intToByteArray(int value)

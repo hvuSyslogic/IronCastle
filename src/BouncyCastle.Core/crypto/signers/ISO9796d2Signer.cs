@@ -323,7 +323,7 @@ namespace org.bouncycastle.crypto.signers
 				t = 8;
 				delta = block.Length - digSize - 1;
 				digest.doFinal(block, delta);
-				block[block.Length - 1] = (byte)ISOTrailers.TRAILER_IMPLICIT;
+				block[block.Length - 1] = ISOTrailers.TRAILER_IMPLICIT;
 			}
 			else
 			{
@@ -362,15 +362,15 @@ namespace org.bouncycastle.crypto.signers
 			{
 				for (int i = delta - 1; i != 0; i--)
 				{
-					block[i] = unchecked((byte)0xbb);
+					block[i] = unchecked(0xbb);
 				}
-				block[delta - 1] ^= (byte)0x01;
-				block[0] = (byte)0x0b;
+				block[delta - 1] ^= 0x01;
+				block[0] = 0x0b;
 				block[0] |= header;
 			}
 			else
 			{
-				block[0] = (byte)0x0a;
+				block[0] = 0x0a;
 				block[0] |= header;
 			}
 

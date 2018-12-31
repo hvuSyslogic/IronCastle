@@ -2,7 +2,7 @@
 {
 	public class BasicGCMMultiplier : GCMMultiplier
 	{
-		private long[] H;
+		private ulong[] H;
 
 		public virtual void init(byte[] H)
 		{
@@ -11,7 +11,7 @@
 
 		public virtual void multiplyH(byte[] x)
 		{
-			long[] t = GCMUtil.asLongs(x);
+			ulong[] t = GCMUtil.asLongs(x);
 			GCMUtil.multiply(t, H);
 			GCMUtil.asBytes(t, x);
 		}

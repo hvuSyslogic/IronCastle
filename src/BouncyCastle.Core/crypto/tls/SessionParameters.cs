@@ -130,7 +130,7 @@ namespace org.bouncycastle.crypto.tls
 		{
 			if (this.masterSecret != null)
 			{
-				Arrays.fill(this.masterSecret, (byte)0);
+				Arrays.fill(this.masterSecret, 0);
 			}
 		}
 

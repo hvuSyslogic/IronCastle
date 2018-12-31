@@ -317,7 +317,7 @@ namespace org.bouncycastle.crypto.generators
 		/// <returns> a byte representation of the password in UTF8 + trailing zero. </returns>
 		public static byte[] passwordToByteArray(char[] password)
 		{
-			return Arrays.append(Strings.toUTF8ByteArray(password), (byte)0);
+			return Arrays.append(Strings.toUTF8ByteArray(password), 0);
 		}
 
 		/// <summary>

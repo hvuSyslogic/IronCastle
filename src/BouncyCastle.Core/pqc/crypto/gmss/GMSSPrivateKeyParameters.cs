@@ -586,7 +586,7 @@ namespace org.bouncycastle.pqc.crypto.gmss
 				// compute (partial) next leaf for all treehashs on tree above (not
 				// on layer 0)
 
-				int t = (int)Math.Floor((double)(this.getNumLeafs(layer) * 2) / (double)(this.heightOfTrees[layer - 1] - this.K[layer - 1]));
+				int t = (int)Math.Floor(this.getNumLeafs(layer) * 2 / (double)(this.heightOfTrees[layer - 1] - this.K[layer - 1]));
 
 				if (index[layer] % t == 1)
 				{

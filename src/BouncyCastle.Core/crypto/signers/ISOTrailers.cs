@@ -45,7 +45,7 @@ namespace org.bouncycastle.crypto.signers
 
 		public static int? getTrailer(Digest digest)
 		{
-			return (int?)trailerMap.get(digest.getAlgorithmName()); // JDK 1.4 compatibility
+			return trailerMap.get(digest.getAlgorithmName()); // JDK 1.4 compatibility
 		}
 
 		public static bool noTrailerAvailable(Digest digest)

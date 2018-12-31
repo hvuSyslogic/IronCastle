@@ -254,11 +254,11 @@ namespace org.bouncycastle.crypto.digests
 		{
 			long bitLength = (byteCount << 3);
 
-			update((byte)0x01);
+			update(0x01);
 
 			while (bOff != 0)
 			{
-				update((byte)0);
+				update(0);
 			}
 
 			processLength(bitLength);

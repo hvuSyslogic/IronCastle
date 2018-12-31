@@ -13,7 +13,6 @@ namespace org.bouncycastle.math.ec
 	using GLVEndomorphism = org.bouncycastle.math.ec.endo.GLVEndomorphism;
 	using FiniteField = org.bouncycastle.math.field.FiniteField;
 	using FiniteFields = org.bouncycastle.math.field.FiniteFields;
-	using Nat = org.bouncycastle.math.raw.Nat;
 	using BigIntegers = org.bouncycastle.util.BigIntegers;
 	using Integers = org.bouncycastle.util.Integers;
 
@@ -1204,7 +1203,7 @@ namespace org.bouncycastle.math.ec
 			}
 
 
-			public override ECLookupTable createCacheSafeLookupTable(ECPoint[] points, int off, int len)
+			public override ec.ECLookupTable createCacheSafeLookupTable(ECPoint[] points, int off, int len)
 			{
 
 				int FE_LONGS = (int)((uint)(m + 63) >> 6);
@@ -1212,7 +1211,7 @@ namespace org.bouncycastle.math.ec
 				int[] ks = isTrinomial() ? new int[]{k1} : new int[]{k1, k2, k3};
 
 
-				long[] table = new long[len * FE_LONGS * 2];
+				ulong[] table = new ulong[len * FE_LONGS * 2];
 				{
 					int pos = 0;
 					for (int i = 0; i < len; ++i)
@@ -1225,19 +1224,19 @@ namespace org.bouncycastle.math.ec
 					}
 				}
 
-				return new ECLookupTableAnonymousInnerClass(this, len, FE_LONGS, ks, table);
+				return new ECLookupTable(this, len, FE_LONGS, ks, table);
 			}
 
-			public class ECLookupTableAnonymousInnerClass : ECLookupTable
+			public class ECLookupTable : ec.ECLookupTable
 			{
 				private readonly F2m outerInstance;
 
 				private int len;
 				private int FE_LONGS;
 				private int[] ks;
-				private long[] table;
+				private ulong[] table;
 
-				public ECLookupTableAnonymousInnerClass(F2m outerInstance, int len, int FE_LONGS, int[] ks, long[] table)
+				public ECLookupTable(F2m outerInstance, int len, int FE_LONGS, int[] ks, ulong[] table)
 				{
 					this.outerInstance = outerInstance;
 					this.len = len;
@@ -1253,12 +1252,12 @@ namespace org.bouncycastle.math.ec
 
 				public ECPoint lookup(int index)
 				{
-					long[] x = Nat.create64(FE_LONGS), y = Nat.create64(FE_LONGS);
+					ulong[] x = Nat.create64(FE_LONGS), y = Nat.create64(FE_LONGS);
 					int pos = 0;
 
 					for (int i = 0; i < len; ++i)
 					{
-						long MASK = ((i ^ index) - 1) >> 31;
+						ulong MASK = (ulong)(((i ^ index) - 1) >> 31);
 
 						for (int j = 0; j < FE_LONGS; ++j)
 						{

@@ -274,7 +274,7 @@ namespace org.bouncycastle.asn1
 
 			for (int i = 0; i != length; i++)
 			{
-				@out.write((byte)time[i]);
+				@out.write(time[i]);
 			}
 		}
 

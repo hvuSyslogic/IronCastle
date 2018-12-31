@@ -520,7 +520,7 @@ namespace org.bouncycastle.crypto.modes
 
 			if (bufBlock != null)
 			{
-				Arrays.fill(bufBlock, (byte)0);
+				Arrays.fill(bufBlock, 0);
 			}
 
 			if (clearMac)

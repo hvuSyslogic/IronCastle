@@ -122,7 +122,7 @@ namespace org.bouncycastle.pqc.crypto.gmss
 			this.k = (1 << w) - 1;
 
 			int mdsizeBit = mdsize << 3;
-			this.messagesize = (int)Math.Ceiling((double)(mdsizeBit) / (double)w);
+			this.messagesize = (int)Math.Ceiling(mdsizeBit / (double)w);
 
 			this.privateKeyOTS = statByte[0];
 			this.seed = statByte[1];
@@ -155,7 +155,7 @@ namespace org.bouncycastle.pqc.crypto.gmss
 			this.k = (1 << w) - 1;
 
 			int mdsizeBit = mdsize << 3;
-			this.messagesize = (int)Math.Ceiling((double)(mdsizeBit) / (double)w);
+			this.messagesize = (int)Math.Ceiling(mdsizeBit / (double)w);
 		}
 
 		/// <summary>
@@ -306,11 +306,11 @@ namespace org.bouncycastle.pqc.crypto.gmss
 			} // end if(w<57)
 
 			// calculate keysize
-			this.keysize = messagesize + (int)Math.Ceiling((double)checksumsize / (double)w);
+			this.keysize = messagesize + (int)Math.Ceiling(checksumsize / (double)w);
 
 			// calculate steps: 'keysize' times PRNG, 'sumH' times hashing,
 			// (1<<height)-1 updateSign() calls
-			this.steps = (int)Math.Ceiling((double)(keysize + sumH) / (double)((1 << height)));
+			this.steps = (int)Math.Ceiling((keysize + sumH) / (double)((1 << height)));
 			// ----------------------------
 
 			// reset variables

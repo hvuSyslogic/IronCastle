@@ -10,8 +10,6 @@ namespace org.bouncycastle.math.ec.rfc8032
 	using SHA512Digest = org.bouncycastle.crypto.digests.SHA512Digest;
 	using X25519 = org.bouncycastle.math.ec.rfc7748.X25519;
 	using X25519Field = org.bouncycastle.math.ec.rfc7748.X25519Field;
-	using Interleave = org.bouncycastle.math.raw.Interleave;
-	using Nat = org.bouncycastle.math.raw.Nat;
 	
 	using Arrays = org.bouncycastle.util.Arrays;
 	using Strings = org.bouncycastle.util.Strings;
@@ -46,8 +44,8 @@ namespace org.bouncycastle.math.ec.rfc8032
 
 		private static readonly byte[] DOM2_PREFIX = Strings.toByteArray("SigEd25519 no Ed25519 collisions");
 
-		private static readonly int[] P = new int[]{unchecked((int)0xFFFFFFED), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), unchecked((int)0xFFFFFFFF), 0x7FFFFFFF};
-		private static readonly int[] L = new int[]{0x5CF5D3ED, 0x5812631A, unchecked((int)0xA2F79CD6), 0x14DEF9DE, 0x00000000, 0x00000000, 0x00000000, 0x10000000};
+		private static readonly uint[] P = new uint[]{0xFFFFFFED, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0x7FFFFFFF};
+		private static readonly uint[] L = new uint[]{0x5CF5D3ED, 0x5812631A, 0xA2F79CD6, 0x14DEF9DE, 0x00000000, 0x00000000, 0x00000000, 0x10000000};
 
 		private const int L0 = unchecked((int)0xFCF5D3ED); // L0:26/--
 		private const int L1 = 0x012631A6; // L1:24/22
@@ -100,11 +98,11 @@ namespace org.bouncycastle.math.ec.rfc8032
 
 		private static byte[] calculateS(byte[] r, byte[] k, byte[] s)
 		{
-			int[] t = new int[SCALAR_INTS * 2];
+			uint[] t = new uint[SCALAR_INTS * 2];
 			decodeScalar(r, 0, t);
-			int[] u = new int[SCALAR_INTS];
+			uint[] u = new uint[SCALAR_INTS];
 			decodeScalar(k, 0, u);
-			int[] v = new int[SCALAR_INTS];
+			uint[] v = new uint[SCALAR_INTS];
 			decodeScalar(s, 0, v);
 
 			Nat256.mulAddTo(u, v, t);
@@ -124,7 +122,7 @@ namespace org.bouncycastle.math.ec.rfc8032
 
 		private static bool checkPointVar(byte[] p)
 		{
-			int[] t = new int[8];
+			uint[] t = new uint[8];
 			decode32(p, 0, t, 0, 8);
 			t[7] &= 0x7FFFFFFF;
 			return !Nat256.gte(t, P);
@@ -132,7 +130,7 @@ namespace org.bouncycastle.math.ec.rfc8032
 
 		private static bool checkScalarVar(byte[] s)
 		{
-			int[] n = new int[SCALAR_INTS];
+			uint[] n = new uint[SCALAR_INTS];
 			decodeScalar(s, 0, n);
 			return !Nat256.gte(n, L);
 		}
@@ -155,16 +153,16 @@ namespace org.bouncycastle.math.ec.rfc8032
 			return n;
 		}
 
-		private static int decode32(byte[] bs, int off)
+		private static uint decode32(byte[] bs, int off)
 		{
-			int n = bs[off] & 0xFF;
-			n |= (bs[++off] & 0xFF) << 8;
-			n |= (bs[++off] & 0xFF) << 16;
-			n |= bs[++off] << 24;
+			uint n = bs[off] ;
+			n |= (uint)bs[++off] << 8;
+			n |= (uint)bs[++off] << 16;
+			n |= (uint)bs[++off] << 24;
 			return n;
 		}
 
-		private static void decode32(byte[] bs, int bsOff, int[] n, int nOff, int nLen)
+		private static void decode32(byte[] bs, int bsOff, uint[] n, int nOff, int nLen)
 		{
 			for (int i = 0; i < nLen; ++i)
 			{
@@ -213,7 +211,7 @@ namespace org.bouncycastle.math.ec.rfc8032
 			return true;
 		}
 
-		private static void decodeScalar(byte[] k, int kOff, int[] n)
+		private static void decodeScalar(byte[] k, int kOff, uint[] n)
 		{
 			decode32(k, kOff, n, 0, SCALAR_INTS);
 		}
@@ -229,25 +227,25 @@ namespace org.bouncycastle.math.ec.rfc8032
 			}
 		}
 
-		private static void encode24(int n, byte[] bs, int off)
+		private static void encode24(uint n, byte[] bs, int off)
 		{
 			bs[off] = (byte)(n);
-			bs[++off] = (byte)((int)((uint)n >> 8));
-			bs[++off] = (byte)((int)((uint)n >> 16));
+			bs[++off] = (byte)(n >> 8);
+			bs[++off] = (byte)(n >> 16);
 		}
 
-		private static void encode32(int n, byte[] bs, int off)
+		private static void encode32(uint n, byte[] bs, int off)
 		{
 			bs[off] = (byte)(n);
-			bs[++off] = (byte)((int)((uint)n >> 8));
-			bs[++off] = (byte)((int)((uint)n >> 16));
-			bs[++off] = (byte)((int)((uint)n >> 24));
+			bs[++off] = (byte)(n >> 8);
+			bs[++off] = (byte)(n >> 16);
+			bs[++off] = (byte)(n >> 24);
 		}
 
 		private static void encode56(long n, byte[] bs, int off)
 		{
-			encode32((int)n, bs, off);
-			encode24((int)((long)((ulong)n >> 32)), bs, off + 4);
+			encode32((uint)n, bs, off);
+			encode24((uint)(n >> 32), bs, off + 4);
 		}
 
 		private static void encodePoint(PointAccum p, byte[] r, int rOff)
@@ -284,18 +282,19 @@ namespace org.bouncycastle.math.ec.rfc8032
 			scalarMultBaseEncoded(s, pk, pkOff);
 		}
 
-		private static byte[] getWNAF(int[] n, int width)
+		private static byte[] getWNAF(uint[] n, int width)
 		{
 	//        assert n[SCALAR_INTS - 1] >>> 31 == 0;
 
-			int[] t = new int[SCALAR_INTS * 2];
-			{
-				int tPos = t.Length, c = 0;
+			uint[] t = new uint[SCALAR_INTS * 2];
+            {
+                uint c = 0;
+				int tPos = t.Length;
 				int i = SCALAR_INTS;
 				while (--i >= 0)
 				{
-					int next = n[i];
-					t[--tPos] = ((int)((uint)next >> 16)) | (c << 16);
+					uint next = n[i];
+					t[--tPos] = ((next >> 16)) | (c << 16);
 					t[--tPos] = c = next;
 				}
 			}
@@ -312,10 +311,10 @@ namespace org.bouncycastle.math.ec.rfc8032
 			int j = 0, carry = 0;
 			for (int i = 0; i < t.Length; ++i, j -= 16)
 			{
-				int word = t[i];
+				uint word = t[i];
 				while (j < 16)
 				{
-					int word16 = (int)((uint)word >> j);
+					int word16 = (int)(word >> j);
 					int bit = word16 & 1;
 
 					if (bit == carry)
@@ -441,10 +440,10 @@ namespace org.bouncycastle.math.ec.rfc8032
 
 			byte[] k = reduceScalar(h);
 
-			int[] nS = new int[SCALAR_INTS];
+			uint[] nS = new uint[SCALAR_INTS];
 			decodeScalar(S, 0, nS);
 
-			int[] nA = new int[SCALAR_INTS];
+			uint[] nA = new uint[SCALAR_INTS];
 			decodeScalar(k, 0, nA);
 
 			PointAccum pR = new PointAccum();
@@ -635,11 +634,11 @@ namespace org.bouncycastle.math.ec.rfc8032
 			for (int i = 0; i < PRECOMP_POINTS; ++i)
 			{
 				int mask = ((i ^ index) - 1) >> 31;
-				Nat.cmov(X25519Field.SIZE, mask, precompBase, off, p.ypx_h, 0);
+				Nat.cMov(X25519Field.SIZE, mask, precompBase, off, p.ypx_h, 0);
 				off += X25519Field.SIZE;
-				Nat.cmov(X25519Field.SIZE, mask, precompBase, off, p.ymx_h, 0);
+				Nat.cMov(X25519Field.SIZE, mask, precompBase, off, p.ymx_h, 0);
 				off += X25519Field.SIZE;
-				Nat.cmov(X25519Field.SIZE, mask, precompBase, off, p.xyd, 0);
+				Nat.cMov(X25519Field.SIZE, mask, precompBase, off, p.xyd, 0);
 				off += X25519Field.SIZE;
 			}
 		}
@@ -782,7 +781,7 @@ namespace org.bouncycastle.math.ec.rfc8032
 		{
 			JavaSystem.arraycopy(n, nOff, r, 0, SCALAR_BYTES);
 
-			r[0] &= unchecked((byte)0xF8);
+			r[0] &= 0xF8;
 			r[SCALAR_BYTES - 1] &= 0x7F;
 			r[SCALAR_BYTES - 1] |= 0x40;
 		}
@@ -944,7 +943,7 @@ namespace org.bouncycastle.math.ec.rfc8032
 			encode56(x02 | (x03 << 28), r, 7);
 			encode56(x04 | (x05 << 28), r, 14);
 			encode56(x06 | (x07 << 28), r, 21);
-			encode32((int)x08, r, 28);
+			encode32((uint)x08, r, 28);
 			return r;
 		}
 
@@ -954,13 +953,13 @@ namespace org.bouncycastle.math.ec.rfc8032
 
 			pointSetNeutral(r);
 
-			int[] n = new int[SCALAR_INTS];
+			uint[] n = new uint[SCALAR_INTS];
 			decodeScalar(k, 0, n);
 
 			{
 			// Recode the scalar into signed-digit form, then group comb bits in each block
 	//            int c1 = Nat.cadd(SCALAR_INTS, ~n[0] & 1, n, L, n);     assert c1 == 0;
-				Nat.cadd(SCALAR_INTS, ~n[0] & 1, n, L, n);
+				Nat.cAdd(SCALAR_INTS, ~(int)n[0] & 1, n, L, n);
 	//            int c2 = Nat.shiftDownBit(SCALAR_INTS, n, 1);           assert c2 == (1 << 31);
 				Nat.shiftDownBit(SCALAR_INTS, n, 1);
 
@@ -977,7 +976,7 @@ namespace org.bouncycastle.math.ec.rfc8032
 			{
 				for (int b = 0; b < PRECOMP_BLOCKS; ++b)
 				{
-					int w = (int)((uint)n[b] >> cOff);
+					int w = (int)(n[b] >> cOff);
 					int sign = ((int)((uint)w >> (PRECOMP_TEETH - 1))) & 1;
 					int abs = (w ^ -sign) & PRECOMP_MASK;
 
@@ -1027,7 +1026,7 @@ namespace org.bouncycastle.math.ec.rfc8032
 			X25519Field.copy(p.z, 0, z, 0);
 		}
 
-		private static void scalarMultStraussVar(int[] nb, int[] np, PointExt p, PointAccum r)
+		private static void scalarMultStraussVar(uint[] nb, uint[] np, PointExt p, PointAccum r)
 		{
 			precompute();
 

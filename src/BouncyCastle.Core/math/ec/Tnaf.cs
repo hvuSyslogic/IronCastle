@@ -640,7 +640,7 @@ namespace org.bouncycastle.math.ec
 			int a = curve.getA().toBigInteger().intValue();
 			sbyte mu = getMu(a);
 			BigInteger[] s = curve.getSi();
-			ZTauElement rho = partModReduction(k, m, (sbyte)a, s, mu, (sbyte)10);
+			ZTauElement rho = partModReduction(k, m, (sbyte)a, s, mu, 10);
 
 			return multiplyTnaf(p, rho);
 		}

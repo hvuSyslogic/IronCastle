@@ -119,11 +119,11 @@ namespace org.bouncycastle.crypto.digests
 			//
 			// add the pad bytes.
 			//
-			update(unchecked((byte)128));
+			update(unchecked(128));
 
 			while (xBufOff != 0)
 			{
-				update((byte)0);
+				update(0);
 			}
 
 			processLength(bitLength);

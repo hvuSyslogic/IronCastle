@@ -252,7 +252,7 @@ namespace org.bouncycastle.crypto.encodings
 
 			if (defHashWrong | wrongData | dataStartWrong)
 			{
-				Arrays.fill(block, (byte)0);
+				Arrays.fill(block, 0);
 				throw new InvalidCipherTextException("data wrong");
 			}
 

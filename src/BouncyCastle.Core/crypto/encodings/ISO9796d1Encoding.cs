@@ -173,7 +173,7 @@ namespace org.bouncycastle.crypto.encodings
 			else
 			{
 				block[0] = 0x00;
-				block[1] |= unchecked((byte)0x80);
+				block[1] |= unchecked(0x80);
 				offSet = 1;
 			}
 

@@ -59,7 +59,7 @@ internal static class StringHelper
 	}
 	public static string NewString(byte[] bytes, int index, int count)
 	{
-		return System.Text.Encoding.UTF8.GetString((byte[])(object)bytes, index, count);
+		return System.Text.Encoding.UTF8.GetString(bytes, index, count);
 	}
 	public static string NewString(byte[] bytes, string encoding)
 	{
@@ -67,7 +67,7 @@ internal static class StringHelper
 	}
 	public static string NewString(byte[] bytes, int index, int count, string encoding)
 	{
-		return System.Text.Encoding.GetEncoding(encoding).GetString((byte[])(object)bytes, index, count);
+		return System.Text.Encoding.GetEncoding(encoding).GetString(bytes, index, count);
 	}
 
 	//--------------------------------------------------------------------------------
@@ -88,7 +88,7 @@ internal static class StringHelper
 	private static byte[] GetSBytesForEncoding(System.Text.Encoding encoding, string s)
 	{
 		byte[] sbytes = new byte[encoding.GetByteCount(s)];
-		encoding.GetBytes(s, 0, s.Length, (byte[])(object)sbytes, 0);
+		encoding.GetBytes(s, 0, s.Length, sbytes, 0);
 		return sbytes;
 	}
 }

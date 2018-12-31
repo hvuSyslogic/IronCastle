@@ -20,7 +20,7 @@ namespace org.bouncycastle.crypto.signers
 	/// </summary>
 	public class PSSSigner : Signer
 	{
-		public static readonly byte TRAILER_IMPLICIT = unchecked((byte)0xBC);
+		public static readonly byte TRAILER_IMPLICIT = unchecked(0xBC);
 
 		private Digest contentDigest;
 		private Digest mgfDigest;

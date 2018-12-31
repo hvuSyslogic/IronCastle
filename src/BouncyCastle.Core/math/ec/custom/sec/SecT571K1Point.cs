@@ -101,13 +101,13 @@ namespace org.bouncycastle.math.ec.custom.sec
 			SecT571FieldElement L1 = (SecT571FieldElement)this.y, Z1 = (SecT571FieldElement)this.zs[0];
 			SecT571FieldElement L2 = (SecT571FieldElement)b.getRawYCoord(), Z2 = (SecT571FieldElement)b.getZCoord(0);
 
-			long[] t1 = Nat576.create64();
-			long[] t2 = Nat576.create64();
-			long[] t3 = Nat576.create64();
-			long[] t4 = Nat576.create64();
+			ulong[] t1 = Nat576.create64();
+			ulong[] t2 = Nat576.create64();
+			ulong[] t3 = Nat576.create64();
+			ulong[] t4 = Nat576.create64();
 
-			long[] Z1Precomp = Z1.isOne() ? null : SecT571Field.precompMultiplicand(Z1.x);
-			long[] U2, S2;
+			ulong[] Z1Precomp = Z1.isOne() ? null : SecT571Field.precompMultiplicand(Z1.x);
+			ulong[] U2, S2;
 			if (Z1Precomp == null)
 			{
 				U2 = X2.x;
@@ -119,8 +119,8 @@ namespace org.bouncycastle.math.ec.custom.sec
 				SecT571Field.multiplyPrecomp(L2.x, Z1Precomp, S2 = t4);
 			}
 
-			long[] Z2Precomp = Z2.isOne() ? null : SecT571Field.precompMultiplicand(Z2.x);
-			long[] U1, S1;
+			ulong[] Z2Precomp = Z2.isOne() ? null : SecT571Field.precompMultiplicand(Z2.x);
+			ulong[] U1, S1;
 			if (Z2Precomp == null)
 			{
 				U1 = X1.x;
@@ -132,10 +132,10 @@ namespace org.bouncycastle.math.ec.custom.sec
 				SecT571Field.multiplyPrecomp(L1.x, Z2Precomp, S1 = t3);
 			}
 
-			long[] A = t3;
+			ulong[] A = t3;
 			SecT571Field.add(S1, S2, A);
 
-			long[] B = t4;
+			ulong[] B = t4;
 			SecT571Field.add(U1, U2, B);
 
 			if (Nat576.isZero64(B))
@@ -173,10 +173,10 @@ namespace org.bouncycastle.math.ec.custom.sec
 			{
 				SecT571Field.square(B, B);
 
-				long[] APrecomp = SecT571Field.precompMultiplicand(A);
+				ulong[] APrecomp = SecT571Field.precompMultiplicand(A);
 
-				long[] AU1 = t1;
-				long[] AU2 = t2;
+				ulong[] AU1 = t1;
+				ulong[] AU2 = t2;
 
 				SecT571Field.multiplyPrecomp(U1, APrecomp, AU1);
 				SecT571Field.multiplyPrecomp(U2, APrecomp, AU2);
@@ -197,7 +197,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 					SecT571Field.multiplyPrecomp(Z3.x, Z2Precomp, Z3.x);
 				}
 
-				long[] tt = Nat576.createExt64();
+				ulong[] tt = Nat576.createExt64();
 
 				SecT571Field.add(AU2, B, t4);
 				SecT571Field.squareAddToExt(t4, tt);

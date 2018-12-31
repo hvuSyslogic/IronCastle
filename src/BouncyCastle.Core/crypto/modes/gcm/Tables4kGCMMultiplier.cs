@@ -6,13 +6,13 @@
 	public class Tables4kGCMMultiplier : GCMMultiplier
 	{
 		private byte[] H;
-		private long[][] T;
+		private ulong[][] T;
 
 		public virtual void init(byte[] H)
 		{
 			if (T == null)
 			{
-				T = RectangularArrays.ReturnRectangularLongArray(256, 2);
+				T = RectangularArrays.ReturnRectangularULongArray(256, 2);
 			}
 			else if (Arrays.areEqual(this.H, H))
 			{
@@ -47,21 +47,21 @@
 	//            GCMUtil.xor(z, T[x[i] & 0xFF]);
 	//        }
 	//        Pack.longToBigEndian(z, x, 0);
-
-			long[] t = T[x[15] & 0xFF];
-			long z0 = t[0], z1 = t[1];
+    
+			ulong[] t = T[x[15] & 0xFF];
+			ulong z0 = t[0], z1 = t[1];
 
 			for (int i = 14; i >= 0; --i)
 			{
 				t = T[x[i] & 0xFF];
 
-				long c = z1 << 56;
-				z1 = t[1] ^ (((long)((ulong)z1 >> 8)) | (z0 << 56));
-				z0 = t[0] ^ ((long)((ulong)z0 >> 8)) ^ c ^ ((long)((ulong)c >> 1)) ^ ((long)((ulong)c >> 2)) ^ ((long)((ulong)c >> 7));
+				ulong c = z1 << 56;
+				z1 = t[1] ^ (((z1 >> 8)) | (z0 << 56));
+				z0 = t[0] ^ ((z0 >> 8)) ^ c ^ ((c >> 1)) ^ ((c >> 2)) ^ ((c >> 7));
 			}
 
-			Pack.longToBigEndian(z0, x, 0);
-			Pack.longToBigEndian(z1, x, 8);
+			Pack.ulongToBigEndian(z0, x, 0);
+			Pack.ulongToBigEndian(z1, x, 8);
 		}
 	}
 

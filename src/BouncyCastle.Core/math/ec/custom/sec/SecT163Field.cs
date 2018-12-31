@@ -6,14 +6,14 @@ namespace org.bouncycastle.math.ec.custom.sec
 {
 
 	
-	using Nat192 = org.bouncycastle.math.raw.Nat192;
+	
 
 	public class SecT163Field
 	{
-		private static readonly long M35 = (long)(unchecked((ulong)-1L) >> 29);
-		private static readonly long M55 = (long)(unchecked((ulong)-1L) >> 9);
+		private static readonly ulong M35 = ulong.MaxValue >> 29;
+		private static readonly ulong M55 = ulong.MaxValue >> 9;
 
-		private static readonly long[] ROOT_Z = new long[]{unchecked((long)0xB6DB6DB6DB6DB6B0L), 0x492492492492DB6DL, 0x492492492L};
+		private static readonly ulong[] ROOT_Z = new ulong[]{unchecked(0xB6DB6DB6DB6DB6B0UL), 0x492492492492DB6DUL, 0x492492492UL};
 
 		public static void add(ulong[] x, ulong[] y, ulong[] z)
 		{
@@ -39,9 +39,9 @@ namespace org.bouncycastle.math.ec.custom.sec
 			z[2] = x[2];
 		}
 
-		public static long[] fromBigInteger(BigInteger x)
+		public static ulong[] fromBigInteger(BigInteger x)
 		{
-			long[] z = Nat192.fromBigInteger64(x);
+			ulong[] z = Nat192.fromBigInteger64(x);
 			reduce29(z, 0);
 			return z;
 		}
@@ -55,8 +55,8 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 			// Itoh-Tsujii inversion with bases { 2, 3 }
 
-			long[] t0 = Nat192.create64();
-			long[] t1 = Nat192.create64();
+			ulong[] t0 = Nat192.create64();
+			ulong[] t1 = Nat192.create64();
 
 			square(x, t0);
 
@@ -91,57 +91,57 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 		public static void multiply(ulong[] x, ulong[] y, ulong[] z)
 		{
-			long[] tt = Nat192.createExt64();
+			ulong[] tt = Nat192.createExt64();
 			implMultiply(x, y, tt);
 			reduce(tt, z);
 		}
 
 		public static void multiplyAddToExt(ulong[] x, ulong[] y, ulong[] zz)
 		{
-			long[] tt = Nat192.createExt64();
+			ulong[] tt = Nat192.createExt64();
 			implMultiply(x, y, tt);
 			addExt(zz, tt, zz);
 		}
 
 		public static void reduce(ulong[] xx, ulong[] z)
 		{
-			long x0 = xx[0], x1 = xx[1], x2 = xx[2], x3 = xx[3], x4 = xx[4], x5 = xx[5];
+			ulong x0 = xx[0], x1 = xx[1], x2 = xx[2], x3 = xx[3], x4 = xx[4], x5 = xx[5];
 
 			x2 ^= (x5 << 29) ^ (x5 << 32) ^ (x5 << 35) ^ (x5 << 36);
-			x3 ^= ((long)((ulong)x5 >> 35)) ^ ((long)((ulong)x5 >> 32)) ^ ((long)((ulong)x5 >> 29)) ^ ((long)((ulong)x5 >> 28));
+			x3 ^= ((x5 >> 35)) ^ ((x5 >> 32)) ^ ((x5 >> 29)) ^ ((x5 >> 28));
 
 			x1 ^= (x4 << 29) ^ (x4 << 32) ^ (x4 << 35) ^ (x4 << 36);
-			x2 ^= ((long)((ulong)x4 >> 35)) ^ ((long)((ulong)x4 >> 32)) ^ ((long)((ulong)x4 >> 29)) ^ ((long)((ulong)x4 >> 28));
+			x2 ^= ((x4 >> 35)) ^ ((x4 >> 32)) ^ ((x4 >> 29)) ^ ((x4 >> 28));
 
 			x0 ^= (x3 << 29) ^ (x3 << 32) ^ (x3 << 35) ^ (x3 << 36);
-			x1 ^= ((long)((ulong)x3 >> 35)) ^ ((long)((ulong)x3 >> 32)) ^ ((long)((ulong)x3 >> 29)) ^ ((long)((ulong)x3 >> 28));
+			x1 ^= ((x3 >> 35)) ^ ((x3 >> 32)) ^ ((x3 >> 29)) ^ ((x3 >> 28));
 
-			long t = (long)((ulong)x2 >> 35);
+			ulong t = (x2 >> 35);
 			z[0] = x0 ^ t ^ (t << 3) ^ (t << 6) ^ (t << 7);
 			z[1] = x1;
 			z[2] = x2 & M35;
 		}
 
-		public static void reduce29(long[] z, int zOff)
+		public static void reduce29(ulong[] z, int zOff)
 		{
-			long z2 = z[zOff + 2], t = (long)((ulong)z2 >> 35);
+			ulong z2 = z[zOff + 2], t = (z2 >> 35);
 			z[zOff] ^= t ^ (t << 3) ^ (t << 6) ^ (t << 7);
 			z[zOff + 2] = z2 & M35;
 		}
 
 		public static void sqrt(ulong[] x, ulong[] z)
 		{
-			long[] odd = Nat192.create64();
+			ulong[] odd = Nat192.create64();
 
-			long u0, u1;
+			ulong u0, u1;
 			u0 = Interleave.unshuffle(x[0]);
 			u1 = Interleave.unshuffle(x[1]);
-			long e0 = (u0 & 0x00000000FFFFFFFFL) | (u1 << 32);
-			odd[0] = ((long)((ulong)u0 >> 32)) | (u1 & unchecked((long)0xFFFFFFFF00000000L));
+			ulong e0 = (u0 & 0x00000000FFFFFFFFL) | (u1 << 32);
+			odd[0] = ((u0 >> 32)) | (u1 & unchecked(0xFFFFFFFF00000000L));
 
 			u0 = Interleave.unshuffle(x[2]);
-			long e1 = (u0 & 0x00000000FFFFFFFFL);
-			odd[1] = ((long)((ulong)u0 >> 32));
+			ulong e1 = (u0 & 0x00000000FFFFFFFFL);
+			odd[1] = ((u0 >> 32));
 
 			multiply(odd, ROOT_Z, z);
 
@@ -151,14 +151,14 @@ namespace org.bouncycastle.math.ec.custom.sec
 
 		public static void square(ulong[] x, ulong[] z)
 		{
-			long[] tt = Nat192.createExt64();
+			ulong[] tt = Nat192.createExt64();
 			implSquare(x, tt);
 			reduce(tt, z);
 		}
 
 		public static void squareAddToExt(ulong[] x, ulong[] zz)
 		{
-			long[] tt = Nat192.createExt64();
+			ulong[] tt = Nat192.createExt64();
 			implSquare(x, tt);
 			addExt(zz, tt, zz);
 		}
@@ -167,7 +167,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 		{
 	//        assert n > 0;
 
-			long[] tt = Nat192.createExt64();
+			ulong[] tt = Nat192.createExt64();
 			implSquare(x, tt);
 			reduce(tt, z);
 
@@ -178,21 +178,21 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		public static int trace(long[] x)
+		public static uint trace(ulong[] x)
 		{
 			// Non-zero-trace bits: 0, 157
-			return (int)(x[0] ^ ((long)((ulong)x[2] >> 29))) & 1;
+			return (uint)(x[0] ^ ((x[2] >> 29))) & 1;
 		}
 
-		protected internal static void implCompactExt(long[] zz)
+		protected internal static void implCompactExt(ulong[] zz)
 		{
-			long z0 = zz[0], z1 = zz[1], z2 = zz[2], z3 = zz[3], z4 = zz[4], z5 = zz[5];
+			ulong z0 = zz[0], z1 = zz[1], z2 = zz[2], z3 = zz[3], z4 = zz[4], z5 = zz[5];
 			zz[0] = z0 ^ (z1 << 55);
-			zz[1] = ((long)((ulong)z1 >> 9)) ^ (z2 << 46);
-			zz[2] = ((long)((ulong)z2 >> 18)) ^ (z3 << 37);
-			zz[3] = ((long)((ulong)z3 >> 27)) ^ (z4 << 28);
-			zz[4] = ((long)((ulong)z4 >> 36)) ^ (z5 << 19);
-			zz[5] = ((long)((ulong)z5 >> 45));
+			zz[1] = ((z1 >> 9)) ^ (z2 << 46);
+			zz[2] = ((z2 >> 18)) ^ (z3 << 37);
+			zz[3] = ((z3 >> 27)) ^ (z4 << 28);
+			zz[4] = ((z4 >> 36)) ^ (z5 << 19);
+			zz[5] = ((z5 >> 45));
 		}
 
 		protected internal static void implMultiply(ulong[] x, ulong[] y, ulong[] zz)
@@ -201,65 +201,65 @@ namespace org.bouncycastle.math.ec.custom.sec
 			 * "Five-way recursion" as described in "Batch binary Edwards", Daniel J. Bernstein.
 			 */
 
-			long f0 = x[0], f1 = x[1], f2 = x[2];
-			f2 = (((long)((ulong)f1 >> 46)) ^ (f2 << 18));
-			f1 = (((long)((ulong)f0 >> 55)) ^ (f1 << 9)) & M55;
+			ulong f0 = x[0], f1 = x[1], f2 = x[2];
+			f2 = (((f1 >> 46)) ^ (f2 << 18));
+			f1 = (((f0 >> 55)) ^ (f1 << 9)) & M55;
 			f0 &= M55;
 
-			long g0 = y[0], g1 = y[1], g2 = y[2];
-			g2 = (((long)((ulong)g1 >> 46)) ^ (g2 << 18));
-			g1 = (((long)((ulong)g0 >> 55)) ^ (g1 << 9)) & M55;
+			ulong g0 = y[0], g1 = y[1], g2 = y[2];
+			g2 = (((g1 >> 46)) ^ (g2 << 18));
+			g1 = (((g0 >> 55)) ^ (g1 << 9)) & M55;
 			g0 &= M55;
 
-			long[] H = new long[10];
+			ulong[] H = new ulong[10];
 
 			implMulw(f0, g0, H, 0); // H(0)       55/54 bits
 			implMulw(f2, g2, H, 2); // H(INF)     55/50 bits
 
-			long t0 = f0 ^ f1 ^ f2;
-			long t1 = g0 ^ g1 ^ g2;
+			ulong t0 = f0 ^ f1 ^ f2;
+			ulong t1 = g0 ^ g1 ^ g2;
 
 			implMulw(t0, t1, H, 4); // H(1)       55/54 bits
 
-			long t2 = (f1 << 1) ^ (f2 << 2);
-			long t3 = (g1 << 1) ^ (g2 << 2);
+			ulong t2 = (f1 << 1) ^ (f2 << 2);
+			ulong t3 = (g1 << 1) ^ (g2 << 2);
 
 			implMulw(f0 ^ t2, g0 ^ t3, H, 6); // H(t)       55/56 bits
 			implMulw(t0 ^ t2, t1 ^ t3, H, 8); // H(t + 1)   55/56 bits
 
-			long t4 = H[6] ^ H[8];
-			long t5 = H[7] ^ H[9];
+			ulong t4 = H[6] ^ H[8];
+			ulong t5 = H[7] ^ H[9];
 
 	//        assert t5 >>> 55 == 0;
 
 			// Calculate V
-			long v0 = (t4 << 1) ^ H[6];
-			long v1 = t4 ^ (t5 << 1) ^ H[7];
-			long v2 = t5;
+			ulong v0 = (t4 << 1) ^ H[6];
+			ulong v1 = t4 ^ (t5 << 1) ^ H[7];
+			ulong v2 = t5;
 
 			// Calculate U
-			long u0 = H[0];
-			long u1 = H[1] ^ H[0] ^ H[4];
-			long u2 = H[1] ^ H[5];
+			ulong u0 = H[0];
+			ulong u1 = H[1] ^ H[0] ^ H[4];
+			ulong u2 = H[1] ^ H[5];
 
 			// Calculate W
-			long w0 = u0 ^ v0 ^ (H[2] << 4) ^ (H[2] << 1);
-			long w1 = u1 ^ v1 ^ (H[3] << 4) ^ (H[3] << 1);
-			long w2 = u2 ^ v2;
+			ulong w0 = u0 ^ v0 ^ (H[2] << 4) ^ (H[2] << 1);
+			ulong w1 = u1 ^ v1 ^ (H[3] << 4) ^ (H[3] << 1);
+			ulong w2 = u2 ^ v2;
 
 			// Propagate carries
-			w1 ^= ((long)((ulong)w0 >> 55));
+			w1 ^= ((w0 >> 55));
 			w0 &= M55;
-			w2 ^= ((long)((ulong)w1 >> 55));
+			w2 ^= ((w1 >> 55));
 			w1 &= M55;
 
 	//        assert (w0 & 1L) == 0;
 
 			// Divide W by t
 
-			w0 = ((long)((ulong)w0 >> 1)) ^ ((w1 & 1L) << 54);
-			w1 = ((long)((ulong)w1 >> 1)) ^ ((w2 & 1L) << 54);
-			w2 = ((long)((ulong)w2 >> 1));
+			w0 = ((w0 >> 1)) ^ ((w1 & 1L) << 54);
+			w1 = ((w1 >> 1)) ^ ((w2 & 1L) << 54);
+			w2 = ((w2 >> 1));
 
 			// Divide W by (t + 1)
 
@@ -271,7 +271,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			w0 ^= (w0 << 32);
 
 			w0 &= M55;
-			w1 ^= ((long)((ulong)w0 >> 54));
+			w1 ^= ((w0 >> 54));
 
 			w1 ^= (w1 << 1);
 			w1 ^= (w1 << 2);
@@ -281,7 +281,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 			w1 ^= (w1 << 32);
 
 			w1 &= M55;
-			w2 ^= ((long)((ulong)w1 >> 54));
+			w2 ^= ((w1 >> 54));
 
 			w2 ^= (w2 << 1);
 			w2 ^= (w2 << 2);
@@ -307,7 +307,7 @@ namespace org.bouncycastle.math.ec.custom.sec
 	//        assert x >>> 56 == 0;
 	//        assert y >>> 56 == 0;
 
-			long[] u = new long[8];
+			ulong[] u = new ulong[8];
 	//      u[0] = 0;
 			u[1] = y;
 			u[2] = u[1] << 1;
@@ -317,21 +317,21 @@ namespace org.bouncycastle.math.ec.custom.sec
 			u[6] = u[3] << 1;
 			u[7] = u[6] ^ y;
 
-			int j = (int)x;
-			long g, h = 0, l = u[j & 3];
+			uint j = (uint)x;
+			ulong g, h = 0, l = u[j & 3];
 			int k = 47;
 			do
 			{
-				j = (int)((long)((ulong)x >> k));
-				g = u[j & 7] ^ u[((int)((uint)j >> 3)) & 7] << 3 ^ u[((int)((uint)j >> 6)) & 7] << 6;
+				j = (uint)((x >> k));
+				g = u[j & 7] ^ u[((j >> 3)) & 7] << 3 ^ u[((j >> 6)) & 7] << 6;
 				l ^= (g << k);
-				h ^= ((long)((ulong)g >> -k));
+				h ^= ((g >> -k));
 			} while ((k -= 9) > 0);
 
 	//        assert h >>> 47 == 0;
 
 			z[zOff] = l & M55;
-			z[zOff + 1] = ((long)((ulong)l >> 55)) ^ (h << 9);
+			z[zOff + 1] = ((l >> 55)) ^ (h << 9);
 		}
 
 		protected internal static void implSquare(ulong[] x, ulong[] zz)
@@ -339,9 +339,9 @@ namespace org.bouncycastle.math.ec.custom.sec
 			Interleave.expand64To128(x[0], zz, 0);
 			Interleave.expand64To128(x[1], zz, 2);
 
-			long x2 = x[2];
-			zz[4] = Interleave.expand32to64((int)x2);
-			zz[5] = Interleave.expand8to16((int)((long)((ulong)x2 >> 32))) & 0xFFFFFFFFL;
+			ulong x2 = x[2];
+			zz[4] = Interleave.expand32To64((uint)x2);
+			zz[5] = Interleave.expand8To16((uint)((x2 >> 32)));
 		}
 	}
 

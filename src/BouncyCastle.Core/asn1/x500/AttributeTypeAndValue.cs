@@ -14,7 +14,7 @@ namespace org.bouncycastle.asn1.x500
 		private AttributeTypeAndValue(ASN1Sequence seq)
 		{
 			type = (ASN1ObjectIdentifier)seq.getObjectAt(0);
-			value = (ASN1Encodable)seq.getObjectAt(1);
+			value = seq.getObjectAt(1);
 		}
 
 		public static AttributeTypeAndValue getInstance(object o)

@@ -14,8 +14,8 @@
 	/// </summary>
 	public class SSL3Mac : Mac
 	{
-		private static readonly byte IPAD_BYTE = (byte)0x36;
-		private static readonly byte OPAD_BYTE = (byte)0x5C;
+		private static readonly byte IPAD_BYTE = 0x36;
+		private static readonly byte OPAD_BYTE = 0x5C;
 
 		internal static readonly byte[] IPAD = genPad(IPAD_BYTE, 48);
 		internal static readonly byte[] OPAD = genPad(OPAD_BYTE, 48);

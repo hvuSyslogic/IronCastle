@@ -184,8 +184,8 @@ namespace org.bouncycastle.crypto.engines
 		/// <param name="ivBytes">  The IV. </param>
 		private void setKey(byte[] keyBytes, byte[] ivBytes)
 		{
-			ivBytes[8] = unchecked((byte)0xFF);
-			ivBytes[9] = unchecked((byte)0xFF);
+			ivBytes[8] = unchecked(0xFF);
+			ivBytes[9] = unchecked(0xFF);
 			workingKey = keyBytes;
 			workingIV = ivBytes;
 

@@ -6,13 +6,13 @@
 	public class Tables64kGCMMultiplier : GCMMultiplier
 	{
 		private byte[] H;
-		private long[][][] T;
+		private ulong[][][] T;
 
 		public virtual void init(byte[] H)
 		{
 			if (T == null)
 			{
-				T = RectangularArrays.ReturnRectangularLongArray(16, 256, 2);
+				T = RectangularArrays.ReturnRectangularULongArray(16, 256, 2);
 			}
 			else if (Arrays.areEqual(this.H, H))
 			{
@@ -23,7 +23,7 @@
 
 			for (int i = 0; i < 16; ++i)
 			{
-				long[][] t = T[i];
+				ulong[][] t = T[i];
 
 				// t[0] = 0
 
@@ -59,8 +59,8 @@
 	//        }
 	//        Pack.longToBigEndian(z, x, 0);
 
-			long[] t = T[15][x[15] & 0xFF];
-			long z0 = t[0], z1 = t[1];
+			ulong[] t = T[15][x[15] & 0xFF];
+			ulong z0 = t[0], z1 = t[1];
 
 			for (int i = 14; i >= 0; --i)
 			{
@@ -69,8 +69,8 @@
 				z1 ^= t[1];
 			}
 
-			Pack.longToBigEndian(z0, x, 0);
-			Pack.longToBigEndian(z1, x, 8);
+			Pack.ulongToBigEndian(z0, x, 0);
+			Pack.ulongToBigEndian(z1, x, 8);
 		}
 	}
 

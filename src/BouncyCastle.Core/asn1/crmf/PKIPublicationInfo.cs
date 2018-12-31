@@ -61,7 +61,7 @@ namespace org.bouncycastle.asn1.crmf
 		/// Constructor with a single pubInfo, assumes pleasePublish as the action.
 		/// </summary>
 		/// <param name="pubInfo"> the pubInfo to be published (can be null if don't care is required). </param>
-		public PKIPublicationInfo(SinglePubInfo pubInfo) : this(pubInfo != null ? new SinglePubInfo[] {pubInfo} : (SinglePubInfo[])null)
+		public PKIPublicationInfo(SinglePubInfo pubInfo) : this(pubInfo != null ? new SinglePubInfo[] {pubInfo} : null)
 		{
 		}
 

@@ -56,7 +56,7 @@ namespace org.bouncycastle.crypto.modes
 		private byte[] iv;
 
 		private KGCMMultiplier multiplier;
-		private long[] b;
+		private ulong[] b;
 
 		private readonly int blockSize;
 
@@ -78,7 +78,7 @@ namespace org.bouncycastle.crypto.modes
 			this.initialAssociatedText = new byte[blockSize];
 			this.iv = new byte[blockSize];
 			this.multiplier = createDefaultMultiplier(blockSize);
-			this.b = new long[(int)((uint)blockSize >> 3)];
+			this.b = new ulong[(blockSize >> 3)];
 
 			this.macBlock = null;
 		}
@@ -94,7 +94,7 @@ namespace org.bouncycastle.crypto.modes
 
 				byte[] iv = param.getNonce();
 				int diff = this.iv.Length - iv.Length;
-				Arrays.fill(this.iv, (byte)0);
+				Arrays.fill(this.iv, 0);
 				JavaSystem.arraycopy(iv, 0, this.iv, diff, iv.Length);
 
 				initialAssociatedText = param.getAssociatedText();
@@ -119,7 +119,7 @@ namespace org.bouncycastle.crypto.modes
 
 				byte[] iv = param.getIV();
 				int diff = this.iv.Length - iv.Length;
-				Arrays.fill(this.iv, (byte)0);
+				Arrays.fill(this.iv, 0);
 				JavaSystem.arraycopy(iv, 0, this.iv, diff, iv.Length);
 
 				initialAssociatedText = null;
@@ -218,10 +218,10 @@ namespace org.bouncycastle.crypto.modes
 			// Set up the multiplier
 				byte[] temp = new byte[blockSize];
 				engine.processBlock(temp, 0, temp, 0);
-				long[] H = new long[(int)((uint)blockSize >> 3)];
-				Pack.littleEndianToLong(temp, 0, H);
+				ulong[] H = new ulong[(blockSize >> 3)];
+				Pack.littleEndianToULong(temp, 0, H);
 				multiplier.init(H);
-				Arrays.fill(temp, (byte)0);
+				Arrays.fill(temp, 0);
 				Arrays.fill(H, 0L);
 			}
 
@@ -342,8 +342,8 @@ namespace org.bouncycastle.crypto.modes
 				pos += blockSize;
 			}
 
-			long lambda_o = (lenAAD & 0xFFFFFFFFL) << 3;
-			long lambda_c = (len & 0xFFFFFFFFL) << 3;
+			ulong lambda_o = ((uint)lenAAD ) << 3;
+			ulong lambda_c = ((uint)len) << 3;
 
 	//        byte[] temp = new byte[blockSize];
 	//        Pack.longToLittleEndian(lambda_o, temp, 0);
@@ -351,17 +351,17 @@ namespace org.bouncycastle.crypto.modes
 	//
 	//        xorWithInput(b, temp, 0);
 			b[0] ^= lambda_o;
-			b[(int)((uint)blockSize >> 4)] ^= lambda_c;
+			b[(blockSize >> 4)] ^= lambda_c;
 
-			macBlock = Pack.longToLittleEndian(b);
+			macBlock = Pack.ulongToLittleEndian(b);
 			engine.processBlock(macBlock, 0, macBlock, 0);
 		}
 
-		private static void xorWithInput(long[] z, byte[] buf, int off)
+		private static void xorWithInput(ulong[] z, byte[] buf, int off)
 		{
 			for (int i = 0; i < z.Length; ++i)
 			{
-				z[i] ^= Pack.littleEndianToLong(buf, off);
+				z[i] ^= Pack.littleEndianToULong(buf, off);
 				off += 8;
 			}
 		}

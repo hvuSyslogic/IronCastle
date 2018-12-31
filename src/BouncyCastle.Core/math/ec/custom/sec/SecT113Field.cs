@@ -142,10 +142,10 @@ namespace org.bouncycastle.math.ec.custom.sec
 			}
 		}
 
-		public static int trace(ulong[] x)
+		public static uint trace(ulong[] x)
 		{
 			// Non-zero-trace bits: 0
-			return (int)(x[0]) & 1;
+			return (uint)(x[0]) & 1;
 		}
 
 		protected internal static void implMultiply(ulong[] x, ulong[] y, ulong[] zz)

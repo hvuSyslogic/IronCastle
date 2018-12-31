@@ -162,7 +162,7 @@ namespace org.bouncycastle.crypto.signers
 			{
 				delta = block.Length - digSize - 1;
 				digest.doFinal(block, delta);
-				block[block.Length - 1] = (byte)ISOTrailers.TRAILER_IMPLICIT;
+				block[block.Length - 1] = ISOTrailers.TRAILER_IMPLICIT;
 			}
 			else
 			{
@@ -175,9 +175,9 @@ namespace org.bouncycastle.crypto.signers
 			block[0] = 0x6b;
 			for (int i = delta - 2; i != 0; i--)
 			{
-				block[i] = unchecked((byte)0xbb);
+				block[i] = unchecked(0xbb);
 			}
-			block[delta - 1] = unchecked((byte)0xba);
+			block[delta - 1] = unchecked(0xba);
 		}
 
 		/// <summary>
@@ -224,7 +224,7 @@ namespace org.bouncycastle.crypto.signers
 			// check for old NIST tool value
 			if (trailer == ISOTrailers.TRAILER_SHA512_256 && !rv)
 			{
-				block[block.Length - 2] = (byte)0x40; // old NIST CAVP tool value
+				block[block.Length - 2] = 0x40; // old NIST CAVP tool value
 				rv = Arrays.constantTimeAreEqual(block, fBlock);
 			}
 

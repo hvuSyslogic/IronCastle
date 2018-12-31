@@ -245,7 +245,7 @@ namespace org.bouncycastle.util.test
 			val |= (long)nextValue() << 24;
 			val |= (long)nextValue() << 16;
 			val |= (long)nextValue() << 8;
-			val |= (long)nextValue();
+			val |= nextValue();
 
 			return val;
 		}

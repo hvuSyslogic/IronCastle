@@ -107,7 +107,7 @@ namespace org.bouncycastle.crypto.signers
 			{
 				lock (this)
 				{
-					Arrays.fill(buf, 0, count(), (byte)0);
+					Arrays.fill(buf, 0, count(), 0);
 					//PORT: this.count = 0;
 				}
 			}

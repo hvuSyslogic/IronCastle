@@ -34,7 +34,7 @@
 				}
 				else
 				{
-					this.identifier = (ASN1Encodable)seq.getObjectAt(1);
+					this.identifier = seq.getObjectAt(1);
 				}
 			}
 			else

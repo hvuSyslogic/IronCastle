@@ -23,7 +23,7 @@ namespace org.bouncycastle.crypto.engines
 		private KeyParameter param;
 		private bool forWrapping;
 
-		private byte[] iv = new byte[] {unchecked((byte)0xa6), unchecked((byte)0xa6), unchecked((byte)0xa6), unchecked((byte)0xa6), unchecked((byte)0xa6), unchecked((byte)0xa6), unchecked((byte)0xa6), unchecked((byte)0xa6)};
+		private byte[] iv = new byte[] {unchecked(0xa6), unchecked(0xa6), unchecked(0xa6), unchecked(0xa6), unchecked(0xa6), unchecked(0xa6), unchecked(0xa6), unchecked(0xa6)};
 
 		/// <summary>
 		/// Create a RFC 3394 WrapEngine specifying the encrypt for wrapping, decrypt for unwrapping.

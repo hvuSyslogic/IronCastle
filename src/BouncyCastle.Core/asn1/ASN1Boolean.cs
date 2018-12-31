@@ -21,7 +21,7 @@ namespace org.bouncycastle.asn1
 	/// </summary>
 	public class ASN1Boolean : ASN1Primitive
 	{
-		private static readonly byte[] TRUE_VALUE = new byte[] {unchecked((byte)0xff)};
+		private static readonly byte[] TRUE_VALUE = new byte[] {unchecked(0xff)};
 		private static readonly byte[] FALSE_VALUE = new byte[] {0};
 
 		private readonly byte[] value;

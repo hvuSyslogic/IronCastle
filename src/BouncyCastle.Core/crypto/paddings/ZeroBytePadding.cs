@@ -36,7 +36,7 @@ namespace org.bouncycastle.crypto.paddings
 
 			while (inOff < @in.Length)
 			{
-				@in[inOff] = (byte) 0;
+				@in[inOff] = 0;
 				inOff++;
 			}
 

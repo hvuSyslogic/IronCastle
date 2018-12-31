@@ -4,7 +4,7 @@
 
 	public class BasicGCMExponentiator : GCMExponentiator
 	{
-		private long[] x;
+		private ulong[] x;
 
 		public virtual void init(byte[] x)
 		{
@@ -14,11 +14,11 @@
 		public virtual void exponentiateX(long pow, byte[] output)
 		{
 			// Initial value is little-endian 1
-			long[] y = GCMUtil.oneAsLongs();
+			ulong[] y = GCMUtil.oneAsLongs();
 
 			if (pow > 0)
 			{
-				long[] powX = Arrays.clone(x);
+				ulong[] powX = Arrays.clone(x);
 				do
 				{
 					if ((pow & 1L) != 0)

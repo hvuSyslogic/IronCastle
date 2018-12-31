@@ -225,7 +225,7 @@ namespace org.bouncycastle.crypto.digests
 
 			while (xBufOff != 0)
 			{
-				update((byte)0);
+				update(0);
 			}
 
 			processBlock(L, 0);
@@ -246,7 +246,7 @@ namespace org.bouncycastle.crypto.digests
 		/// <summary>
 		/// reset the chaining variables to the IV values.
 		/// </summary>
-		private static readonly byte[] C2 = new byte[] {0x00, unchecked((byte)0xFF), 0x00, unchecked((byte)0xFF), 0x00, unchecked((byte)0xFF), 0x00, unchecked((byte)0xFF), unchecked((byte)0xFF), 0x00, unchecked((byte)0xFF), 0x00, unchecked((byte)0xFF), 0x00, unchecked((byte)0xFF), 0x00, 0x00, unchecked((byte)0xFF), unchecked((byte)0xFF), 0x00, unchecked((byte)0xFF), 0x00, 0x00, unchecked((byte)0xFF), unchecked((byte)0xFF), 0x00, 0x00, 0x00, unchecked((byte)0xFF), unchecked((byte)0xFF), 0x00, unchecked((byte)0xFF)};
+		private static readonly byte[] C2 = new byte[] {0x00, unchecked(0xFF), 0x00, unchecked(0xFF), 0x00, unchecked(0xFF), 0x00, unchecked(0xFF), unchecked(0xFF), 0x00, unchecked(0xFF), 0x00, unchecked(0xFF), 0x00, unchecked(0xFF), 0x00, 0x00, unchecked(0xFF), unchecked(0xFF), 0x00, unchecked(0xFF), 0x00, 0x00, unchecked(0xFF), unchecked(0xFF), 0x00, 0x00, 0x00, unchecked(0xFF), unchecked(0xFF), 0x00, unchecked(0xFF)};
 
 		public virtual void reset()
 		{

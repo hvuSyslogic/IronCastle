@@ -125,14 +125,14 @@ namespace org.bouncycastle.crypto.digests
 			H7 = 0x1f83d9abfb41bd6bL ^ 0xa5a5a5a5a5a5a5a5UL;
 			H8 = 0x5be0cd19137e2179L ^ 0xa5a5a5a5a5a5a5a5UL;
                                                          
-			update((byte)0x53);
-			update((byte)0x48);
-			update((byte)0x41);
-			update((byte)0x2D);
-			update((byte)0x35);
-			update((byte)0x31);
-			update((byte)0x32);
-			update((byte)0x2F);
+			update(0x53);
+			update(0x48);
+			update(0x41);
+			update(0x2D);
+			update(0x35);
+			update(0x31);
+			update(0x32);
+			update(0x2F);
 
 			if (bitLength > 100)
 			{
@@ -169,7 +169,7 @@ namespace org.bouncycastle.crypto.digests
 		{
 			if (max > 0)
 			{
-				intToBigEndian((uint)((ulong)((ulong)n >> 32)), bs, off, max);
+				intToBigEndian((uint)(n >> 32), bs, off, max);
 
 				if (max > 4)
 				{
@@ -184,7 +184,7 @@ namespace org.bouncycastle.crypto.digests
 			while (--num >= 0)
 			{
 				int shift = 8 * (3 - num);
-				bs[off + num] = (byte)((int)((uint)n >> shift));
+				bs[off + num] = (byte)((int)(n >> shift));
 			}
 		}
 

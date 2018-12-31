@@ -55,7 +55,7 @@
 
 			if (seq.size() > 1)
 			{
-				infoValue = (ASN1Encodable)seq.getObjectAt(1);
+				infoValue = seq.getObjectAt(1);
 			}
 		}
 

@@ -46,7 +46,7 @@ namespace org.bouncycastle.asn1
 			}
 			if (!(enc is ASN1TaggedObject))
 			{
-				dataValueDescriptor = (ASN1Primitive) enc;
+				dataValueDescriptor = enc;
 				offset++;
 				enc = getObjFromVector(vector, offset);
 			}

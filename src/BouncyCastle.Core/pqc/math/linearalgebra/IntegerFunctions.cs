@@ -1146,7 +1146,7 @@ namespace org.bouncycastle.pqc.math.linearalgebra
 		{
 			int tmp = floorLog(BigInteger.valueOf(x));
 			long tmp2 = 1 << tmp;
-			double rem = (double)x / (double)tmp2;
+			double rem = x / (double)tmp2;
 			rem = logBKM(rem);
 			return tmp + rem;
 		}

@@ -132,7 +132,7 @@ namespace org.bouncycastle.asn1
 
 			if ((orig[0] & BERTags_Fields.CONSTRUCTED) != 0)
 			{
-				tmp[0] |= (byte)BERTags_Fields.CONSTRUCTED;
+				tmp[0] |= BERTags_Fields.CONSTRUCTED;
 			}
 
 			return ASN1Primitive.fromByteArray(tmp);

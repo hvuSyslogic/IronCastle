@@ -310,7 +310,7 @@ namespace org.bouncycastle.crypto.digests
 					t1++;
 				}
 				compress(buffer, 0);
-				Arrays.fill(buffer, (byte)0); // clear buffer
+				Arrays.fill(buffer, 0); // clear buffer
 				buffer[0] = b;
 				bufferPos = 1;
 			}
@@ -351,7 +351,7 @@ namespace org.bouncycastle.crypto.digests
 					}
 					compress(buffer, 0);
 					bufferPos = 0;
-					Arrays.fill(buffer, (byte)0); // clear buffer
+					Arrays.fill(buffer, 0); // clear buffer
 				}
 				else
 				{
@@ -397,7 +397,7 @@ namespace org.bouncycastle.crypto.digests
 				t1++;
 			}
 			compress(buffer, 0);
-			Arrays.fill(buffer, (byte)0); // Holds eventually the key if input is null
+			Arrays.fill(buffer, 0); // Holds eventually the key if input is null
 			Arrays.fill(internalState, 0);
 
 			for (int i = 0; i < chainValue.Length && (i * 4 < digestLength); i++)
@@ -432,7 +432,7 @@ namespace org.bouncycastle.crypto.digests
 			t0 = 0;
 			t1 = 0;
 			chainValue = null;
-			Arrays.fill(buffer, (byte)0);
+			Arrays.fill(buffer, 0);
 			if (key != null)
 			{
 				JavaSystem.arraycopy(key, 0, buffer, 0, key.Length);
@@ -526,8 +526,8 @@ namespace org.bouncycastle.crypto.digests
 		{
 			if (key != null)
 			{
-				Arrays.fill(key, (byte)0);
-				Arrays.fill(buffer, (byte)0);
+				Arrays.fill(key, 0);
+				Arrays.fill(buffer, 0);
 			}
 		}
 
@@ -539,7 +539,7 @@ namespace org.bouncycastle.crypto.digests
 		{
 			if (salt != null)
 			{
-				Arrays.fill(salt, (byte)0);
+				Arrays.fill(salt, 0);
 			}
 		}
 	}

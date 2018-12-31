@@ -246,7 +246,7 @@ namespace org.bouncycastle.crypto.engines
 			// Always return modulus size values 0-padded at the beginning
 			// 0-padding at the beginning is correctly parsed by BigInteger :)
 			byte[] output = key.getModulus().toByteArray();
-			Arrays.fill(output, (byte)0);
+			Arrays.fill(output, 0);
 			byte[] tmp = key.getG().modPow(plain, key.getModulus()).toByteArray();
 			JavaSystem.arraycopy(tmp, 0, output, output.Length - tmp.Length, tmp.Length);
 			if (debug)
@@ -296,7 +296,7 @@ namespace org.bouncycastle.crypto.engines
 			}
 
 			byte[] output = key.getModulus().toByteArray();
-			Arrays.fill(output, (byte)0);
+			Arrays.fill(output, 0);
 			JavaSystem.arraycopy(m1m2Crypt.toByteArray(), 0, output, output.Length - m1m2Crypt.toByteArray().Length, m1m2Crypt.toByteArray().Length);
 
 			return output;

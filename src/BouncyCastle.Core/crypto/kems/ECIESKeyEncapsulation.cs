@@ -209,7 +209,7 @@ namespace org.bouncycastle.crypto.kems
 			if (!SingleHashMode)
 			{
 				kdfInput = Arrays.concatenate(C, PEH);
-				Arrays.fill(PEH, (byte)0);
+				Arrays.fill(PEH, 0);
 			}
 
 			try
@@ -226,7 +226,7 @@ namespace org.bouncycastle.crypto.kems
 			}
 			finally
 			{
-				Arrays.fill(kdfInput, (byte)0);
+				Arrays.fill(kdfInput, 0);
 			}
 		}
 	}

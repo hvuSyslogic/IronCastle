@@ -132,7 +132,7 @@ namespace org.bouncycastle.crypto.digests
 			{
 				state[i] = 0L;
 			}
-			Arrays.fill(this.dataQueue, (byte)0);
+			Arrays.fill(this.dataQueue, 0);
 			this.bitsInQueue = 0;
 			this.squeezing = false;
 			this.fixedOutputLength = (1600 - rate) / 2;
@@ -258,7 +258,7 @@ namespace org.bouncycastle.crypto.digests
 					KeccakExtract();
 					bitsInQueue = rate;
 				}
-				int partialBlock = (int)Math.Min((long)bitsInQueue, outputLength - i);
+				int partialBlock = (int)Math.Min(bitsInQueue, outputLength - i);
 				JavaSystem.arraycopy(dataQueue, (rate - bitsInQueue) / 8, output, offset + (int)(i / 8), partialBlock / 8);
 				bitsInQueue -= partialBlock;
 				i += partialBlock;

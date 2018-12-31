@@ -67,7 +67,7 @@ namespace org.bouncycastle.asn1.x509
 		/// <returns> the underlying choice item. </returns>
 		public virtual ASN1Encodable getName()
 		{
-			return (ASN1Encodable)name;
+			return name;
 		}
 
 		public DistributionPointName(ASN1TaggedObject obj)

@@ -39,7 +39,7 @@ namespace org.bouncycastle.crypto.modes
 				byte[] iv = ivParam.getIV();
 				int diff = this.iv.Length - iv.Length;
 
-				Arrays.fill(this.iv, (byte)0);
+				Arrays.fill(this.iv, 0);
 				JavaSystem.arraycopy(iv, 0, this.iv, diff, iv.Length);
 				@params = ivParam.getParameters();
 			}

@@ -141,8 +141,8 @@ namespace org.bouncycastle.crypto.generators
 					u[i] = (byte)(part1[i] ^ part2[i]);
 				}
 
-				u[0] |= unchecked((byte)0x80);
-				u[19] |= (byte)0x01;
+				u[0] |= unchecked(0x80);
+				u[19] |= 0x01;
 
 				BigInteger q = new BigInteger(1, u);
 
@@ -168,7 +168,7 @@ namespace org.bouncycastle.crypto.generators
 						hash(digest, offset, part1, 0);
 						JavaSystem.arraycopy(part1, part1.Length - remaining, w, 0, remaining);
 
-						w[0] |= unchecked((byte)0x80);
+						w[0] |= unchecked(0x80);
 					}
 
 					BigInteger x = new BigInteger(1, w);
@@ -280,7 +280,7 @@ namespace org.bouncycastle.crypto.generators
 						JavaSystem.arraycopy(output, output.Length - remaining, w, 0, remaining);
 
 	// 11.3 X = W + 2^(L–1). Comment: 0 ≤ W < 2^(L–1); hence, 2^(L–1) ≤ X < 2^L.
-						w[0] |= unchecked((byte)0x80);
+						w[0] |= unchecked(0x80);
 					}
 
 					BigInteger X = new BigInteger(1, w);

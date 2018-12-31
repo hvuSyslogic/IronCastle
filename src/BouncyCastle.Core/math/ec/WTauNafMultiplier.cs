@@ -35,7 +35,7 @@ namespace org.bouncycastle.math.ec
 			sbyte mu = Tnaf.getMu(a);
 			BigInteger[] s = curve.getSi();
 
-			ZTauElement rho = Tnaf.partModReduction(k, m, a, s, mu, (sbyte)10);
+			ZTauElement rho = Tnaf.partModReduction(k, m, a, s, mu, 10);
 
 			return multiplyWTnaf(p, rho, a, mu);
 		}
